@@ -4,10 +4,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Les logiciels de gestion de paie permettent de gérer les fiches de paie,
-    mais aussi les heures de travail ou encore les congés.
-    Ces solutions offrent une opportunité bien moins coûteuse qu'un expert-comptable et permettent de gagner 2 à 3 jours par mois par rapport à une gestion de la paie manuelle.">
-    <meta name="keywords" content="salaire, gestion de salaire, comptabilité, compta, gestion, paie, banque, solution de paie, payer">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -41,26 +37,24 @@
                         <li class="nav-item dropdown icon_background">
                             <a class="nav-link dropdown-toggle links" href="" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-expanded="false">Fonctionnalités</a>
-                            <ul class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="far fa-mouse-pointer center icon_back"></i> &nbsp; Moderne, flexible
-                                        et sécurisé</a></li>
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="far fa-user icon_back5"></i> &nbsp; Bulettin de paie</a></li>
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="fad fa-file-alt icon_back2"></i> &nbsp; Gestion de salaire</a>
-                                </li>
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="fad fa-clipboard icon_back6"></i> &nbsp; Paramétrage personnalisé</a></li>
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="fad fa-euro-sign icon_back3"></i> &nbsp; Gestion financière</a></li>
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="fad fa-calendar-check icon_back4"></i> &nbsp; Gestion
-                                        administrative</a></li>
-                                <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
-                                            class="fad fa-search icon_back9"></i> &nbsp; Fonctionnalités avancées</a>
-                                </li>
-                            </ul>
+                                <ul class="dropdown-menu p-3" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
+                                                class="far fa-mouse-pointer center icon_back"></i> &nbsp; Moderne, flexible
+                                            et sécurisé</a></li>
+                                    <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
+                                                class="far fa-user icon_back5"></i> &nbsp; Gestion
+                                                administrative</a></li>
+                                    <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
+                                                class="fad fa-file-alt icon_back2"></i> &nbsp; Visualisation du compteur</a>
+                                    </li>
+                                    <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
+                                                class="fad fa-clipboard icon_back6"></i> &nbsp; Historique</a></li>
+                                    <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
+                                                class="fad fa-calendar-check icon_back4"></i> &nbsp; Demande de congé </a></li>
+                                    <li><a class="dropdown-item pt-2" href="#" rel="noopener noreferrer"><i
+                                                class="fad fa-search icon_back9"></i> &nbsp; Fonctionnalités avancées</a>
+                                    </li>
+                                </ul>
                         </li>
 
                         <li class="nav-item ms-2">
@@ -96,8 +90,8 @@
                 <div class="row h-100">
                     <div class="container p-0 g-0">
                         <div class="col-6 section1_text g-0 m-0">
-                            <h1>Plateforme de gestion de salaire en ligne</h1>
-                            <p class="pt-5 pe-5">La première plateforme malagasy de gestion de paie, un outil
+                            <h1 >Plateforme de gestion de congé en ligne</h1>
+                            <p class="pt-5 pe-5">La première plateforme malagasy de gestion de congé et abscences, un outil
                                 incontournable et innovateur du milieu professionnel. <br> Découvrez les horizons
                                 de notre logiciel et en quoi il vous est indispensable.
                             </p>
@@ -115,11 +109,9 @@
                         </div>
                         <h2 class="text-center mb-3">Bienvenue chez Conge.mg</h2>
                         <div class="text_about">
-                            <p >Conge.mg offre la meilleur de l'innovation numérique aux
-                                différentes petites et grandes entreprises. Le logiciel de gestion de paie permet de gérer les fiches de paie,
-                                mais aussi les heures de travail ou encore les congés.
-                                Ces solutions offrent une opportunité bien moins coûteuse qu'un expert-comptable et permettent de gagner
-                                2 à 3 jours par mois par rapport à une gestion de la paie manuelle.
+                            <p >Utilisez Congé.mg et digitalisez la gestion des congés payés de votre entreprise grâce à notre logiciel en ligne.
+                                Vous contrôlez efficacement la présence de vos collaborateurs grâce à un calendrier interactif en ligne.
+                                Vous pouvez ranger vos tableurs et calendriers papier, Congé.mg s'occupe de tout !
                             </p>
                         </div>
                     </div>
@@ -132,12 +124,12 @@
                             <img src="{{asset('images/background_images/18section3 - copie.webp')}}" alt="image1" class="img-fluid">
                         </div>
                         <div class="col-6 text">
-                            <h2 class="mb-5">Logiciel Paie Solution Autonome</h2>
+                            <h2 class="mb-5">Logiciel Congé Solution Autonome</h2>
                             <p>Toutes nos fonctionnalités sont faites pour perfectionner vos services !</p>
                             <p>Dans un contexte d’évolutions légales permanentes, la production de votre paie doit rimer avec conformité et fiabilité.
                                 Quels que soient la taille de votre entreprise et vos besoins,<br>
                                 Conge.mg vous propose une solution : un logiciel de paie pour
-                                gérer vous même vos bulletins .
+                                gérer vous même vos heures de travail et d'abscences .
                             </p>
                         </div>
                     </div>
@@ -147,18 +139,19 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-6 text">
-                            <h2 class="mb-5">Sécurité et Sérénité</h2>
-                            <p>Parce que l’essentiel est la sécurité de votre paie, Conge.mg offrira à votre entreprise une sécurité des
-                                données et une productivité accrue grâce à un programmateur de paie experimenté,<br>
-                                une gestion des tâches de saisie collectives simple, de datation des événements automatisés, mais également
-                                la possibilité de paramétrer des champs et faire un suivi des dossiers pour une sécurité renforcée..
+                            <h2 class="mb-5">Aisance et Simplicité</h2>
+                            <p>Grâce à notre solution en ligne, dématérialisez l’ensemble du processus lié à la gestion des congés de votre entreprise.
+                                Proposez à votre équipe un outil fiable et rapide pour déposer des demandes de congés ou des absences depuis n’importe quel
+                                support (PC, tablette) muni d’une connexion internet. Grâce à un tableau de bord développé par nos spécialistes en
+                                ergonomie, découvrez en seulement un clin d’œil le résumé complet et clair de vos congés actuels et à venir.
+                                En clair, améliorez considérablement votre efficience dans la gestion du temps.
                             </p>
                             <p>
-                                Profitez d’une solution toujours à jour pour travailler en toute sérénité...
+                                Profitez d’une solution toujours à jour pour travailler en toute simplicité...
                             </p>
                         </div>
-                        <div class="col-6 image">
-                            <lottie-player src="{{asset('lottie/security.json')}}" background="transparent"  speed="0.6"  style="width: 75%;" loop autoplay></lottie-player>
+                        <div class="col-6  d-flex justify-content-center m-auto image">
+                            <lottie-player src="{{asset('lottie/planning.json')}}" background="transparent"  speed="0.6"  style="width: 75%;" loop autoplay></lottie-player>
                         </div>
                     </div>
                 </div>
