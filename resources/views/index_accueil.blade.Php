@@ -121,7 +121,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-6 image">
-                            <img src="{{asset('images/background_images/18section3 - copie.webp')}}" alt="image1" class="img-fluid">
+                            <img src="{{asset('images/conge.webp')}}" alt="image1" class="img-fluid">
                         </div>
                         <div class="col-6 text">
                             <h2 class="mb-5">Logiciel Congé Solution Autonome</h2>
