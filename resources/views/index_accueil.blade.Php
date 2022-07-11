@@ -110,7 +110,7 @@
                         <h2 class="text-center mb-3">Bienvenue chez Conge.mg</h2>
                         <div class="text_about">
                             <p >Utilisez Congé.mg et digitalisez la gestion des congés payés de votre entreprise grâce à notre logiciel en ligne.
-                                Vous contrôlez efficacement la présence de vos collaborateurs grâce à un calendrier interactif en ligne.
+                                Vous contrôlez efficacement la présence de vos employés grâce à un calendrier interactif en ligne.
                                 Vous pouvez ranger vos tableurs et calendriers papier, Congé.mg s'occupe de tout !
                             </p>
                         </div>
@@ -126,10 +126,9 @@
                         <div class="col-6 text">
                             <h2 class="mb-5">Logiciel Congé Solution Autonome</h2>
                             <p>Toutes nos fonctionnalités sont faites pour perfectionner vos services !</p>
-                            <p>Dans un contexte d’évolutions légales permanentes, la production de votre paie doit rimer avec conformité et fiabilité.
-                                Quels que soient la taille de votre entreprise et vos besoins,<br>
-                                Conge.mg vous propose une solution : un logiciel de paie pour
-                                gérer vous même vos heures de travail et d'abscences .
+                            <p>Débarrassez-vous des processus répétitifs et chronophages grâce à Congé.mg .
+                                Automatisez les processus standards comme les demandes de congé, les demandes d'achat,
+                                les rapports de dépenses, et bien plus encore.
                             </p>
                         </div>
                     </div>
