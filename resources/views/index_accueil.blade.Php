@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/index_accueil.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <title> Conge.mg - Logiciel de gestion de salaire </title>
+    <title> Conge.mg </title>
 </head>
 
 <body>
