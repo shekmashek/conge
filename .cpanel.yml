@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/formatio/conge/
+    - export DEPLOYPATH=/home/formatio/conge.mg/
     - /bin/cp -R * $DEPLOYPATH
