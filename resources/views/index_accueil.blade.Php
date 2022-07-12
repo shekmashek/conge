@@ -132,7 +132,7 @@
                             <img src="{{asset('images/background_images/18section3 - copie.webp')}}" alt="image1" class="img-fluid">
                         </div>
                         <div class="col-6 text">
-                            <h2 class="mb-5">Logiciel Paie Solution Autonome</h2>
+                            <h2 class="mb-5">Logiciel de congé, Solution Autonome</h2>
                             <p>Toutes nos fonctionnalités sont faites pour perfectionner vos services !</p>
                             <p>Dans un contexte d’évolutions légales permanentes, la production de votre paie doit rimer avec conformité et fiabilité.
                                 Quels que soient la taille de votre entreprise et vos besoins,<br>
