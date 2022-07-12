@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/css/index_accueil.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-    <title> Conge.mg - Logiciel de gestion de salaire </title>
+    <title> Conge.mg - Logiciel de gestion de congé </title>
 </head>
 
 <body>
@@ -96,7 +96,7 @@
                 <div class="row h-100">
                     <div class="container p-0 g-0">
                         <div class="col-6 section1_text g-0 m-0">
-                            <h1>Plateforme de gestion de salaire en ligne</h1>
+                            <h1>Plateforme de gestion de congé en ligne</h1>
                             <p class="pt-5 pe-5">La première plateforme malagasy de gestion de paie, un outil
                                 incontournable et innovateur du milieu professionnel. <br> Découvrez les horizons
                                 de notre logiciel et en quoi il vous est indispensable.
