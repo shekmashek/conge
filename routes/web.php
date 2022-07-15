@@ -18,6 +18,7 @@ Route::get('create-compte', function () {
 Route::get('/info_legale', function () {
     return view('/info_legale');
 });
+
 Route::get('contact', function () {
     return view('contact');
 });

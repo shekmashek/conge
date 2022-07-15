@@ -25,7 +25,7 @@
                 <div class="form ">
                     <h2>Bienvenue chez Conge.mg <span>👋</span> </h2>
                     <p>Veuillez vous connecter à votre compte et commencer l'aventure</p>
-                    {{-- <form id="form_add_contact" method="POST" action="{{ route('login') }}" class="h-50"> --}}
+                    <form id="form_add_contact" method="POST" action="{{ route('login') }}" class="h-50">
                         @csrf
                         <div class="form-group">
                             <label for="">Email</label>
@@ -54,7 +54,7 @@
                         </div>
                         <a href="{{ route('create-compte') }}" >Mot de passe oublie?</a>
                         <button type="submit" id="tes"    class=" btn btn-info btn-block mt-2" style="width:100%;background-color: #7367f0;color: white;"> Se connecter</button>
-                    {{-- </form> --}}
+                    </form>
                     <p class="text-center mt-2"> Nouveaux dans le plateforme? <a href="{{route('create-compte')}}">Créer un compte</a> </p>
                 </div>
             </div>
