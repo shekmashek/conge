@@ -37,3 +37,7 @@ Route::get('/tarifs', function () {
 });
 
 Route::get('condition_generale_de_vente', 'ConditionController@index')->name('condition_generale_de_vente');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
