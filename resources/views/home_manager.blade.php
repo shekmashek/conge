@@ -14,7 +14,7 @@
                         </div>
                     @endif
                         {{ Auth::user()->roles->pluck('id') }}
-
+                        <h2>MANAGER</h2>
 
                     {{ __('You are logged in!') }}
                 </div>

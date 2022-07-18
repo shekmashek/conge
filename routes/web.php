@@ -45,3 +45,7 @@ Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['IsManager'])->group(function () {
+    Route::get('/home_manager', [App\Http\Controllers\HomeController::class, 'home_manager'])->name('home_manager');
+});
