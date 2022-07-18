@@ -1,19 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\EntrepriseController;
 
 
 Route::get('/', function () {
     return view('index_accueil');
 })->name('accueil_perso');
 
+// Routes d'authentification laravel ui
+Auth::routes();
+
 Route::get('sign-in', function () {
     return view('auth.connexion');
 })->name('sign-in');
 
-Route::get('create-compte', function () {
-    return view('create_compte.create_compte');
-})->name('create-compte');
+Route::get('create-compte', [EntrepriseController::class , 'create'])->name('create-compte');
 
 Route::get('/info_legale', function () {
     return view('/info_legale');
@@ -37,8 +40,8 @@ Route::get('/tarifs', function () {
     return view('/tarif');
 });
 
-Route::get('condition_generale_de_vente', 'ConditionController@index')->name('condition_generale_de_vente');
+Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])->name('condition_generale_de_vente');
 
-Auth::routes();
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

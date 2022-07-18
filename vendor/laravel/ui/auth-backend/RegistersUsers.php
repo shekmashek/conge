@@ -18,8 +18,11 @@ trait RegistersUsers
      */
     public function showRegistrationForm()
     {
-        return view('auth.register');
+        $secteurs = Secteur::all();
+
+        return view('auth.register', compact('secteurs'));
     }
+
 
     /**
      * Handle a registration request for the application.

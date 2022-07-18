@@ -27,7 +27,7 @@
                         <div class="form ">
                             <input name="matricule_resp_etp" id="matricule_resp_etp" type="text" autocomplete="off"
                                 required>
-                            <label for="">Matricule</label>
+                            <label for="matricule_resp_etp">Matricule</label>
                             @error('matricule_resp_etp')
                             <div class="col-sm-6">
                                 <span style="color:#ff0000; font-size: 0.8rem"> {{$message}} </span>
@@ -37,7 +37,7 @@
                         </div>
                         <div class="form " style="margin-left: 20px;">
                             <input name="nom_resp_etp" autocomplete="off" type="text" id="nom_resp_etp" required>
-                            <label for="">Noms</label>
+                            <label for="nom_resp_etp">Noms</label>
                             @error('nom_resp_etp')
                             <div class="col-sm-6">
                                 <span style="color:#ff0000; font-size: 0.8rem"> {{$message}} </span>
@@ -49,7 +49,7 @@
                     <div class="formulaire mt-3" style="display: flex">
                         <div class="form ">
                             <input name="prenom_resp_etp" id="prenom_resp_etp" type="text" autocomplete="off" required>
-                            <label for="">Prenoms</label>
+                            <label for="prenom_resp_etp">Prenoms</label>
                             @error('prenom_resp_etp')
                             <div class="col-sm-6">
                                 <span style="color:#ff0000; font-size: 0.8rem"> {{$message}} </span>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="form " style="margin-left: 20px;">
                             <input name="cin_resp_etp" autocomplete="off" type="text" id="cin_resp_etp" required>
-                            <label for="">CIN</label>
+                            <label for="cin_resp_etp">CIN</label>
                             @error('cin_resp_etp')
                             <div class="col-sm-6">
                                 <span style="color:#ff0000; font-size: 0.8rem"> {{$message}} </span>
@@ -71,7 +71,7 @@
                     <div class="formulaire">
                         <div class="form mt-4" style="width:520px;">
                             <input name="email_resp_etp" autocomplete="off" id="email_resp_etp" type="text" required>
-                            <label for="">Email Responsable</label>
+                            <label for="email_resp_etp">Email Responsable</label>
                             @error('email_resp_etp')
                             <div class="col-sm-6">
                                 <span style="color:#ff0000; font-size: 0.8rem"> {{$message}} </span>
@@ -88,7 +88,7 @@
                         <div class="formulaire mt-3" style="display: flex">
                             <div class="form ">
                                 <input type="text" name="name_etp" id="name_etp" autocomplete="off" required>
-                                <label for="">Raison sociale</label>
+                                <label for="name_etp">Raison sociale</label>
                                 @error('name_etp')
                                 <div class="col-sm-6">
                                     <span style="color:#ff0000;"> {{$message}} </span>
@@ -98,7 +98,7 @@
                             </div>
                             <div class="form " style="margin-left: 20px;">
                                 <input name="nif" id="nif_etp" type="text" autocomplete="off" required>
-                                <label for="">Nif</label>
+                                <label for="nif_etp">Nif</label>
                                 @error('nif')
                                 <div class="col-sm-6">
                                     <span style="color:#ff0000; font-size: 0.8rem"> {{$message}} </span>
@@ -112,9 +112,9 @@
                             <div class="form mt-4" style="width:520px;">
                                 <select class="form-select" aria-label="Default select example" name="secteur_id"
                                     required id="secteur_id">
-                                    {{-- @foreach ($secteur as $sect) --}}
-                                    {{-- <option value="{{$sect->id}}">{{$sect->nom_secteur}}</option> --}}
-                                    {{-- @endforeach --}}
+                                    @foreach ($secteurs as $secteur)
+                                    <option value="{{$secteur->id}}">{{$secteur->nom_secteur}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>

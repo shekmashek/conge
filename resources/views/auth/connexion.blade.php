@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
     <link rel="stylesheet" href="{{asset('assets/css/mahafaly.css')}}">
     <title>Conge.mg</title>
 </head>
@@ -52,7 +52,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <a href="{{ route('create-compte') }}" >Mot de passe oublie?</a>
+                        <a href="{{ route('password.request') }}" >Mot de passe oublie?</a>
                         <button type="submit" id="tes"    class=" btn btn-info btn-block mt-2" style="width:100%;background-color: #7367f0;color: white;"> Se connecter</button>
                     </form>
                     <p class="text-center mt-2"> Nouveaux dans le plateforme? <a href="{{route('create-compte')}}">Créer un compte</a> </p>
