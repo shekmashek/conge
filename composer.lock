@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "96d0f6cd39c9261768bc3dc39fdc02dc",
+    "content-hash": "61ea34062adbd8996f82eb4ba531ed1c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6102,16 +6102,16 @@
         },
         {
             "name": "laravel-lang/lang",
-            "version": "11.0.5",
+            "version": "11.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Lang/lang.git",
-                "reference": "c0c6f0c7261f2742280a0075f5aa4c6aea7b4726"
+                "reference": "631e16e999af8750504e8ed8774d20f3366fe182"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/c0c6f0c7261f2742280a0075f5aa4c6aea7b4726",
-                "reference": "c0c6f0c7261f2742280a0075f5aa4c6aea7b4726",
+                "url": "https://api.github.com/repos/Laravel-Lang/lang/zipball/631e16e999af8750504e8ed8774d20f3366fe182",
+                "reference": "631e16e999af8750504e8ed8774d20f3366fe182",
                 "shasum": ""
             },
             "require": {
@@ -6174,7 +6174,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2022-07-13T10:11:31+00:00"
+            "time": "2022-07-20T11:10:35+00:00"
         },
         {
             "name": "laravel/sail",

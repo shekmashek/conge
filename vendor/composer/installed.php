@@ -401,12 +401,12 @@
             ),
         ),
         'laravel-lang/lang' => array(
-            'pretty_version' => '11.0.5',
-            'version' => '11.0.5.0',
+            'pretty_version' => '11.0.6',
+            'version' => '11.0.6.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel-lang/lang',
             'aliases' => array(),
-            'reference' => 'c0c6f0c7261f2742280a0075f5aa4c6aea7b4726',
+            'reference' => '631e16e999af8750504e8ed8774d20f3366fe182',
             'dev_requirement' => true,
         ),
         'laravel/framework' => array(
