@@ -26,9 +26,5 @@ class HomeController extends Controller
         return view('home');
     }
 
-    public function home_manager()
-    {
-        return view('home_manager');
-    }
 
 }

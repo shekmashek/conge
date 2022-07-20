@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
 
@@ -47,5 +48,5 @@ Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['IsManager'])->group(function () {
-    Route::get('/home_manager', [App\Http\Controllers\HomeController::class, 'home_manager'])->name('home_manager');
+    Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
 });
