@@ -17,10 +17,14 @@
                         <h2>MANAGER</h2>
 
                     {{ __('You are logged in!') }}
+
                 </div>
             </div>
         </div>
     </div>
+
+    @include('manager.liste_en_attente')
+
 </div>
 
 @endsection

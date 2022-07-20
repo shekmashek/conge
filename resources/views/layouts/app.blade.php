@@ -20,6 +20,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <!-- extra links -->
+    @stack('extra-links')
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
@@ -80,9 +84,10 @@
             </div>
         </nav>
 
-        @include('layouts.sidebar')
 
-        <main class="py-4">
+        <main class="py-4 ">
+            @include('layouts.sidebar')
+
             @yield('content')
         </main>
     </div>
