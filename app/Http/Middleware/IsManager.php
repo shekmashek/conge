@@ -29,7 +29,9 @@ class IsManager
 
         // utilisation de contains() sur un objet
         if (Auth::user()->roles->pluck('id')->contains('3')) {
+            dd('3');
             return redirect()->route('home');
+
         }
 
     }

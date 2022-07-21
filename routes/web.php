@@ -45,6 +45,7 @@ Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])
 
 
 
+// mettre en place un middleware pour les routes non manager : l'appli redirige vers le home par défaut
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['IsManager'])->group(function () {
