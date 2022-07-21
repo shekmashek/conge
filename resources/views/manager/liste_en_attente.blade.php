@@ -1,9 +1,7 @@
-@push('extra-links')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
-@endpush
+
 
 <div class="comtainer mt-5">
-    <table id="example" class="table table-striped" style="width:100%">
+    <table id="liste_en_attente" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th>Name</th>
@@ -39,25 +37,24 @@
                 <td>2009-01-12</td>
                 <td>$86,000</td>
             </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012-03-29</td>
-                <td>$433,060</td>
-            </tr>
+
 
     </table>
 
 </div>
 
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
-
+@push('extra-js')
 <script>
     $(document).ready(function () {
-        $('#example').DataTable();
+        var table = $('#liste_en_attente').DataTable({
+            responsive: true,
+            language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
+            },
+        });
+
+        new $.fn.dataTable.FixedHeader( table );
+
     });
 </script>
+@endpush

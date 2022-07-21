@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TypeConge;
 use Illuminate\Http\Request;
 
-class ManagerController extends Controller
+class TypeCongeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,14 +14,8 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        return view('manager.home_manager');
+        //
     }
-
-    public function calendrier_conge()
-    {
-        return view('manager.calendrier_conge');
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -46,10 +41,10 @@ class ManagerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\TypeConge  $typeConge
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(TypeConge $typeConge)
     {
         //
     }
@@ -57,10 +52,10 @@ class ManagerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\TypeConge  $typeConge
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TypeConge $typeConge)
     {
         //
     }
@@ -69,10 +64,10 @@ class ManagerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\TypeConge  $typeConge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TypeConge $typeConge)
     {
         //
     }
@@ -80,14 +75,11 @@ class ManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\TypeConge  $typeConge
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TypeConge $typeConge)
     {
         //
     }
-
-
-
 }

@@ -49,4 +49,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
+    Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
 });

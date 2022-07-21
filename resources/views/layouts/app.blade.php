@@ -19,14 +19,13 @@
     <link rel="stylesheet" href="{{ asset('components/css/sidebars.css') }}">
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script> --}}
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <!-- extra links -->
     @stack('extra-links')
 
-    <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+
 </head>
 <body>
     <div id="app">
@@ -88,7 +87,10 @@
         <main class="py-4 ">
             @include('layouts.sidebar')
 
+
             @yield('content')
+
+
         </main>
     </div>
 </body>
@@ -99,5 +101,8 @@ integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxV
 <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
 
 <script src="{{ asset('components/js/sidebars.js') }}"></script>
+
+@stack('extra-scripts')
+@stack('extra-js')
 
 </html>
