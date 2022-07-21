@@ -16,7 +16,11 @@ return new class extends Migration
         Schema::create('conges', function (Blueprint $table) {
             $table->id();
             $table->foreignId('type_conge_id')->constrained('types_conge')->onUpdate('cascade')->onDelete('cascade');
-
+            $table->foreignId('employe_id')->constrained('employes')->onUpdate('cascade')->onDelete('cascade');
+            $table->datetime('debut')->nullable();
+            $table->datetime('fin')->nullable();
+            $table->string('motif')->nullable();
+            $table->foreignId('etat_conge_id')->constrained('etats_conge')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
