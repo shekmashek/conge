@@ -1,8 +1,7 @@
 /node_modules
-.env
 /node_modules-old
 package-lock-old.json
 package-old.json
 /.vscode
 .env
-.env
+/node_modules-old
