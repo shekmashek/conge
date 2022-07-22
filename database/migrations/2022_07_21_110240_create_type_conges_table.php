@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('type_conge');
             $table->string('couleur')->nullable();
-            $table->integer('nbr_min_max')->comment("unité de base d' heure : minute")->nullable();
+            $table->string('max_duration')->comment('durée en DateInterval')->nullable();
+            $table->integer('duree_max')->comment("unité de base d' heure : minute")->nullable();
+            $table->string('solde_format')->comment("type string : DateInterval")->nullable();
             $table->integer('solde')->comment('Solde mensuelle en unité de temps: minute')->nullable();
 
             $table->timestamps();
