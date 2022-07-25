@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class FrequenceSolde extends Model
 {
     use HasFactory;
+
+    protected $table = 'frequences_solde';
 }
