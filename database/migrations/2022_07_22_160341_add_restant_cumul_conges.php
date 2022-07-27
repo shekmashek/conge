@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('conges', function (Blueprint $table) {
-            $table->string('cumul_perso')->comment('Cumul de jour périodiquement : en string DateInterval')->nullable();
+            $table->string('cumul_perso')->comment('Cumul de jour soldé : en string DateInterval')->nullable();
+            $table->string('j_utilise')->comment('jour utilisé : en string DateInterval')->nullable();
             $table->string('restant')->comment('Jours restant après demande : en string DateInterval')->nullable();
         });
     }
