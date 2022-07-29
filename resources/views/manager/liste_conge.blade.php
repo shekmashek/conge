@@ -30,7 +30,14 @@
                 <td>{{ $conge->j_utilise }}</td>
                 <td>{{ $conge->motif }}</td>
                 <td>
-                    @if ($conge->etat_conge_id == 3)
+
+                    {{-- Il est nécessaire d'écrire explicitement la relation entre
+                    conge->etat_conge pour faire comprendre au js que cette relation exite
+                    sur l'objet
+
+                    --}}
+
+                    @if ($conge->etat_conge->id == 3)
                     <div class="form-check form-switch">
                         <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
                         <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>

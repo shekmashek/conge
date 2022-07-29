@@ -38,7 +38,7 @@
                 <td>{{ $conge->j_utilise }}</td>
                 <td>{{ $conge->motif }}</td>
                 <td>
-                    @if ($conge->etat_conge_id == 3)
+                    @if ($conge->etat_conge->id == 3)
                     <div class="form-check form-switch">
                         <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
                         <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
@@ -92,19 +92,30 @@
 
     var currentYear = new Date().getFullYear();
 
-    var events = {!! json_encode($conge_events, JSON_HEX_TAG) !!};
+    var events = {!! json_encode($conges, JSON_HEX_TAG) !!};
+
 
     events.forEach(element => {
-        console.console.log(element);
-    });
-
-    events.forEach(element => {
-            if ((element.start != null) && (element.end != null)) {
+            if ((element.debut != null) && (element.fin != null)) {
                 element.name=element.employe.nom_emp+' '+element.employe.prenom_emp;
                 element.startDate = new Date(element.debut);
                 element.endDate = new Date(element.fin);
             }
-        });
+
+            if (element.etat_conge_id == 1) {
+                element.color = '#85ea87';
+            } else if (element.etat_conge_id == 2) {
+                element.color = 'var(--bs-red)';
+            } else if (element.etat_conge_id == 3) {
+                element.color = '#ffa417';
+            }
+
+    });
+
+
+    // events.forEach(element => {
+    //     console.log(element);
+    // });
 
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -143,9 +154,9 @@
 
                     for(var i in e.events) {
                         content += '<div class="event-tooltip-content">'
-                                        + '<div class="event-name fw-bold" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
-                                        + '<div class="event-location">' + e.events[i].lieu + '</div>'
-                                    + '</div>';
+                                            + '<div class="event-name fw-bold" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
+                                            + '<div class="event-location">' + e.events[i].etat_conge.etat_conge + '</div>'
+                                        + '</div>';
                     }
 
                     $(e.element).popover({
