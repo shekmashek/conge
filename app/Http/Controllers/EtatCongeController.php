@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Conge;
+use App\Models\EtatConge;
 use Illuminate\Http\Request;
 
-class ManagerController extends Controller
+class EtatCongeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,18 +14,8 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $conges=Conge::all();
-        $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-        // dd($conges);
-        // dd($conges_en_attente->employe);
-        return view('manager.home_manager', compact('conges', 'conges_en_attente'));
+        //
     }
-
-    public function calendrier_conge()
-    {
-        return view('manager.calendrier_conge');
-    }
-
 
     /**
      * Show the form for creating a new resource.
@@ -51,10 +41,10 @@ class ManagerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\EtatConge  $etatConge
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(EtatConge $etatConge)
     {
         //
     }
@@ -62,10 +52,10 @@ class ManagerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\EtatConge  $etatConge
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(EtatConge $etatConge)
     {
         //
     }
@@ -74,10 +64,10 @@ class ManagerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\EtatConge  $etatConge
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, EtatConge $etatConge)
     {
         //
     }
@@ -85,14 +75,11 @@ class ManagerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\EtatConge  $etatConge
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(EtatConge $etatConge)
     {
         //
     }
-
-
-
 }

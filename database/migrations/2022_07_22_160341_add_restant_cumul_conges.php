@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('conges', function (Blueprint $table) {
             $table->string('cumul_perso')->comment('Cumul de jour soldé : en string DateInterval')->nullable();
-            $table->string('j_utilise')->comment('jour utilisé : en string DateInterval')->nullable();
+            $table->double('j_utilise')->comment('Jour à déduire : 1/1.5/0.5')->nullable();
             $table->string('restant')->comment('Jours restant après demande : en string DateInterval')->nullable();
         });
     }

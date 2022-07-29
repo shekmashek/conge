@@ -20,10 +20,10 @@ return new class extends Migration
             $table->datetime('debut')->nullable();
             $table->datetime('fin')->nullable();
             $table->string('intervale')->comment('duree en string DateInterval')->nullable();
-            $table->integer('duree_min')->comment('durée en minute')->nullable();
+            $table->integer('duree_conge')->comment('durée en minute')->nullable();
 
-            $table->string('motif')->nullable();
-            $table->foreignId('etat_conge_id')->constrained('etats_conge')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('motif')->nullable();
+            $table->foreignId('etat_conge_id')->constrained('etats_conge')->onUpdate('cascade')->onDelete('cascade')->default(3);
             $table->timestamps();
         });
     }

@@ -3,65 +3,6 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css">
 
-<style>
-            .badge.bg-purple {
-                background-color: #f1e7fe!important;
-                color: #a537fd!important;
-
-            }
-            .table-head {
-                font-weight: normal;
-            }
-            .text-purple {
-                color: #9359ff;
-            }
-            .form-select:focus,
-            .form-control:focus {
-                border-color: #ab39f7;
-                box-shadow: 0 0 0 0.2rem rgba(160, 92, 248, 0.25);
-            }
-            .nav-tabs:hover {
-                outline: none;
-                border: none;
-            }
-            .nav-item a:hover {
-                outline: none;
-                color: #9359ff;
-                text-decoration: none;
-            }
-            .nav-tabs .nav-link {
-                border: none;
-                color: #535353c9;
-            }
-            .nav-tabs .nav-link.active {
-                border-bottom: 2px solid #9359ff;
-                color: #9359ff;
-            }
-            .dataTables_length label,
-            .dataTables_filter label {
-                opacity: 0.5;
-                transition: opacity 0.15s ease-in;
-            }
-            .dataTables_length label:hover,
-            .dataTables_filter label:hover {
-                opacity: 1;
-            }
-            .page-item.active .page-link {
-                border-radius: 5rem;
-                border: 1px solid #9359ff;
-                background-color: #9359ff !important;
-                padding: 0.3rem 0.7rem;
-                /* color: #59ff90; */
-                margin: 0 0.5rem;
-                font-size: small;
-                color: white!important;
-                transition: 0.3s;
-            }
-            .page-item.disabled .page-link {
-                font-size: smaller;
-                opacity: 0, 5;
-            }
-</style>
 
 @endpush
 
@@ -79,62 +20,39 @@
             </tr>
         </thead>
         <tbody>
+
+            @forelse ($conges as $conge)
             <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
+                <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
+                <td>{{ $conge->type_conge->type_conge }}</td>
+                <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
+                <td>{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
+                <td>{{ $conge->j_utilise }}</td>
+                <td>{{ $conge->motif }}</td>
                 <td>
+                    @if ($conge->etat_conge_id == 3)
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
                         <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
                     </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>
+                    @elseif ($conge->etat_conge_id == 2)
+
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                      </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-                <td>
+                        <i class='bx bx-x-circle fs-5' style='color:var(--bs-red)'></i>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Refusé</label>
+                    </div>
+                    @elseif ($conge->etat_conge_id == 1)
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                      </div>
+                        <span><i class='bx bx-check-circle fs-5' style='color:#85ea87' ></i></span>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Accordé</label>
+                    </div>
+                    @endif
                 </td>
             </tr>
-            <tr>
-                <td>Cedric Kelly</td>
-                <td>Senior Javascript Developer</td>
-                <td>Senior Javascript Developer</td>
-                <td>Edinburgh</td>
-                <td>22</td>
-                <td>2012-03-29</td>
-                <td>
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                      </div>
-                </td>
-            </tr>
+            @empty
+                <span>Aucun congé enregistré</span>
+            @endforelse
+
 
     </table>
 

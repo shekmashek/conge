@@ -1,0 +1,57 @@
+.badge.bg-purple {
+    background-color: #f1e7fe!important;
+    color: #a537fd!important;
+
+}
+.table-head {
+    font-weight: normal;
+}
+.text-purple {
+    color: #9359ff;
+}
+.form-select:focus,
+.form-control:focus {
+    border-color: #ab39f7;
+    box-shadow: 0 0 0 0.2rem rgba(160, 92, 248, 0.25);
+}
+.nav-tabs:hover {
+    outline: none;
+    border: none;
+}
+.nav-item a:hover {
+    outline: none;
+    color: #9359ff;
+    text-decoration: none;
+}
+.nav-tabs .nav-link {
+    border: none;
+    color: #535353c9;
+}
+.nav-tabs .nav-link.active {
+    border-bottom: 2px solid #9359ff;
+    color: #9359ff;
+}
+.dataTables_length label,
+.dataTables_filter label {
+    opacity: 0.5;
+    transition: opacity 0.15s ease-in;
+}
+.dataTables_length label:hover,
+.dataTables_filter label:hover {
+    opacity: 1;
+}
+.page-item.active .page-link {
+    border-radius: 5rem;
+    border: 1px solid #9359ff;
+    background-color: #9359ff !important;
+    padding: 0.3rem 0.7rem;
+    /* color: #59ff90; */
+    margin: 0 0.5rem;
+    font-size: small;
+    color: white!important;
+    transition: 0.3s;
+}
+.page-item.disabled .page-link {
+    font-size: smaller;
+    opacity: 0, 5;
+}

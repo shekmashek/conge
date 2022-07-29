@@ -29,8 +29,8 @@ class IsManager
 
         // utilisation de contains() sur un objet
         if (Auth::user()->roles->pluck('id')->contains('3')) {
-            dd('3');
-            return redirect()->route('home');
+
+            return redirect()->route('home')->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
 
         }
 

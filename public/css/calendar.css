@@ -1,0 +1,5 @@
+
+.fc-daygrid-day-number {
+    color: var(--bs-indigo)!important;
+    text-decoration: none;
+}

@@ -14,35 +14,38 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($conges_en_attente as $conge)
             <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
+                <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
+                <td>{{ $conge->type_conge->type_conge }}</td>
+                <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
+                <td>{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
+                <td>{{ $conge->j_utilise }}</td>
+                <td>{{ $conge->motif }}</td>
                 <td>
+                    @if ($conge->etat_conge_id == 3)
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
                         <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
                     </div>
-                </td>
-            </tr>
+                    @elseif ($conge->etat_conge_id == 2)
 
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009-01-12</td>
-                <td>
                     <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                      </div>
+                        <i class='bx bx-x-circle fs-5' style='color:var(--bs-red)'></i>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Refusé</label>
+                    </div>
+                    @elseif ($conge->etat_conge_id == 1)
+                    <div class="form-check form-switch">
+                        <span><i class='bx bx-check-circle fs-5' style='color:#85ea87' ></i></span>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Accordé</label>
+                    </div>
+                    @endif
                 </td>
             </tr>
+            @empty
+                <span>Aucun congé enregistré</span>
+            @endforelse
+
 
 
     </table>

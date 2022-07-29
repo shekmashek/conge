@@ -1,4 +1,4 @@
-@extends('manager.home_manager')
+@extends('layouts.app')
 
 @push('extra-links')
         <link rel="stylesheet" href="{{ asset('css/calendrier.css') }}">
