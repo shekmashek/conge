@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\manager\ControllerCalendar;
 use App\Http\Controllers\manager\FullCalenderController;
 use App\Http\Controllers\employe\CongeEmployeController;
+use App\Http\Controllers\employe\modalDemiJourneCongeController;
 
 Route::get('/', function () {
     return view('index_accueil');
@@ -42,15 +43,21 @@ Route::get('condition_generale_de_vente', 'ConditionController@index')->name('co
 
 /*--------------------------------------------------------------Controller salohy -----------------------------*/
 Route::get('calendar',[ControllerCalendar::class,'index']);
-Route::get('fullcalendar',[ControllerCalendar::class,'index1'])->name('fullcalendar');
 Route::post('test',[ControllerCalendar::class,'test']);
 
-Route::get('fullcalender', [FullCalenderController::class, 'index']);
+Route::get('fullcalender', [FullCalenderController::class, 'index'])->name('fullcalendar');
+Route::get('formHeure', [CongeEmployeController::class, 'indexFormulaireHeure'])->name('formHeure');
+Route::get('formJour', [CongeEmployeController::class, 'indexFormulaireJour'])->name('formJour');
+Route::get('formDemiJourne', [CongeEmployeController::class, 'indexFormulaireDemiJourne'])->name('formDemiJourne');
 Route::post('fullcalenderAjax', [FullCalenderController::class, 'ajax']);
 
 
 Route::get('formConge', [CongeEmployeController::class, 'index'])->name('formConge');
-Route::post('insert-conge', [CongeEmployeController::class, 'insertionConge'])->name('insert-conge');
+Route::get('test-modal', [CongeEmployeController::class, 'index2'])->name('test-modal');
+Route::post('modalDemiJourne', [modalDemiJourneCongeController::class, 'stockValueSession'])->name('modalDemiJourne');
 
 Route::post('insererConge', [CongeEmployeController::class, 'insertionConge'])->name('insererConge');
+
+Route::get('testCalendar',[FullCalenderController::class,'indexTest'])->name('testCalendar');
+Route::post('insert_absence',[FullCalenderController::class,'insertConge'])->name('insert_absence');
 

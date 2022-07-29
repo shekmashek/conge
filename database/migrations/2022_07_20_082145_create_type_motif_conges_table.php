@@ -16,6 +16,9 @@ class CreateTypeMotifCongesTable extends Migration
         Schema::create('type_motif_conges', function (Blueprint $table) {
             $table->id();
             $table->String('nom_motif');
+            $table->boolean('etat_paiement');
+            $table->integer('nombre_jour');
+            $table->for('frequence_solde_id');
             $table->timestamps();
         });
     }

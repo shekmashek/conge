@@ -20,8 +20,9 @@ class CreateCongesTable extends Migration
             $table->foreignId('type_motif_conge_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->date('start');
             $table->date('end');
-            $table->text('descriptions');
+            $table->text('title');
             $table->double('dure_conge');
+            $table->foreignId('etat_conge_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

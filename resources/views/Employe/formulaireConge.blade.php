@@ -14,8 +14,11 @@
 
     <!-- Title Page-->
     <title>Conge</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" />
-    <script href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
 
@@ -43,25 +46,18 @@
                     <h2 class="title">Demande de conge</h2>
                 </div>
                 <div class="card-body">
+
                     <form action="{{ route('insererConge') }}" method="post" accept-charset="UTF-8">
                         @csrf
-                        <div class="form-row">
-                            <div class="name">Date debut</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="date" name="DateDebut">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="name">Date fin</div>
-                            <div class="value">
-                                <div class="input-group">
-                                    <input class="input--style-5" type="date" name="DateFin">
-                                </div>
-                            </div>
-                        </div>
+                        <a class="btn btn-secondary" href="{{ route('formHeure') }}">
+                            Heure</a>
 
+                        <a class="btn btn-secondary" href="{{ route('formDemiJourne') }}">
+                            Demi-journe</a>
+                        <a class="btn btn-secondary" href="{{ route('formJour') }}">
+                            Jours</a>
+                        <br>
+                        <br>
                         <div class="form-row">
                             <div class="name">Motif</div>
                             <div class="value">
@@ -97,49 +93,29 @@
                                 </div>
                             </div>
                         </div>
-                         <!-- Modal -->
-                         <div class="modal fade" id="staticBackdrop" role="document"
-                         tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                         <div class="modal-dialog" role="document">
-                             <div class="modal-content">
-                                 <div class="modal-header">
-                                     <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-                                     <button type="button" class="btn-close" data-dismiss="modal"
-                                         aria-label="Close"></button>
-                                 </div>
-                                 <div class="modal-body">
-                                     ...
-                                 </div>
-                                 <div class="modal-footer">
-                                     <button type="button" class="btn btn-secondary"
-                                         data-dismiss="modal">Close</button>
-                                     <button type="button" class="btn btn-primary">Understood</button>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                       <!-- end Modal -->
-                       <div class="btn-group" role="group" aria-label="Basic mixed styles example">
 
-                        <button type="button" class="btn btn-secondary" data-toggle="modal"
-                            data-target="#staticBackdrop">Heure</button>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal"
-                            data-target="#staticBackdrop">Demi-journe</button>
-                        <button type="button" class="btn btn-secondary" data-toggle="modal"
-                            data-target="#staticBackdrop">Jours</button>
-                    </div>
 
-                    <br>
+
+
+                        <br>
+
+                        @yield('heure')
+                        @yield('demi-journe')
+                        @yield('jours')
+                        <br>
                         <br>
                         <div>
                             <button class="btn btn-success" type="submit">Envoyer</button>
 
                         </div>
                     </form>
+
+
                 </div>
             </div>
         </div>
     </div>
+    <!-- Button trigger modal -->
 
 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
