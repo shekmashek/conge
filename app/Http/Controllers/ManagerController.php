@@ -19,12 +19,6 @@ class ManagerController extends Controller
 
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
-        // return($conges);
-        // dd($conges_en_attente->pluck('etat_conge'));
-
-        // $conges_events = Conge::where('etat_conge_id','!=', 3)->get();
-        // $conges_events = $conges_events->collect();
-
 
         return view('manager.home_manager', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
     }

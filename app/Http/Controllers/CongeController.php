@@ -7,6 +7,20 @@ use Illuminate\Http\Request;
 
 class CongeController extends Controller
 {
+
+
+    public function accepter_demande(Request $request) {
+
+        $conge = Conge::find($request->id);
+
+        $conge->update([
+            'etat_conge_id' => 1,
+        ]);
+
+        return response()->json(['success' => 'Conge accepté']);
+    }
+
+
     /**
      * Display a listing of the resource.
      *
