@@ -1,5 +1,18 @@
 @extends('layouts.app')
 
+@push('extra-links')
+
+        {{-- bootstrap Year calendar css --}}
+        <link rel="stylesheet" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css">
+@endpush
+
+@push('extra-scripts')
+
+        {{-- bootstrap Year calendar js --}}
+        <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
+
+@endpush
+
 @section('content')
 <div class="container">
 
@@ -30,7 +43,7 @@
 
     Demandes en attentes
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-        20
+        {{ $nbr_en_attente }}
         <span class="visually-hidden">{{ __('en attente') }}</span>
     </span>
 
@@ -52,7 +65,7 @@
 
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card" id="manager_card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">

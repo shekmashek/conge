@@ -14,11 +14,18 @@ class ManagerController extends Controller
      */
     public function index()
     {
-        $conges=Conge::all();
+        // $conges=Conge::all();
+        $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        $nbr_en_attente = $conges_en_attente->count();
         // dd($conges);
         // dd($conges_en_attente->employe);
-        return view('manager.home_manager', compact('conges', 'conges_en_attente'));
+
+        // combine les deux tableaux
+        $conge_events = $conges->merge($conges_en_attente);
+
+        return view('manager.home_manager', compact('conges', 'conges_en_attente', 'nbr_en_attente', 'conge_events'));
     }
 
     public function calendrier_conge()

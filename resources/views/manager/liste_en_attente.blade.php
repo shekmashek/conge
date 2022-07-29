@@ -1,6 +1,21 @@
 
 
+  <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>
+  </a>
+
+  <div class="collapse my-2" id="year_calendar_collapse">
+    <div class="card card-body">
+        <div class="container">
+            <div id='year_calendar'></div>
+        </div>
+    </div>
+  </div>
+
+
 <div class="comtainer mt-5">
+
+
     <table id="liste_en_attente" class="table table-striped" style="width:100%">
         <thead>
             <tr>
@@ -65,5 +80,94 @@
         new $.fn.dataTable.FixedHeader( table );
 
     });
+
+
+    $('#ex1-tab-2').on('click', function () {
+        $('#manager_card').addClass('visually-hidden');
+    });
+
+    $('#ex1-tab-1').on('click', function () {
+        $('#manager_card').removeClass('visually-hidden');
+    });
+
+    var currentYear = new Date().getFullYear();
+
+    var events = {!! json_encode($conge_events, JSON_HEX_TAG) !!};
+
+    events.forEach(element => {
+        console.console.log(element);
+    });
+
+    events.forEach(element => {
+            if ((element.start != null) && (element.end != null)) {
+                element.name=element.employe.nom_emp+' '+element.employe.prenom_emp;
+                element.startDate = new Date(element.debut);
+                element.endDate = new Date(element.fin);
+            }
+        });
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+        var year_calendar = new Calendar('#year_calendar',{
+
+            dataSource: events,
+            enableContextMenu: true,
+            contextMenuItems:[
+                {
+                    text: 'Aller à la date',
+                    click: function(event) {
+                        // console.log(event);
+
+                    }
+                },
+            ],
+
+            // pour la séléction longue
+            // selectRange: function(e) {
+            //     editEvent({ startDate: e.startDate, endDate: e.endDate });
+            // },
+
+            dayContextMenu: function(e) {
+                $(e.element).popover('hide');
+            },
+
+            clickDay: function(e) {
+
+            },
+
+
+            mouseOnDay: function(e) {
+                if(e.events.length > 0) {
+                    var content = '';
+
+                    for(var i in e.events) {
+                        content += '<div class="event-tooltip-content">'
+                                        + '<div class="event-name fw-bold" style="color:' + e.events[i].color + '">' + e.events[i].name + '</div>'
+                                        + '<div class="event-location">' + e.events[i].lieu + '</div>'
+                                    + '</div>';
+                    }
+
+                    $(e.element).popover({
+                        trigger: 'manual',
+                        container: 'body',
+                        html:true,
+                        content: content
+                    });
+
+
+
+                    $(e.element).popover('show');
+                }
+            },
+            mouseOutDay: function(e) {
+                if(e.events.length > 0) {
+                    $(e.element).popover('hide');
+                }
+            },
+
+            });
+    });
+
 </script>
 @endpush
