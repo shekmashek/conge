@@ -26,6 +26,7 @@
                 <th>Durée(j)</th>
                 <th>Motif</th>
                 <th>status</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -56,6 +57,19 @@
                     </div>
                     @endif
                 </td>
+
+                <td>
+                    <div class="dropdown dropstart">
+                        <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class='bx bx-dots-vertical-rounded'></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+                          <li><button class="dropdown-item" type="button">Accepter</button></li>
+                          <li><button class="dropdown-item" type="button">Refuser</button></li>
+                        </ul>
+                      </div>
+                </td>
+
             </tr>
             @empty
                 <span>Aucun congé enregistré</span>
