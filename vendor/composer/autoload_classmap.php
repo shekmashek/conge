@@ -42,6 +42,7 @@ return array(
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\EmployeController' => $baseDir . '/app/Http/Controllers/EmployeController.php',
     'App\\Http\\Controllers\\EntrepriseController' => $baseDir . '/app/Http/Controllers/EntrepriseController.php',
+    'App\\Http\\Controllers\\EtatCongeController' => $baseDir . '/app/Http/Controllers/EtatCongeController.php',
     'App\\Http\\Controllers\\FrequenceSoldeController' => $baseDir . '/app/Http/Controllers/FrequenceSoldeController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ManagerController' => $baseDir . '/app/Http/Controllers/ManagerController.php',

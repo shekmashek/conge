@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class IsRH
 {
@@ -21,7 +22,7 @@ class IsRH
         }
 
         // utilisation de in_array() sur le tableau des roles de l'utilisateur connecté
-        if (in_array('5', Auth::user()->roles->pluck('id')->toArray())) {
+        if (in_array('9', Auth::user()->roles->pluck('id')->toArray())) {
             return $next($request);
         }
 
