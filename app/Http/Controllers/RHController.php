@@ -19,13 +19,19 @@ class RHController extends Controller
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
+
         return view('rh.home_rh', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
     }
 
     public function calendrier_conge()
     {
-        return view('rh.calendrier_conge');
+        $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        $nbr_en_attente = $conges_en_attente->count();
+        return view('rh.calendrier_conge', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
     }
+
+
 
 
 
