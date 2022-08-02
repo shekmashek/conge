@@ -50,9 +50,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
-
+    Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
 });
-Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
+
+
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
+    Route::get('/rh.calendrier', [App\Http\Controllers\RHController::class, 'calendrier'])->name('rh.calendrier');
 });

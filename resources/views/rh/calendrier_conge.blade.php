@@ -32,7 +32,7 @@
 <ul class="nav nav-tabs mb-3 border-0" id="ex1" role="tablist">
     </li>
         <li class="nav-item mx-auto underline_hover" role="presentation">
-            <a href="{{ route('home_manager') }} " class="nav-link d-flex align-items-center fs-4">
+            <a href="{{ route('home_RH') }} " class="nav-link d-flex align-items-center fs-4">
                 <i class='bx bx-list-ul fs-2 mt-auto'></i><span>Revenir à la liste</span>
             </a>
         </li>
@@ -171,7 +171,7 @@
 <script>
             document.addEventListener('DOMContentLoaded', function() {
 
-                var events = '';
+                var events = {!! json_encode($events, JSON_HEX_TAG) !!};
 
                 var calendarEl = document.getElementById('planning_conge');
                 var calendar = new FullCalendar.Calendar(calendarEl,

@@ -23,15 +23,33 @@ class RHController extends Controller
         return view('rh.home_rh', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
     }
 
-    public function calendrier_conge()
-    {
-        $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+//-----------affiche le calendrier full calendar------------------------------------------------------
+
+    public function calendrier(){
+         $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
-        return view('rh.calendrier_conge', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
+
+         foreach ($conges as $conge) {
+            $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
+            $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
+
+            $events[]=array(
+            'title'=>'Conge',
+            'start'=>$conge->debut,
+            'end'=>$conge->fin
+
+         );
+         }
+
+
+            return view('rh.calendrier_conge', compact('events','conges', 'conges_en_attente', 'nbr_en_attente'));
+
+
+
+
     }
-
-
 
 
 

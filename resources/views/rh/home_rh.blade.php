@@ -55,7 +55,7 @@
         </a>
 
         <li class="nav-item mx-2 position-absolute end-0" role="presentation">
-            <a href="{{ route('calendrier_conge') }} " class="d-flex nav-link align-items-center">
+            <a href="{{ route('rh.calendrier') }} " class="d-flex nav-link align-items-center">
                 <i class='bx bxs-calendar-check fs-2' ></i>
                 <span>
                     Calendrier
