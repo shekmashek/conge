@@ -212,7 +212,7 @@
                             var tipEnd = info.event.end.toLocaleTimeString();
                             // console.log(tipStart);
                             $(info.el).tooltip({
-                                title: info.event.extendedProps.description + ' ' + tipStart + ' - ' + tipEnd,
+                                title: info.event.extendedProps.employe + ' ' + tipStart + ' - ' + tipEnd,
                                 placement: 'top',
                                 trigger: 'hover',
                                 container: 'body',

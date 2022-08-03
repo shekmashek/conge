@@ -38,7 +38,8 @@ class RHController extends Controller
             $events[]=array(
             'title'=>'Conge',
             'start'=>$conge->debut,
-            'end'=>$conge->fin
+            'end'=>$conge->fin,
+            'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
 
          );
          }
