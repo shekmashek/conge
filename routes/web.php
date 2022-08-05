@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\RHController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
@@ -46,15 +48,25 @@ Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])
 
 
 // mettre en place un middleware pour les routes non manager : l'appli redirige vers le home par défaut
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
     Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
 });
 
+//-------------------------- Routes pour les congés depuis l'interface RH---------------------------------------------------
 
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
-    Route::get('/rh.calendrier', [App\Http\Controllers\RHController::class, 'calendrier'])->name('rh.calendrier');
+    Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
+    // Route::get('/fetchData', [RHController::class, 'fetchData'])->name('fetchData');
+    // Route::get('/fetchDataAtt', [RHController::class, 'fetchDataAtt'])->name('fetchDataAtt');
+
 });
+
+//-------------------------- Routes pour les recherches avec filtre de dates ---------------------------------------------------
+
+Route::get('/recherche_conges', [RHController::class, 'filtreDate'])->name('conge.filtre');
+// Route::get('/home_RH', [RHController::class, 'filtreDate'])->name('conge.home_RH');
+

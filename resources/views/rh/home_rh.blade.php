@@ -73,13 +73,13 @@
       role="tabpanel"
       aria-labelledby="ex1-tab-1">
 
-        @include('rh.liste_conge')
+        @include('rh.liste_conge') <!-- include historique -->
 
     </div>
 
     <div class="tab-pane fade show active" id="tab_liste_attente" role="tabpanel" aria-labelledby="tab_liste_attente">
 
-        @include('rh.liste_en_attente')
+        @include('rh.liste_en_attente') <!-- include liste en attente -->
     </div>
 
   </div>
