@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use DateInterval;
 use App\Models\Conge;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CongeController extends Controller
 {
@@ -11,13 +14,29 @@ class CongeController extends Controller
 
     public function accepter_demande(Request $request) {
 
-        $conge = Conge::find($request->id);
+        $conge_id=$request->conge_id;
+        // Conge::where('id',$conge_id)->update([
+        //     'etat_conge_id'=>1
+        // ]);
 
-        $conge->update([
-            'etat_conge_id' => 1,
+        $conge=Conge::where('id', $conge_id)->first();
+
+
+        $debut=new DateTime($conge->debut);
+        $fin=new DateTime($conge->fin);
+
+        // transformer le string 'intervale' en objet DateIntervale php
+        $intervale = date_diff($debut,$fin);
+        $nbr_jour = intval($intervale->format('%a'));
+        $nbr_heure = $intervale->h;
+
+        $worktime = getWorkingHours($debut,$fin);
+
+        return response()->json([
+            'nbr_jour'=>$nbr_jour,
+            'nbr_heure'=>$nbr_heure,
+            'period'=>$worktime
         ]);
-
-        return response()->json(['success' => 'Conge accepté']);
     }
 
 

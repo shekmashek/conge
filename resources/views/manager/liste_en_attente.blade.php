@@ -31,7 +31,7 @@
         </thead>
         <tbody>
             @forelse ($conges_en_attente as $conge)
-            <tr>
+            <tr data-conge-id="{{ $conge->id }}">
                 <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
                 <td>{{ $conge->type_conge->type_conge }}</td>
                 <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
@@ -72,9 +72,17 @@
 
             </tr>
             @empty
-                <span>Aucun congé enregistré</span>
+
+            <-- Provoque une erreur de jquery datatable à cause du nombre de colone -->
+            <tr>
+                <td class="text-center" colspan="8">
+                    <span>Aucun congé en attente</span>
+                </td>
+            </tr>
+
             @endforelse
 
+        </tbody>
 
 
     </table>
@@ -83,6 +91,8 @@
 
 @push('extra-js')
 <script>
+
+    // datatable
     $(document).ready(function () {
         var table = $('#liste_en_attente').DataTable({
             responsive: true,
@@ -104,6 +114,9 @@
         $('#manager_card').removeClass('visually-hidden');
     });
 
+
+
+    // calendar
     var currentYear = new Date().getFullYear();
 
     var events = {!! json_encode($conges, JSON_HEX_TAG) !!};
@@ -133,7 +146,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
 
-
+        // bootstrap year calendar
         var year_calendar = new Calendar('#year_calendar',{
 
             dataSource: events,
@@ -192,6 +205,38 @@
             },
 
             });
+    });
+
+
+
+    // accepter/refuser
+    $('.dropdown-item').on('click', function () {
+        var conge_id = $(this).closest('tr').data('conge-id');
+        var action = $(this).text();
+
+        if (action == 'Accepter') {
+            alert('Accepter id '+conge_id);
+            var url = "conge.accepter_demande";
+        } else if (action == 'Refuser') {
+            alert('Refuser');
+        }
+
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                conge_id: conge_id,
+                // action: action,
+            },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                // location.reload();
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
     });
 
 </script>

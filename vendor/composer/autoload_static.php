@@ -15,15 +15,15 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '8825ede83f2f289127722d4e842cf7e8' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/bootstrap.php',
+        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '3bd81c9b8fcc150b69d8b63b4d2ccf23' => __DIR__ . '/..' . '/spatie/flare-client-php/src/helpers.php',
         '23c18046f52bef3eea034657bafda50f' => __DIR__ . '/..' . '/symfony/polyfill-php81/bootstrap.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'b067bc7112e384b61c701452d53a14a8' => __DIR__ . '/..' . '/mtdowling/jmespath.php/src/JmesPath.php',
-        'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
         '8a9dc1de0ca7e01f3e08231539562f61' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
@@ -35,6 +35,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
+        'be2dabd89e6571c763d3c521b1c3701e' => __DIR__ . '/../..' . '/app/Helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -86,6 +87,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
             'Symfony\\Component\\ErrorHandler\\' => 31,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'Spatie\\OpeningHours\\' => 20,
             'Spatie\\LaravelIgnition\\' => 23,
             'Spatie\\Ignition\\' => 16,
             'Spatie\\FlareClient\\' => 19,
@@ -173,6 +175,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'C' => 
         array (
             'Cron\\' => 5,
+            'Cmixin\\' => 7,
             'Carbon\\' => 7,
         ),
         'B' => 
@@ -326,6 +329,10 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'Symfony\\Component\\Console\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
+        ),
+        'Spatie\\OpeningHours\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/spatie/opening-hours/src',
         ),
         'Spatie\\LaravelIgnition\\' => 
         array (
@@ -535,6 +542,10 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Cmixin\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -559,6 +570,10 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+    );
+
+    public static $fallbackDirsPsr4 = array (
+        0 => __DIR__ . '/..' . '/cmixin/business-time/src',
     );
 
     public static $prefixesPsr0 = array (
@@ -608,6 +623,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\EmployeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EmployeController.php',
         'App\\Http\\Controllers\\EntrepriseController' => __DIR__ . '/../..' . '/app/Http/Controllers/EntrepriseController.php',
+        'App\\Http\\Controllers\\EtatCongeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EtatCongeController.php',
         'App\\Http\\Controllers\\FrequenceSoldeController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrequenceSoldeController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ManagerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerController.php',
@@ -1587,6 +1603,22 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'Brick\\Math\\Internal\\Calculator\\GmpCalculator' => __DIR__ . '/..' . '/brick/math/src/Internal/Calculator/GmpCalculator.php',
         'Brick\\Math\\Internal\\Calculator\\NativeCalculator' => __DIR__ . '/..' . '/brick/math/src/Internal/Calculator/NativeCalculator.php',
         'Brick\\Math\\RoundingMode' => __DIR__ . '/..' . '/brick/math/src/RoundingMode.php',
+        'BusinessTime\\Calculator' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Calculator.php',
+        'BusinessTime\\DefinitionParser' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/DefinitionParser.php',
+        'BusinessTime\\DiffCalculator' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/DiffCalculator.php',
+        'BusinessTime\\Exceptions\\InvalidArgumentException' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Exceptions/InvalidArgumentException.php',
+        'BusinessTime\\IntervalComposer' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/IntervalComposer.php',
+        'BusinessTime\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Laravel/ServiceProvider.php',
+        'BusinessTime\\MixinBase' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/MixinBase.php',
+        'BusinessTime\\Traits\\AddAndSubtract' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/AddAndSubtract.php',
+        'BusinessTime\\Traits\\ClosedOr' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/ClosedOr.php',
+        'BusinessTime\\Traits\\CurrentOr' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/CurrentOr.php',
+        'BusinessTime\\Traits\\Diff' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/Diff.php',
+        'BusinessTime\\Traits\\Holidays' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/Holidays.php',
+        'BusinessTime\\Traits\\IsMethods' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/IsMethods.php',
+        'BusinessTime\\Traits\\OpenClose' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/OpenClose.php',
+        'BusinessTime\\Traits\\OpenOr' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/OpenOr.php',
+        'BusinessTime\\Traits\\Range' => __DIR__ . '/..' . '/cmixin/business-time/src/BusinessTime/Traits/Range.php',
         'Carbon\\AbstractTranslator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/AbstractTranslator.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonConverterInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonConverterInterface.php',
@@ -1666,6 +1698,29 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
         'Carbon\\TranslatorImmutable' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorImmutable.php',
         'Carbon\\TranslatorStrongTypeInterface' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/TranslatorStrongTypeInterface.php',
+        'Cmixin\\BusinessDay' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay.php',
+        'Cmixin\\BusinessDay\\BusinessCalendar' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/BusinessCalendar.php',
+        'Cmixin\\BusinessDay\\BusinessMonth' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/BusinessMonth.php',
+        'Cmixin\\BusinessDay\\Calculator\\CalculatorBase' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calculator/CalculatorBase.php',
+        'Cmixin\\BusinessDay\\Calculator\\HolidayCalculator' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calculator/HolidayCalculator.php',
+        'Cmixin\\BusinessDay\\Calculator\\MixinConfigPropagator' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calculator/MixinConfigPropagator.php',
+        'Cmixin\\BusinessDay\\Calendar\\AlternativeCalendar' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calendar/AlternativeCalendar.php',
+        'Cmixin\\BusinessDay\\Calendar\\AlternativeCalendarInterface' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calendar/AlternativeCalendarInterface.php',
+        'Cmixin\\BusinessDay\\Calendar\\HijriCalendar' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calendar/HijriCalendar.php',
+        'Cmixin\\BusinessDay\\Calendar\\JewishCalendar' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calendar/JewishCalendar.php',
+        'Cmixin\\BusinessDay\\Calendar\\LunarCalendar' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Calendar/LunarCalendar.php',
+        'Cmixin\\BusinessDay\\Holiday' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Holiday.php',
+        'Cmixin\\BusinessDay\\HolidayData' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/HolidayData.php',
+        'Cmixin\\BusinessDay\\HolidayObserver' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/HolidayObserver.php',
+        'Cmixin\\BusinessDay\\HolidaysList' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/HolidaysList.php',
+        'Cmixin\\BusinessDay\\Laravel\\ServiceProvider' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Laravel/ServiceProvider.php',
+        'Cmixin\\BusinessDay\\MixinBase' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/MixinBase.php',
+        'Cmixin\\BusinessDay\\Util\\Context' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Util/Context.php',
+        'Cmixin\\BusinessDay\\Util\\DefinitionParser' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Util/DefinitionParser.php',
+        'Cmixin\\BusinessDay\\Util\\FileConfig' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Util/FileConfig.php',
+        'Cmixin\\BusinessDay\\Util\\YearCondition' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/Util/YearCondition.php',
+        'Cmixin\\BusinessDay\\YearCrawler' => __DIR__ . '/..' . '/cmixin/business-day/src/Cmixin/BusinessDay/YearCrawler.php',
+        'Cmixin\\BusinessTime' => __DIR__ . '/..' . '/cmixin/business-time/src/Cmixin/BusinessTime.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
@@ -5888,6 +5943,28 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'Spatie\\LaravelIgnition\\Support\\StringComparator' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Support/StringComparator.php',
         'Spatie\\LaravelIgnition\\Views\\BladeSourceMapCompiler' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/BladeSourceMapCompiler.php',
         'Spatie\\LaravelIgnition\\Views\\ViewExceptionMapper' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/Views/ViewExceptionMapper.php',
+        'Spatie\\OpeningHours\\Day' => __DIR__ . '/..' . '/spatie/opening-hours/src/Day.php',
+        'Spatie\\OpeningHours\\Exceptions\\Exception' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/Exception.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidDate' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidDate.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidDateTimeClass' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidDateTimeClass.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidDayName' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidDayName.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidTimeRangeArray' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidTimeRangeArray.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidTimeRangeList' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidTimeRangeList.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidTimeRangeString' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidTimeRangeString.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidTimeString' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidTimeString.php',
+        'Spatie\\OpeningHours\\Exceptions\\InvalidTimezone' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/InvalidTimezone.php',
+        'Spatie\\OpeningHours\\Exceptions\\MaximumLimitExceeded' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/MaximumLimitExceeded.php',
+        'Spatie\\OpeningHours\\Exceptions\\NonMutableOffsets' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/NonMutableOffsets.php',
+        'Spatie\\OpeningHours\\Exceptions\\OverlappingTimeRanges' => __DIR__ . '/..' . '/spatie/opening-hours/src/Exceptions/OverlappingTimeRanges.php',
+        'Spatie\\OpeningHours\\Helpers\\Arr' => __DIR__ . '/..' . '/spatie/opening-hours/src/Helpers/Arr.php',
+        'Spatie\\OpeningHours\\Helpers\\DataTrait' => __DIR__ . '/..' . '/spatie/opening-hours/src/Helpers/DataTrait.php',
+        'Spatie\\OpeningHours\\Helpers\\DateTimeCopier' => __DIR__ . '/..' . '/spatie/opening-hours/src/Helpers/DateTimeCopier.php',
+        'Spatie\\OpeningHours\\Helpers\\DiffTrait' => __DIR__ . '/..' . '/spatie/opening-hours/src/Helpers/DiffTrait.php',
+        'Spatie\\OpeningHours\\Helpers\\RangeFinder' => __DIR__ . '/..' . '/spatie/opening-hours/src/Helpers/RangeFinder.php',
+        'Spatie\\OpeningHours\\OpeningHours' => __DIR__ . '/..' . '/spatie/opening-hours/src/OpeningHours.php',
+        'Spatie\\OpeningHours\\OpeningHoursForDay' => __DIR__ . '/..' . '/spatie/opening-hours/src/OpeningHoursForDay.php',
+        'Spatie\\OpeningHours\\Time' => __DIR__ . '/..' . '/spatie/opening-hours/src/Time.php',
+        'Spatie\\OpeningHours\\TimeRange' => __DIR__ . '/..' . '/spatie/opening-hours/src/TimeRange.php',
         'Stringable' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Stringable.php',
         'Symfony\\Component\\Console\\Application' => __DIR__ . '/..' . '/symfony/console/Application.php',
         'Symfony\\Component\\Console\\Attribute\\AsCommand' => __DIR__ . '/..' . '/symfony/console/Attribute/AsCommand.php',
@@ -6950,6 +7027,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit987ca193909f73fe3a790951c0d97214::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit987ca193909f73fe3a790951c0d97214::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit987ca193909f73fe3a790951c0d97214::$fallbackDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInit987ca193909f73fe3a790951c0d97214::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit987ca193909f73fe3a790951c0d97214::$classMap;
 

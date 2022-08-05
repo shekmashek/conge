@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CongeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
@@ -51,4 +52,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
     Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
+
+    Route::get('/conge.accepter_demande', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
+
 });
