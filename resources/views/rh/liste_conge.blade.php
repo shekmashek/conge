@@ -9,8 +9,8 @@
 <div class="container mt-5">
 
     {{-- --------------------------------------date to date search -------------------------------------------------- --}}
-
-     {{-- <form action="{{route('conge.filtre')}}" method="GET">
+{{--
+     <form action="{{route('conge.filtre')}}" method="GET">
 
                 @csrf
                 <br>
@@ -158,13 +158,6 @@
             ],
 
         });
-
-
-
-
-
-
-
     });
 
 

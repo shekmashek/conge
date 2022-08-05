@@ -234,55 +234,7 @@
     //     });
     // }
 
-////////////////////////////////////
 
-
-    //     fetchDataAtt();
-    //      function fetchDataAtt(){
-    //     $.ajax({
-    //         type: "GET",
-    //         url: "/fetchData",
-    //         dataType: "json",
-    //         success: function (response) {
-    //             //  console.log(response.conges);
-    //             $('#liste_en_attente').children('tbody').html("");
-    //             $('#liste_en_attente').children().css('color', 'red');
-    //             $.each(response.conges, function (key, item) {
-    //                 $('tbody').append(
-    //                         '<tr>\
-    //                             <td>'+item.employe.nom_emp+' ' +item.employe.prenom_emp+'</td>\
-    //                             <td>'+item.type_conge.type_conge+'</td>\
-    //                             <td>'+item.debut+'</td>\
-    //                             <td>'+item.fin+'</td>\
-    //                             <td>'+item.duree_conge+'</td>\
-    //                             <td>'+item.motif+'</td>\
-    //                             <td>'+ if(item.etat_conge_id==3){
-    //                                 '<div class="form-check form-switch">\
-    //                                     <i class="bx bx-x-circle fs-5" style="color:#ffa417"></i>\
-    //                                     <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>\
-    //                                 </div>'
-    //                             }
-    //                             if (item.etat_conge_id==2) {
-    //                                 '<div class="form-check form-switch">\
-    //                                     <i class="bx bx-check-circle fs-5" style="color:var(--bs-red)"></i>\
-    //                                     <label class="form-check-label" for="flexSwitchCheckDefault">refusé</label>\
-    //                                 </div>'
-    //                             }
-
-    //                              else {
-    //                                 '<div class="form-check form-switch">\
-    //                                     <i class="bx bx-check-circle fs-5" style="color:#85ea87"></i>\
-    //                                     <label class="form-check-label" for="flexSwitchCheckDefault">accepté</label>\
-    //                                 </div>'
-
-    //                             }+'</td>\
-
-    //                         </tr>'
-    //                 );
-    //             });
-    //         }
-    //     });
-    // }
 
 
 </script>

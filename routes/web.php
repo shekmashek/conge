@@ -60,13 +60,10 @@ Route::middleware(['IsManager'])->group(function () {
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
-    // Route::get('/fetchData', [RHController::class, 'fetchData'])->name('fetchData');
-    // Route::get('/fetchDataAtt', [RHController::class, 'fetchDataAtt'])->name('fetchDataAtt');
 
 });
 
 //-------------------------- Routes pour les recherches avec filtre de dates ---------------------------------------------------
 
 Route::get('/recherche_conges', [RHController::class, 'filtreDate'])->name('conge.filtre');
-// Route::get('/home_RH', [RHController::class, 'filtreDate'])->name('conge.home_RH');
 

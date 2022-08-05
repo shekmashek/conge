@@ -22,7 +22,7 @@ class RHController extends Controller
             $conge->type_conge;
             $conge->etat_conge;
         }
-        if($request->ajax())
+        if($request->ajax()) // ajax de la table historique
         {
             $alldata = DataTables::of($conges)
             ->make(true);
