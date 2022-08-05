@@ -15,12 +15,8 @@ class CongeController extends Controller
     public function accepter_demande(Request $request) {
 
         $conge_id=$request->conge_id;
-        // Conge::where('id',$conge_id)->update([
-        //     'etat_conge_id'=>1
-        // ]);
 
         $conge=Conge::where('id', $conge_id)->first();
-
 
         $debut=new DateTime($conge->debut);
         $fin=new DateTime($conge->fin);
@@ -32,11 +28,31 @@ class CongeController extends Controller
 
         $worktime = getWorkingHours($debut,$fin);
 
+        $intervale = DateInterval::createFromDateString($worktime);
+
+        $hours=$intervale->h;
+
+        if ($hours >= 4 && $hours < 8) {
+            $d=0.5;
+            $days=intval($hours/8)+$d;
+        } else if($hours < 4) {
+            $days=intval($hours/8);
+        } else {
+            $days=intval($hours/8);
+        }
+
+
+        Conge::where('id',$conge_id)->update([
+            'etat_conge_id'=>1,
+            'j_utilise'=>$days,
+        ]);
+
         return response()->json([
             'nbr_jour'=>$nbr_jour,
-            'nbr_heure'=>$nbr_heure,
-            'period'=>$worktime
+            'nbr_heure'=>$hours,
+            'period'=>$days
         ]);
+
     }
 
 
