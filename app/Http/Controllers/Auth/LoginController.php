@@ -51,7 +51,12 @@ class LoginController extends Controller
         $roles_user = Auth::user()->roles->pluck('id');
         if ($roles_user->contains(5)) {
             return '/home_manager';
-        } elseif ($roles_user->contains(3) && !$roles_user->contains(5)) {
+        }
+        elseif ($roles_user->contains(9)) {
+            return '/home_RH';
+        }
+
+        elseif ($roles_user->contains(3) && !$roles_user->contains(5)) {
             return '/home';
         } else {
             return '/home';
