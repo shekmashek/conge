@@ -50,7 +50,7 @@ class CongeController extends Controller
         return response()->json([
             'nbr_jour'=>$nbr_jour,
             'nbr_heure'=>$hours,
-            'period'=>$days
+            'period'=>$days.' jours'
         ]);
 
     }
