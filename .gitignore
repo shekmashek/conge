@@ -5,3 +5,5 @@ package-old.json
 /.vscode
 .env
 /node_modules-old
+node_modules
+
