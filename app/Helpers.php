@@ -49,9 +49,14 @@ function getWorkingHours($start,$end)
 
   $dt=$dt+1;
 
-    $interv=DateInterval::createFromDateString(strval($dt).' hours');
+    // convert $dt to milliseconds
+    $d1 = new DateTime();
+    $d2 = new DateTime();
+    $d2->add(new DateInterval('PT'.$dt.'H'));
 
-    $duration=$interv->format('%y years %m months %D days %H hours %I minutes');
+    $iv = $d2->diff($d1);
+
+    $duration=$iv->format('%y years %m months %D days %H hours %I minutes');
 
     return $duration;
 

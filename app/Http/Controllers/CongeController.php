@@ -42,13 +42,14 @@ class CongeController extends Controller
         }
 
 
-        Conge::where('id',$conge_id)->update([
-            'etat_conge_id'=>1,
-            'j_utilise'=>$days,
-        ]);
+        // Conge::where('id',$conge_id)->update([
+        //     'etat_conge_id'=>1,
+        //     'j_utilise'=>$days,
+        // ]);
 
         return response()->json([
             'nbr_jour'=>$nbr_jour,
+            'worktime'=>$worktime,
             'nbr_heure'=>$hours,
             'period'=>$days.' jours'
         ]);
