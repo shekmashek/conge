@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('types_conge', function (Blueprint $table) {
+        Schema::dropIfExists('types_conge');
+
+        Schema::create('types_conge', function (Blueprint $table) {
             $table->id();
             $table->string('type_conge');
             $table->string('couleur')->nullable();

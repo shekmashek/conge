@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('conges', function (Blueprint $table) {
+        Schema::dropIfExists('conges');
+
+        Schema::create('conges', function (Blueprint $table) {
             $table->id();
             $table->foreignId('type_conge_id')->constrained('types_conge')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('employe_id')->onUpdate('cascade')->onDelete('cascade');

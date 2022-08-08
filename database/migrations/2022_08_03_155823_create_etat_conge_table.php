@@ -13,7 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('etats_conge', function (Blueprint $table) {
+        Schema::table('types_conge', function (Blueprint $table) {
+            $table->dropForeign(['frequence_solde_id']);
+        });
+
+        Schema::dropIfExists('etats_conge');
+
+        Schema::create('etats_conge', function (Blueprint $table) {
             $table->id();
             $table->string('etat_conge')->nullable();
             $table->timestamps();

@@ -13,6 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('frequences_solde');
+
         Schema::create('frequences_solde', function (Blueprint $table) {
             $table->id();
             $table->string('frequence')->comment('Mensuelle, trimestrielle, annuelle');
