@@ -24,7 +24,6 @@ class CongeController extends Controller
         // transformer le string 'intervale' en objet DateIntervale php
         $intervale = date_diff($debut,$fin);
         $nbr_jour = intval($intervale->format('%a'));
-        $nbr_heure = $intervale->h;
 
         $worktime = getWorkingHours($debut,$fin);
 
@@ -42,10 +41,11 @@ class CongeController extends Controller
         }
 
 
-        // Conge::where('id',$conge_id)->update([
-        //     'etat_conge_id'=>1,
-        //     'j_utilise'=>$days,
-        // ]);
+        Conge::where('id',$conge_id)->update([
+            'etat_conge_id'=>1,
+            'intervale' => $worktime,
+            'j_utilise'=>$days,
+        ]);
 
         return response()->json([
             'nbr_jour'=>$nbr_jour,
