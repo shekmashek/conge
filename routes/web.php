@@ -1,12 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
-use App\Http\Controllers\CongeController;
-=======
 use App\Http\Controllers\RHController;
 use App\Http\Controllers\HomeController;
->>>>>>> origin/RH_v1
+use App\Http\Controllers\CongeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
