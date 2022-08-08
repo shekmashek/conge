@@ -21,37 +21,85 @@ class CongeController extends Controller
         $debut=new DateTime($conge->debut);
         $fin=new DateTime($conge->fin);
 
+
         // transformer le string 'intervale' en objet DateIntervale php
-        $intervale = date_diff($debut,$fin);
-        $nbr_jour = intval($intervale->format('%a'));
-        $nbr_heure = $intervale->h;
+        // sans prendre en compte les heures non valides
+        // $intervale = date_diff($debut,$fin);
 
-        $worktime = getWorkingHours($debut,$fin);
+        // en prenant compte les heures non valides (ex: 1er janvier)
+        // utilisation de la fonction dans Helpers.php
+        list($worktime) = getWorkingHours($debut,$fin);
 
-        $intervale = DateInterval::createFromDateString($worktime);
-
+        $intervale = DateInterval::createFromDateString($worktime['duration']);
+        $nombre_j_travail = $worktime['dt']/8;
         $hours=$intervale->h;
+
 
         if ($hours >= 4 && $hours < 8) {
             $d=0.5;
-            $days=intval($hours/8)+$d;
+            $nbt_jour=$nombre_j_travail+$d;
+            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days 12 hours'));
+
         } else if($hours < 4) {
-            $days=intval($hours/8);
+            $nbt_jour=$nombre_j_travail;
+            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days'));
         } else {
-            $days=intval($hours/8);
+            $nbt_jour=$nombre_j_travail;
+            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days'));
         }
 
+        $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
 
-        // Conge::where('id',$conge_id)->update([
-        //     'etat_conge_id'=>1,
-        //     'j_utilise'=>$days,
-        // ]);
+        Conge::where('id',$conge_id)->update([
+            'etat_conge_id'=>1,
+            'intervale' => $worktime['duration'],
+            'duree_conge'=> $worktime['dt']*60,
+            'j_utilise'=>$nombre_j_travail,
+            'cumul_perso'=>$conge->cumul_perso,
+            'restant'=>$nouveau_cumul,
+
+        ]);
 
         return response()->json([
-            'nbr_jour'=>$nbr_jour,
-            'worktime'=>$worktime,
+            'nbr_jour'=>$nbt_jour,
+            'worktime'=>$worktime['duration'],
             'nbr_heure'=>$hours,
-            'period'=>$days.' jours'
+            'period'=>$nbt_jour.' jours',
+            'cumul_perso'=>$cumul_perso,
+            'nouveau_cumul'=>$nouveau_cumul,
+        ]);
+
+    }
+
+
+    public function refuser_demande(Request $request) {
+
+        $conge_id=$request->conge_id;
+
+        $conge=Conge::where('id', $conge_id)->first();
+
+        $debut=new DateTime($conge->debut);
+        $fin=new DateTime($conge->fin);
+
+        list($worktime) = getWorkingHours($debut,$fin);
+
+        $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
+
+        Conge::where('id',$conge_id)->update([
+            'etat_conge_id'=>2,
+            'intervale' => $worktime['duration'],
+            'duree_conge'=> $worktime['dt']*60,
+            'j_utilise'=>0,
+            'restant'=>$conge->cumul_perso,
+
+        ]);
+
+
+
+        return response()->json([
+            'worktime'=>$worktime['duration'],
+            'nbr_heure'=>$worktime['dt'],
+            'cumul_perso'=>$cumul_perso,
         ]);
 
     }

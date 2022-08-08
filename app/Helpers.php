@@ -5,6 +5,37 @@ use Carbon\CarbonPeriod;
 use Cmixin\BusinessTime;
 
 
+function addDateInterval($interval, $ajout) {
+    $interval=DateInterval::createFromDateString($interval);
+    if(gettype($ajout)=='string') {
+        $ajout=DateInterval::createFromDateString($ajout);
+    } else {
+        $ajout=DateInterval::createFromDateString($ajout->format("%y years %m months %D days %H hours %I minutes %s seconds"));
+    }
+    $e = new DateTime('00:00');
+    $f = clone $e;
+    $e->add($interval);
+    $e->add($ajout);
+    return $f->diff($e)->format("%y years %m months %D days %H hours %I minutes %s seconds");
+
+}
+function subDateInterval($interval1, $retrait) {
+    $interval1=DateInterval::createFromDateString($interval1);
+    if(gettype($retrait)=='string') {
+        $retrait=DateInterval::createFromDateString($retrait);
+    } else {
+        $retrait=DateInterval::createFromDateString($retrait->format("%y years %m months %D days %H hours %I minutes %s seconds"));
+    }
+
+    $e = new DateTime('00:00');
+    $f = clone $e;
+    $e->add($interval1);
+    $e->sub($retrait);
+    return $f->diff($e)->format("%y years %m months %D days %H hours %I minutes %s seconds");
+
+}
+
+
 function getWorkingHours($start,$end)
 {
     BusinessTime::enable(Carbon::class, [
@@ -47,9 +78,9 @@ function getWorkingHours($start,$end)
 
     }
 
-  $dt=$dt+1;
+    $dt=$dt+1;
 
-    // convert $dt to milliseconds
+    // convertIR $dt en DateInterval avec heures jours mois etc...
     $d1 = new DateTime();
     $d2 = new DateTime();
     $d2->add(new DateInterval('PT'.$dt.'H'));
@@ -58,6 +89,10 @@ function getWorkingHours($start,$end)
 
     $duration=$iv->format('%y years %m months %D days %H hours %I minutes');
 
-    return $duration;
+    // return simultaneously $duration and $dt
+    return array([
+        'duration'=>$duration,
+        'dt'=>$dt
+    ]);
 
 }
