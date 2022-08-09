@@ -41,7 +41,7 @@ function getWorkingHours($start,$end)
     BusinessTime::enable(Carbon::class, [
         'monday' => ['08:00-12:00', '13:00-17:00'],
         'tuesday' => ['08:00-12:00', '13:00-17:00'],
-        'wednesday' => ['08:00-12:00'],
+        'wednesday' => ['08:00-12:00', '13:00-17:00'],
         'thursday' => ['08:00-12:00', '13:00-17:00'],
         'friday' => ['08:00-12:00', '13:00-17:00'],
         'saturday' => [],
@@ -83,7 +83,7 @@ function getWorkingHours($start,$end)
     // convertIR $dt en DateInterval avec heures jours mois etc...
     $d1 = new DateTime();
     $d2 = new DateTime();
-    $d2->add(new DateInterval('PT'.$dt.'H'));
+    $d2->add(new DateInterval('P'.($dt/8).'D'));
 
     $iv = $d2->diff($d1);
 
