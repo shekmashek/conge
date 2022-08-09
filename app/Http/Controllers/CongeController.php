@@ -5,8 +5,12 @@ namespace App\Http\Controllers;
 use DateTime;
 use DateInterval;
 use App\Models\Conge;
+use App\Mail\CongeMail;
 use Illuminate\Http\Request;
+use App\Mail\RefuserCongeMail;
+use App\Mail\AccepterCongeMail;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class CongeController extends Controller
 {
@@ -37,35 +41,37 @@ class CongeController extends Controller
 
         if ($hours >= 4 && $hours < 8) {
             $d=0.5;
-            $nbt_jour=$nombre_j_travail+$d;
+            $nbr_jour=$nombre_j_travail+$d;
             $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days 12 hours'));
 
         } else if($hours < 4) {
-            $nbt_jour=intval($worktime['dt']/8);
-            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbt_jour.' days'));
+            $nbr_jour=intval($worktime['dt']/8);
+            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbr_jour.' days'));
         } else if($hours >= 8) {
-            $nbt_jour=round($worktime['dt']/8);
-            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbt_jour.' days'));
+            $nbr_jour=round($worktime['dt']/8);
+            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbr_jour.' days'));
         }
 
         $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
 
-        // Conge::where('id',$conge_id)->update([
-        //     'etat_conge_id'=>1,
-        //     'intervale' => $worktime['duration'],
-        //     'duree_conge'=> $worktime['dt']*60, // durée en minute
-        //     'j_utilise'=>$nombre_j_travail,
-        //     'cumul_perso'=>$conge->cumul_perso,
-        //     'restant'=>$nouveau_cumul,
+        Conge::where('id',$conge_id)->update([
+            'etat_conge_id'=>1,
+            'intervale' => $worktime['duration'],
+            'duree_conge'=> $worktime['dt']*60, // durée en minute
+            'j_utilise'=>$nbr_jour,
+            'cumul_perso'=>$nouveau_cumul,
+            'restant'=>$nouveau_cumul,
 
-        // ]);
+        ]);
+
+        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
         return response()->json([
-            'nbr_jour'=>$nbt_jour,
+            'nbr_jour'=>$nbr_jour,
             'nbr_heure'=>$worktime['dt'],
             'worktime'=>$worktime['duration'],
             'reste_heure'=>$hours,
-            'period'=>$nbt_jour.' jours',
+            'period'=>$nbr_jour.' jours',
             'cumul_perso'=>$cumul_perso,
             'nouveau_cumul'=>$nouveau_cumul,
         ]);
@@ -89,13 +95,14 @@ class CongeController extends Controller
         Conge::where('id',$conge_id)->update([
             'etat_conge_id'=>2,
             'intervale' => $worktime['duration'],
-            'duree_conge'=> $worktime['dt']*60,
+            'duree_conge'=> $worktime['dt']*60, // en minute
             'j_utilise'=>0,
             'restant'=>$conge->cumul_perso,
 
         ]);
 
 
+        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge));
 
         return response()->json([
             'worktime'=>$worktime['duration'],
