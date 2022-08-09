@@ -9,7 +9,7 @@ class Employe extends Model
 {
     use HasFactory;
 
-    protected $table = 'employes';
+    protected $table = 'employers';
 
     /**
      * Get all of the conges for the Employe
