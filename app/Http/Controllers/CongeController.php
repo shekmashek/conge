@@ -50,15 +50,15 @@ class CongeController extends Controller
 
         $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
 
-        // Conge::where('id',$conge_id)->update([
-        //     'etat_conge_id'=>1,
-        //     'intervale' => $worktime['duration'],
-        //     'duree_conge'=> $worktime['dt']*60, // durée en minute
-        //     'j_utilise'=>$nombre_j_travail,
-        //     'cumul_perso'=>$conge->cumul_perso,
-        //     'restant'=>$nouveau_cumul,
+        Conge::where('id',$conge_id)->update([
+            'etat_conge_id'=>1,
+            'intervale' => $worktime['duration'],
+            'duree_conge'=> $worktime['dt']*60, // durée en minute
+            'j_utilise'=>$nombre_j_travail,
+            'cumul_perso'=>$conge->cumul_perso,
+            'restant'=>$nouveau_cumul,
 
-        // ]);
+        ]);
 
         return response()->json([
             'nbr_jour'=>$nbt_jour,
