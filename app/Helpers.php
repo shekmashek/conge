@@ -80,12 +80,34 @@ function getWorkingHours($start,$end)
 
     $dt=$dt+1;
 
-    // convertIR $dt en DateInterval avec heures jours mois etc...
-    $d1 = new DateTime();
-    $d2 = new DateTime();
-    $d2->add(new DateInterval('P'.($dt/8).'D'));
+    if (gettype($dt/8)=='int') {
+        $d1 = new DateTime();
+        $d2 = new DateTime();
+        $d2->add(new DateInterval('P'.($dt/8).'D'));
 
-    $iv = $d2->diff($d1);
+        $iv = $d2->diff($d1);
+    } else if($dt/8 - intval($dt/8)>=0.5) {
+        $d1 = new DateTime();
+        $d2 = new DateTime();
+        $d2->add(new DateInterval('P'.intval($dt/8).'DT'.intval(($dt/8-intval($dt/8))*8).'H'));
+
+        $iv = $d2->diff($d1);
+    } else if ($dt/8 - intval($dt/8)<0.5) {
+        $d1 = new DateTime();
+        $d2 = new DateTime();
+        $d2->add(new DateInterval('P'.intval($dt/8).'DT0H'));
+
+        $iv = $d2->diff($d1);
+    }
+
+
+
+    // convertIR $dt en DateInterval avec heures jours mois etc...
+    // $d1 = new DateTime();
+    // $d2 = new DateTime();
+    // $d2->add(new DateInterval('P'.($dt/8).'D'));
+
+    // $iv = $d2->diff($d1);
 
     $duration=$iv->format('%y years %m months %D days %H hours %I minutes');
 

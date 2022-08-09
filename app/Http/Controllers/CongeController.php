@@ -31,7 +31,7 @@ class CongeController extends Controller
         list($worktime) = getWorkingHours($debut,$fin);
 
         $intervale = DateInterval::createFromDateString($worktime['duration']);
-        $nombre_j_travail = $worktime['dt']/8;
+        $nombre_j_travail =intval($worktime['dt']/8);
         $hours=$intervale->h;
 
 
@@ -41,10 +41,10 @@ class CongeController extends Controller
             $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days 12 hours'));
 
         } else if($hours < 4) {
-            $nbt_jour=$nombre_j_travail;
-            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days'));
+            $nbt_jour=intval($worktime['dt']/8);
+            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbt_jour.' days'));
         } else if($hours >= 8) {
-            $nbt_jour=$nombre_j_travail;
+            $nbt_jour=round($worktime['dt']/8);
             $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbt_jour.' days'));
         }
 
