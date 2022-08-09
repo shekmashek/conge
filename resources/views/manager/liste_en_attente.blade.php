@@ -219,6 +219,7 @@
             var url = "conge.accepter_demande";
         } else if (action == 'Refuser') {
             alert('Refuser');
+            var url = "conge.refuser_demande";
         }
 
         $.ajax({
