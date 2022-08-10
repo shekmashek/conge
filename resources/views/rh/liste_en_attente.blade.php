@@ -117,7 +117,9 @@
 
     var currentYear = new Date().getFullYear();
 
-    var events = {!! json_encode($conges, JSON_HEX_TAG) !!};
+    var events = {!! json_encode($calendar, JSON_HEX_TAG) !!};
+
+
 
 
     events.forEach(element => {
@@ -138,9 +140,6 @@
     });
 
 
-    // events.forEach(element => {
-    //     console.log(element);
-    // });
 
     document.addEventListener('DOMContentLoaded', function() {
 

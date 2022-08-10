@@ -20,6 +20,7 @@ class RHController extends Controller
         //---------relation eloquent datable---------
          $conges=Conge::with('employe','type_conge', 'etat_conge');
 
+
         //---------------------------------------------
         if($request->ajax()) // ajax de la table historique
         {
@@ -35,10 +36,17 @@ class RHController extends Controller
             ->toJson();
             return $alldata;
         }
+        $calendar = Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
-        return view('rh.home_rh', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
+           foreach ($calendar as $key => $value) {
+            $value->employe=$value->employe;
+            $value->etat_conge=$value->etat_conge;
+        }
+
+
+        return view('rh.home_rh', compact('calendar','conges', 'conges_en_attente', 'nbr_en_attente'));
     }
 
 
