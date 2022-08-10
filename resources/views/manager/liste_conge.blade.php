@@ -21,45 +21,8 @@
         </thead>
         <tbody>
 
-            @forelse ($conges as $conge)
-            <tr>
-                <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
-                <td>{{ $conge->type_conge->type_conge }}</td>
-                <td>{{ date('d-m-Y - H:i', strtotime($conge->debut)) }}</td>
-                <td>{{ date('d-m-Y - H:i',strtotime($conge->fin)) }}</td>
-                <td>{{ $conge->j_utilise }}</td>
-                <td>{{ $conge->motif }}</td>
-                <td>
 
-                    {{-- Il est nécessaire d'écrire explicitement la relation entre
-                    conge->etat_conge pour faire comprendre au js que cette relation exite
-                    sur l'objet
-
-                    --}}
-
-                    @if ($conge->etat_conge->id == 3)
-                    <div class="form-check form-switch">
-                        <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                    </div>
-                    @elseif ($conge->etat_conge_id == 2)
-
-                    <div class="form-check form-switch">
-                        <i class='bx bx-x-circle fs-5' style='color:var(--bs-red)'></i>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Refusé</label>
-                    </div>
-                    @elseif ($conge->etat_conge_id == 1)
-                    <div class="form-check form-switch">
-                        <span><i class='bx bx-check-circle fs-5' style='color:#85ea87' ></i></span>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Accordé</label>
-                    </div>
-                    @endif
-                </td>
-            </tr>
-            @empty
-                <span>Aucun congé enregistré</span>
-            @endforelse
-
+        </tbody>
 
     </table>
 
@@ -80,12 +43,75 @@
     $(document).ready(function () {
         var table = $('#liste_conge').DataTable({
             responsive: true,
+            serverSide: true,
+            processing: true,
             language: {
                     url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
             },
+
+            ajax: {
+                url: "{{ route('listeConge') }}",
+                type: 'GET',
+                data: function (d) {
+
+                }
+            },
+            columns: [
+                {
+                    data: 'employe',
+                    render: function (data, type, row) {
+                        return row.employe.nom_emp + ' ' + row.employe.prenom_emp;
+                    }
+                },
+                {data: 'type_conge.type_conge'},
+                {data: 'debut'},
+                {data: 'fin'},
+                {data: 'j_utilise'},
+                {data: 'motif'},
+                {data: 'etat_conge.etat_conge'},
+            ],
+            columnDefs:[
+                {
+                  "targets": [ 0 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 1 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 2 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 3 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 4 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 5 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 6 ],
+                    "visible": true,
+                    "searchable": true
+                }
+            ]
+
         });
 
         new $.fn.dataTable.FixedHeader( table );
+
 
     });
 </script>

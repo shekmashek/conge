@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Conge;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
+
 
 class ManagerController extends Controller
 {
@@ -22,6 +24,20 @@ class ManagerController extends Controller
 
         return view('manager.home_manager', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
     }
+
+    public function listeConge(Request $request)
+    {
+        if ($request->ajax()) {
+            $conges=Conge::with('employe','type_conge', 'etat_conge')->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+            $conge= DataTables::of($conges)
+                                ->toJson();
+
+            return $conge;
+        }
+    }
+
+
 
     public function calendrier_conge()
     {

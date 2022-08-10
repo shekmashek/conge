@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use DateTime;
 use DateInterval;
 use App\Models\Conge;
-use App\Mail\CongeMail;
 use Illuminate\Http\Request;
 use App\Mail\RefuserCongeMail;
 use App\Mail\AccepterCongeMail;
