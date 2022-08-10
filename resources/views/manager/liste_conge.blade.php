@@ -25,8 +25,8 @@
             <tr>
                 <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
                 <td>{{ $conge->type_conge->type_conge }}</td>
-                <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
-                <td>{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
+                <td>{{ date('d-m-Y - H:i', strtotime($conge->debut)) }}</td>
+                <td>{{ date('d-m-Y - H:i',strtotime($conge->fin)) }}</td>
                 <td>{{ $conge->j_utilise }}</td>
                 <td>{{ $conge->motif }}</td>
                 <td>

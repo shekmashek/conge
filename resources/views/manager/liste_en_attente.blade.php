@@ -73,7 +73,7 @@
             </tr>
             @empty
 
-            <-- Provoque une erreur de jquery datatable à cause du nombre de colone -->
+            {{-- <-- Provoque une erreur de jquery datatable à cause du nombre de colone --> --}}
             <tr>
                 <td class="text-center" colspan="8">
                     <span>Aucun congé en attente</span>
@@ -89,8 +89,34 @@
 
 </div>
 
+
+<!-- Vertically centered scrollable modal -->
+<div class="modal fade " id="refuser_conge">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+</div>
+
+
 @push('extra-js')
 <script>
+
+    // modal refuser conge
+    var refuser_conge_modal = new bootstrap.Modal(document.getElementById('refuser_conge'), {
+        keyboard: false
+    })
 
     // datatable
     $(document).ready(function () {
@@ -219,6 +245,7 @@
             var url = "conge.accepter_demande";
         } else if (action == 'Refuser') {
             alert('Refuser');
+            // refuser_conge_modal.show();
             var url = "conge.refuser_demande";
         }
 

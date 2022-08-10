@@ -24,8 +24,6 @@ class AccepterCongeMail extends Mailable
     public function __construct(Conge $conge, $nbr_jour)
     {
 
-        // $conge=Conge::where('id', $conge_id)->first();
-
         if (gettype($nbr_jour) == 'integer') {
             $this->nbr_jour = $nbr_jour.' jours';
         } else {
