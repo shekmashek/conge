@@ -62,8 +62,3 @@ Route ::middleware(['IsRH'])->group(function () {
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
 
 });
-
-//-------------------------- Routes pour les recherches avec filtre de dates ---------------------------------------------------
-
-Route::get('/recherche_conges', [RHController::class, 'filtreDate'])->name('conge.filtre');
-

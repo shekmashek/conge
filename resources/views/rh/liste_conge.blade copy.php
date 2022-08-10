@@ -25,7 +25,6 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <button id="btnSearch" class="btn" name="search" title="Search"><box-icon name='search-alt'></box-icon></button>
-                                    <button id="refresh" class="btn" name="refresh" title="refresh"><box-icon name='refresh'></box-icon></button>
                                 </div>
                             </div>
                         </div>
@@ -140,14 +139,9 @@
 
         var table = $('#liste_conge').DataTable({
             serverSide: true,
+            sorting:false,
             processing: true,
-            ajax: {
-                url: "{{ route('home_RH') }}",
-                data: function (d) {
-                    d.debut = $("input[name='debut']").val();
-                    d.fin = $("input[name='fin']").val();
-                }
-            },
+            ajax:"{{ route('home_RH') }}",
             responsive: true,
             columns: [
 
@@ -222,23 +216,23 @@
 
 
         });
-         $('#btnSearch').on('click',function(e){
+         $('#btnSearch').on('click',function(){
+            var debut = $("input[name='debut']").val();
+            var fin = $("input[name='fin']").val();
+            $.ajax({
+                type: "GET",
+                url: "{{ route('recherche_conges') }}",
+                data: {
+                    debut: debut,
+                    fin: fin,
+                },
+                dataType: "json",
+                success: function (response) {
+                   table.draw();
+                },
 
-            e.preventDefault();
-            table.draw();
+            });
 
-
-        })
-
-
-        //---------refresh datatable after search date to date---------------
-
-        $('#refresh').on('click',function(e){
-            $("input[name='debut']").val(" ");
-            $("input[name='fin']").val(" ");
-
-            e.preventDefault();
-            table.draw();
         })
 
     });
