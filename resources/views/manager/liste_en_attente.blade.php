@@ -95,16 +95,25 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
+          <form action="{{ route('conge.refuser_demande') }}" method="POST">
           <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+                @csrf
+                <input type="text" name="conge_id" id="id_conge">
+                <div class="form-group">
+                    <label for="message">Motif</label>
+                    <textarea class="form-control" name="message" id="message_refus" rows="3">
+
+                    </textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="submit" class="btn btn-primary">confirmer</button>
+            </div>
+        </form>
         </div>
       </div>
 </div>
@@ -245,11 +254,15 @@
             var url = "conge.accepter_demande";
         } else if (action == 'Refuser') {
             alert('Refuser');
-            // refuser_conge_modal.show();
-            var url = "conge.refuser_demande";
+            // var url = "conge.refuser_demande";
+            var conge_id_modal = $('#refuser_conge_id').text(conge_id);
+            var id_conge_modal = $('#id_conge');
+            id_conge_modal.val(conge_id);
+            refuser_conge_modal.show();
         }
 
-        $.ajax({
+        if (url) {
+            $.ajax({
             url: url,
             type: 'GET',
             data: {
@@ -265,6 +278,7 @@
                 console.error(error);
             }
         });
+        }
     });
 
 </script>

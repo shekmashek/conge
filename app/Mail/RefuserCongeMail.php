@@ -13,15 +13,17 @@ class RefuserCongeMail extends Mailable
     use Queueable, SerializesModels;
 
     public $conge;
+    public $message;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Conge $conge)
+    public function __construct(Conge $conge,$message)
     {
         $this->conge = $conge;
+        $this->message = $message;
     }
 
     /**

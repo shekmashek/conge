@@ -102,7 +102,7 @@ class CongeController extends Controller
     public function refuser_demande(Request $request) {
 
         $conge_id=$request->conge_id;
-
+        $message=$request->message;
         $conge=Conge::where('id', $conge_id)->first();
 
         $debut=new DateTime($conge->debut);
@@ -122,13 +122,17 @@ class CongeController extends Controller
         ]);
 
 
-        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge));
+        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
 
-        return response()->json([
-            'worktime'=>$worktime['duration'],
-            'nbr_heure'=>$worktime['dt'],
-            'cumul_perso'=>$cumul_perso,
-        ]);
+            if ($request->ajax()) {
+                return response()->json([
+                    'worktime'=>$worktime['duration'],
+                    'nbr_heure'=>$worktime['dt'],
+                    'cumul_perso'=>$cumul_perso,
+                ]);
+            } else {
+                return redirect()->back();
+            }
 
     }
 

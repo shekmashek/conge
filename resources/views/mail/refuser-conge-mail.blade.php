@@ -1,5 +1,5 @@
 
-@component('mail::message', ['conge'=>$conge])
+@component('mail::message', ['conge'=>$conge, 'message'=>$message])
 
 <p>
 Bonjour {{ $conge->employe->nom_emp }} {{ $conge->employe->prenom_emp }},
@@ -8,6 +8,10 @@ Votre demande de congé du {{ date('d-m-Y H:i', strtotime($conge->created_at)) }
 
 <p>
     Votre congé du {{ date('d-m-Y H:i', strtotime($conge->debut)) }} au {{ date('d-m-Y  H:i', strtotime($conge->fin)) }}
+</p>
+
+<p>
+    {{ $message }}
 </p>
 
 @component('mail::button', ['url' => ''])
