@@ -101,7 +101,7 @@
           <form action="{{ route('conge.refuser_demande') }}" method="POST">
           <div class="modal-body">
                 @csrf
-                <input type="text" name="conge_id" id="id_conge">
+                <input type="hidden" name="conge_id" id="id_conge" readonly>
                 <div class="form-group">
                     <label for="message">Motif</label>
                     <textarea class="form-control" name="message" id="message_refus" rows="3">

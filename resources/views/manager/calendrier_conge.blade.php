@@ -4,6 +4,8 @@
         <link rel="stylesheet" href="{{ asset('css/calendrier.css') }}">
         <link rel="stylesheet" href="{{ asset('css/datepicker.css') }}">
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         {{-- bootstrap.min.css est importé dans admin.blade.php --}}
         {{-- fullCalendar utilise les icons bootstraps --}}
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
@@ -169,16 +171,20 @@
 @push('extra-js')
 
 <script>
-            document.addEventListener('DOMContentLoaded', function() {
 
-                var events = '';
+
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var events = {!! json_encode($conges, JSON_HEX_TAG) !!}
+
+                console.log(events);
 
                 var calendarEl = document.getElementById('planning_conge');
                 var calendar = new FullCalendar.Calendar(calendarEl,
                     {
-
-
                     // views : resourceTimeline,resourceTimelineWeek,listMonth,dayGridMonth,timeGridWeek
+
 
                         schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives',
                         initialView: 'dayGridMonth',
@@ -203,16 +209,18 @@
 
                             },
 
+
+
                         },
 
 
                         // show the description of events when hovering over them
                         eventMouseEnter : function(info) {
-                            var tipStart = info.event.start.toLocaleTimeString();
-                            var tipEnd = info.event.end.toLocaleTimeString();
-                            // console.log(tipStart);
+
+                            var type_conge = info.event.extendedProps.type_conge.type_conge;
+                            var j_utilise = info.event.extendedProps.j_utilise;
                             $(info.el).tooltip({
-                                title: info.event.extendedProps.description + ' ' + tipStart + ' - ' + tipEnd,
+                                title: info.event.title + ' - ' + type_conge + ' - ' + j_utilise + ' jours',
                                 placement: 'top',
                                 trigger: 'hover',
                                 container: 'body',
@@ -227,8 +235,35 @@
                             $(info.el).tooltip('hide');
                         },
 
+                        // eventSources: [{
+
+                        //     events: function(start, end, timezone, callback) {
+                        //         $.ajax({
+                        //             url     : "{{ route('calendrier_conge') }}",
+                        //             type    : 'GET',
+                        //             dataType: 'json',
+                        //             data    : {
+                        //                 test:'test_event',
+                        //             },
+                        //             success : function(doc) {
+                        //                 var events = [];
+                        //                 $(doc).find('event').each(function() {
+                        //                     events.push({
+                        //                         title    : $(this).attr('title'),
+                        //                         start    : $(this).attr('start'),
+                        //                         end      : $(this).attr('end'),
+                        //                     });
+                        //                 });
+                        //                 callback(doc);
+                        //                 console.log(doc);
+                        //             }
+
+                        //         });
+                        //     }
+                        //     }]
 
                         events: events,
+
 
                     }
                 );

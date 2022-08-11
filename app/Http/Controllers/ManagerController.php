@@ -17,7 +17,7 @@ class ManagerController extends Controller
     public function index()
     {
         // $conges=Conge::all();
-        $conges=Conge::get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
@@ -39,9 +39,33 @@ class ManagerController extends Controller
 
 
 
-    public function calendrier_conge()
+    public function calendrier_conge(Request $request)
     {
-        return view('manager.calendrier_conge');
+
+        $conges=Conge::with('employe','type_conge', 'etat_conge')->where('etat_conge_id', 1)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+        foreach ($conges as $key => $value) {
+                $value->title = $value->employe->nom_emp.' '.$value->employe->prenom_emp;
+                $value->start = $value->debut;
+                $value->end = $value->fin;
+                $value->color = $value->type_conge->couleur;
+        }
+
+
+                    if ($request->ajax()) {
+                        $conges=Conge::with('employe','type_conge', 'etat_conge')->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+                        foreach ($conges as $key => $value) {
+                                $value->title = $value->employe->nom_emp.' '.$value->employe->prenom_emp;
+                                $value->start = $value->debut;
+                                $value->end = $value->fin;
+                            }
+
+                        return response()->json($conges);
+                    }
+
+
+        return view('manager.calendrier_conge', compact('conges'));
     }
 
 
