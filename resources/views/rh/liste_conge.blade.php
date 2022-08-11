@@ -132,6 +132,18 @@
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap.min.js"></script>
 
 
+<style>
+    .bx-check-circle:before {
+    padding: 5px;
+}
+    .bx-loader:before {
+    padding: 5px;
+}
+    .bx-x-circle:before {
+    padding: 5px;
+}
+</style>
+
 @endpush
 
 @push('extra-js')
@@ -151,14 +163,6 @@
             responsive: true,
 
             columns: [
-
-                // {
-                //     data: 'employe',
-                //     render: function (data, type, row) {
-                //         return data.nom_emp + ' ' + data.prenom_emp;
-                //     }
-
-                // },
                 { data: 'employe.nom_emp'},
                 { data: 'employe.prenom_emp'},
                 { data: 'type_conge.type_conge' },
@@ -166,7 +170,29 @@
                 { data: 'fin' },
                 { data: 'j_utilise' },
                 { data: 'motif' },
-                { data: 'etat_conge.etat_conge' },
+                {
+                    data: 'etat_conge.etat_conge',
+                    render : function(data, type, row){
+                        if (row.etat_conge_id == 3) {
+                            return '<div class="form-check form-switch">'+
+                                '<span><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span>'+
+                                '<label class="form-check-label" for="flexSwitchCheckDefault"> En attente</label>'+
+                            '</div>';
+                        } else if (row.etat_conge_id == 2) {
+                            return '<div class="form-check form-switch">'+
+                                '<span><i class="bx bx-check-circle fs-5" style="color:#85ea87"></i></span>'+
+                                '<label class="form-check-label" for="flexSwitchCheckDefault"> Accordé</label>'+
+                            '</div>';
+                        } else if (row.etat_conge_id == 1) {
+                            return '<div class="form-check form-switch">'+
+                                '<i class="bx bx-x-circle fs-5" style="color:var(--bs-red)"></i>'+
+                                '<label class="form-check-label" for="flexSwitchCheckDefault"> Refusé</label>'+
+                            '</div>';
+                        }
+                    }
+
+                }
+
 
             ],
             columnDefs: [
@@ -218,25 +244,7 @@
                     "searchable": true,
 
 
-                // if(etat_conge.etat_conge == 'En attente'){
-                //     <div class="form-check form-switch">
-                //         <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
-                //         <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                //     </div>
-                // }else if(etat_conge.etat_conge == 'Refusé'){
-                //     <div class="form-check form-switch">
-                //         <i class='bx bx-x-circle fs-5' style='color:var(--bs-red)'></i>
-                //         <label class="form-check-label" for="flexSwitchCheckDefault">Refusé</label>
-                //     </div>
-                // }else if(etat_conge.etat_conge == 'Accordé'){
-                //     <div class="form-check form-switch">
-                //         <span><i class='bx bx-check-circle fs-5' style='color:#85ea87' ></i></span>
-                //         <label class="form-check-label" for="flexSwitchCheckDefault">Accordé</label>
-                //     </div>
-                // }
-
                 }
-
 
             ],
 
@@ -245,6 +253,8 @@
 
 
         });
+
+
          $('#btnSearch').on('click',function(e){
 
             e.preventDefault();
