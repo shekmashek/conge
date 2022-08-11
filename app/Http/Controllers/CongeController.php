@@ -31,12 +31,20 @@ class CongeController extends Controller
 
         // en prenant compte les heures non valides (ex: 1er janvier)
         // utilisation de la fonction getWorkingHours dans Helpers.php
-        list($worktime) = getWorkingHours($debut,$fin);
+        list($worktime) = getWorkingHours($debut,$fin,$conge->employe->heure_entree, $conge->employe->heure_sortie);
 
         $intervale = DateInterval::createFromDateString($worktime['duration']);
         $nombre_j_travail =intval($worktime['dt']/8);
         $hours=$intervale->h;
 
+
+        if ($conge->cumul_perso) {
+            $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
+        } else if(!$conge->cumul_perso && $conge->type_conge->max_duration) {
+            $cumul_perso=DateInterval::createFromDateString($conge->type_conge->max_duration);
+        } else {
+            $cumul_perso=null;
+        }
 
         // puisqu'un journée de travail est de 8 heures, le nombre d'heure restant ne peut dépasser 8
         // 8 heures = 1 jour de travail.
@@ -50,22 +58,21 @@ class CongeController extends Controller
         if ($hours >= 4 && $hours < 8) {
             $d=0.5;
             $nbr_jour=$nombre_j_travail+$d;
-            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days 12 hours'));
+            $nouveau_cumul=subDateInterval($cumul_perso, DateInterval::createFromDateString($nombre_j_travail.' days 12 hours'));
 
         } else if($hours < 4) {
             // si le nombre d'heure est inférieur à 4 : on ne compte pas ces heure
             // nombre de jour de travail = nombre d'heure / 8.
             $nbr_jour=intval($worktime['dt']/8);
-            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbr_jour.' days'));
+            $nouveau_cumul=subDateInterval($cumul_perso, DateInterval::createFromDateString($nbr_jour.' days'));
         } else if($hours >= 8) {
             // si le nombre d'heures restant est de 8 : on divise l'heure totale par 8
             // ce qui donne un nombre de jour entier.
             // +8 h de travail ne peut arriver ( 08:00 - 17:00 )
             $nbr_jour=round($worktime['dt']/8);
-            $nouveau_cumul=subDateInterval($conge->cumul_perso, DateInterval::createFromDateString($nbr_jour.' days'));
+            $nouveau_cumul=subDateInterval($cumul_perso, DateInterval::createFromDateString($nbr_jour.' days'));
         }
 
-        $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
 
         // changer les info du congé acctépté :
         // etat 1 : accepté
@@ -107,9 +114,17 @@ class CongeController extends Controller
         $debut=new DateTime($conge->debut);
         $fin=new DateTime($conge->fin);
 
-        list($worktime) = getWorkingHours($debut,$fin);
+        list($worktime) = getWorkingHours($debut,$fin, $conge->employe->heure_entree, $conge->employe->heure_sortie);
 
-        $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
+
+        if ($conge->cumul_perso) {
+            $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
+        } else if(!$conge->cumul_perso && $conge->type_conge->max_duration) {
+            $cumul_perso=DateInterval::createFromDateString($conge->type_conge->max_duration);
+        } else {
+            $cumul_perso=null;
+        }
+
 
         Conge::where('id',$conge_id)->update([
             'etat_conge_id'=>2,

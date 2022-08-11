@@ -6,7 +6,13 @@ use Cmixin\BusinessTime;
 
 
 function addDateInterval($interval, $ajout) {
-    $interval=DateInterval::createFromDateString($interval);
+
+    if(gettype($interval)=='string') {
+        $interval=DateInterval::createFromDateString($interval);
+    } else {
+        $interval=DateInterval::createFromDateString($interval->format("%y years %m months %D days %H hours %I minutes %s seconds"));
+    }
+
     if(gettype($ajout)=='string') {
         $ajout=DateInterval::createFromDateString($ajout);
     } else {
@@ -20,7 +26,13 @@ function addDateInterval($interval, $ajout) {
 
 }
 function subDateInterval($interval1, $retrait) {
-    $interval1=DateInterval::createFromDateString($interval1);
+
+    if(gettype($interval1)=='string') {
+        $interval1=DateInterval::createFromDateString($interval1);
+    } else {
+        $interval1=DateInterval::createFromDateString($interval1->format("%y years %m months %D days %H hours %I minutes %s seconds"));
+    }
+
     if(gettype($retrait)=='string') {
         $retrait=DateInterval::createFromDateString($retrait);
     } else {
@@ -36,14 +48,24 @@ function subDateInterval($interval1, $retrait) {
 }
 
 
-function getWorkingHours($start,$end)
+// Calcule de nombre d'heure de travail en prenant un heure d'entré et une heure de sortie.
+function getWorkingHours($start,$end,$heure_entree,$heure_sortie)
 {
+
+    // format $heure_entree to H:i
+    $heure_entree=Carbon::parse($heure_entree);
+    $heure_entree=$heure_entree->format('H:i');
+    // format $heure_sortie to H:i
+    $heure_sortie=Carbon::parse($heure_sortie);
+    $heure_sortie=$heure_sortie->format('H:i');
+
+
     BusinessTime::enable(Carbon::class, [
-        'monday' => ['08:00-12:00', '13:00-17:00'],
-        'tuesday' => ['08:00-12:00', '13:00-17:00'],
-        'wednesday' => ['08:00-12:00', '13:00-17:00'],
-        'thursday' => ['08:00-12:00', '13:00-17:00'],
-        'friday' => ['08:00-12:00', '13:00-17:00'],
+        'monday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
+        'tuesday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
+        'wednesday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
+        'thursday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
+        'friday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
         'saturday' => [],
         'sunday' => [],
         'exceptions' => [
