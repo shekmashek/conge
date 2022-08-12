@@ -16,6 +16,8 @@
 <div class="comtainer mt-5">
 
 
+
+
     <table id="liste_en_attente" class="table table-striped" style="width:100%">
         <thead>
             <tr>
@@ -30,56 +32,8 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @forelse ($conges_en_attente as $conge)
-            <tr data-conge-id="{{ $conge->id }}">
-                <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
-                <td>{{ $conge->type_conge->type_conge }}</td>
-                <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
-                <td>{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
-                <td>{{ $conge->j_utilise }}</td>
-                <td>{{ $conge->motif }}</td>
-                <td>
-                    @if ($conge->etat_conge->id == 3)
-                    <div class="form-check form-switch">
-                        <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
-                    </div>
-                    @elseif ($conge->etat_conge_id == 2)
 
-                    <div class="form-check form-switch">
-                        <i class='bx bx-x-circle fs-5' style='color:var(--bs-red)'></i>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Refusé</label>
-                    </div>
-                    @elseif ($conge->etat_conge_id == 1)
-                    <div class="form-check form-switch">
-                        <span><i class='bx bx-check-circle fs-5' style='color:#85ea87' ></i></span>
-                        <label class="form-check-label" for="flexSwitchCheckDefault">Accordé</label>
-                    </div>
-                    @endif
-                </td>
 
-                <td>
-                    <div class="dropdown dropstart">
-                        <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class='bx bx-dots-vertical-rounded'></i>
-                        </button>
-                        <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
-                          <li><button class="dropdown-item" type="button">Accepter</button></li>
-                          <li><button class="dropdown-item" type="button">Refuser</button></li>
-                        </ul>
-                      </div>
-                </td>
-
-            </tr>
-            @empty
-
-            <tr>
-                <td class="text-center" colspan="8">
-                    <span>Aucun congé en attente</span>
-                </td>
-            </tr>
-
-            @endforelse --}}
 
         </tbody>
 
@@ -110,13 +64,25 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <button type="submit" class="btn btn-primary">confirmer</button>
+                <button type="submit" id="btnConfirmRefus" class="btn btn-primary">confirmer</button>
             </div>
         </form>
         </div>
       </div>
 </div>
 
+<div class="position-fixed bottom-0 top-75 end-0 translate-middle-y p-3 " style="z-index: 11">
+    <div id="toast_accepter" class="toast hide bg-transparent" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" autoplay></lottie-player>
+        <strong class="me-auto">Congé accepté</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body bg-light">
+
+      </div>
+    </div>
+  </div>
 
 @push('extra-js')
 <script>
@@ -126,13 +92,28 @@
         keyboard: false
     })
 
-    // datatable
+
+    var toast_accepter = new bootstrap.Toast(document.getElementById('toast_accepter'), {
+        autohide: true,
+        delay: 5000,
+        animation: true,
+        autohide: true,
+        title: 'OK',
+        body: 'Congé accepté',
+
+    });
+
+    $('#liveToastBtn').click(function() {
+        toast_accepter.show();
+    });
+
+    // accepter demande conge : refresh du datatable en ajax
     function accepter_conge(id){
 
         var url = "conge.accepter_demande";
         var conge_id = id;
 
-        alert('Accepter id '+conge_id);
+        // alert('Accepter id '+conge_id);
         $.ajax({
                 url: url,
                 type: 'GET',
@@ -144,6 +125,11 @@
                 success: function (response) {
                     console.log(response);
                     // location.reload();
+
+                    // fill the toast_accepter toast-body
+                    $('#toast_accepter .toast-body').html('Congé de '+ response.employe +' accepté');
+
+                    toast_accepter.show();
                     $('#liste_en_attente').DataTable().ajax.reload();
 
                 },
@@ -154,15 +140,47 @@
     }
 
 
+    // refuser le congé : renvoie sur un formulaire de confirmation pour donnér un retour.
     function refuser_conge(id){
         var conge_id = id;
 
-        alert('Refuser id '+conge_id);
+        // alert('Refuser id '+conge_id);
         var conge_id_modal = $('#refuser_conge_id').text(conge_id);
         var id_conge_modal = $('#id_conge');
         id_conge_modal.val(conge_id);
         refuser_conge_modal.show();
+
     }
+
+    // prevent page refresh when submitting formulaire #refuser_conge
+    // $('#btnConfirmRefus').click(function(e){
+    //     e.preventDefault();
+    //     var url = "conge.refuser_demande";
+
+    //     $.ajax({
+    //             url: url,
+    //             type: 'GET',
+    //             data: {
+    //                 conge_id: conge_id,
+    //                 // action: action,
+    //             },
+    //             dataType: 'json',
+    //             success: function (response) {
+    //                 console.log(response);
+    //                 // location.reload();
+
+    //                 // fill the toast_accepter toast-body
+    //                 $('#toast_accepter .toast-body').html('Congé refusé');
+    //                 refuser_conge_modal.hide();
+    //                 toast_accepter.show();
+    //                 $('#liste_en_attente').DataTable().ajax.reload();
+
+    //             },
+    //             error: function (error) {
+    //                 console.error(error);
+    //             }
+    //         });
+    // });
 
 
     $(document).ready(function () {
@@ -254,50 +272,6 @@
                 }
             ],
 
-        });
-
-
-        // accepter/refuser
-        $('.dropdown-item').on('click', function () {
-
-            var conge_id = $(this).closest('div').data('conge-id');
-            var action = $(this).text();
-
-            if (action == 'Accepter') {
-                alert('Accepter id '+conge_id);
-                var url = "conge.accepter_demande";
-            } else if (action == 'Refuser') {
-                alert('Refuser'+ conge_id);
-                // var url = "conge.refuser_demande";
-                var conge_id_modal = $('#refuser_conge_id').text(conge_id);
-                var id_conge_modal = $('#id_conge');
-                id_conge_modal.val(conge_id);
-                refuser_conge_modal.show();
-
-            }
-
-            if (url) {
-                $.ajax({
-                url: url,
-                type: 'GET',
-                data: {
-                    conge_id: conge_id,
-                    // action: action,
-                },
-                dataType: 'json',
-                success: function (response,e) {
-                    console.log(response);
-                    // location.reload();
-                    e.preventDefault();
-                    table.draw();
-                    alert('congé validé');
-
-                },
-                error: function (error) {
-                    console.error(error);
-                }
-            });
-            }
         });
 
 

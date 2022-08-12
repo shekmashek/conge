@@ -81,6 +81,7 @@ class CongeController extends Controller
         // restant garde le nombre et cumul_perso varie selon les soldes de congé.
         // j_utilise : nombre de jour ( 1/0.5/5.5 ) utilisé à la demande : 1 ou une demi-journée.
         Conge::where('id',$conge_id)->update([
+
             'etat_conge_id'=>1,
             'interval' => $worktime['duration'],
             'duree_conge'=> $worktime['dt']*60, // durée en minute
@@ -90,9 +91,10 @@ class CongeController extends Controller
 
         ]);
 
-        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
+        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
         return response()->json([
+            'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
             'nbr_jour'=>$nbr_jour,
             'nbr_heure'=>$worktime['dt'],
             'worktime'=>$worktime['duration'],
@@ -148,6 +150,12 @@ class CongeController extends Controller
                 return redirect()->back();
             }
 
+    }
+
+    public function congeValideAPI()
+    {
+        $conges = Conge::all();
+        return response()->json($conges);
     }
 
 
