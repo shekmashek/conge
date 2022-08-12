@@ -55,9 +55,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
     Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
-
+    Route::get('/listeConge', [ManagerController::class, 'listeConge'])->name('listeConge');
     Route::get('/conge.accepter_demande', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
-    Route::get('/conge.refuser_demande', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
+    Route::post('/conge.refuser_demande', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
 
 });
 

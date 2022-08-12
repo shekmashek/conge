@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreignId('employe_id')->onUpdate('cascade')->onDelete('cascade');
             $table->datetime('debut')->nullable();
             $table->datetime('fin')->nullable();
-            $table->string('intervale')->comment('duree en string DateInterval')->nullable();
+            $table->string('interval')->comment('duree en string DateInterval')->nullable();
             $table->integer('duree_conge')->comment('durée en minute')->nullable();
 
             $table->text('motif')->nullable();
