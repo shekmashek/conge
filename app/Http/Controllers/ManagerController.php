@@ -26,26 +26,28 @@ class ManagerController extends Controller
         if ($request->ajax()) {
             $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')->where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
-            $conges_en_attente= DataTables::of($conges_en_attente)
-                                ->toJson();
-
-            return $conges_en_attente;
+            return DataTables::of($conges_en_attente)
+                ->addColumn('action', function($s){
+                    $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
+                                <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+                                    <li><button onclick="accepter_conge('.$s->id.');"  class="dropdown-item btnAccepter" type="button" >Accepter</button></li>
+                                    <li><button onclick="refuser_conge('.$s->id.');" class="dropdown-item btnRefuser" type="button" onclick="">Refuser</button></li>
+                                </ul>
+                            </div>';
+                    return $r;
+                })
+                // ->toJson()
+                ->rawColumns(['action'])
+                ->make(true);
+            // return $conges_en_attente;
         }
 
         return view('manager.home_manager', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
     }
 
-    public function listeCongeEnAttente(Request $request)
-    {
-        if ($request->ajax()) {
-            $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')->where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-
-            $conges_en_attente= DataTables::of($conges_en_attente)
-                                ->toJson();
-
-            return $conges_en_attente;
-        }
-    }
 
     public function listeConge(Request $request)
     {

@@ -30,7 +30,7 @@
             </tr>
         </thead>
         <tbody>
-            @forelse ($conges_en_attente as $conge)
+            {{-- @forelse ($conges_en_attente as $conge)
             <tr data-conge-id="{{ $conge->id }}">
                 <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
                 <td>{{ $conge->type_conge->type_conge }}</td>
@@ -73,14 +73,13 @@
             </tr>
             @empty
 
-            {{-- <-- Provoque une erreur de jquery datatable à cause du nombre de colone --> --}}
             <tr>
                 <td class="text-center" colspan="8">
                     <span>Aucun congé en attente</span>
                 </td>
             </tr>
 
-            @endforelse
+            @endforelse --}}
 
         </tbody>
 
@@ -128,17 +127,193 @@
     })
 
     // datatable
+    function accepter_conge(id){
+
+        var url = "conge.accepter_demande";
+        var conge_id = id;
+
+        alert('Accepter id '+conge_id);
+        $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    conge_id: conge_id,
+                    // action: action,
+                },
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    // location.reload();
+                    $('#liste_en_attente').DataTable().ajax.reload();
+
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+    }
+
+
+    function refuser_conge(id){
+        var conge_id = id;
+
+        alert('Refuser id '+conge_id);
+        var conge_id_modal = $('#refuser_conge_id').text(conge_id);
+        var id_conge_modal = $('#id_conge');
+        id_conge_modal.val(conge_id);
+        refuser_conge_modal.show();
+    }
+
+
     $(document).ready(function () {
+
         var table = $('#liste_en_attente').DataTable({
-            responsive: true,
-            language: {
-                    url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
+            serverSide: true,
+            processing: true,
+            ajax: {
+                url: "{{ route('home_manager') }}",
+                data: function (d) {
+
+                }
             },
+            responsive: true,
+            columns: [
+                {
+                    data: 'employe.nom_emp'||'employe.prenom_emp',
+                    name: 'employe.nom_emp'||'employe.prenom_emp',
+                    render: function (data, type, row) {
+                        return row.employe.nom_emp + ' ' + row.employe.prenom_emp;
+                    }
+
+
+                },
+                {data: 'type_conge.type_conge'},
+                {data: 'debut'},
+                {data: 'fin'},
+                {data: 'j_utilise'},
+                {data: 'motif'},
+                {
+                    data: 'etat_conge.etat_conge',
+                    render: function (data, type, row) {
+                        if (row.etat_conge.id == 1) {
+                            return '<div class="input-group border-0 d-flex justify-content-around">'+
+                                '<span class="input-group-text border-0 bg-transparent"><i class="bx bx-check-circle fs-5" style="color:#85ea87" ></i></span>'+
+                                '<label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label>'+
+                                '</div>'
+                            } else if (row.etat_conge.id == 2) {
+                                return '<div class="input-group d-flex justify-content-around"><span class="input-group-text border-0 bg-transparent"><i class="bx bx-x-circle fs-5 " style="color:var(--bs-red)"></i></span><label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label></div>';
+                        } else if (row.etat_conge.id == 3) {
+                            return '<div class="input-group d-flex justify-content-around"><span class="input-group-text border-0 bg-transparent"><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span><label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label></div>'
+                        }
+                    }
+                },
+
+
+
+                {
+                    data: 'action'
+                }
+
+            ],
+            columnDefs:[
+                {
+                  "targets": [ 0 ],
+                    "visible": true,
+                    "searchable": true
+
+                },
+                {
+                    "targets": [ 1 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 2 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 3 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 4 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 5 ],
+                    "visible": true,
+                    "searchable": true
+                },
+                {
+                    "targets": [ 6 ],
+                    "visible": true,
+                    "searchable": true
+                }
+            ],
+
         });
 
-        new $.fn.dataTable.FixedHeader( table );
 
+        // accepter/refuser
+        $('.dropdown-item').on('click', function () {
+
+            var conge_id = $(this).closest('div').data('conge-id');
+            var action = $(this).text();
+
+            if (action == 'Accepter') {
+                alert('Accepter id '+conge_id);
+                var url = "conge.accepter_demande";
+            } else if (action == 'Refuser') {
+                alert('Refuser'+ conge_id);
+                // var url = "conge.refuser_demande";
+                var conge_id_modal = $('#refuser_conge_id').text(conge_id);
+                var id_conge_modal = $('#id_conge');
+                id_conge_modal.val(conge_id);
+                refuser_conge_modal.show();
+
+            }
+
+            if (url) {
+                $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    conge_id: conge_id,
+                    // action: action,
+                },
+                dataType: 'json',
+                success: function (response,e) {
+                    console.log(response);
+                    // location.reload();
+                    e.preventDefault();
+                    table.draw();
+                    alert('congé validé');
+
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+            }
+        });
+
+
+         $('#btnSearch').on('click',function(e){
+            e.preventDefault();
+            table.draw();
+        })
+        //---------refresh datatable after search date to date---------------
+        $('#refresh').on('click',function(e){
+            $("input[name='debut']").val(" ");
+            $("input[name='fin']").val(" ");
+            e.preventDefault();
+            table.draw();
+        })
     });
+
 
 
     $('#ex1-tab-2').on('click', function () {
@@ -185,7 +360,7 @@
         var year_calendar = new Calendar('#year_calendar',{
 
             dataSource: events,
-            enableContextMenu: true,
+            enableContextMenu: false,
             contextMenuItems:[
                 {
                     text: 'Aller à la date',
@@ -244,42 +419,6 @@
 
 
 
-    // accepter/refuser
-    $('.dropdown-item').on('click', function () {
-        var conge_id = $(this).closest('tr').data('conge-id');
-        var action = $(this).text();
-
-        if (action == 'Accepter') {
-            alert('Accepter id '+conge_id);
-            var url = "conge.accepter_demande";
-        } else if (action == 'Refuser') {
-            alert('Refuser');
-            // var url = "conge.refuser_demande";
-            var conge_id_modal = $('#refuser_conge_id').text(conge_id);
-            var id_conge_modal = $('#id_conge');
-            id_conge_modal.val(conge_id);
-            refuser_conge_modal.show();
-        }
-
-        if (url) {
-            $.ajax({
-            url: url,
-            type: 'GET',
-            data: {
-                conge_id: conge_id,
-                // action: action,
-            },
-            dataType: 'json',
-            success: function (response) {
-                console.log(response);
-                // location.reload();
-            },
-            error: function (error) {
-                console.error(error);
-            }
-        });
-        }
-    });
 
 </script>
 @endpush

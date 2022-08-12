@@ -90,7 +90,7 @@ class CongeController extends Controller
 
         ]);
 
-        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
+        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
         return response()->json([
             'nbr_jour'=>$nbr_jour,

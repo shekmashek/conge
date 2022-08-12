@@ -30,8 +30,57 @@
             </tr>
         </thead>
         <tbody>
+            @forelse ($conges_en_attente as $conge)
+            <tr data-conge-id="{{ $conge->id }}">
+                <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
+                <td>{{ $conge->type_conge->type_conge }}</td>
+                <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
+                <td>{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
+                <td>{{ $conge->j_utilise }}</td>
+                <td>{{ $conge->motif }}</td>
+                <td>
+                    @if ($conge->etat_conge->id == 3)
+                    <div class="form-check form-switch">
+                        <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">En attente</label>
+                    </div>
+                    @elseif ($conge->etat_conge_id == 2)
 
+                    <div class="form-check form-switch">
+                        <i class='bx bx-x-circle fs-5' style='color:var(--bs-red)'></i>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Refusé</label>
+                    </div>
+                    @elseif ($conge->etat_conge_id == 1)
+                    <div class="form-check form-switch">
+                        <span><i class='bx bx-check-circle fs-5' style='color:#85ea87' ></i></span>
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Accordé</label>
+                    </div>
+                    @endif
+                </td>
 
+                <td>
+                    <div class="dropdown dropstart">
+                        <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class='bx bx-dots-vertical-rounded'></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+                          <li><button class="dropdown-item" type="button">Accepter</button></li>
+                          <li><button class="dropdown-item" type="button">Refuser</button></li>
+                        </ul>
+                      </div>
+                </td>
+
+            </tr>
+            @empty
+
+            {{-- <-- Provoque une erreur de jquery datatable à cause du nombre de colone --> --}}
+            <tr>
+                <td class="text-center" colspan="8">
+                    <span>Aucun congé en attente</span>
+                </td>
+            </tr>
+
+            @endforelse
 
         </tbody>
 
@@ -82,107 +131,12 @@
     $(document).ready(function () {
         var table = $('#liste_en_attente').DataTable({
             responsive: true,
-            serverSide: true,
-            processing: true,
             language: {
                     url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
             },
-
-            ajax: {
-                url: "{{ route('CongeEnAttente') }}",
-                type: 'GET',
-                data: function (d) {
-
-                }
-            },
-            columns: [
-                {
-                    data: 'employe.nom_emp'||'employe.prenom_emp',
-                    name: 'employe.nom_emp'||'employe.prenom_emp',
-                    render: function (data, type, row) {
-                        return row.employe.nom_emp + ' ' + row.employe.prenom_emp;
-                    }
-
-
-                },
-                {data: 'type_conge.type_conge'},
-                {data: 'debut'},
-                {data: 'fin'},
-                {data: 'j_utilise'},
-                {data: 'motif'},
-                {
-                    data: 'etat_conge.etat_conge',
-                    render: function (data, type, row) {
-                        if (row.etat_conge.id == 1) {
-                            return '<div class="input-group border-0 d-flex justify-content-around">'+
-                                '<span class="input-group-text border-0 bg-transparent"><i class="bx bx-check-circle fs-5" style="color:#85ea87" ></i></span>'+
-                                '<label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label>'+
-                                '</div>'
-                        } else if (row.etat_conge.id == 2) {
-                            return '<div class="input-group d-flex justify-content-around"><span class="input-group-text border-0 bg-transparent"><i class="bx bx-x-circle fs-5 " style="color:var(--bs-red)"></i></span><label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label></div>';
-                        } else if (row.etat_conge.id == 3) {
-                            return '<div class="input-group d-flex justify-content-around"><span class="input-group-text border-0 bg-transparent"><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span><label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label></div>'
-                        }
-                    }
-                },
-                {
-                    data: 'id',
-                    render: function (data, type, row) {
-                        return '<div class="dropdown dropstart"  data-conge-id="'+row.id+'">'+
-                                    '<button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">'+
-                                        '<i class="bx bx-dots-vertical-rounded"></i>'+
-                                    '</button>'+
-                                    '<ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">'+
-                                    '<li><button class="dropdown-item" type="button">Accepter</button></li>'+
-                                    '<li><button class="dropdown-item" type="button">Refuser</button></li>'+
-                                    '</ul>'+
-                                '</div>'
-                    }
-                }
-            ],
-            columnDefs:[
-                {
-                  "targets": [ 0 ],
-                    "visible": true,
-                    "searchable": true
-
-                },
-                {
-                    "targets": [ 1 ],
-                    "visible": true,
-                    "searchable": true
-                },
-                {
-                    "targets": [ 2 ],
-                    "visible": true,
-                    "searchable": true
-                },
-                {
-                    "targets": [ 3 ],
-                    "visible": true,
-                    "searchable": true
-                },
-                {
-                    "targets": [ 4 ],
-                    "visible": true,
-                    "searchable": true
-                },
-                {
-                    "targets": [ 5 ],
-                    "visible": true,
-                    "searchable": true
-                },
-                {
-                    "targets": [ 6 ],
-                    "visible": true,
-                    "searchable": true
-                }
-            ]
-
         });
 
         new $.fn.dataTable.FixedHeader( table );
-
 
     });
 
@@ -292,7 +246,7 @@
 
     // accepter/refuser
     $('.dropdown-item').on('click', function () {
-        var conge_id = $(this).closest('div').data('conge-id');
+        var conge_id = $(this).closest('tr').data('conge-id');
         var action = $(this).text();
 
         if (action == 'Accepter') {
