@@ -55,23 +55,37 @@ class RHController extends Controller
 //-----------affiche le calendrier full calendar------------------------------------------------------
 
     public function calendrier(){
-         $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+         $conges=Conge::with('etat_conge','employe')->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
          foreach ($conges as $conge) {
-            $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
-            $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
+            // 1 = accordé
+            //2 = refusé
+            //3 = en attente
 
-            $events[]=array(
-            'title'=>'Conge',
-            'start'=>$conge->debut,
-            'end'=>$conge->fin,
-            'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
+            if ($conge->etat_conge_id == 1 ) {
+                           $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
+                            $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
 
 
-         );
+                            $events[]=array(
+                                'title'=>'Conge',
+                                'start'=>$conge->debut,
+                                'end'=>$conge->fin,
+                                'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
+                                'color'=>$conge->type_conge->couleur,
+                                'etat_conge'=>$conge->etat_conge,
+
+
+                            );
+            }
+
+
+
+
          }
+
 
 
             return view('rh.calendrier_conge', compact('events','conges', 'conges_en_attente', 'nbr_en_attente'));
