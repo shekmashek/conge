@@ -8,6 +8,7 @@ use App\Models\Conge;
 use Illuminate\Http\Request;
 use App\Mail\RefuserCongeMail;
 use App\Mail\AccepterCongeMail;
+use App\Jobs\SendRejectCongeMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Jobs\SendApproveMailCongeJob;
@@ -141,8 +142,8 @@ class CongeController extends Controller
 
         ]);
 
-
-        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
+        SendRejectCongeMail::dispatch($conge,$message);
+        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
 
             if ($request->ajax()) {
                 return response()->json([
