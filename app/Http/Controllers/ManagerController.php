@@ -34,7 +34,8 @@ class ManagerController extends Controller
                                 </button>
                                 <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
                                     <li><button onclick="accepter_conge('.$s->id.');"  class="dropdown-item btnAccepter" type="button" >Accepter</button></li>
-                                    <li><button onclick="refuser_conge('.$s->id.');" class="dropdown-item btnRefuser" type="button" onclick="">Refuser</button></li>
+
+                                    <li><button onclick="show_modal_refus('.$s->id.');" class="dropdown-item btnRefuser" type="button" onclick="">Refuser</button></li>
                                 </ul>
                             </div>';
                     return $r;

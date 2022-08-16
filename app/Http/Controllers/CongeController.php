@@ -8,8 +8,10 @@ use App\Models\Conge;
 use Illuminate\Http\Request;
 use App\Mail\RefuserCongeMail;
 use App\Mail\AccepterCongeMail;
+use App\Jobs\SendRejectCongeMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendApproveMailCongeJob;
 
 class CongeController extends Controller
 {
@@ -91,7 +93,8 @@ class CongeController extends Controller
 
         ]);
 
-        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
+        SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
+        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
         return response()->json([
             'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
@@ -112,6 +115,8 @@ class CongeController extends Controller
         $conge_id=$request->conge_id;
         $message=$request->message;
         $conge=Conge::where('id', $conge_id)->first();
+
+
 
         $debut=new DateTime($conge->debut);
         $fin=new DateTime($conge->fin);
@@ -137,11 +142,12 @@ class CongeController extends Controller
 
         ]);
 
-
-        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
+        SendRejectCongeMail::dispatch($conge,$message);
+        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
 
             if ($request->ajax()) {
                 return response()->json([
+                    'message'=>'blabla',
                     'worktime'=>$worktime['duration'],
                     'nbr_heure'=>$worktime['dt'],
                     'cumul_perso'=>$cumul_perso,
@@ -154,9 +160,37 @@ class CongeController extends Controller
 
     public function congeValideAPI()
     {
-        $conges = Conge::all();
+        $conges = Conge::where('etat_conge_id',1)->get();
         return response()->json($conges);
     }
+
+    public function congeRefuseAPI()
+    {
+        $conges = Conge::where('etat_conge_id',2)->get();
+        return response()->json($conges);
+    }
+
+    public function congeEnAttenteAPI()
+    {
+        $conges = Conge::where('etat_conge_id',3)->get();
+        return response()->json($conges);
+    }
+
+    public function congeNonPayeEmployeAPI($id)
+    {
+        if ($id) {
+            $conges = Conge::where('employe_id',$id)->where('type_conge_id',8)
+            ->orWhere('type_conge_id',7)
+            ->get();
+        } else {
+            $conges = Conge::where('type_conge_id',8)
+            ->orWhere('type_conge_id',7)
+            ->get();
+        }
+
+        return response()->json($conges);
+    }
+
 
 
     /**
