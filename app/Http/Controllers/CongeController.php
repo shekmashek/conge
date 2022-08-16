@@ -10,6 +10,7 @@ use App\Mail\RefuserCongeMail;
 use App\Mail\AccepterCongeMail;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
+use App\Jobs\SendApproveMailCongeJob;
 
 class CongeController extends Controller
 {
@@ -91,7 +92,8 @@ class CongeController extends Controller
 
         ]);
 
-        Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
+        SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
+        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
         return response()->json([
             'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,

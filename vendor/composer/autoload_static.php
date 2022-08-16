@@ -672,6 +672,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Jobs\\SendApproveMailCongeJob' => __DIR__ . '/../..' . '/app/Jobs/SendApproveMailCongeJob.php',
         'App\\Mail\\AccepterCongeMail' => __DIR__ . '/../..' . '/app/Mail/AccepterCongeMail.php',
         'App\\Mail\\CongeMail' => __DIR__ . '/../..' . '/app/Mail/CongeMail.php',
         'App\\Mail\\RefuserCongeMail' => __DIR__ . '/../..' . '/app/Mail/RefuserCongeMail.php',
