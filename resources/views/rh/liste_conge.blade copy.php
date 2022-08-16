@@ -25,7 +25,6 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <button id="btnSearch" class="btn" name="search" title="Search"><box-icon name='search-alt'></box-icon></button>
-                                    <button id="refresh" class="btn" name="refresh" title="refresh"><box-icon name='refresh'></box-icon></button>
                                 </div>
                             </div>
                         </div>
@@ -132,18 +131,6 @@
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/responsive.bootstrap.min.js"></script>
 
 
-<style>
-    .bx-check-circle:before {
-    padding: 5px;
-}
-    .bx-loader:before {
-    padding: 5px;
-}
-    .bx-x-circle:before {
-    padding: 5px;
-}
-</style>
-
 @endpush
 
 @push('extra-js')
@@ -152,54 +139,37 @@
 
         var table = $('#liste_conge').DataTable({
             serverSide: true,
+            sorting:false,
             processing: true,
-            ajax: {
-                url: "{{ route('home_RH') }}",
-                data: function (d) {
-                    d.debut = $("input[name='debut']").val();
-                    d.fin = $("input[name='fin']").val();
-                }
-            },
+            ajax:"{{ route('home_RH') }}",
             responsive: true,
-
             columns: [
+
+
                 { data: 'employe.nom_emp'},
                 { data: 'employe.prenom_emp'},
+                // {
+                //     data: 'employe',
+                //     render: function (data, type, row) {
+                //         return data.nom_emp + ' ' + data.prenom_emp;
+                //     }
+
+                // },
                 { data: 'type_conge.type_conge' },
                 { data: 'debut' },
                 { data: 'fin' },
                 { data: 'j_utilise' },
                 { data: 'motif' },
-                {
-                    data: 'etat_conge.etat_conge',
-                    render : function(data, type, row){
-                        if (row.etat_conge_id == 3) {
-                            return '<div class="form-check form-switch">'+
-                                '<span><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span>'+
-                                '<label class="form-check-label" for="flexSwitchCheckDefault"> En attente</label>'+
-                            '</div>';
-                        } else if (row.etat_conge_id == 2) {
-                            return '<div class="form-check form-switch">'+
-                                '<span><i class="bx bx-check-circle fs-5" style="color:#85ea87"></i></span>'+
-                                '<label class="form-check-label" for="flexSwitchCheckDefault"> Accordé</label>'+
-                            '</div>';
-                        } else if (row.etat_conge_id == 1) {
-                            return '<div class="form-check form-switch">'+
-                                '<i class="bx bx-x-circle fs-5" style="color:var(--bs-red)"></i>'+
-                                '<label class="form-check-label" for="flexSwitchCheckDefault"> Refusé</label>'+
-                            '</div>';
-                        }
-                    }
-
-                }
-
-
+                { data: 'etat_conge.etat_conge' },
             ],
             columnDefs: [
                 {
                   "targets": [ 0 ],
                     "visible": true,
                     "searchable": true
+                    // render: function ( data, type, row ) {
+                    //     return data +' '+ row.employe.prenom_emp +' ';
+                    // }
 
                 },
                 {
@@ -232,17 +202,10 @@
                     "searchable": true
 
                 },
-                        {
+                {
                     "targets": [ 6 ],
                     "visible": true,
                     "searchable": true
-
-                },
-                {
-                    "targets": [ 7 ],
-                    "visible": true,
-                    "searchable": true,
-
 
                 }
 
@@ -253,25 +216,23 @@
 
 
         });
+         $('#btnSearch').on('click',function(){
+            var debut = $("input[name='debut']").val();
+            var fin = $("input[name='fin']").val();
+            $.ajax({
+                type: "GET",
+                url: "{{ route('recherche_conges') }}",
+                data: {
+                    debut: debut,
+                    fin: fin,
+                },
+                dataType: "json",
+                success: function (response) {
+                   table.draw();
+                },
 
+            });
 
-         $('#btnSearch').on('click',function(e){
-
-            e.preventDefault();
-            table.draw();
-
-
-        })
-
-
-        //---------refresh datatable after search date to date---------------
-
-        $('#refresh').on('click',function(e){
-            $("input[name='debut']").val(" ");
-            $("input[name='fin']").val(" ");
-
-            e.preventDefault();
-            table.draw();
         })
 
     });

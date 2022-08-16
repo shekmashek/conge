@@ -117,7 +117,9 @@
 
     var currentYear = new Date().getFullYear();
 
-    var events = {!! json_encode($conges, JSON_HEX_TAG) !!};
+    var events = {!! json_encode($calendar, JSON_HEX_TAG) !!};
+
+
 
 
     events.forEach(element => {
@@ -138,9 +140,6 @@
     });
 
 
-    // events.forEach(element => {
-    //     console.log(element);
-    // });
 
     document.addEventListener('DOMContentLoaded', function() {
 
@@ -204,37 +203,6 @@
 
             });
     });
-
-
-
-    //         fetchDataAtt();
-    //    function fetchDataAtt(){
-    //     $.ajax({
-    //         type: "GET",
-    //         url: "/fetchDataAtt",
-    //         dataType: "json",
-    //         success: function (response) {
-    //             console.log(response.conges);
-    //             $('#liste_en_attente').children('tbody').html("");
-    //             $('#liste_en_attente').children().css('color', 'red');
-    //             $.each(response.conges, function (key, item) {
-    //                 $('tbody').append(
-    //                         '<tr>\
-    //                             <td>'+item.employe.nom_emp+' ' +item.employe.prenom_emp+'</td>\
-    //                             <td>'+item.type_conge.type_conge+'</td>\
-    //                             <td>'+item.debut+'</td>\
-    //                             <td>'+item.fin+'</td>\
-    //                             <td>'+item.duree_conge+'</td>\
-    //                             <td>'+item.motif+'</td>\
-    //                             <td>'+item.etat_conge_id+'</td>\
-    //                         </tr>'
-    //                 );
-    //             });
-    //         }
-    //     });
-    // }
-
-
 
 
 </script>

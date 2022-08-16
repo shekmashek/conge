@@ -29,138 +29,21 @@
 
 
                 <!-- Tabs navs -->
-<ul class="nav nav-tabs mb-3 border-0" id="ex1" role="tablist">
-    </li>
-        <li class="nav-item mx-auto underline_hover" role="presentation">
-            <a href="{{ route('home_RH') }} " class="nav-link d-flex align-items-center fs-4">
-                <i class='bx bx-list-ul fs-2 mt-auto'></i><span>Revenir à la liste</span>
-            </a>
-        </li>
-  </ul>
+            <ul class="nav nav-tabs mb-3 border-0" id="ex1" role="tablist">
+                </li>
+                    <li class="nav-item mx-auto underline_hover" role="presentation">
+                        <a href="{{ route('home_RH') }} " class="nav-link d-flex align-items-center fs-4">
+                            <i class='bx bx-list-ul fs-2 mt-auto'></i><span>Revenir à la liste</span>
+                        </a>
+                    </li>
+            </ul>
 
             <div class="col-md-10 m-50 my-2 mx-auto">
                 <div id='planning_conge'></div>
             </div>
 
-            {{-- afficher les details d'un event --}}
-            {{-- <div id="detail_offcanvas" class="offcanvas offcanvas-end" tabindex="-1"
-             data-bs-scroll="true" data-bs-backdrop="true" aria-labelledby="offcanvasWithBothOptionsLabel">
-              <div class="offcanvas-header" id="event_header">
-
-
-                <h5 id="event_title"></h5>
-                <span class="input-group-text border-0 bg-light fs-2" id="event_to_pdf"
-                data-bs-toggle="tooltip" data-bs-placement="bottom" title="Télécharger en pdf">
-
-                </span>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-              </div>
-
-
-              <div class="mb-1 rounded-3 divider"></div>
-
-              <div class="offcanvas-body" id="offcanvas_body">
-
-                <div class="input-group flex-nowrap mb-4">
-                    <span class="input-group-text border-0 bg-light fs-2" id="basic-addon_projet"><i class='bx bxs-briefcase text-secondary'></i></span>
-                    <span type="text" id="event_project"
-                    class="form-control mt-1 border-0 bg-light"
-                    aria-label="projet" aria-describedby="basic-addon_projet"></span>
-
-
-                    <input type="text" id="event_type_formation"
-                    class="form-control border-0 background_purple fw-bolder rounded"
-                    placeholder="Type de formation"
-                    aria-label="type_formation" aria-describedby="basic-addon_projet" readonly>
-                </div>
-
-                <div class="input-group mb-4">
-                    <span class="input-group-text border-0 bg-light fs-2" id="addon-wrapping"><i class='bx bxs-buildings text-secondary'></i></span>
-
-                    <span id="event_entreprise" class="form-control border-0 border-bottom mt-1" ></span>
-                  </div>
-                <div class="input-group mb-4" id="event_sessions">
-                    <span class="input-group-text border-0 bg-light fs-2" id="basic-addon_sessions"><i class='bx bxs-calendar-event text-secondary' ></i></span>
-                    <input type="text" id="event_nbr_session"
-                    class="form-control border-0 border-bottom d-block w-auto marge_left-30"
-                    placeholder="Nombre session" aria-label="nbr_session"
-                    aria-describedby="basic-addon_sessions">
-
-                </div>
-                <div class="input-group mb-4">
-                    <span class="input-group-text border-0 bg-light fs-2" id="basic-addon_lieu"><i class='bx bxs-map text-secondary' ></i></span>
-                    <input type="text" id="event_lieu" class="form-control border-0 border-bottom"
-                    placeholder="lieu" aria-label="Place"
-                    aria-describedby="basic-addon_lieu">
-                </div>
-                <div class="input-group mb-4">
-                    <span class="input-group-text border-0 bg-light fs-2" id="basic-addon_of_formateur"><i class='bx bxs-chalkboard text-secondary' ></i></span>
-                    <input type="text" id="event_OF" class="form-control border-0 border-bottom"
-                    placeholder="OF" aria-label="OF"
-                    aria-describedby="basic-addon_of_formateur">
-
-                    <span type="text" id="event_formateur" class="form-control border-0 border-bottom mt-1 hover_purple"
-                        aria-label="Formateur"
-                        aria-describedby="basic-addon_of_formateur">
-                    </span>
-                </div>
-
-
-                <div class="accordion mt-5 input-group" id="materiel_accordion_container">
-                    <label for="materiel_button">
-                        <span class="input-group-text border-0 bg-light fs-2" id="basic-addon_materiel"><i class='bx bxs-wrench text-secondary'></i></span>
-                    </label>
-                    <div class="accordion-item width_80 border-0">
-
-                        <h2 class="form-control accordion-header border-0 border-bottom" id="materiel_heading">
-                            <button class="accordion-button p-2 collapsed" id="materiel_button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#materiel_collapse" aria-expanded="false" aria-controls="materiel_collapse">
-                              Materiel nécessaire
-                            </button>
-                        </h2>
-
-                          <div id="materiel_collapse" class="accordion-collapse collapse border-bottom mb-2" aria-labelledby="headingThree"
-                                data-bs-parent="#materiel_accordion_container">
-                            <div class="accordion-body padding_0">
-                                <div class="accordion accordion-flush px-2" id="materiel_accordion">
-
-                                </div>
-                            </div>
-                          </div>
-
-                    </div>
-                </div>
-
-
-                <div class="accordion mt-5 input-group" id="accordion_container">
-                    <label for="container_button">
-                        <span class="input-group-text border-0 bg-light fs-2" id="basic-addon_participants"><i class='bx bxs-group text-secondary' ></i></span>
-                    </label>
-                    <div class="accordion-item border-0 width_80">
-                        <h2 class="accordion-header border-0 border-bottom" id="headingTwo">
-                            <button class="accordion-button p-2 collapsed" id="container_button" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                              Participants
-                            </button>
-                        </h2>
-
-                          <div id="collapseTwo" class="accordion-collapse collapse border-bottom" aria-labelledby="headingTwp" data-bs-parent="#accordion_container">
-                            <div class="accordion-body padding_0">
-                                <div class="accordion accordion-flush px-2" id="accordionExample">
-
-                                </div>
-                            </div>
-                          </div>
-
-                    </div>
-                </div>
-
-              </div>
-            </div> --}}
 
         </div>
-
-
 
     </div>
 
@@ -172,6 +55,8 @@
             document.addEventListener('DOMContentLoaded', function() {
 
                 var events = {!! json_encode($events, JSON_HEX_TAG) !!};
+
+                console.log(events);
 
                 var calendarEl = document.getElementById('planning_conge');
                 var calendar = new FullCalendar.Calendar(calendarEl,
@@ -210,9 +95,10 @@
                         eventMouseEnter : function(info) {
                             var tipStart = info.event.start.toLocaleTimeString();
                             var tipEnd = info.event.end.toLocaleTimeString();
+                            var etat_conge = info.event.extendedProps.etat_conge.etat_conge;
                             // console.log(tipStart);
                             $(info.el).tooltip({
-                                title: info.event.extendedProps.employe + ' ' + tipStart + ' - ' + tipEnd,
+                                title: info.event.extendedProps.employe +' '+ etat_conge + ' ' + tipStart + ' - ' + tipEnd,
                                 placement: 'top',
                                 trigger: 'hover',
                                 container: 'body',

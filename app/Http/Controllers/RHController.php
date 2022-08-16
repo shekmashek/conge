@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 class RHController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,151 +17,82 @@ class RHController extends Controller
      */
     public function index(Request $request)
     {
-         $conges=Conge::all();
-        foreach ($conges as $conge) {
-            $conge->employe;
-            $conge->type_conge;
-            $conge->etat_conge;
-        }
+        //---------relation eloquent datable---------
+         $conges=Conge::with('employe','type_conge', 'etat_conge');
+
+
+        //---------------------------------------------
         if($request->ajax()) // ajax de la table historique
         {
+            // RECHERCHE AVEC DATES-------------------------------------------
+            if($request->debut && $request->fin)
+            {
+                $conges->whereBetween('debut', [$request->debut, $request->fin]);
+                // $conges = $conges->whereRaw('DATE_FORMAT(debut, "%Y-%m-%d") = \''.$request->debut.'\' AND DATE_FORMAT(fin, "%Y-%m-%d") = \''.$request->fin . '\'');
+            }
+
+
             $alldata = DataTables::of($conges)
-            ->make(true);
+            ->toJson();
             return $alldata;
         }
-        $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        $calendar = Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
-        foreach ($conges as $key => $value) {
+        //--------------relation eloquent calendrier-----------------------
+
+           foreach ($calendar as $key => $value) {
             $value->employe=$value->employe;
+            $value->etat_conge=$value->etat_conge;
         }
 
-        return view('rh.home_rh', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
+
+        return view('rh.home_rh', compact('calendar','conges', 'conges_en_attente', 'nbr_en_attente'));
     }
-
-//----------------------fonction du tableau historique------------------------------------------------------------------------------------------------
-
-    public function fetchData(){
-           $conges=Conge::all();
-        //    foreach ($conges as $conge) {
-        //     $conge->employe;
-        //     $conge->type_conge;
-        //     $conge->etat_conge;
-        // }
-        // return response()->json([
-        //     'conges'=>$conges,
-        // ]);
-
-    }
-
-//----------------------fonction du tableau demande en attente------------------------------------------------------------------------------------------------
-
-    // public function fetchDataAtt(){
-    //        $conges=Conge::all();
-    //        foreach ($conges as $conge) {
-    //         $conge->employe;
-    //         $conge->type_conge;
-    //         $conge->etat_conge;
-    //     }
-    //     return response()->json([
-    //         'conges'=>$conges,
-    //     ]);
-    // }
-
-
-
 
 
 //-----------affiche le calendrier full calendar------------------------------------------------------
 
     public function calendrier(){
-         $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+         $conges=Conge::with('etat_conge','employe')->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
          foreach ($conges as $conge) {
-            $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
-            $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
+            // 1 = accordé
+            //2 = refusé
+            //3 = en attente
 
-            $events[]=array(
-            'title'=>'Conge',
-            'start'=>$conge->debut,
-            'end'=>$conge->fin,
-            'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
+            if ($conge->etat_conge_id == 1 ) {
+                           $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
+                            $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
 
 
-         );
+                            $events[]=array(
+                                'title'=>'Conge',
+                                'start'=>$conge->debut,
+                                'end'=>$conge->fin,
+                                'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
+                                'color'=>$conge->type_conge->couleur,
+                                'etat_conge'=>$conge->etat_conge,
+
+
+                            );
+            }
+
+
+
+
          }
+
 
 
             return view('rh.calendrier_conge', compact('events','conges', 'conges_en_attente', 'nbr_en_attente'));
 
 
     }
-    //-------------------fonction pour filtrer entre 2 dates dans une recherche --------------------------
 
-    public function filtreDate(Request $req){
-
-        $conges=Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-        $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-        $nbr_en_attente = $conges_en_attente->count();
-
-        //  foreach ($conges as $conge) {
-        //     $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
-        //     $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
-
-        //     $events[]=array(
-        //     'title'=>'Conge',
-        //     'start'=>$conge->debut,
-        //     'end'=>$conge->fin,
-        //     'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
-
-
-        //  );
-        //  }
-
-
-        $debut = strval($req->input('debut'));
-        $fin =strval( $req->input('fin'));
-
-
-        $conge = DB::select('select * from conges where debut >= ? and  debut <= ?', [$debut, $fin]);
-
-        // return view('rh.home_rh', compact('conge'));
-        dd($debut, $fin, $conge);
-        //return redirect()->route('home_RH')->with('conge', $conge);
-        return view('rh.home_rh', compact('conges', 'conge', 'debut', 'fin', 'nbr_en_attente', 'conges_en_attente'));
-
-    }
-
-
-//-------------------fonction pour filtrer entre 2 dates dans une recherche --------------------------
-
-    // public function filtreDate(Request $request){
-    //     $debut = $request->input('debut');
-    //     $fin = $request->input('fin');
-
-    //     $conges=Conge::whereBetween('debut', [$debut, $fin])->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-    //     $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-    //     $nbr_en_attente = $conges_en_attente->count();
-    //     foreach ($conges as $conge) {
-    //         $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
-    //         $conge->fin = date('Y-m-d H:i', strtotime($conge->fin));
-
-    //         $events[]=array(
-    //         'title'=>'Conge',
-    //         'start'=>$conge->debut,
-    //         'end'=>$conge->fin,
-    //         'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
-
-    //      );
-    //      }
-    //        dd($debut, $fin, $conges);
-
-    //     // return view('rh.recherche_conges', compact('conges', 'conges_en_attente', 'nbr_en_attente'));
-    //     return redirect()->route('home_RH')->with('conges', $conges);
-    // }
 
 
 
