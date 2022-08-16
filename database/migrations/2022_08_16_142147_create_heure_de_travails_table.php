@@ -13,8 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('heure_de_travails', function (Blueprint $table) {
+        Schema::create('heures_de_travail', function (Blueprint $table) {
             $table->id();
+            $table->string('designation')->comment('Heures de jour ou de nuit');
+            $table->time('heure_debut');
+            $table->time('heure_fin');
+            $table->time('debut_pause')->comment('ex : déjeuner à 12h00');
+            $table->time('fin_pause');
             $table->timestamps();
         });
     }

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\HeureDeTravail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employe extends Model
@@ -20,6 +22,16 @@ class Employe extends Model
     public function conges(): HasMany
     {
         return $this->hasMany(Conge::class, 'employe_id');
+    }
+
+    /**
+
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function heure_de_travail(): BelongsTo
+    {
+        return $this->belongsTo(HeureDeTravail::class, 'heure_de_travail_id');
     }
 
 }

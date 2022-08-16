@@ -72,10 +72,21 @@
 </div>
 
 <div class="position-fixed bottom-0 top-75 end-0 translate-middle-y p-3 " style="z-index: 11">
-    <div id="toast_accepter" class="toast hide bg-transparent" role="alert" aria-live="assertive" aria-atomic="true">
+    <div id="toast_accepter" class="toast hide bg-transparent border-success" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
+        {{-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player> --}}
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_hlq6mcbz.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
         <strong class="me-auto">Congé accepté</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body bg-light">
+
+      </div>
+    </div>
+    <div id="toast_refuser" class="toast hide bg-transparent border-danger" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_nvzik8vy.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
+        <strong class="me-auto">Congé rejeté</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
       <div class="toast-body bg-light">
@@ -102,6 +113,15 @@
         body: 'Congé accepté',
 
     });
+    var toast_refuser = new bootstrap.Toast(document.getElementById('toast_refuser'), {
+        autohide: true,
+        delay: 5000,
+        animation: true,
+        autohide: true,
+        title: 'Not OK',
+        body: 'Congé rejeté',
+
+    });
 
     // accepter demande conge : refresh du datatable en ajax
     function accepter_conge(id){
@@ -121,7 +141,8 @@
                 success: function (response) {
                     console.log(response);
                     // location.reload();
-
+                    $('#toast_accepter .toast-body').html('');
+                    $('#toast_refuser .toast-body').html('');
                     // fill the toast_accepter toast-body
                     $('#toast_accepter .toast-body').html('Congé de '+ response.employe +' accepté');
 
@@ -169,6 +190,13 @@
                 success: function (response) {
                     console.log(response);
                     // location.reload();
+                    $('#toast_accepter .toast-body').html('');
+                    $('#toast_refuser .toast-body').html('');
+
+                    $('#toast_refuser .toast-body').html('Congé de '+ response.employe +' rejeté');
+
+                    toast_refuser.show();
+
                     $('#liste_en_attente').DataTable().ajax.reload();
                     $('#liste_conge').DataTable().ajax.reload();
                     refuser_conge_modal.hide();

@@ -28,7 +28,7 @@
             role="tab"
             aria-controls="ex1-tabs-1"
             aria-selected="true">
-            Touts les congés
+            Tous les congés
         </a>
     </li>
     <li class="nav-item mx-2 position-relative" role="presentation">

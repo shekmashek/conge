@@ -33,7 +33,7 @@ class CongeController extends Controller
 
         // en prenant compte les heures non valides (ex: 1er janvier)
         // utilisation de la fonction getWorkingHours dans Helpers.php
-        list($worktime) = getWorkingHours($debut,$fin,$conge->employe->heure_entree, $conge->employe->heure_sortie);
+        list($worktime) = getWorkingHours($debut,$fin,$conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause,$conge->employe->heure_de_travail->fin_pause);
 
         $intervale = DateInterval::createFromDateString($worktime['duration']);
         $nombre_j_travail =intval($worktime['dt']/8);
@@ -121,7 +121,7 @@ class CongeController extends Controller
         $debut=new DateTime($conge->debut);
         $fin=new DateTime($conge->fin);
 
-        list($worktime) = getWorkingHours($debut,$fin, $conge->employe->heure_entree, $conge->employe->heure_sortie);
+        list($worktime) = getWorkingHours($debut,$fin, $conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause, $conge->employe->heure_de_travail->fin_pause);
 
 
         if ($conge->cumul_perso) {

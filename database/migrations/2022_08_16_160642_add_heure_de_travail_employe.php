@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('employes', function (Blueprint $table) {
-            $table->time('heure_entree')->nullable()->default('08:00');
-            $table->time('heure_sortie')->nullable()->default('17:00');
+            $table->foreignId('heure_de_travail_id')->nullable()->onUpdate('cascade')->onDelete('set null');
         });
     }
 

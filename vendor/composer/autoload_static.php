@@ -655,6 +655,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'App\\Http\\Controllers\\EntrepriseController' => __DIR__ . '/../..' . '/app/Http/Controllers/EntrepriseController.php',
         'App\\Http\\Controllers\\EtatCongeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EtatCongeController.php',
         'App\\Http\\Controllers\\FrequenceSoldeController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrequenceSoldeController.php',
+        'App\\Http\\Controllers\\HeureDeTravailController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeureDeTravailController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ManagerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerController.php',
         'App\\Http\\Controllers\\RHController' => __DIR__ . '/../..' . '/app/Http/Controllers/RHController.php',

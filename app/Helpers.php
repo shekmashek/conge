@@ -49,7 +49,7 @@ function subDateInterval($interval1, $retrait) {
 
 
 // Calcule de nombre d'heure de travail en prenant un heure d'entré et une heure de sortie.
-function getWorkingHours($start,$end,$heure_entree,$heure_sortie)
+function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$fin_pause)
 {
 
     // format $heure_entree to H:i
@@ -59,13 +59,20 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie)
     $heure_sortie=Carbon::parse($heure_sortie);
     $heure_sortie=$heure_sortie->format('H:i');
 
+    // format $debut_pause to H:i
+    $debut_pause=Carbon::parse($debut_pause);
+    $debut_pause=$debut_pause->format('H:i');
+    // format $fin_pause to H:i
+    $fin_pause=Carbon::parse($fin_pause);
+    $fin_pause=$fin_pause->format('H:i');
+
 
     BusinessTime::enable(Carbon::class, [
-        'monday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
-        'tuesday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
-        'wednesday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
-        'thursday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
-        'friday' => [$heure_entree.'-12:00', '13:00-'.$heure_sortie],
+        'monday' => [$heure_entree.'-'.$debut_pause, $fin_pause.'-'.$heure_sortie],
+        'tuesday' => [$heure_entree.'-'.$debut_pause, $fin_pause.'-'.$heure_sortie],
+        'wednesday' => [$heure_entree.'-'.$debut_pause, $fin_pause.'-'.$heure_sortie],
+        'thursday' => [$heure_entree.'-'.$debut_pause, $fin_pause.'-'.$heure_sortie],
+        'friday' => [$heure_entree.'-'.$debut_pause, $fin_pause.'-'.$heure_sortie],
         'saturday' => [],
         'sunday' => [],
         'exceptions' => [

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 
 use Illuminate\Database\Seeder;
+use Database\Seeders\HeureTravailSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,5 +20,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(TypeCongeSeeder::class);
         // $this->call(EtatCongeSeeder::class);
         // $this->call(CongeSeeder::class);
+        $this->call(HeureTravailSeeder::class);
     }
 }
