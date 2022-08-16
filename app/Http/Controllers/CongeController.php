@@ -113,6 +113,8 @@ class CongeController extends Controller
         $message=$request->message;
         $conge=Conge::where('id', $conge_id)->first();
 
+
+
         $debut=new DateTime($conge->debut);
         $fin=new DateTime($conge->fin);
 
@@ -142,6 +144,7 @@ class CongeController extends Controller
 
             if ($request->ajax()) {
                 return response()->json([
+                    'message'=>'blabla',
                     'worktime'=>$worktime['duration'],
                     'nbr_heure'=>$worktime['dt'],
                     'cumul_perso'=>$cumul_perso,
@@ -154,9 +157,37 @@ class CongeController extends Controller
 
     public function congeValideAPI()
     {
-        $conges = Conge::all();
+        $conges = Conge::where('etat_conge_id',1)->get();
         return response()->json($conges);
     }
+
+    public function congeRefuseAPI()
+    {
+        $conges = Conge::where('etat_conge_id',2)->get();
+        return response()->json($conges);
+    }
+
+    public function congeEnAttenteAPI()
+    {
+        $conges = Conge::where('etat_conge_id',3)->get();
+        return response()->json($conges);
+    }
+
+    public function congeNonPayeEmployeAPI($id)
+    {
+        if ($id) {
+            $conges = Conge::where('employe_id',$id)->where('type_conge_id',8)
+            ->orWhere('type_conge_id',7)
+            ->get();
+        } else {
+            $conges = Conge::where('type_conge_id',8)
+            ->orWhere('type_conge_id',7)
+            ->get();
+        }
+
+        return response()->json($conges);
+    }
+
 
 
     /**

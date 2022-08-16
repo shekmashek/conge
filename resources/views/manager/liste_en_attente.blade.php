@@ -74,7 +74,7 @@
 <div class="position-fixed bottom-0 top-75 end-0 translate-middle-y p-3 " style="z-index: 11">
     <div id="toast_accepter" class="toast hide bg-transparent" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" autoplay></lottie-player>
+        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
         <strong class="me-auto">Congé accepté</strong>
         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
       </div>
@@ -103,10 +103,6 @@
 
     });
 
-    $('#liveToastBtn').click(function() {
-        toast_accepter.show();
-    });
-
     // accepter demande conge : refresh du datatable en ajax
     function accepter_conge(id){
 
@@ -131,6 +127,7 @@
 
                     toast_accepter.show();
                     $('#liste_en_attente').DataTable().ajax.reload();
+                    $('#liste_conge').DataTable().ajax.reload();
 
                 },
                 error: function (error) {
@@ -140,47 +137,48 @@
     }
 
 
-    // refuser le congé : renvoie sur un formulaire de confirmation pour donnér un retour.
-    function refuser_conge(id){
-        var conge_id = id;
-
-        // alert('Refuser id '+conge_id);
-        var conge_id_modal = $('#refuser_conge_id').text(conge_id);
-        var id_conge_modal = $('#id_conge');
-        id_conge_modal.val(conge_id);
+    function show_modal_refus(id){
+        $('#refuser_conge_id').html('');
+        $('#refuser_conge_id').html(id);
+        $('#id_conge').val('');
+        $('#id_conge').val(id);
+        $('#message_refus').val('');
         refuser_conge_modal.show();
-
     }
 
-    // prevent page refresh when submitting formulaire #refuser_conge
-    // $('#btnConfirmRefus').click(function(e){
-    //     e.preventDefault();
-    //     var url = "conge.refuser_demande";
+    $('#refuser_conge').submit(function(e){
+        // la page ne se recharge pas au submit
+        e.preventDefault();
+        var url = "{{ route('conge.refuser_demande') }}";
+        // var data = $(this).serialize();
+        var message = $('#message_refus').val();
+        var conge_id = $('#id_conge').val();
 
-    //     $.ajax({
-    //             url: url,
-    //             type: 'GET',
-    //             data: {
-    //                 conge_id: conge_id,
-    //                 // action: action,
-    //             },
-    //             dataType: 'json',
-    //             success: function (response) {
-    //                 console.log(response);
-    //                 // location.reload();
-
-    //                 // fill the toast_accepter toast-body
-    //                 $('#toast_accepter .toast-body').html('Congé refusé');
-    //                 refuser_conge_modal.hide();
-    //                 toast_accepter.show();
-    //                 $('#liste_en_attente').DataTable().ajax.reload();
-
-    //             },
-    //             error: function (error) {
-    //                 console.error(error);
-    //             }
-    //         });
-    // });
+        if(message == ''){
+            alert('Veuillez saisir un message');
+        }else{
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: {
+                    conge_id: conge_id,
+                    message: message,
+                    // action: action,
+                },
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    // location.reload();
+                    $('#liste_en_attente').DataTable().ajax.reload();
+                    $('#liste_conge').DataTable().ajax.reload();
+                    refuser_conge_modal.hide();
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+        }
+    });
 
 
     $(document).ready(function () {
