@@ -59,7 +59,7 @@ class HeureTravailController extends Controller
      */
     public function edit(HeureDeTravail $heureTravail)
     {
-        //
+        return view('referent.work_times');
     }
 
     /**
@@ -71,7 +71,7 @@ class HeureTravailController extends Controller
      */
     public function update(Request $request, HeureDeTravail $heureTravail)
     {
-        return view('referent.work_times');
+
     }
 
     /**
