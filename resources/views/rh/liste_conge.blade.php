@@ -178,12 +178,12 @@
                                 '<span><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span>'+
                                 '<label class="form-check-label" for="flexSwitchCheckDefault"> En attente</label>'+
                             '</div>';
-                        } else if (row.etat_conge_id == 2) {
+                        } else if (row.etat_conge_id == 1) {
                             return '<div class="form-check form-switch">'+
                                 '<span><i class="bx bx-check-circle fs-5" style="color:#85ea87"></i></span>'+
                                 '<label class="form-check-label" for="flexSwitchCheckDefault"> Accordé</label>'+
                             '</div>';
-                        } else if (row.etat_conge_id == 1) {
+                        } else if (row.etat_conge_id == 2) {
                             return '<div class="form-check form-switch">'+
                                 '<i class="bx bx-x-circle fs-5" style="color:var(--bs-red)"></i>'+
                                 '<label class="form-check-label" for="flexSwitchCheckDefault"> Refusé</label>'+

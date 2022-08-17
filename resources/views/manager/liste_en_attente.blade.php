@@ -25,7 +25,6 @@
                 <th>Type</th>
                 <th>Début</th>
                 <th>Fin</th>
-                <th>Durée(j)</th>
                 <th>Motif</th>
                 <th>status</th>
                 <th>Action</th>
@@ -129,7 +128,6 @@
         var url = "conge.accepter_demande";
         var conge_id = id;
 
-        // alert('Accepter id '+conge_id);
         $.ajax({
                 url: url,
                 type: 'GET',
@@ -143,11 +141,21 @@
                     // location.reload();
                     $('#toast_accepter .toast-body').html('');
                     $('#toast_refuser .toast-body').html('');
-                    // fill the toast_accepter toast-body
                     $('#toast_accepter .toast-body').html('Congé de '+ response.employe +' accepté');
 
                     toast_accepter.show();
                     $('#liste_en_attente').DataTable().ajax.reload();
+
+                    // met à jour le nombre de congés en attente restant
+                    var rows = $('#liste_en_attente').DataTable().rows().count();
+                    console.log(rows-1);
+                    if (rows-1 > 0) {
+                        $('#nbr_en_attente').html(rows-1);
+                    } else if(rows-1 <= 0) {
+                        $('#nbr_en_attente').html('');
+                        $('#nbr_en_attente').addClass('visually-hidden');
+                    }
+
                     $('#liste_conge').DataTable().ajax.reload();
 
                 },
@@ -198,6 +206,17 @@
                     toast_refuser.show();
 
                     $('#liste_en_attente').DataTable().ajax.reload();
+
+                    // mettre à jour le nombre de congés en attente
+                    var rows = $('#liste_en_attente').DataTable().rows().count();
+                    console.log(rows-1);
+                    if (rows-1 > 0) {
+                        $('#nbr_en_attente').html(rows-1);
+                    } else if(rows-1 <= 0) {
+                        $('#nbr_en_attente').html('');
+                        $('#nbr_en_attente').addClass('visually-hidden');
+                    }
+
                     $('#liste_conge').DataTable().ajax.reload();
                     refuser_conge_modal.hide();
                 },
@@ -212,6 +231,8 @@
     $(document).ready(function () {
 
         var table = $('#liste_en_attente').DataTable({
+
+
             serverSide: true,
             processing: true,
             ajax: {
@@ -219,6 +240,7 @@
                 data: function (d) {
 
                 }
+
             },
             responsive: true,
             columns: [
@@ -234,7 +256,6 @@
                 {data: 'type_conge.type_conge'},
                 {data: 'debut'},
                 {data: 'fin'},
-                {data: 'j_utilise'},
                 {data: 'motif'},
                 {
                     data: 'etat_conge.etat_conge',
@@ -290,11 +311,6 @@
                     "targets": [ 5 ],
                     "visible": true,
                     "searchable": true
-                },
-                {
-                    "targets": [ 6 ],
-                    "visible": true,
-                    "searchable": true
                 }
             ],
 
@@ -329,6 +345,7 @@
     // calendar
     var currentYear = new Date().getFullYear();
 
+    // la variable $conges est retournée par php mais pas encore ajax
     var events = {!! json_encode($conges, JSON_HEX_TAG) !!};
 
 

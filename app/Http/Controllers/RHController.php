@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use DataTables;
 use App\Models\Conge;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 
@@ -60,7 +60,7 @@ class RHController extends Controller
         $nbr_en_attente = $conges_en_attente->count();
 
          foreach ($conges as $conge) {
-            // 1 = accordé
+            //1 = accordé
             //2 = refusé
             //3 = en attente
 

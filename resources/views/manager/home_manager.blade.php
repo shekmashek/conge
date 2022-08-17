@@ -44,7 +44,7 @@
     Demandes en attentes
 
     @if ($nbr_en_attente > 0)
-        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="nbr_en_attente">
             {{ $nbr_en_attente }}
             <span class="visually-hidden">{{ __('en attente') }}</span>
         </span>
