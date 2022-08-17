@@ -36,7 +36,23 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{-- {{ config('app.name', 'Laravel') }} --}}
+                    <img class="img-fluid" src="{{ asset('img/logos_all/iconConge.webp') }}" alt="logo" style="max-width: 40px">
+                                        <span>Conge.mg</span>
+                <header class="header">
+                    <nav class="navbar navbar-expand-lg navbar-light fixed-top pb-0">
+                        <div class="container-fluid">
+                            <div class="left_menu ms-2">
+                                <a href="{{route('accueil_perso')}}">
+                                    <p class="titre_text m-0 p-0">
+
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </nav>
+                </header>
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

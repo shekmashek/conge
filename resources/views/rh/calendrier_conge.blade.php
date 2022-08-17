@@ -56,7 +56,7 @@
 
                 var events = {!! json_encode($events, JSON_HEX_TAG) !!};
 
-                console.log(events);
+                // console.log(events);
 
                 var calendarEl = document.getElementById('planning_conge');
                 var calendar = new FullCalendar.Calendar(calendarEl,
@@ -73,9 +73,21 @@
                         headerToolbar: {
                                         right: 'prev,next today',
                                         center: 'title',
-                                        left: 'dayGridMonth,timeGridWeek,listMonth'
+                                        left: 'dayGridMonth,timeGridWeek,listMonth,myCustomButton'
 
                                     },
+
+                        customButtons: {
+                            myCustomButton: {
+                                // text: 'Année',
+                                icon: "bi bi-calendar",
+                                hint:"vue en année",
+                                click: function() {
+                                    year_modal.show();
+                                }
+                            }
+                        },
+
 
                         views: {
 

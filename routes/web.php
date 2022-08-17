@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
+use App\Http\Controllers\HeureTravailController;
 
 
 Route::get('/', function () {
@@ -60,5 +61,13 @@ Route::middleware(['IsManager'])->group(function () {
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
+
+});
+
+//-------------------------- Routes pour les congés depuis l'interface admin---------------------------------------------------
+
+Route ::middleware(['IsReferent'])->group(function () {
+    Route::get('/home_referent', [App\Http\Controllers\ReferentController::class, 'index'])->name('home_referent');
+    Route::get('/edit_work_times', [HeureTravailController::class, 'update'])->name('edit_work_times');
 
 });
