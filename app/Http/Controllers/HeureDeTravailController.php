@@ -69,7 +69,7 @@ class HeureDeTravailController extends Controller
      */
     public function update(Request $request, HeureDeTravail $heureDeTravail)
     {
-        //
+
     }
 
     /**
