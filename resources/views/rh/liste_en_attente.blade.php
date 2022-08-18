@@ -1,4 +1,34 @@
 
+{{--
+ <div id="year_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="year_modalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h5 class="modal-title" id="year_modalLabel">Vue en année</h5>
+                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                 </button>
+             </div>
+             <div class="modal-body">
+                        <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>
+                        </a>
+                   <div class="collapse my-2" id="year_calendar_collapse">
+                        <div class="card card-body">
+                            <div class="container">
+                                <div id='year_calendar'></div>
+                            </div>
+                        </div>
+                    </div>
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+             </div>
+         </div>
+     </div>
+ </div> --}}
+
+
 
   <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
     <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>

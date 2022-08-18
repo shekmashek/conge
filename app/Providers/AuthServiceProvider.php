@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -26,5 +28,17 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        Gate::define('isReferent', function ($user) {
+
+            return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
+                $query->where('role_name', 'referent');
+            })->exists();
+
+
+            // if ($user->count() > 0) {
+            //     return 'isReferent';
+            // }
+
+        });
     }
 }
