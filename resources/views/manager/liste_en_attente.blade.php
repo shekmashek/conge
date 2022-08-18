@@ -102,6 +102,7 @@
 @push('extra-js')
 <script>
 
+
     // modal refuser conge
     var refuser_conge_modal = new bootstrap.Modal(document.getElementById('refuser_conge'), {
         keyboard: false
