@@ -59,7 +59,8 @@ class HeureTravailController extends Controller
      */
     public function edit(HeureDeTravail $heureTravail)
     {
-        return view('referent.work_times');
+
+       return view('referent.work_times');
     }
 
     /**
@@ -71,6 +72,15 @@ class HeureTravailController extends Controller
      */
     public function update(Request $request, HeureDeTravail $heureTravail)
     {
+          $heureTravail->update([
+            'designation' => $request->time_id,
+            'heure_debut' => $request->heure_debut,
+            'heure_fin' => $request->heure_fin,
+            'debut_pause' => $request->debut_pause,
+            'fin_pause' => $request->fin_pause,
+        ]);
+
+        return redirect()->route('edit_work_times');
 
     }
 
