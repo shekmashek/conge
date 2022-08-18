@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class HeureTravail extends Model
+class HeureDeTravail extends Model
 {
     use HasFactory;
 
