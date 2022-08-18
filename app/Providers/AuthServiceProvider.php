@@ -34,11 +34,6 @@ class AuthServiceProvider extends ServiceProvider
                 $query->where('role_name', 'referent');
             })->exists();
 
-
-            // if ($user->count() > 0) {
-            //     return 'isReferent';
-            // }
-
         });
     }
 }

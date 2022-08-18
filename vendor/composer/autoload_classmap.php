@@ -45,6 +45,7 @@ return array(
     'App\\Http\\Controllers\\EtatCongeController' => $baseDir . '/app/Http/Controllers/EtatCongeController.php',
     'App\\Http\\Controllers\\FrequenceSoldeController' => $baseDir . '/app/Http/Controllers/FrequenceSoldeController.php',
     'App\\Http\\Controllers\\HeureDeTravailController' => $baseDir . '/app/Http/Controllers/HeureDeTravailController.php',
+    'App\\Http\\Controllers\\HeureTravailController' => $baseDir . '/app/Http/Controllers/HeureTravailController.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\ManagerController' => $baseDir . '/app/Http/Controllers/ManagerController.php',
     'App\\Http\\Controllers\\RHController' => $baseDir . '/app/Http/Controllers/RHController.php',
@@ -74,11 +75,7 @@ return array(
     'App\\Models\\Entreprise' => $baseDir . '/app/Models/Entreprise.php',
     'App\\Models\\EtatConge' => $baseDir . '/app/Models/EtatConge.php',
     'App\\Models\\FrequenceSolde' => $baseDir . '/app/Models/FrequenceSolde.php',
-<<<<<<< HEAD
     'App\\Models\\HeureDeTravail' => $baseDir . '/app/Models/HeureDeTravail.php',
-=======
-    'App\\Models\\HeureTravail' => $baseDir . '/app/Models/HeureTravail.php',
->>>>>>> origin/RH_V1
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
     'App\\Models\\Secteur' => $baseDir . '/app/Models/Secteur.php',
     'App\\Models\\TypeConge' => $baseDir . '/app/Models/TypeConge.php',
@@ -1180,11 +1177,8 @@ return array(
     'Database\\Factories\\EmployeFactory' => $baseDir . '/database/factories/EmployeFactory.php',
     'Database\\Factories\\EtatCongeFactory' => $baseDir . '/database/factories/EtatCongeFactory.php',
     'Database\\Factories\\FrequenceSoldeFactory' => $baseDir . '/database/factories/FrequenceSoldeFactory.php',
-<<<<<<< HEAD
     'Database\\Factories\\HeureDeTravailFactory' => $baseDir . '/database/factories/HeureDeTravailFactory.php',
-=======
     'Database\\Factories\\HeureTravailFactory' => $baseDir . '/database/factories/HeureTravailFactory.php',
->>>>>>> origin/RH_V1
     'Database\\Factories\\RoleFactory' => $baseDir . '/database/factories/RoleFactory.php',
     'Database\\Factories\\SecteurFactory' => $baseDir . '/database/factories/SecteurFactory.php',
     'Database\\Factories\\TypeCongeFactory' => $baseDir . '/database/factories/TypeCongeFactory.php',
@@ -1193,6 +1187,7 @@ return array(
     'Database\\Seeders\\DatabaseSeeder' => $baseDir . '/database/seeders/DatabaseSeeder.php',
     'Database\\Seeders\\EtatCongeSeeder' => $baseDir . '/database/seeders/EtatCongeSeeder.php',
     'Database\\Seeders\\FrequenceSolde_seeder' => $baseDir . '/database/seeders/FrequenceSolde_seeder.php',
+    'Database\\Seeders\\HeureTravailSeeder' => $baseDir . '/database/seeders/HeureTravailSeeder.php',
     'Database\\Seeders\\TypeCongeSeeder' => $baseDir . '/database/seeders/TypeCongeSeeder.php',
     'DebugBar\\Bridge\\CacheCacheCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
     'DebugBar\\Bridge\\DoctrineCollector' => $vendorDir . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',

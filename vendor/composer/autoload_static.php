@@ -656,6 +656,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'App\\Http\\Controllers\\EtatCongeController' => __DIR__ . '/../..' . '/app/Http/Controllers/EtatCongeController.php',
         'App\\Http\\Controllers\\FrequenceSoldeController' => __DIR__ . '/../..' . '/app/Http/Controllers/FrequenceSoldeController.php',
         'App\\Http\\Controllers\\HeureDeTravailController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeureDeTravailController.php',
+        'App\\Http\\Controllers\\HeureTravailController' => __DIR__ . '/../..' . '/app/Http/Controllers/HeureTravailController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\ManagerController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManagerController.php',
         'App\\Http\\Controllers\\RHController' => __DIR__ . '/../..' . '/app/Http/Controllers/RHController.php',
@@ -685,11 +686,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'App\\Models\\Entreprise' => __DIR__ . '/../..' . '/app/Models/Entreprise.php',
         'App\\Models\\EtatConge' => __DIR__ . '/../..' . '/app/Models/EtatConge.php',
         'App\\Models\\FrequenceSolde' => __DIR__ . '/../..' . '/app/Models/FrequenceSolde.php',
-<<<<<<< HEAD
         'App\\Models\\HeureDeTravail' => __DIR__ . '/../..' . '/app/Models/HeureDeTravail.php',
-=======
-        'App\\Models\\HeureTravail' => __DIR__ . '/../..' . '/app/Models/HeureTravail.php',
->>>>>>> origin/RH_V1
         'App\\Models\\Role' => __DIR__ . '/../..' . '/app/Models/Role.php',
         'App\\Models\\Secteur' => __DIR__ . '/../..' . '/app/Models/Secteur.php',
         'App\\Models\\TypeConge' => __DIR__ . '/../..' . '/app/Models/TypeConge.php',
@@ -1791,11 +1788,8 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'Database\\Factories\\EmployeFactory' => __DIR__ . '/../..' . '/database/factories/EmployeFactory.php',
         'Database\\Factories\\EtatCongeFactory' => __DIR__ . '/../..' . '/database/factories/EtatCongeFactory.php',
         'Database\\Factories\\FrequenceSoldeFactory' => __DIR__ . '/../..' . '/database/factories/FrequenceSoldeFactory.php',
-<<<<<<< HEAD
         'Database\\Factories\\HeureDeTravailFactory' => __DIR__ . '/../..' . '/database/factories/HeureDeTravailFactory.php',
-=======
         'Database\\Factories\\HeureTravailFactory' => __DIR__ . '/../..' . '/database/factories/HeureTravailFactory.php',
->>>>>>> origin/RH_V1
         'Database\\Factories\\RoleFactory' => __DIR__ . '/../..' . '/database/factories/RoleFactory.php',
         'Database\\Factories\\SecteurFactory' => __DIR__ . '/../..' . '/database/factories/SecteurFactory.php',
         'Database\\Factories\\TypeCongeFactory' => __DIR__ . '/../..' . '/database/factories/TypeCongeFactory.php',
@@ -1804,6 +1798,7 @@ class ComposerStaticInit987ca193909f73fe3a790951c0d97214
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'Database\\Seeders\\EtatCongeSeeder' => __DIR__ . '/../..' . '/database/seeders/EtatCongeSeeder.php',
         'Database\\Seeders\\FrequenceSolde_seeder' => __DIR__ . '/../..' . '/database/seeders/FrequenceSolde_seeder.php',
+        'Database\\Seeders\\HeureTravailSeeder' => __DIR__ . '/../..' . '/database/seeders/HeureTravailSeeder.php',
         'Database\\Seeders\\TypeCongeSeeder' => __DIR__ . '/../..' . '/database/seeders/TypeCongeSeeder.php',
         'DebugBar\\Bridge\\CacheCacheCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
         'DebugBar\\Bridge\\DoctrineCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
