@@ -44,5 +44,7 @@ class AuthServiceProvider extends ServiceProvider
             })->exists();
 
         });
+
+
     }
 }

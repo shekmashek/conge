@@ -17,22 +17,40 @@ class ManagerController extends Controller
     public function index(Request $request)
     {
 
+
+        // obtenir l'employe de l'user connecté
+        $emp_loged = auth()->user()->employe;
+
         // Le manager peut voir la liste des congés de tous les employes de son service ( même service_id ).
         // conditions sur la relation employe des congés à afficher.
-        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) {
-            $query->where('service_id', auth()->user()->employe->service_id)
-                ->where('entreprise_id', auth()->user()->employe->entreprise_id)
-                ->where('id', '!=', auth()->user()->employe->id);
+        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) use ($emp_loged) {
+            $query->where('entreprise_id', $emp_loged->entreprise_id)
+                ->where('service_id', $emp_loged->service_id)
+                ->where('id', '!=', $emp_loged->id);
         })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
         // dd($conges);
 
-        $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+        $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')
+                                ->where('etat_conge_id', 3)
+                                ->whereHas('employe', function ($query) {
+                                $query->where('entreprise_id', auth()->user()->employe->entreprise_id)
+                                    ->where('service_id', auth()->user()->employe->service_id)
+                                    ->where('id', '!=', auth()->user()->employe->id);
+                                })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
         $nbr_en_attente = $conges_en_attente->count();
 
 
         if ($request->ajax()) {
-            $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')->where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+            $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')
+                                    ->where('etat_conge_id', 3)
+                                    ->whereHas('employe', function ($query) {
+                                    $query->where('entreprise_id', auth()->user()->employe->entreprise_id)
+                                        ->where('service_id', auth()->user()->employe->service_id)
+                                        ->where('id', '!=', auth()->user()->employe->id);
+                                    })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
             return DataTables::of($conges_en_attente)
                 ->addColumn('action', function($s){
@@ -61,7 +79,11 @@ class ManagerController extends Controller
     public function listeConge(Request $request)
     {
         if ($request->ajax()) {
-            $conges=Conge::with('employe','type_conge', 'etat_conge')->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+            $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) {
+                $query->where('entreprise_id', auth()->user()->employe->entreprise_id)
+                    ->where('service_id', auth()->user()->employe->service_id)
+                    ->where('id', '!=', auth()->user()->employe->id);
+            })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
             $conge= DataTables::of($conges)
                                 ->toJson();
