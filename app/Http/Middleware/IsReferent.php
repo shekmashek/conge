@@ -30,8 +30,8 @@ class IsReferent
             return redirect()->back()->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
         }
         // utilisation de contains() sur un objet
-        // if (Auth::user()->roles->pluck('id')->contains('3')) {
-        //     return redirect()->route('home')->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
-        // }
+        if (Auth::user()->roles->pluck('id')->contains('3')) {
+            return redirect()->route('home')->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
+        }
     }
 }
