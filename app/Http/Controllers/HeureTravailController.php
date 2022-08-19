@@ -90,27 +90,35 @@ class HeureTravailController extends Controller
      */
     public function update(Request $request, HeureDeTravail $heureTravail)
     {
+        // dd($request->all());
 
         // defini les heures de la table heure_de_travail à partir des donnés du formulaire work_times.blade.php
-        $heureTravail->designation = $request->input('designation');
-        $heureTravail->heure_debut = $request->input('heure_debut');
-        $heureTravail->heure_fin = $request->input('heure_fin');
-        $heureTravail->debut_pause = $request->input('debut_pause');
-        $heureTravail->fin_pause = $request->input('fin_pause');
+        $heureTravail = HeureDeTravail::find($request->id);
 
-;
+        // dd($heureTravail);
+        if($request->debut_pause ==null && $request->fin_pause ==null){
 
+            $heureTravail->heure_debut = $request->input('heure_debut');
+            $heureTravail->heure_fin = $request->input('heure_fin');
 
-          $heureTravail->update([
-            'designation' => $request->time_id,
-            'heure_debut' => $request->heure_debut,
-            'heure_fin' => $request->heure_fin,
-            'debut_pause' => $request->debut_pause,
-            'fin_pause' => $request->fin_pause,
-        ]);
+            $heureTravail->debut_pause = $heureTravail->debut_pause;
+            $heureTravail->fin_pause = $heureTravail->fin_pause;
 
 
-        return redirect()->back();
+            $heureTravail->save();
+        }
+        else if($request->heure_debut ==null && $request->heure_fin ==null){
+
+            $heureTravail->heure_debut = $heureTravail->heure_debut;
+            $heureTravail->heure_fin =  $heureTravail->heure_fin;
+            $heureTravail->debut_pause = $request->input('debut_pause');
+            $heureTravail->fin_pause = $request->input('fin_pause');
+
+
+            $heureTravail->save();
+        }
+
+        return redirect()->back()->with('success', 'Modification effectuée avec succès');
 
     }
 
