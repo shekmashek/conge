@@ -25,7 +25,7 @@ class ManagerController extends Controller
                 ->where('id', '!=', auth()->user()->employe->id);
         })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
-        dd($conges);
+        // dd($conges);
 
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();

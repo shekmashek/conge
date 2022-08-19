@@ -27,11 +27,20 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // verification des roles de l'utilisateur connecté:
+        // les conditions vérifient les nom de roles ( roles_name ) puisque l'id donne une référence ambiguë dans la requête.
         Gate::define('isReferent', function ($user) {
 
             return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
                 $query->where('role_name', 'referent');
+            })->exists();
+
+        });
+
+        Gate::define('isManager', function ($user) {
+
+            return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
+                $query->where('role_name', 'manager');
             })->exists();
 
         });
