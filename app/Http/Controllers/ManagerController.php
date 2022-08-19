@@ -17,15 +17,15 @@ class ManagerController extends Controller
     public function index(Request $request)
     {
 
-        // Le manager peut voir la liste des congés de tous les employes de son service ( même service_id )
-
+        // Le manager peut voir la liste des congés de tous les employes de son service ( même service_id ).
+        // conditions sur la relation employe des congés à afficher.
         $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) {
             $query->where('service_id', auth()->user()->employe->service_id)
                 ->where('entreprise_id', auth()->user()->employe->entreprise_id)
                 ->where('id', '!=', auth()->user()->employe->id);
-        });
+        })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
-        // dd($conges->pluck('employe_id'));
+        dd($conges);
 
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
@@ -75,7 +75,13 @@ class ManagerController extends Controller
     public function calendrier_conge(Request $request)
     {
 
-        $conges=Conge::with('employe','type_conge', 'etat_conge')->where('etat_conge_id', 1)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        // $conges=Conge::with('employe','type_conge', 'etat_conge')->where('etat_conge_id', 1)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) {
+            $query->where('service_id', auth()->user()->employe->service_id)
+                ->where('entreprise_id', auth()->user()->employe->entreprise_id)
+                ->where('id', '!=', auth()->user()->employe->id);
+        })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
         foreach ($conges as $key => $value) {
                 $value->title = $value->employe->nom_emp.' '.$value->employe->prenom_emp;
