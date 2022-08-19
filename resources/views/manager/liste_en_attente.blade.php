@@ -241,6 +241,9 @@
 
             serverSide: true,
             processing: true,
+            language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
+            },
             ajax: {
                 url: "{{ route('home_manager') }}",
                 data: function (d) {
