@@ -60,7 +60,25 @@ class HeureTravailController extends Controller
     public function edit(HeureDeTravail $heureTravail)
     {
 
-       return view('referent.work_times');
+
+        // editer des donnés dans la table heure_de_travail
+
+                $heureTravail = HeureDeTravail::get([
+                    'id',
+                    'designation',
+                    'heure_debut',
+                    'heure_fin',
+                    'debut_pause',
+                    'fin_pause',
+                ]);
+
+
+
+
+
+        return view('referent.work_times', compact('heureTravail'));
+
+
     }
 
     /**
@@ -72,6 +90,17 @@ class HeureTravailController extends Controller
      */
     public function update(Request $request, HeureDeTravail $heureTravail)
     {
+
+        // defini les heures de la table heure_de_travail à partir des donnés du formulaire work_times.blade.php
+        $heureTravail->designation = $request->input('designation');
+        $heureTravail->heure_debut = $request->input('heure_debut');
+        $heureTravail->heure_fin = $request->input('heure_fin');
+        $heureTravail->debut_pause = $request->input('debut_pause');
+        $heureTravail->fin_pause = $request->input('fin_pause');
+
+;
+
+
           $heureTravail->update([
             'designation' => $request->time_id,
             'heure_debut' => $request->heure_debut,
@@ -80,7 +109,8 @@ class HeureTravailController extends Controller
             'fin_pause' => $request->fin_pause,
         ]);
 
-        return redirect()->route('edit_work_times');
+
+        return redirect()->back();
 
     }
 

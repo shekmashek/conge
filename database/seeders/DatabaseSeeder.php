@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         // $this->call(TypeCongeSeeder::class);
         // $this->call(EtatCongeSeeder::class);
         // $this->call(CongeSeeder::class);
+        $this->call(HeureTravailSeeder::class);
     }
 }
