@@ -75,5 +75,5 @@ Route ::middleware(['IsRH'])->group(function () {
 Route ::middleware(['IsReferent'])->group(function () {
     Route::get('/home_referent', [App\Http\Controllers\ReferentController::class, 'index'])->name('home_referent');
     Route::get('/edit_work_times', [HeureTravailController::class, 'edit'])->name('edit_work_times');
-
+    Route::put('/updateTime', [HeureTravailController::class, 'update'])->name('updateTime');
 });
