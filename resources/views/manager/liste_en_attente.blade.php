@@ -1,6 +1,6 @@
 
 
-  {{-- <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
+  <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
     <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>
   </a>
 
@@ -10,11 +10,11 @@
             <div id='year_calendar'></div>
         </div>
     </div>
-  </div> --}}
+  </div>
 
 
 <div class="row">
-    <div class="comtainer col-6 mt-5">
+    <div class="comtainer mt-5">
 
 
         <table id="liste_en_attente" class="table table-striped" style="width:100%">
@@ -40,11 +40,11 @@
 
     </div>
 
-    <div class="col-6">
+    {{-- <div class="col-6">
         <div class="container">
             <div id='year_calendar'></div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 

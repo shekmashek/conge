@@ -22,7 +22,7 @@
             active
 
         @endif
-        py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+        py-3 border-bottom" aria-current="page"  data-bs-toggle="tooltip" data-bs-placement="right">
 
         <i class='bx bx-calendar-star fs-3' ></i>
         </a>

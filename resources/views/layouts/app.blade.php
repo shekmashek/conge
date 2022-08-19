@@ -107,6 +107,30 @@
         </nav>
 
 
+        @if (session('info'))
+        <div class="alert fade show text-center align-items-center">
+            <span class="d-flex align-items-center justify-content-center text-info bg-info bg-opacity-10 p-2 rounded-3 text-info">
+                    <span>{{ session('info') }}</span>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="alert" aria-label="Close"></button>
+            </span>
+        </div>
+        @endif
+        @if (session('success'))
+        <div class="alert fade show text-center align-items-center">
+            <span class="d-flex align-items-center justify-content-center text-success bg-success bg-opacity-10 p-2 rounded-3 text-success">
+                    <span>{{ session('success') }}</span>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="alert" aria-label="Close"></button>
+            </span>
+        </div>
+        @endif
+        @if (session('error'))
+        <div class="alert fade show text-center align-items-center">
+            <span class="align-items-center bg-danger bg-opacity-10 d-flex justify-content-center p-2 rounded-3 text-danger">
+                    <span>{{ session('error') }}</span>
+                    <button type="button" class="btn-close ms-2" data-bs-dismiss="alert" aria-label="Close"></button>
+            </span>
+        </div>
+        @endif
         <main class="py-4 ">
             @include('layouts.sidebar')
 

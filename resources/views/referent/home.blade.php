@@ -13,6 +13,8 @@
 
 @endpush
 
+@section('title', 'Accueil referent')
+
 @section('content')
 <div class="container">
 
