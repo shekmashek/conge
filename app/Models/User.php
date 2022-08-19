@@ -52,5 +52,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Role::class, 'role_users');
     }
 
+    public function employe()
+    {
+        return $this->hasOne(Employe::class, 'user_id');
+    }
+
 
 }

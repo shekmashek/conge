@@ -23,8 +23,9 @@ class CongeController extends Controller
 
         $conge=Conge::where('id', $conge_id)->first();
 
+        // Le manager étant qussi un employé, il ne peut pas valider ses propres congés
         // Un employe ne peut pas valider sa propre demande de congé
-        if ($conge->employe != Auth()->user()->id) {
+        if ($conge->employe_id != Auth()->user()->id) {
 
             $debut=new DateTime($conge->debut);
             $fin=new DateTime($conge->fin);

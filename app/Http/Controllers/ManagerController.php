@@ -16,8 +16,16 @@ class ManagerController extends Controller
      */
     public function index(Request $request)
     {
-        // $conges=Conge::all();
-        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+
+        // Le manager peut voir la liste des congés de tous les employes de son service ( même service_id )
+
+        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) {
+            $query->where('service_id', auth()->user()->employe->service_id)
+                ->where('entreprise_id', auth()->user()->employe->entreprise_id)
+                ->where('id', '!=', auth()->user()->employe->id);
+        });
+
+        // dd($conges->pluck('employe_id'));
 
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
