@@ -108,11 +108,11 @@ class CongeApiController extends Controller
         if ($id) {
             $conges = Conge::where('employe_id',$id)->where('type_conge_id',8)
             ->orWhere('type_conge_id',7)
-            ->get();
+            ->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise']);
         } else {
             $conges = Conge::where('type_conge_id',8)
             ->orWhere('type_conge_id',7)
-            ->get();
+            ->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise']);
         }
 
         return response()->json($conges);

@@ -15,7 +15,7 @@
 
 <div class="row">
 
-    <div class="container col-lg-6 col-sm-12 col-md-12 mt-5">
+    <div class="container col-sm-12 col-md-12 mt-5">
 
 
 
@@ -133,6 +133,8 @@
 
     });
 
+
+
     // accepter demande conge : refresh du datatable en ajax
     function accepter_conge(id){
 
@@ -241,6 +243,8 @@
 
     $(document).ready(function () {
 
+
+
         var table = $('#liste_en_attente').DataTable({
 
 
@@ -321,6 +325,7 @@
             table.draw();
         })
     });
+
 
 
 

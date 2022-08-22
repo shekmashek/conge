@@ -169,7 +169,9 @@ class CongeController extends Controller
     }
 
 
+    public function conge_employe($id) {
 
+    }
 
 
     /**

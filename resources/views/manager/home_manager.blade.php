@@ -77,6 +77,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                        <p>Test verification visuel</p>
                         {{ Auth::user()->roles->pluck('id') }}
                         <h2>MANAGER</h2>
 

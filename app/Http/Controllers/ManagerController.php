@@ -19,19 +19,21 @@ class ManagerController extends Controller
 
 
         // obtenir l'employe de l'user connecté ( si vous voulez l'utiliser comme valiable )
-        $emp_loged = auth()->user()->employe;
+        $authed_emp = auth()->user()->employe;
 
         // Le manager peut voir la liste des congés de tous les employes de son service ( même service_id ).
         // conditions sur la relation employe des congés à afficher.
-        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) use ($emp_loged) {
-            $query->where('entreprise_id', $emp_loged->entreprise_id)
-                ->where('service_id', $emp_loged->service_id)
-                ->where('id', '!=', $emp_loged->id);
+        $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) use ($authed_emp) {
+            $query->where('entreprise_id', $authed_emp->entreprise_id)
+                ->where('service_id', $authed_emp->service_id)
+                ->where('id', '!=', $authed_emp->id);
         })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
         // dd($conges);
 
 
+        // uniquement utile pour calculer ne nombre de congé en attente initial
+        // je sais pas encore comment le mettre en ajax
         $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')
                                 ->where('etat_conge_id', 3)
                                 ->whereHas('employe', function ($query) {
