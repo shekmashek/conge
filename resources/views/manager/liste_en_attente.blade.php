@@ -14,7 +14,9 @@
 
 
 <div class="row">
-    <div class="comtainer mt-5">
+
+    <div class="container col-lg-6 col-sm-12 col-md-12 mt-5">
+
 
 
         <table id="liste_en_attente" class="table table-striped" style="width:100%">
@@ -25,7 +27,6 @@
                     <th>Début</th>
                     <th>Fin</th>
                     <th>Motif</th>
-                    <th>status</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -40,11 +41,14 @@
 
     </div>
 
-    {{-- <div class="col-6">
+
+
+    {{-- <div class="col-lg-6 col-sm-12 col-md-12">
+
         <div class="container">
             <div id='year_calendar'></div>
         </div>
-    </div> --}}
+    </div>  --}}
 </div>
 
 
@@ -102,6 +106,7 @@
 
 @push('extra-js')
 <script>
+
 
     // modal refuser conge
     var refuser_conge_modal = new bootstrap.Modal(document.getElementById('refuser_conge'), {
@@ -241,6 +246,9 @@
 
             serverSide: true,
             processing: true,
+            language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
+            },
             ajax: {
                 url: "{{ route('home_manager') }}",
                 data: function (d) {
@@ -263,23 +271,6 @@
                 {data: 'debut'},
                 {data: 'fin'},
                 {data: 'motif'},
-                {
-                    data: 'etat_conge.etat_conge',
-                    render: function (data, type, row) {
-                        if (row.etat_conge.id == 1) {
-                            return '<div class="input-group border-0 d-flex justify-content-around">'+
-                                '<span class="input-group-text border-0 bg-transparent"><i class="bx bx-check-circle fs-5" style="color:#85ea87" ></i></span>'+
-                                '<label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label>'+
-                                '</div>'
-                            } else if (row.etat_conge.id == 2) {
-                                return '<div class="input-group d-flex justify-content-around"><span class="input-group-text border-0 bg-transparent"><i class="bx bx-x-circle fs-5 " style="color:var(--bs-red)"></i></span><label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label></div>';
-                        } else if (row.etat_conge.id == 3) {
-                            return '<div class="input-group d-flex justify-content-around"><span class="input-group-text border-0 bg-transparent"><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span><label class="form-control border-0 bg-transparent show_hover" for="flexSwitchCheckDefault">'+row.etat_conge.etat_conge+'</label></div>'
-                        }
-                    }
-                },
-
-
 
                 {
                     data: 'action'
@@ -313,11 +304,6 @@
                     "visible": true,
                     "searchable": true
                 },
-                {
-                    "targets": [ 5 ],
-                    "visible": true,
-                    "searchable": true
-                }
             ],
 
         });
