@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Contrat;
 use App\Models\HeureDeTravail;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -32,6 +33,17 @@ class Employe extends Model
     public function heure_de_travail(): BelongsTo
     {
         return $this->belongsTo(HeureDeTravail::class, 'heure_de_travail_id');
+    }
+
+
+    /**
+     * Get all of the contrats for the Employe
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function contrats(): HasMany
+    {
+        return $this->hasMany(Contrat::class, 'employe_id');
     }
 
 }
