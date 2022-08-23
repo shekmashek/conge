@@ -1,6 +1,8 @@
 <?php
 
 use Carbon\Carbon;
+use App\Models\Conge;
+use App\Models\Employe;
 use Carbon\CarbonPeriod;
 use Cmixin\BusinessTime;
 use Illuminate\Support\Facades\DB;
@@ -150,22 +152,7 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
 
 }
 
-// Obtenir le nombre de jour(en décimal) de congé pour un employe.
-function get_conges_employe($id){
 
-    $conge_emp = DB::select("select c.type_conge_id, t.type_conge,IF(t.solde, t.solde, 'pas de solde') as 'solde(minutes)',t.solde_format as 'solde(php)', sum(c.j_utilise) as total_j_utilise,
-    CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde/60/24
-    WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
-    ELSE t.duree_max/60/24
-    END AS 'total_acquis(minutes)'
-    from conges c join types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
-    JOIN pers_contrats contrat on contrat.employer_id=e.id
-    where c.employe_id = $id
-    group by c.type_conge_id;"
-    );
-
-    return $conge_emp;
-}
 
 function minuteToDayInterval($minutes){
     $d1 = new DateTime();
@@ -192,4 +179,24 @@ function minuteToDayDecimal($minutes) {
         $days=intval($days);
     }
     return $days;
+}
+
+// Obtenir le nombre de jour(en décimal) de congé pour un employe par type de congé
+function joursCongesEmploye($id) {
+
+    $conges=DB::select("select c.type_conge_id, t.type_conge,IF(t.solde, t.solde, 'pas de solde') as 'solde(minutes)',t.solde_format as 'solde(php)', sum(c.j_utilise) as total_j_utilise,
+                CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde/60/24
+                WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
+                ELSE t.duree_max/60/24
+                END AS 'total_acquis(j)'
+                from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
+                JOIN pers_contrats contrat on contrat.employer_id=e.id
+                JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
+                where c.employe_id = $id and c.etat_conge_id=1
+                group by c.type_conge_id;"
+    );
+
+
+
+    return $conges;
 }
