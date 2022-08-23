@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::dropIfExists('types_conge');
+        Schema::dropIfExists('conges_types_conge');
 
-        Schema::create('types_conge', function (Blueprint $table) {
+        Schema::create('conges_types_conge', function (Blueprint $table) {
             $table->id();
             $table->string('type_conge');
             $table->string('couleur')->nullable();
@@ -24,7 +25,7 @@ return new class extends Migration
             $table->string('solde_format')->comment("type string : DateInterval")->nullable();
             $table->integer('solde')->comment('Solde mensuelle en unité de temps: minute')->nullable();
 
-            $table->foreignId('frequence_solde_id')->constrained('frequences_solde')->onUpdate('cascade')->onDelete('cascade')->comment('frequence de solde : mensuelle, trimestrielle, annuelle');
+            $table->foreignId('frequence_solde_id')->constrained('conges_frequences_solde')->onUpdate('cascade')->onDelete('cascade')->comment('frequence de solde : mensuelle, trimestrielle, annuelle');
             $table->boolean('paye')->nullable()->comment('0 : non paye, 1 : paye');
 
             $table->timestamps();

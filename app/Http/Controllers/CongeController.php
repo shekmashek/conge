@@ -31,17 +31,17 @@ class CongeController extends Controller
             $fin=new DateTime($conge->fin);
 
 
-            // transformer le string 'intervale' en objet DateIntervale php
+            // transformer le string 'intervalle' en objet DateIntervale php
             // sans prendre en compte les heures non valides
-            // $intervale = date_diff($debut,$fin);
+            // $intervalle = date_diff($debut,$fin);
 
             // en prenant compte les heures non valides (ex: 1er janvier)
             // utilisation de la fonction getWorkingHours dans Helpers.php
             list($worktime) = getWorkingHours($debut,$fin,$conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause,$conge->employe->heure_de_travail->fin_pause);
 
-            $intervale = DateInterval::createFromDateString($worktime['duration']);
+            $intervalle = DateInterval::createFromDateString($worktime['duration']);
             $nombre_j_travail =intval($worktime['dt']/8);
-            $hours=$intervale->h;
+            $hours=$intervalle->h;
 
 
             if ($conge->cumul_perso) {

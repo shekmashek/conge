@@ -15,7 +15,7 @@ class HeureTravailSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('heures_de_travail')->insert([
+        DB::table('conges_heures_de_travail')->insert([
             [
                 'designation' => 'Heures de jour',
                 'heure_debut' => '08:00:00',

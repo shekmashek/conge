@@ -15,7 +15,7 @@ class FrequenceSolde_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('frequences_solde')->insert([
+        DB::table('conges_frequences_solde')->insert([
 
             [
                 'frequence' => 'Mensuelle',

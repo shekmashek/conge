@@ -12,7 +12,7 @@ class HeureDeTravail extends Model
 {
     use HasFactory;
 
-    protected $table = 'heures_de_travail';
+    protected $table = 'conges_heures_de_travail';
 
 
     protected $fillable = [

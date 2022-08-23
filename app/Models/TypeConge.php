@@ -9,6 +9,6 @@ class TypeConge extends Model
 {
     use HasFactory;
 
-    protected $table = 'types_conge';
+    protected $table = 'conges_types_conge';
 
 }

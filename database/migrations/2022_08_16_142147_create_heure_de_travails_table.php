@@ -13,7 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('heures_de_travail', function (Blueprint $table) {
+        Schema::dropIfExists('heures_de_travail');
+        Schema::create('conges_heures_de_travail', function (Blueprint $table) {
             $table->id();
             $table->string('designation')->comment('Heures de jour ou de nuit');
             $table->time('heure_debut');

@@ -17,15 +17,15 @@ return new class extends Migration
 
         Schema::create('conges', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_conge_id')->constrained('types_conge')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignId('type_conge_id')->constrained('conges_types_conge')->onUpdate('cascade')->onDelete('cascade');
             $table->foreignId('employe_id')->onUpdate('cascade')->onDelete('cascade');
             $table->datetime('debut')->nullable();
             $table->datetime('fin')->nullable();
-            $table->string('interval')->comment('duree en string DateInterval')->nullable();
+            $table->string('intervalle')->comment('duree en string DateInterval')->nullable();
             $table->integer('duree_conge')->comment('durée en minute')->nullable();
 
             $table->text('motif')->nullable();
-            $table->foreignId('etat_conge_id')->constrained('etats_conge')->onUpdate('cascade')->onDelete('cascade')->default(3);
+            $table->foreignId('etat_conge_id')->constrained('conges_etats_conge')->onUpdate('cascade')->onDelete('cascade')->default(3);
 
             $table->string('cumul_perso')->comment('Cumul de jour personnel : en string DateInterval')->nullable();
             $table->double('j_utilise')->comment('Jour à déduire : 1/1.5/0.5')->nullable();

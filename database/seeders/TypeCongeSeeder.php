@@ -15,7 +15,7 @@ class TypeCongeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('types_conge')->insert([
+        DB::table('conges_types_conge')->insert([
 
             [
                 'type_conge' => 'Congé payé',

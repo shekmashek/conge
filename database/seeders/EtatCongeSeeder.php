@@ -15,7 +15,7 @@ class EtatCongeSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('etats_conge')->insert([
+        DB::table('conges_etats_conge')->insert([
 
             [
                 'etat_conge' => 'Validé',

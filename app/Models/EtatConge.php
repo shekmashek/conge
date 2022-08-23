@@ -2,14 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class EtatConge extends Model
 {
     use HasFactory;
 
-    protected $table = 'etats_conge';
+    protected $table = 'conges_etats_conge';
 
     /**
      * Get all of the conges for the EtatConge

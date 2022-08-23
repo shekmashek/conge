@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('frequences_solde');
 
-        Schema::create('frequences_solde', function (Blueprint $table) {
+        Schema::create('conges_frequences_solde', function (Blueprint $table) {
             $table->id();
             $table->string('frequence')->comment('Mensuelle, trimestrielle, annuelle');
             $table->timestamps();

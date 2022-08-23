@@ -41,9 +41,15 @@ class Employe extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function contrats(): HasMany
+    // public function contrats(): HasMany
+    // {
+    //     return $this->hasMany(Contrat::class, 'employe_id');
+    // }
+
+    // relation to get the latest contrat related to the employe
+    public function contrat()
     {
-        return $this->hasMany(Contrat::class, 'employe_id');
+        return $this->hasOne(Contrat::class, 'employe_id')->latestOfMany();
     }
 
 }

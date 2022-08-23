@@ -134,4 +134,9 @@ class CongeApiController extends Controller
         return response()->json($conges);
     }
 
+    public function typesCongesEmployeApi ($id)
+    {
+
+    }
+
 }
