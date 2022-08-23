@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Cmixin\BusinessTime;
+use Illuminate\Support\Facades\DB;
 
 
 function addDateInterval($interval, $ajout) {
@@ -25,6 +26,7 @@ function addDateInterval($interval, $ajout) {
     return $f->diff($e)->format("%y years %m months %D days %H hours %I minutes %s seconds");
 
 }
+
 function subDateInterval($interval1, $retrait) {
 
     if(gettype($interval1)=='string') {
@@ -146,4 +148,21 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
         'dt'=>$dt
     ]);
 
+}
+
+
+function get_conges_employe($id){
+    // create a raw db select query
+    $conge_emp = DB::select("select c.type_conge_id, t.type_conge,t.solde as 'solde(m)', sum(c.j_utilise) as total_j_utilise,
+    CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde
+    WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )
+    ELSE t.duree_max
+    END AS 'total_acquis(m)'
+    from conges c join types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
+    JOIN pers_contrats contrat on contrat.employer_id=e.id
+    where c.employe_id = $id
+    group by c.type_conge_id;"
+    );
+
+    return $conge_emp;
 }
