@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Conge;
+use App\Models\Employe;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Database\Eloquent\Builder;
 
 class CongeApiController extends Controller
 {
@@ -136,7 +138,17 @@ class CongeApiController extends Controller
 
     public function typesCongesEmployeApi ($id)
     {
+        $employe=Employe::find($id);
+        $conges = $employe->conges()
+                            ->where(function (Builder $query) {
+                                $query->where('etat_conge_id', 1);
+                            })
+                            ->get();
 
+        $conges->load('type_conge');
+        $conges=$conges->groupBy('type_conge.type_conge');
+
+        return response()->json($conges);
     }
 
 }

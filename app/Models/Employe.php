@@ -20,7 +20,7 @@ class Employe extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function conges(): HasMany
+    public function conges()
     {
         return $this->hasMany(Conge::class, 'employe_id');
     }
@@ -49,7 +49,11 @@ class Employe extends Model
     // relation to get the latest contrat related to the employe
     public function contrat()
     {
-        return $this->hasOne(Contrat::class, 'employe_id')->latestOfMany();
+        return $this->hasOne(Contrat::class, 'employer_id')->ofMany([
+            'id' => 'min',
+        ], function ($query) {
+            $query->where('type_contrat_id', '!=', '3');
+        });
     }
 
 }
