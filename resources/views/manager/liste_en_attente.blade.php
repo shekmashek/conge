@@ -4,7 +4,7 @@
     <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>
   </a>
 
-  <div class="collapse my-2" id="year_calendar_collapse">
+  <div class="collapse my-2 show" id="year_calendar_collapse">
     <div class="card card-body">
         <div class="container">
             <div id='year_calendar'></div>

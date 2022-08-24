@@ -97,6 +97,7 @@ class CongeController extends Controller
 
             ]);
 
+            // ne pas oublier d'excecuter : php artisan queue:work pour envoyer les mails en file d'attente
             SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
             // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
