@@ -184,52 +184,53 @@ function minuteToDayDecimal($minutes) {
 }
 
 // Obtenir le nombre de jour(en décimal) de congé pour un employe par type de congé
-// function joursCongesEmploye($id=null) {
+function joursCongesEmploye($id=null) {
 
-//     if ($id) {
-//             $conges=DB::select("select c.employe_id, c.type_conge_id, t.type_conge,IF(t.solde, t.solde, 'pas de solde') as 'solde',t.solde_format as 'solde(php)', sum(c.j_utilise) as total_j_utilise,
-//                 CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde
-//                 WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
-//                 ELSE t.duree_max
-//                 END AS 'total_acquis'
-//                 from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
-//                 JOIN pers_contrats contrat on contrat.employer_id=e.id
-//                 JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
-//                 where c.employe_id=$id and c.etat_conge_id=1
-//                 group by c.type_conge_id;"
-//             );
-
-
-//         foreach ($conges as $key => $value) {
-//             $value->total_j_acquis=minuteToDayDecimal($value->total_acquis);
-//             $value->solde_jour=minuteToDayDecimal($value->solde);
-//         }
-
-//         return $conges;
-
-//     } else {
-//         $conges=DB::select("select c.employe_id, c.type_conge_id, t.type_conge,IF(t.solde, t.solde, 'pas de solde') as 'solde',t.solde_format as 'solde(php)', sum(c.j_utilise) as total_j_utilise,
-//                 CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde
-//                 WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
-//                 ELSE t.duree_max
-//                 END AS 'total_acquis'
-//                 from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
-//                 JOIN pers_contrats contrat on contrat.employer_id=e.id
-//                 JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
-//                 where c.etat_conge_id=1
-//                 group by c.type_conge_id, c.employe_id;"
-//         );
-
-//         $group_conges = array();
-//         foreach ($conges as $key => $value) {
-//             $value->total_j_acquis=minuteToDayDecimal($value->total_acquis);
-//             $value->solde_jour=minuteToDayDecimal($value->solde);
-
-//             $group_conges[$value->employe_id][$value->type_conge_id]=$value;
-//         }
-
-//         return $group_conges;
-//     }
+    if ($id) {
+            $conges=DB::select("select c.employe_id, c.type_conge_id, t.type_conge,IF(t.solde, t.solde, 'pas de solde') as 'solde',
+                    t.solde_format as 'solde(php)', sum(c.j_utilise) as total_j_utilise,
+                CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde
+                WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
+                ELSE t.duree_max
+                END AS 'total_acquis'
+                from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
+                JOIN pers_contrats contrat on contrat.employer_id=e.id
+                JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
+                where c.employe_id=$id and c.etat_conge_id=1
+                group by c.type_conge_id;"
+            );
 
 
-// }
+        foreach ($conges as $key => $value) {
+            $value->total_j_acquis=minuteToDayDecimal($value->total_acquis);
+            $value->solde_jour=minuteToDayDecimal($value->solde);
+        }
+
+        return $conges;
+
+    } else {
+        $conges=DB::select("select c.employe_id, c.type_conge_id, t.type_conge,IF(t.solde, t.solde, 'pas de solde') as 'solde',t.solde_format as 'solde(php)', sum(c.j_utilise) as total_j_utilise,
+                CASE WHEN t.frequence_solde_id = 1 THEN TIMESTAMPDIFF(MONTH, contrat.date_embauche,NOW() )*t.solde
+                WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
+                ELSE t.duree_max
+                END AS 'total_acquis'
+                from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
+                JOIN pers_contrats contrat on contrat.employer_id=e.id
+                JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
+                where c.etat_conge_id=1
+                group by c.type_conge_id, c.employe_id;"
+        );
+
+        $group_conges = array();
+        foreach ($conges as $key => $value) {
+            $value->total_j_acquis=minuteToDayDecimal($value->total_acquis);
+            $value->solde_jour=minuteToDayDecimal($value->solde);
+
+            $group_conges[$value->employe_id][$value->type_conge_id]=$value;
+        }
+
+        return $group_conges;
+    }
+
+
+}

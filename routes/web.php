@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CongeController;
 use App\Http\Controllers\ManagerController;
 use App\Http\Controllers\ConditionController;
+use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\HeureTravailController;
 
@@ -59,7 +60,7 @@ Route::middleware(['IsManager'])->group(function () {
     Route::get('/listeConge', [ManagerController::class, 'listeConge'])->name('listeConge');
     Route::get('/conge.accepter_demande', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
     Route::get('/conge.refuser_demande', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
-
+    Route::get('/liste_employes', [ManagerController::class, 'listeEmployes'])->name('manager.liste_employes');
 });
 
 //-------------------------- Routes pour les congés depuis l'interface RH---------------------------------------------------
@@ -67,7 +68,9 @@ Route::middleware(['IsManager'])->group(function () {
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
-
+    Route::get('/employe.edit', [EmployeController::class, 'edit'])->name('employe.edit');
+    Route::get('/employe.show', [EmployeController::class, 'show'])->name('employe.show');
+    Route::get('/employe.destroy', [EmployeController::class, 'destroy'])->name('employe.destroy');
 });
 
 //-------------------------- Routes pour les congés depuis l'interface admin---------------------------------------------------

@@ -2,19 +2,40 @@
 <div class="d-flex flex-column flex-shrink-0 bg-transparent mt-5" style="width: 4.5rem;">
 
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ms-1">
-      <li class="nav-item mb-1">
+
+        @canany(['isManager','isReferent'])
+        <li class="nav-item mb-1">
 
 
-        <a href="{{ route('home_manager') }}" class="nav-link rounded-3
-        @if (Route::currentRouteName() == 'home_manager')
-            active
+            <a href="{{ route('home_manager') }}" class="nav-link rounded-3
+            @if (Route::currentRouteName() == 'home_manager')
+                active
 
-        @endif
-        py-3 border-bottom" aria-current="page" title="Gérer l'équipe" data-bs-toggle="tooltip" data-bs-placement="right">
+            @endif
+            py-3 border-bottom" aria-current="page" title="Gérer les congés" data-bs-toggle="tooltip" data-bs-placement="right">
 
-            <i class='bx bx-calendar-minus fs-3'></i>
-        </a>
-      </li>
+                <i class='bx bx-calendar-minus fs-3'></i>
+            </a>
+          </li>
+
+
+          <li class="nav-item mb-1">
+
+
+            <a href="{{ route('manager.liste_employes') }}" class="nav-link rounded-3
+            @if (Route::currentRouteName() == 'manager.liste_employes')
+                active
+
+            @endif
+            py-3 border-bottom" aria-current="page" title="Gérer l'équipe" data-bs-toggle="tooltip" data-bs-placement="right">
+
+            <i class='bx bx-group fs-3'></i>
+            </a>
+          </li>
+        @endcan
+
+      @can('isReferent')
+
       <li class="nav-item mb-1">
 
         <a href="{{ route('home_referent') }}" class="nav-link rounded-3
@@ -28,7 +49,6 @@
         </a>
       </li>
 
-      @can('isReferent')
         <li class="nav-item mb-1">
         <a href="{{ route('edit_work_times') }}" class=" rounded-3
         @if (Route::currentRouteName() == 'edit_work_times')

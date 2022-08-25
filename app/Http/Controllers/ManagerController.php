@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Conge;
+use App\Models\Employe;
+use Aws\Api\Service;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 
@@ -17,7 +19,6 @@ class ManagerController extends Controller
     public function index(Request $request)
     {
 
-
         // obtenir l'employe de l'user connecté ( si vous voulez l'utiliser comme valiable )
         $authed_emp = auth()->user()->employe;
 
@@ -25,6 +26,7 @@ class ManagerController extends Controller
         // conditions sur la relation employe des congés à afficher.
         $conges=Conge::with('employe', 'type_conge', 'etat_conge')->whereHas('employe', function ($query) use ($authed_emp) {
             $query->where('entreprise_id', $authed_emp->entreprise_id)
+                ->where('departement_entreprises_id', $authed_emp->departement_entreprises_id)
                 ->where('service_id', $authed_emp->service_id)
                 ->where('id', '!=', $authed_emp->id);
         })->get(['id', 'employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
@@ -97,7 +99,6 @@ class ManagerController extends Controller
     }
 
 
-
     public function calendrier_conge(Request $request)
     {
 
@@ -131,6 +132,71 @@ class ManagerController extends Controller
 
 
         return view('manager.calendrier_conge', compact('conges'));
+    }
+
+    // liste des employes du service du manager connecté.
+    public function listeEmployes(Request $request)
+    {
+        $authed_manager = auth()->user()->employe;
+
+        $employes=Employe::where('service_id', $authed_manager->service_id)
+                        ->with('service','service.departement','entreprise','contrat')
+                        ->where('departement_entreprises_id', $authed_manager->departement_entreprises_id)
+                        ->where('entreprise_id', $authed_manager->entreprise_id)
+                        ->where('id', '!=', $authed_manager->id)
+                ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id']);
+
+
+
+        // return $employes;
+
+
+        if ($request->ajax()) {
+            $employes=Employe::where('service_id', $authed_manager->service_id)
+            ->with('service','service.departement','entreprise','contrat')
+            ->where('departement_entreprises_id', $authed_manager->departement_entreprises_id)
+            ->where('entreprise_id', $authed_manager->entreprise_id)
+            ->where('id', '!=', $authed_manager->id)
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id']);
+
+            $employes = DataTables::of($employes)
+                ->addColumn('nom_prenom', function($s){
+                    // show the photo of the employe
+                    // <img src="'.asset('storage/'.$s->photos).'" class="img-fluid" alt="">
+                    $r = '<div class="media align-items-center">
+                                <div class="media-left">
+                                    <img src="'.$s->url_photo.'" class="img-fluid" alt="">
+
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="mb-0">'.$s->nom_emp.' '.$s->prenom_emp.'</h4>
+                                    <span>'.$s->email_emp.'</span>
+                                </div>
+                            </div>';
+                    return $r;
+                })
+
+                ->addColumn('actions', function($s){
+                    $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
+                                <button class="btn fs-3" type="button" id="action_button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+                                    <li><button  class="dropdown-item btnAccepter" type="button" >Voir</button></li>
+
+                                    <li><button  class="dropdown-item btnRefuser" type="button" onclick="">Historique</button></li>
+                                </ul>
+                            </div>';
+                    return $r;
+                })
+                ->rawColumns(['nom_prenom', 'actions'])
+                ->make(true);
+
+            return $employes;
+        }
+
+        return view('manager.liste_employe_manager', compact('employes'));
+
     }
 
 
