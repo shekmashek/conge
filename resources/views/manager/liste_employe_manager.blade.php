@@ -48,7 +48,12 @@
 
 @push('extra-js')
 <script>
+
+
+
     $(document).ready(function () {
+
+
         var table = $('#liste_employe_manager').DataTable({
             responsive: true,
             serverSide: true,
