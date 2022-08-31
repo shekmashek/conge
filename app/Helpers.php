@@ -115,6 +115,8 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
 
     $dt=$dt+1;
 
+
+    // trasformer le nombre d'heure en intervale jours.
     if (gettype($dt/8)=='int') {
         $d1 = new DateTime();
         $d2 = new DateTime();
@@ -147,10 +149,10 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
     $duration=$iv->format('%y years %m months %D days %H hours %I minutes');
 
     // return simultaneously $duration and $dt
-    return array([
+    return array(
         'duration'=>$duration,
         'dt'=>$dt
-    ]);
+    );
 
 }
 
@@ -169,7 +171,7 @@ function minuteToDayInterval($minutes){
     return array([
         'duration'=>$duration,
         'days'=>$days
-    ]);
+        ]);
 }
 
 function minuteToDayDecimal($minutes) {
@@ -322,45 +324,51 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
 
 
     // return an array of getWorkingHours() on conges
-    $jours_travail=array();
+
     foreach ($conges as $key => $value) {
-        // return the getWorkingHours() on conges
-        $jours_travail[]=getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end);
-        // get the value of the key duration on getWorkingHours() on conges*
-        $jours_travail[]=getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end)['duration'];
-    }
 
-    return $jours_travail;
+        // dump(getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end));
 
-    // collapse the array of getWorkingHours() on conges
-    $jours_travail=collect($jours_travail)->collapse()->toArray();
+        $jours_travail[]=array(
+            'id'=>$value->id,
+            'employe_id'=>$value->employe_id,
+            'type_conge_id'=>$value->type_conge_id,
+            'start' => $value->start,
+            'end' => $value->end,
+            'work_start' => $value->work_start,
+            'work_end' => $value->work_end,
+            'duration' => getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end)['duration'],
+            'total_heure' => getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end)['dt']
 
-foreach ($jours_travail as $key => $value) {
-
-    $intervalle = DateInterval::createFromDateString($value['duration']);
-    $nombre_j_travail =intval($value['dt']/8);
-    $hours=$intervalle->h;
-
-    if ($hours >= 4 && $hours < 8) {
-        $d=0.5;
-        $nbr_jour=$nombre_j_travail+$d;
-
-    } else if($hours < 4) {
-        // si le nombre d'heure est inférieur à 4 : on ne compte pas ces heure
-        // nombre de jour de travail = nombre d'heure / 8.
-        $nbr_jour=intval($value['dt']/8);
-    } else if($hours >= 8) {
-        // si le nombre d'heures restant est de 8 : on divise l'heure totale par 8
-        // ce qui donne un nombre de jour entier.
-        // +8 h de travail ne peut arriver ( 08:00 - 17:00 )
-        $nbr_jour=round($value['dt']/8);
+        );
     }
 
 
-    // add the attribute nbr_jour to the array
-    $jours_travail[$key]['nbr_jour']=$nbr_jour;
+    // return $jours_travail;
 
-}
+        foreach ($jours_travail as $key => $value) {
+
+            $intervalle = DateInterval::createFromDateString($value['duration']);
+            $nombre_j_travail =intval($value['total_heure']/8);
+            $hours=$intervalle->h;
+
+            if ($hours >= 4 && $hours < 8) {
+                $d=0.5;
+                $nbr_jour=$nombre_j_travail+$d;
+
+            } else if($hours < 4) {
+                // si le nombre d'heure est inférieur à 4 : on ne compte pas ces heure
+                // nombre de jour de travail = nombre d'heure / 8.
+                $nbr_jour=intval($value['total_heure']/8);
+            } else if($hours >= 8) {
+                // si le nombre d'heures restant est de 8 : on divise l'heure totale par 8
+                // ce qui donne un nombre de jour entier.
+                // +8 h de travail ne peut arriver ( 08:00 - 17:00 )
+                $nbr_jour=round($value['total_heure']/8);
+            }
+
+            $jours_travail[$key]['nbr_jour']=$nbr_jour;
+        }
 
 
     return $jours_travail;

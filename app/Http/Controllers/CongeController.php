@@ -20,10 +20,12 @@ class CongeController extends Controller
 
     public function accepter_demande(Request $request) {
 
+
         if (Gate::allows('isManager')) {
             $conge_id=$request->conge_id;
 
             $conge=Conge::where('id', $conge_id)->first();
+
 
             // Le manager étant qussi un employé, il ne peut pas valider ses propres congés
             // Un employe ne peut pas valider sa propre demande de congé
@@ -39,7 +41,7 @@ class CongeController extends Controller
 
                 // en prenant compte les heures non valides (ex: 1er janvier)
                 // utilisation de la fonction getWorkingHours dans Helpers.php
-                list($worktime) = getWorkingHours($debut,$fin,$conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause,$conge->employe->heure_de_travail->fin_pause);
+                $worktime = getWorkingHours($debut,$fin,$conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause,$conge->employe->heure_de_travail->fin_pause);
 
                 $intervalle = DateInterval::createFromDateString($worktime['duration']);
                 $nombre_j_travail =intval($worktime['dt']/8);
@@ -120,7 +122,9 @@ class CongeController extends Controller
             }
 
         } else {
-            # code...
+            return response()->json([
+                'error'=>'Vous ne pouvez pas accepter votre propre demande de congé',
+            ]);
         }
 
 
@@ -129,49 +133,57 @@ class CongeController extends Controller
 
     public function refuser_demande(Request $request) {
 
-        $conge_id=$request->conge_id;
-        $message=$request->message;
-        $conge=Conge::where('id', $conge_id)->first();
+        if (Gate::allows('isManager')) {
+            $conge_id=$request->conge_id;
+            $message=$request->message;
+            $conge=Conge::where('id', $conge_id)->first();
 
 
 
-        $debut=new DateTime($conge->debut);
-        $fin=new DateTime($conge->fin);
+            $debut=new DateTime($conge->debut);
+            $fin=new DateTime($conge->fin);
 
-        list($worktime) = getWorkingHours($debut,$fin, $conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause, $conge->employe->heure_de_travail->fin_pause);
-
-
-        if ($conge->cumul_perso) {
-            $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
-        } else if(!$conge->cumul_perso && $conge->type_conge->max_duration) {
-            $cumul_perso=DateInterval::createFromDateString($conge->type_conge->max_duration);
-        } else {
-            $cumul_perso=null;
-        }
+            $worktime = getWorkingHours($debut,$fin, $conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause, $conge->employe->heure_de_travail->fin_pause);
 
 
-        Conge::where('id',$conge_id)->update([
-            'etat_conge_id'=>2,
-            'intervalle' => $worktime['duration'],
-            'duree_conge'=> $worktime['dt']*60, // en minute
-            'j_utilise'=>0,
-            'restant'=>$conge->cumul_perso,
-
-        ]);
-
-        SendRejectCongeMail::dispatch($conge,$message);
-        // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
-
-            if ($request->ajax()) {
-                return response()->json([
-                    'message'=>'blabla',
-                    'worktime'=>$worktime['duration'],
-                    'nbr_heure'=>$worktime['dt'],
-                    'cumul_perso'=>$cumul_perso,
-                ]);
+            if ($conge->cumul_perso) {
+                $cumul_perso=DateInterval::createFromDateString($conge->cumul_perso);
+            } else if(!$conge->cumul_perso && $conge->type_conge->max_duration) {
+                $cumul_perso=DateInterval::createFromDateString($conge->type_conge->max_duration);
             } else {
-                return redirect()->back();
+                $cumul_perso=null;
             }
+
+
+            Conge::where('id',$conge_id)->update([
+                'etat_conge_id'=>2,
+                'intervalle' => $worktime['duration'],
+                'duree_conge'=> $worktime['dt']*60, // en minute
+                'j_utilise'=>0,
+                'restant'=>$conge->cumul_perso,
+
+            ]);
+
+            SendRejectCongeMail::dispatch($conge,$message);
+            // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
+
+                if ($request->ajax()) {
+                    return response()->json([
+                        'message'=>'blabla',
+                        'worktime'=>$worktime['duration'],
+                        'nbr_heure'=>$worktime['dt'],
+                        'cumul_perso'=>$cumul_perso,
+                    ]);
+                } else {
+                    return redirect()->back();
+                }
+
+        } else {
+            return response()->json([
+                'error'=>'Vous ne pouvez pas refuser votre propre demande de congé',
+            ]);
+       }
+
 
     }
 
