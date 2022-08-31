@@ -236,7 +236,9 @@ function joursCongesEmploye($id=null) {
 
 }
 
-function joursTravailMensuel($mois,$annee,$jour_debut=null) {
+
+// obtenir
+function joursTravailUnMois($mois,$annee,$jour_debut=null) {
 
     // a dictionary of the name of the month and its number both in french and english
     $months = array(
@@ -375,13 +377,31 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
         }
 
 
+
         $jours_travail=collect($jours_travail);
 
     $jours_travail= $jours_travail->groupBy('employe_id');
 
-    // for each $jours_travail grouped by employe_id, group by type_conge_id
-    return $jours_travail->map(function ($item, $key) {
+    // // for each employe, if the type_conge_id is the same, add the nbr_jour and return the total of each type
+    // foreach ($jours_travail as $key => $value) {
+    //     $jours_travail[$key]=$value->groupBy('type_conge_id')->map(function($item,$key){
+    //         return array(
+    //             'type_conge_id'=>$item->first()['type_conge'],
+    //             'nbr_j_total'=>$item->sum('nbr_jour'),
+    //             'total_heure'=>$item->sum('total_heure'),
+    //         );
+    //     })->toArray();
+    // }
+
+    // return $jours_travail->toArray();
+
+
+
+    // group by employe_id and type_conge_id
+    $jours_travail= $jours_travail->map(function ($item, $key) {
         return $item->groupBy('type_conge_id');
     })->toArray();
 
+
+    return $jours_travail;
 }
