@@ -116,7 +116,7 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
     $dt=$dt+1;
 
 
-    // trasformer le nombre d'heure en intervale jours.
+    // transformer le nombre d'heure en intervale jours.
     if (gettype($dt/8)=='int') {
         $d1 = new DateTime();
         $d2 = new DateTime();
@@ -282,7 +282,7 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
         $month = $months[$mois];
     }
 
-    $conges=DB::select("select c.id, c.employe_id,type_conge_id,
+    $conges=DB::select("select c.id, c.employe_id,type_conge_id,tc.type_conge,
                             h_travail.heure_debut as work_start, h_travail.heure_fin as work_end,
                             h_travail.debut_pause as break_start, h_travail.fin_pause as break_end, debut,fin,
                         CASE WHEN MONTH(c.fin)=MONTH(c.debut) THEN
@@ -313,6 +313,7 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
 
                         from conges c
                         JOIN employes emp on c.employe_id=emp.id
+                        JOIN conges_types_conge tc on c.type_conge_id=tc.id
                         JOIN conges_heures_de_travail h_travail on emp.heure_de_travail_id=h_travail.id
                         where (c.etat_conge_id=1 and YEAR(c.debut)=$annee and YEAR(c.fin)=$annee)
                         AND (MONTH(c.debut)=$month or MONTH(c.fin)=$month)"
@@ -333,6 +334,7 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
             'id'=>$value->id,
             'employe_id'=>$value->employe_id,
             'type_conge_id'=>$value->type_conge_id,
+            'type_conge'=>$value->type_conge,
             'start' => $value->start,
             'end' => $value->end,
             'work_start' => $value->work_start,
@@ -345,6 +347,9 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
 
 
     // return $jours_travail;
+
+        // 8h n'est qu'une valeur temporaire par défaut.
+        // La valeur horaire d'une journée de travail doit être définie dynamiquement suivant l'employé concerné
 
         foreach ($jours_travail as $key => $value) {
 
@@ -363,7 +368,6 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
             } else if($hours >= 8) {
                 // si le nombre d'heures restant est de 8 : on divise l'heure totale par 8
                 // ce qui donne un nombre de jour entier.
-                // +8 h de travail ne peut arriver ( 08:00 - 17:00 )
                 $nbr_jour=round($value['total_heure']/8);
             }
 
@@ -371,7 +375,13 @@ function joursTravailMensuel($mois,$annee,$jour_debut=null) {
         }
 
 
-    return $jours_travail;
+        $jours_travail=collect($jours_travail);
 
+    $jours_travail= $jours_travail->groupBy('employe_id');
+
+    // for each $jours_travail grouped by employe_id, group by type_conge_id
+    return $jours_travail->map(function ($item, $key) {
+        return $item->groupBy('type_conge_id');
+    })->toArray();
 
 }
