@@ -23,9 +23,11 @@ class EtatCongeSeeder extends Seeder
             [
                 'etat_conge' => 'Refusé',
             ],
-
             [
                 'etat_conge' => 'En attente',
+            ],
+            [
+                'etat_conge' => 'Annulé',
             ],
 
         ]);

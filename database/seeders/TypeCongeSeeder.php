@@ -42,7 +42,7 @@ class TypeCongeSeeder extends Seeder
                 'couleur' => '#fcd670',
                 'max_duration' => '6 months',
                 'duree_max' => 262980,
-                'solde_format' => '2 days 12 hours',
+                'solde_format' => '',
                 'solde' => null,
                 'frequence_solde_id' => 5,
                 'paye' => 1

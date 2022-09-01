@@ -377,6 +377,8 @@ function joursTravailUnMois($mois,$annee,$jour_debut=null) {
         }
 
 
+        return $jours_travail;
+
 
         $jours_travail=collect($jours_travail);
 

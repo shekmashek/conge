@@ -17,10 +17,10 @@ return new class extends Migration
         //     $table->dropForeign(['conges_frequence_solde_id']);
         // });
 
-        // drop the foreign etat_conge_id reference on the table conges
-        Schema::table('conges', function (Blueprint $table) {
-            $table->dropForeign(['etat_conge_id']);
-        });
+        // // drop the foreign etat_conge_id reference on the table conges
+        // Schema::table('conges', function (Blueprint $table) {
+        //     $table->dropForeign(['etat_conge_id']);
+        // });
 
         Schema::dropIfExists('etats_conge');
 

@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('employes', function (Blueprint $table) {
-            $table->foreignId('heure_de_travail_id')->nullable()->onUpdate('cascade')->onDelete('set null');
+        Schema::table('employers', function (Blueprint $table) {
+            $table->foreignId('heure_de_travail_id')->nullable()->onUpdate('cascade')->onDelete('set null')->default(1);
         });
     }
 
