@@ -385,33 +385,57 @@ function joursTravailUnMois($mois,$annee,$jour_debut=null) {
         }
 
 
-        return $jours_travail;
+        // return $jours_travail;
 
 
         $jours_travail=collect($jours_travail);
 
     $jours_travail= $jours_travail->groupBy('employe_id');
 
-    // // for each employe, if the type_conge_id is the same, add the nbr_jour and return the total of each type
-    // foreach ($jours_travail as $key => $value) {
-    //     $jours_travail[$key]=$value->groupBy('type_conge_id')->map(function($item,$key){
-    //         return array(
-    //             'type_conge_id'=>$item->first()['type_conge'],
-    //             'nbr_j_total'=>$item->sum('nbr_jour'),
-    //             'total_heure'=>$item->sum('total_heure'),
-    //         );
-    //     })->toArray();
-    // }
-
-    // return $jours_travail->toArray();
-
+    // for each employe, if the type_conge_id is the same, add the nbr_jour and return the total of each type
+    foreach ($jours_travail as $key => $value) {
+        $jours_travail[$key]=$value->groupBy('type_conge_id')->map(function($item,$key){
+            return array(
+                'type_conge_id'=>$item->first()['type_conge_id'],
+                'type_conge'=>$item->first()['type_conge'],
+                'nbr_j_total'=>$item->sum('nbr_jour'),
+                'total_heure'=>$item->sum('total_heure'),
+            );
+        });
+    }
 
 
-    // group by employe_id and type_conge_id
-    $jours_travail= $jours_travail->map(function ($item, $key) {
-        return $item->groupBy('type_conge_id');
-    })->toArray();
 
 
-    return $jours_travail;
+    // // group by employe_id and type_conge_id
+    // $jours_travail= $jours_travail->map(function ($item, $key) {
+    //     return $item->groupBy('type_conge_id');
+    // })->toArray();
+
+
+    $jours_travail=$jours_travail->collapse()->toArray();
+
+
+        // get a list[] of nbr_j_total without pluck
+        foreach ($jours_travail as $key => $value) {
+            $nbr_j_total[]=$value['nbr_j_total'];
+        }
+
+        return $nbr_j_total;
+
+    foreach ($jours_travail as $key => $value) {
+        $values[]= array(
+                    $value['type_conge_id'],
+                    $value['type_conge'],
+                    $value['nbr_j_total'],
+                    $value['total_heure'],
+            );
+    }
+
+
+    // $tb=$jours_travail->collapse()->toArray();
+    // $h = fopen('jours_travail.json', 'w');
+    // fwrite($h, var_export($tb,true));
+
+    return $values;
 }
