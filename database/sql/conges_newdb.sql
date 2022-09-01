@@ -27,6 +27,16 @@ SET time_zone = "+00:00";
 -- Structure de la table `conges`
 --
 
+
+-- suppression des anciennes tables
+drop table if exists `frequences_solde`;
+drop table if exists `type_conges`;
+drop table if exists `conges_type_conges`;
+drop table if exists `conges`;
+drop table if exists `heures_de_travail`;
+
+
+
 DROP TABLE IF EXISTS `conges`;
 CREATE TABLE IF NOT EXISTS `conges` (
   `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT,

@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::dropIfExists('frequences_solde');
+        // drom the table in sql
 
         Schema::create('conges_frequences_solde', function (Blueprint $table) {
             $table->id();
