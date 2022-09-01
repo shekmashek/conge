@@ -33,7 +33,7 @@ We would like to extend our thanks to the following sponsors for funding Laravel
 
 ### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
+- **[Vehikl](https://vehikl.com/)***
 - **[Tighten Co.](https://tighten.co)**
 - **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
 - **[64 Robots](https://64robots.com)**
@@ -62,3 +62,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+# Notes personnelles
+<!-- date -->
+<!-- 2022-09-01 -->
+## Changement sur la Base de Donnée :
+- Supprimer les anciennes tables uptilisées (suppression des contraintes nécessaire).
+- Créer les tables préfixé par 'conges_'
+- Inserer les données statiques : types de congé, l'état des demandes, fréquences d'ajout de jour, les heures de travail( début de journée, fin de journée et heures de pause ).
+- Altéreration de la table 'employers' : ajout de la colone 'heure_de_travail_id' designant son heure de travail journalier.
+- La table congé est vidée pour ne contenir que les demandes réelles.
