@@ -416,26 +416,26 @@ function joursTravailUnMois($mois,$annee,$jour_debut=null) {
     $jours_travail=$jours_travail->collapse()->toArray();
 
 
-        // get a list[] of nbr_j_total without pluck
-        foreach ($jours_travail as $key => $value) {
-            $nbr_j_total[]=$value['nbr_j_total'];
-        }
+        // // get a list[] of nbr_j_total without pluck
+        // foreach ($jours_travail as $key => $value) {
+        //     $nbr_j_total[]=$value['nbr_j_total'];
+        // }
 
-        return $nbr_j_total;
+        // return $nbr_j_total;
 
-    foreach ($jours_travail as $key => $value) {
-        $values[]= array(
-                    $value['type_conge_id'],
-                    $value['type_conge'],
-                    $value['nbr_j_total'],
-                    $value['total_heure'],
-            );
-    }
+    // foreach ($jours_travail as $key => $value) {
+    //     $values[]= array(
+    //                 $value['type_conge_id'],
+    //                 $value['type_conge'],
+    //                 $value['nbr_j_total'],
+    //                 $value['total_heure'],
+    //         );
+    // }
 
 
     // $tb=$jours_travail->collapse()->toArray();
     // $h = fopen('jours_travail.json', 'w');
     // fwrite($h, var_export($tb,true));
 
-    return $values;
+    return $jours_travail;
 }
