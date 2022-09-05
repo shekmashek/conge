@@ -1,4 +1,16 @@
 @extends('layouts.app')
+@push('extra-links')
+
+        {{-- bootstrap Year calendar css --}}
+        <link rel="stylesheet" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css">
+@endpush
+
+@push('extra-scripts')
+
+        {{-- bootstrap Year calendar js --}}
+        <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
+
+@endpush
 
 @push('extra-links')
         <link rel="stylesheet" href="{{ asset('css/calendrier.css') }}">
@@ -17,11 +29,33 @@
         {{-- les langues pour le calendrier --}}
         <script src="https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.11.0/locales-all.min.js"></script>
 
+        {{-- bootstrap modal --}}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+        {{-- datepicker --}}
+
+
 
 @endpush
 
 
 @section('content')
+{{-- //--------------------------------------------- --}}
+
+<!-- Modal -->
+            <div class="modal fade " id="year_modal">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+                            <div id='year_calendar'></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+{{-- //----------------------------------------------- --}}
 
     <div class="container-fluid">
         {{-- <a href="#" class="btn_creer text-center filter mt-4" role="button" onclick="afficherFiltre();"><i class='bx bx-filter icon_creer'></i>Afficher les filtres</a> --}}
@@ -52,11 +86,78 @@
 @push('extra-js')
 
 <script>
+                var currentYear = new Date().getFullYear();
+                var events = {!! json_encode($events, JSON_HEX_TAG) !!};
+                var year_modal = new bootstrap.Modal(document.getElementById('year_modal'));
+
+                    events.forEach(element => {
+                        if ((element.start != null) && (element.end != null)) {
+                            element.name=element.title;
+                            element.startDate = new Date(element.start);
+                            element.endDate = new Date(element.end);
+                            element.color = element.backgroundColor;
+                        }
+                    });
+
+
             document.addEventListener('DOMContentLoaded', function() {
 
-                var events = {!! json_encode($events, JSON_HEX_TAG) !!};
 
-                // console.log(events);
+                var year_calendar = new Calendar('#year_calendar',{
+                dataSource: events,
+                enableContextMenu: true,
+                contextMenuItems:[
+                    {
+                        text: 'Aller à la date',
+                        click: function(event) {
+                            // console.log(event);
+                            calendar.gotoDate(event.startDate);
+                            year_modal.hide();
+                            calendar.select(event.startDate, [event.endDate]);
+                        }
+                    },
+                ],
+
+                dayContextMenu: function(e) {
+                    $(e.element).popover('hide');
+                },
+                clickDay: function(e) {
+                    calendar.gotoDate(e.date);
+                    year_modal.hide();
+                    calendar.select(e.date);
+                },
+                mouseOnDay: function(e) {
+                    if(e.events.length > 0) {
+                        var content = '';
+
+                        for(var i in e.events) {
+                            content += '<div class="event-tooltip-content">'
+                                            + '<div class="event-name fw-bold" style="color:' + e.events[i].color + '">' + e.events[i].employe + '</div>'
+                                            + '<div class="event-location">' + e.events[i].type_conge.type_conge + '</div>'
+                                            + '<div class="event-location">' + e.events[i].etat_conge.etat_conge + '</div>'
+                                        + '</div>';
+                        }
+
+                        $(e.element).popover({
+                            trigger: 'manual',
+                            container: 'body',
+                            html:true,
+                            content: content
+                        });
+
+                        $(e.element).popover('show');
+                    }
+                },
+                mouseOutDay: function(e) {
+                    if(e.events.length > 0) {
+                        $(e.element).popover('hide');
+                    }
+                },
+            });
+
+
+
+
 
                 var calendarEl = document.getElementById('planning_conge');
                 var calendar = new FullCalendar.Calendar(calendarEl,
@@ -79,8 +180,7 @@
                                 icon: "bi bi-calendar",
                                 hint:"vue en année",
                                 click: function() {
-                                    // year_modal.show();
-                                    alert('vue en année');
+                                    $('#year_modal').modal('show');
                                 }
                             }
                         },
@@ -247,6 +347,7 @@
 
 
 });
+
 
 </script>
 
