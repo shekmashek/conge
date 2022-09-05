@@ -79,7 +79,9 @@
                     @endif
                         <p>Test verification visuel</p>
                         {{ Auth::user()->roles->pluck('id') }}
+                        @can('isManager')
                         <h2>MANAGER</h2>
+                        @endcan
 
                     {{ __('You are logged in!') }}
 

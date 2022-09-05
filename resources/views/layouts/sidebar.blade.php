@@ -3,24 +3,6 @@
 
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ms-1">
 
-        @can('inManager')
-          {{-- les graphes statistiques : un référent peut voir toutes les stats de l'entreprise --}}
-          {{-- Un manager ne verra que celui concernant son service --}}
-          <li class="nav-item mb-1">
-
-
-            <a href="{{ route('manager.stats') }}" class="nav-link rounded-3
-            @if (Route::currentRouteName() == 'manager.liste_employes')
-                active
-
-            @endif
-            py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right">
-
-            <i class='bx bxs-bar-chart-square fs-3'></i>
-            </a>
-          </li>
-        @endcan
-
         @canany(['isManager','isReferent'])
         <li class="nav-item mb-1">
 
@@ -51,7 +33,27 @@
             </a>
           </li>
 
+
         @endcan
+
+
+        @can('isManager')
+        {{-- les graphes statistiques : un référent peut voir toutes les stats de l'entreprise --}}
+        {{-- Un manager ne verra que celui concernant son service --}}
+        <li class="nav-item mb-1">
+
+
+          <a href="{{ route('stats_conges_manager') }}" class="nav-link rounded-3
+          @if (Route::currentRouteName() == 'stats_conges_manager')
+              active
+
+          @endif
+          py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right">
+
+              <i class='bx bxs-bar-chart-square fs-3'></i>
+          </a>
+        </li>
+      @endcan
 
       @can('isReferent')
 

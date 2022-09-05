@@ -61,6 +61,7 @@ Route::middleware(['IsManager'])->group(function () {
     Route::get('/conge.accepter_demande', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
     Route::get('/conge.refuser_demande', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
     Route::get('/liste_employes', [ManagerController::class, 'listeEmployes'])->name('manager.liste_employes');
+    Route::get('/stats_conges_manager', [ManagerController::class, 'statisticsConges'])->name('stats_conges_manager');
 });
 
 //-------------------------- Routes pour les congés depuis l'interface RH---------------------------------------------------
