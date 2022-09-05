@@ -70,12 +70,8 @@
                         locale: '{{ app()->getLocale() }}',
                         firstDay: 0,
                         nowIndicator: true,
-                        headerToolbar: {
-                                        right: 'prev,next today',
-                                        center: 'title',
-                                        left: 'dayGridMonth,timeGridWeek,listMonth,myCustomButton'
 
-                                    },
+                                    // button personnaliser
 
                         customButtons: {
                             myCustomButton: {
@@ -83,10 +79,19 @@
                                 icon: "bi bi-calendar",
                                 hint:"vue en année",
                                 click: function() {
-                                    year_modal.show();
+                                    // year_modal.show();
+                                    alert('vue en année');
                                 }
                             }
                         },
+
+
+                        headerToolbar: {
+                                        right: 'prev,next today',
+                                        center: 'title',
+                                        left: 'dayGridMonth,timeGridWeek,listMonth,myCustomButton'
+
+                                    },
 
 
                         views: {

@@ -9,5 +9,5 @@ class FrequenceSolde extends Model
 {
     use HasFactory;
 
-    protected $table = 'frequences_solde';
+    protected $table = 'conges_frequences_solde';
 }

@@ -9,7 +9,7 @@ class EtatConge extends Model
 {
     use HasFactory;
 
-    protected $table = 'etats_conge';
+    protected $table = 'conges_etats_conge';
 
     /**
      * Get all of the conges for the EtatConge
