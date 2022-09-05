@@ -185,6 +185,8 @@ function minuteToDayDecimal($minutes) {
     return $days;
 }
 
+
+
 // Obtenir le nombre de jour(en décimal) de congé pour un employe par type de congé
 function joursCongesEmploye($id=null) {
 
@@ -246,7 +248,7 @@ function joursCongesEmploye($id=null) {
 
 
 // obtenir
-function joursTravailUnMois($mois,$annee,$jour_debut=null) {
+function getJoursTravailUnMois($mois,$annee,$jour_debut=null) {
 
     // a dictionary of the name of the month and its number both in french and english
     $months = array(
@@ -323,6 +325,8 @@ function joursTravailUnMois($mois,$annee,$jour_debut=null) {
 
                         from conges c
                         JOIN employes emp on c.employe_id=emp.id
+                        JOIN departement_entreprises on emp.departement_entreprises_id=departement_entreprises.id
+                        JOIN services on services.id=services.departement_entreprise_id
                         JOIN conges_types_conge tc on c.type_conge_id=tc.id
                         JOIN conges_heures_de_travail h_travail on emp.heure_de_travail_id=h_travail.id
                         where (c.etat_conge_id=1 and YEAR(c.debut)=$annee and YEAR(c.fin)=$annee)
@@ -438,4 +442,145 @@ function joursTravailUnMois($mois,$annee,$jour_debut=null) {
     // fwrite($h, var_export($tb,true));
 
     return $jours_travail;
+}
+
+
+function getCongesAnnuel($year,$employe_id=null) {
+    if ($employe_id) {
+        $conges = DB::select("select MONTH(c.debut),YEAR(c.debut),c.id, c.employe_id,type_conge_id,type_c.type_conge,
+                                    h_travail.heure_debut as work_start, h_travail.heure_fin as work_end,
+                                    h_travail.debut_pause as break_start, h_travail.fin_pause as break_end, debut,fin,
+                                CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
+                                        -- debut + variation
+                                        DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.debut, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                ELSE
+                                        CASE WHEN YEAR(c.debut)=$year AND YEAR(c.fin)!=$year THEN
+                                                -- debut + variation
+                                                DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.debut, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                        WHEN YEAR(c.fin)=$year AND YEAR(c.debut)!=$year THEN
+                                                -- premier jour du mois de fin
+                                                DATE_FORMAT(DATE_ADD(STR_TO_DATE(CONCAT(YEAR(c.fin),'-01-01'), '%Y-%m-%d %H:%i'), INTERVAL -DAYOFMONTH(STR_TO_DATE(CONCAT(YEAR(c.fin),'-01-01'), '%Y-%m-%d %H:%i'))+1+0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                        END
+                                END AS 'start',
+
+                                CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
+                                        -- fin + variation
+                                        DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.fin, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                ELSE
+                                        CASE WHEN YEAR(c.debut)=$year AND YEAR(c.fin)!=$year THEN
+                                                -- dernier jour de l'années de debut
+                                                DATE_FORMAT(DATE_ADD(LAST_DAY(c.debut), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                        WHEN YEAR(c.fin)=$year AND YEAR(c.debut)!=$year THEN
+                                                --  fin + variation
+                                                DATE_FORMAT(DATE_ADD(STR_TO_DATE(fin, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                        END
+                                END AS 'end'
+
+                                from conges c
+                                JOIN employes emp on c.employe_id=emp.id
+                                JOIN conges_heures_de_travail h_travail on emp.heure_de_travail_id=h_travail.id
+                                JOIN conges_types_conge type_c on c.type_conge_id=type_c.id
+                                where (c.etat_conge_id=1)
+                                AND (YEAR(c.debut)=$year or YEAR(c.fin)=$year)
+                                AND (employe_id=$employe_id);"
+                            );
+
+
+            // $conges=collect($conges);
+
+        } else {
+            $conges = DB::select("select MONTH(c.debut),YEAR(c.debut),c.id, c.employe_id,type_conge_id,type_c.type_conge,
+                                        h_travail.heure_debut as work_start, h_travail.heure_fin as work_end,
+                                        h_travail.debut_pause as break_start, h_travail.fin_pause as break_end, debut,fin,
+                                    CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
+                                            -- debut + variation
+                                            DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.debut, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                    ELSE
+                                            CASE WHEN YEAR(c.debut)=$year AND YEAR(c.fin)!=$year THEN
+                                                    -- debut + variation
+                                                    DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.debut, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                            WHEN YEAR(c.fin)=$year AND YEAR(c.debut)!=$year THEN
+                                                    -- premier jour du mois de fin
+                                                    DATE_FORMAT(DATE_ADD(STR_TO_DATE(CONCAT(YEAR(c.fin),'-01-01'), '%Y-%m-%d %H:%i'), INTERVAL -DAYOFMONTH(STR_TO_DATE(CONCAT(YEAR(c.fin),'-01-01'), '%Y-%m-%d %H:%i'))+1+0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                            END
+                                    END AS 'start',
+
+                                    CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
+                                            -- fin + variation
+                                            DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.fin, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                    ELSE
+                                            CASE WHEN YEAR(c.debut)=$year AND YEAR(c.fin)!=$year THEN
+                                                    -- dernier jour de l'années de debut
+                                                    DATE_FORMAT(DATE_ADD(LAST_DAY(c.debut), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                            WHEN YEAR(c.fin)=$year AND YEAR(c.debut)!=$year THEN
+                                                    --  fin + variation
+                                                    DATE_FORMAT(DATE_ADD(STR_TO_DATE(fin, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                            END
+                                    END AS 'end'
+
+                                    from conges c
+                                    JOIN employes emp on c.employe_id=emp.id
+                                    JOIN conges_heures_de_travail h_travail on emp.heure_de_travail_id=h_travail.id
+                                    JOIN conges_types_conge type_c on c.type_conge_id=type_c.id
+                                    where (c.etat_conge_id=1)
+                                    AND (YEAR(c.debut)=$year or YEAR(c.fin)=$year)"
+                                );
+
+
+            // $conges=collect($conges);
+
+        }
+
+
+        foreach ($conges as $key => $value) {
+
+            // dump(getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end));
+
+            $jours_travail[]=array(
+                'id'=>$value->id,
+                'employe_id'=>$value->employe_id,
+                'type_conge_id'=>$value->type_conge_id,
+                'type_conge'=>$value->type_conge,
+                'start' => $value->start,
+                'end' => $value->end,
+                'work_start' => $value->work_start,
+                'work_end' => $value->work_end,
+                'duration' => getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end)['duration'],
+                'total_heure' => getWorkingHours($value->start,$value->end,$value->work_start,$value->work_end,$value->break_start,$value->break_end)['dt']
+
+            );
+        }
+
+
+        // return $jours_travail;
+
+            // 8h n'est qu'une valeur temporaire par défaut.
+            // La valeur horaire d'une journée de travail doit être définie dynamiquement suivant l'employé concerné
+
+            foreach ($jours_travail as $key => $value) {
+
+                $intervalle = DateInterval::createFromDateString($value['duration']);
+                $nombre_j_travail =intval($value['total_heure']/8);
+                $hours=$intervalle->h;
+
+                if ($hours >= 4 && $hours < 8) {
+                    $d=0.5;
+                    $nbr_jour=$nombre_j_travail+$d;
+
+                } else if($hours < 4) {
+                    // si le nombre d'heure est inférieur à 4 : on ne compte pas ces heure
+                    // nombre de jour de travail = nombre d'heure / 8.
+                    $nbr_jour=intval($value['total_heure']/8);
+                } else if($hours >= 8) {
+                    // si le nombre d'heures restant est de 8 : on divise l'heure totale par 8
+                    // ce qui donne un nombre de jour entier.
+                    $nbr_jour=round($value['total_heure']/8);
+                }
+
+                $jours_travail[$key]['nbr_jour']=$nbr_jour;
+            }
+
+
+    return $jours_travail;
+
 }
