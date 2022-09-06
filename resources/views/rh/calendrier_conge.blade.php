@@ -40,9 +40,9 @@
 
 
 @section('content')
-{{-- //--------------------------------------------- --}}
+{{-- ----------------------Modal years calendar----------------------- --}}
 
-<!-- Modal -->
+
             <div class="modal fade " id="year_modal">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -55,7 +55,7 @@
                 </div>
             </div>
 
-{{-- //----------------------------------------------- --}}
+{{-- ----------------------------------------------- --}}
 
     <div class="container-fluid">
         {{-- <a href="#" class="btn_creer text-center filter mt-4" role="button" onclick="afficherFiltre();"><i class='bx bx-filter icon_creer'></i>Afficher les filtres</a> --}}
