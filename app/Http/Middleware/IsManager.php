@@ -23,6 +23,7 @@ class IsManager
 
         // utilisation de in_array() sur le tableau des roles de l'utilisateur connecté
         if (in_array('5', Auth::user()->roles->pluck('id')->toArray())) {
+            // dd(5);
             return $next($request);
         }
 

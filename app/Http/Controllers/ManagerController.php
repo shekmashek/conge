@@ -207,6 +207,12 @@ class ManagerController extends Controller
     }
 
 
+    public function statisticsConges (Request $request) {
+        return view('manager.stats_conges_manager');
+    }
+
+
+
     /**
      * Show the form for creating a new resource.
      *

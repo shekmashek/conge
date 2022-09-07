@@ -29,3 +29,6 @@ Route::get('/conge_paye_api/{id?}', [CongeApiController::class, 'congePayeEmploy
 
 // retourne les congés validés d'un employé groupé par type de congé
 Route::get('/types_conge_employe_api/{id?}', [CongeApiController::class, 'joursCongesEmploye']);
+Route::get('/conges_annuel_valide/{year}/{id?}', [CongeApiController::class, 'getCongesAnnuelValide']);
+Route::get('/jours_conge_paye_employe/{year}/{mois}/{id}', [CongeApiController::class, 'totalCongePayeEmploye']);
+Route::get('/jours_conge_nonpaye_employe/{year}/{mois}/{id}', [CongeApiController::class, 'totalCongeNonPayeEmploye']);

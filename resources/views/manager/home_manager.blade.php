@@ -66,7 +66,7 @@
 
 
 
-    <div class="row justify-content-center">
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" id="manager_card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
@@ -79,14 +79,16 @@
                     @endif
                         <p>Test verification visuel</p>
                         {{ Auth::user()->roles->pluck('id') }}
+                        @can('isManager')
                         <h2>MANAGER</h2>
+                        @endcan
 
                     {{ __('You are logged in!') }}
 
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
       <!-- Tabs content -->
   <div class="tab-content" id="ex1-content">
