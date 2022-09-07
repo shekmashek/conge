@@ -698,44 +698,8 @@ function totalCongeNonPayeEmploye($year,$mois,$employe_id) {
 }
 
 
-function getCongesAnnuelValide2(Request $request=null,$year,$mois=null,$employe_id=null,$jour_debut=null) {
+function getCongesAnnuelValide2($year,$mois=null,$employe_id=null,$jour_debut=null) {
 
-
-    if ($request) {
-        $year=$request->year;
-
-        if ($request->mois) {
-            $mois=$request->mois;
-        } else {
-            $mois=null;
-        }
-
-        if ($request->employe_id) {
-            $employe_id=$request->employe_id;
-        } else {
-            $employe_id=null;
-        }
-        if ($request->jour_debut) {
-            // le jour_début désigne le jour de mois défini comme premier jour du mois.
-            $jour_debut=$request->jour_debut;
-        } else {
-            $jour_debut=null;
-        }
-    } else {
-        $year=$year;
-
-        if ($employe_id) {
-            $employe_id=$employe_id;
-        } else {
-            $employe_id=null;
-        }
-        if ($jour_debut) {
-            // le jour_début désigne le jour de mois défini comme premier jour du mois.
-            $jour_debut=$jour_debut;
-        } else {
-            $jour_debut=null;
-        }
-    }
 
     // a dictionary of the name of the month and its number both in french and english
     $months = array(
