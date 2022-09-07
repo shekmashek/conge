@@ -84,7 +84,7 @@
             {{-- les graphes statistiques : un référent peut voir toutes les stats de l'entreprise --}}
             {{-- Un manager ne verra que celui concernant son service --}}
         <li class="nav-item mb-1">
-            <a href="{{ route('referent.stats') }}" class="nav-link rounded-3
+            <a href="#" class="nav-link rounded-3
             @if (Route::currentRouteName() == 'manager.liste_employes')
                 active
 
