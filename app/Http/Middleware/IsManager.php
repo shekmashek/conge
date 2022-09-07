@@ -22,8 +22,13 @@ class IsManager
         }
 
         // utilisation de in_array() sur le tableau des roles de l'utilisateur connecté
-        if (in_array('5', Auth::user()->roles->pluck('id')->toArray())) {
+        if (in_array('5', Auth::user()->roles->pluck('id')->toArray()) ) {
             // dd(5);
+            // verifye if the role with id 5 has activer set to 1
+            if (Auth::user()->roles->where('id', 5)->first()->pivot->activiter == 1) {
+                // dd(Auth::user()->roles->where('id', 5)->first()->pivot->activiter);
+                return $next($request);
+            }
             return $next($request);
         }
 
