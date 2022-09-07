@@ -16,6 +16,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/manager_interface.css') }}">
     <link rel="stylesheet" href="{{ asset('css/calendar.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/general.css') }}">
 
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 

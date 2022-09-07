@@ -59,17 +59,24 @@ class ManagerController extends Controller
 
             return DataTables::of($conges_en_attente)
                 ->addColumn('action', function($s){
-                    $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
-                                <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
-                                    <li><button onclick="accepter_conge('.$s->id.');"  class="dropdown-item btnAccepter" type="button" >Accepter</button></li>
+                    // $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
+                    //             <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
+                    //             <i class="bx bx-dots-vertical-rounded"></i>
+                    //             </button>
+                    //             <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+                    //                 <li><button onclick="accepter_conge('.$s->id.');"  class="dropdown-item btnAccepter" type="button" >Accepter</button></li>
 
-                                    <li><button onclick="show_modal_refus('.$s->id.');" class="dropdown-item btnRefuser" type="button" onclick="">Refuser</button></li>
-                                </ul>
-                            </div>';
+                    //                 <li><button onclick="show_modal_refus('.$s->id.');" class="dropdown-item btnRefuser" type="button" onclick="">Refuser</button></li>
+                    //             </ul>
+                    //         </div>';
+                    // return $r;
+                    $r='<div class="d-flex" data-conge-id="'.$s->id.'">
+                           <button onclick="accepter_conge('.$s->id.');"  class="btn d-flex btnAccepter" type="button" ><i class="bx bx-check-circle fs-3 text_green text_big_hover"></i><span class="show_hover">Accepter</span></button>
+                            <button onclick="show_modal_refus('.$s->id.');" class="btn d-flex btnRefuser" type="button " onclick=""><i class="bx bx-x-circle fs-3 text-danger text_big_hover"></i><span class="show_hover">Rejeter</span></button>
+                        </div>';
+
                     return $r;
+
                 })
                 // ->toJson()
                 ->rawColumns(['action'])

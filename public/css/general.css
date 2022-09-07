@@ -1,0 +1,28 @@
+
+:root{
+    --perso-clear-green:#00ce00;
+    --perso-dark-green:#006900;
+    --perso-bg-green:#00bd00b7;
+}
+
+.text_green{
+    color: var(--perso-clear-green)!important;
+}
+
+.background_green{
+    background-color: var(--perso-bg-green)!important;
+}
+
+.btn_green{
+    background-color: var(--perso-bg-green)!important;
+    border-color: var(--perso-dark-green)!important;
+}
+
+.text_big_hover:hover {
+    /* -webkit-transform: scale(1.2)!important; */
+    transform: scale(1.2);
+}
+
+.show_hover {
+    display: none;
+}
