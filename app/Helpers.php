@@ -445,9 +445,58 @@ function getJoursTravailUnMois($mois,$annee,$jour_debut=null) {
 }
 
 
-function getCongesAnnuel($year,$employe_id=null) {
+function getCongesAnnuelValide($year,$month=null,$employe_id=null) {
+
+
+
+    try {
+        $vue_annee=DB::select("select * from v_conges_annuel_$year");
+    } catch (\Throwable $th) {
+        // create the view v_conges_annuel if not exist
+        DB::statement("create view v_conges_annuel_$year as select MONTH(c.debut),MONTH(c.fin),YEAR(c.debut),c.id, c.employe_id,type_conge_id,type_c.type_conge,
+                                h_travail.heure_debut as work_start, h_travail.heure_fin as work_end,
+                                h_travail.debut_pause as break_start, h_travail.fin_pause as break_end, debut,fin,
+                            CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
+                                    -- debut + variation
+                                    DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.debut, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                            ELSE
+                                    CASE WHEN YEAR(c.debut)=$year AND YEAR(c.fin)!=$year THEN
+                                            -- debut + variation
+                                            DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.debut, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                    WHEN YEAR(c.fin)=$year AND YEAR(c.debut)!=$year THEN
+                                            -- premier jour du mois de fin
+                                            DATE_FORMAT(DATE_ADD(STR_TO_DATE(CONCAT(YEAR(c.fin),'-01-01'), '%Y-%m-%d %H:%i'), INTERVAL -DAYOFMONTH(STR_TO_DATE(CONCAT(YEAR(c.fin),'-01-01'), '%Y-%m-%d %H:%i'))+1+0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_debut))
+                                    END
+                            END AS 'start',
+
+                            CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
+                                    -- fin + variation
+                                    DATE_FORMAT(DATE_ADD(STR_TO_DATE(c.fin, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                            ELSE
+                                    CASE WHEN YEAR(c.debut)=$year AND YEAR(c.fin)!=$year THEN
+                                            -- dernier jour de l'années de debut
+                                            DATE_FORMAT(DATE_ADD(LAST_DAY(c.debut), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                    WHEN YEAR(c.fin)=$year AND YEAR(c.debut)!=$year THEN
+                                            --  fin + variation
+                                            DATE_FORMAT(DATE_ADD(STR_TO_DATE(fin, '%Y-%m-%d %H:%i'), INTERVAL 0 DAY), CONCAT('%Y-%m-%d',' ',h_travail.heure_fin))
+                                    END
+                            END AS 'end'
+
+                            from conges c
+                            JOIN employes emp on c.employe_id=emp.id
+                            JOIN conges_heures_de_travail h_travail on emp.heure_de_travail_id=h_travail.id
+                            JOIN conges_types_conge type_c on c.type_conge_id=type_c.id
+                            where (c.etat_conge_id=1)
+                            AND (YEAR(c.debut)=$year or YEAR(c.fin)=$year);"
+                    );
+        $vue_annee=DB::select('select * from v_conges_annuel');
+
+    }
+
+
     if ($employe_id) {
-        $conges = DB::select("select MONTH(c.debut),YEAR(c.debut),c.id, c.employe_id,type_conge_id,type_c.type_conge,
+        // return $employe_id;
+        $conges = DB::select("select MONTH(c.debut),MONTH(c.fin),YEAR(c.debut),c.id, c.employe_id,type_conge_id,type_c.type_conge,
                                     h_travail.heure_debut as work_start, h_travail.heure_fin as work_end,
                                     h_travail.debut_pause as break_start, h_travail.fin_pause as break_end, debut,fin,
                                 CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
@@ -489,7 +538,7 @@ function getCongesAnnuel($year,$employe_id=null) {
             // $conges=collect($conges);
 
         } else {
-            $conges = DB::select("select MONTH(c.debut),YEAR(c.debut),c.id, c.employe_id,type_conge_id,type_c.type_conge,
+            $conges = DB::select("select MONTH(c.debut),YEAR(c.debut), YEAR(c.fin),c.id, c.employe_id,type_conge_id,type_c.type_conge,
                                         h_travail.heure_debut as work_start, h_travail.heure_fin as work_end,
                                         h_travail.debut_pause as break_start, h_travail.fin_pause as break_end, debut,fin,
                                     CASE WHEN YEAR(c.fin)=YEAR(c.debut) THEN
@@ -530,6 +579,8 @@ function getCongesAnnuel($year,$employe_id=null) {
             // $conges=collect($conges);
 
         }
+
+        // return $conges;
 
 
         foreach ($conges as $key => $value) {

@@ -66,7 +66,7 @@
 
 
 
-    <div class="row justify-content-center">
+    {{-- <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card" id="manager_card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
@@ -88,7 +88,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
       <!-- Tabs content -->
   <div class="tab-content" id="ex1-content">
