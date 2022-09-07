@@ -61,10 +61,11 @@ Route::middleware(['IsManager'])->group(function () {
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
+    Route::get('/liste_employes', [RHController::class, 'liste_employes'])->name('liste_employes');
 
 });
 
-//-------------------------- Routes pour les congés depuis l'interface admin---------------------------------------------------
+//-------------------------- Routes pour les congés depuis l'interface referent---------------------------------------------------
 
 Route ::middleware(['IsReferent'])->group(function () {
     Route::get('/home_referent', [App\Http\Controllers\ReferentController::class, 'index'])->name('home_referent');
