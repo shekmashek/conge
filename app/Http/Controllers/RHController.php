@@ -113,7 +113,7 @@ class RHController extends Controller
 
 
 
-        //  dd($employes);
+        //  dd($employes->pluck('contrat'));
 
 
         if ($request->ajax()) {
@@ -138,20 +138,23 @@ class RHController extends Controller
                     return $r;
                 })
 
-                ->addColumn('actions', function($s){
-                    $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
-                                <button class="btn fs-3" type="button" id="action_button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bx bx-dots-vertical-rounded"></i>
-                                </button>
-                                <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
-                                    <li><button  class="dropdown-item btnAccepter" type="button" >Voir</button></li>
-                                    <li><button  class="dropdown-item btnRefuser" type="button" onclick="">Historique</button></li>
-                                </ul>
-                            </div>';
-                    return $r;
-                })
-                ->rawColumns(['nom_prenom', 'actions'])
+                // ->addColumn('actions', function($s){
+                //     $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
+                //                 <button class="btn fs-3" type="button" id="action_button" data-bs-toggle="dropdown" aria-expanded="false">
+                //                 <i class="bx bx-dots-vertical-rounded"></i>
+                //                 </button>
+                //                 <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+                //                     <li><button  class="dropdown-item btnAccepter" type="button" >Voir</button></li>
+                //                     <li><button  class="dropdown-item btnRefuser" type="button" onclick="">Historique</button></li>
+                //                 </ul>
+                //             </div>';
+                //     return $r;
+                // })
+                // ->rawColumns(['nom_prenom', 'actions'])
+                ->rawColumns(['nom_prenom'])
                 ->make(true);
+
+
 
             return $employes;
         }

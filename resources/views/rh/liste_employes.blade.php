@@ -22,7 +22,7 @@
                 <th>Nom Prenom(s)</th>
                 <th>Département/Service</th>
                 <th>Date d'embauche</th>
-                <th>Actions</th>
+                {{-- <th>Actions</th> --}}
             </tr>
         </thead>
         <tbody>
@@ -79,9 +79,9 @@
                         return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
                     }
                 },
-                {
-                    data: 'actions',
-                },
+                // {
+                //     data: 'actions',
+                // },
             ],
             columnDefs:[
                 {
@@ -99,11 +99,11 @@
                     "visible": true,
                     "searchable": true
                 },
-                {
-                    "targets": [ 3 ],
-                    "visible": true,
-                    "searchable": false
-                },
+                // {
+                //     "targets": [ 3 ],
+                //     "visible": true,
+                //     "searchable": false
+                // },
             ]
         });
         new $.fn.dataTable.FixedHeader( table );
