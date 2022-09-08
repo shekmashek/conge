@@ -150,11 +150,11 @@ class CongeApiController extends Controller
                                     WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
                                     ELSE t.duree_max
                                     END AS 'total_acquis_minute'
-                                    from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
+                                    from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employers e on c.employe_id=e.id
                                     JOIN pers_contrats contrat on contrat.employer_id=e.id
                                     JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
-                                    JOIN employes on c.employe_id=employes.id
-                                    JOIN departement_entreprises on employes.departement_entreprises_id=departement_entreprises.id
+                                    JOIN employers on c.employe_id=employers.id
+                                    JOIN departement_entreprises on employers.departement_entreprises_id=departement_entreprises.id
                                     JOIN services on services.id=services.departement_entreprise_id
                                     where c.employe_id=$id and c.etat_conge_id=1
                                     group by c.type_conge_id, c.employe_id;"
@@ -174,11 +174,11 @@ class CongeApiController extends Controller
                                 WHEN t.frequence_solde_id = 4 THEN TIMESTAMPDIFF(YEAR, contrat.date_embauche,NOW() )*t.solde
                                 ELSE t.duree_max
                                 END AS 'total_acquis_minute'
-                                from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employes e on c.employe_id=e.id
+                                from conges c join conges_types_conge t on c.type_conge_id = t.id JOIN employers e on c.employe_id=e.id
                                 JOIN pers_contrats contrat on contrat.employer_id=e.id
                                 JOIN conges_etats_conge etat ON c.etat_conge_id=etat.id
-                                JOIN employes on c.employe_id=employes.id
-                                JOIN departement_entreprises on employes.departement_entreprises_id=departement_entreprises.id
+                                JOIN employers on c.employe_id=employers.id
+                                JOIN departement_entreprises on employers.departement_entreprises_id=departement_entreprises.id
                                 JOIN services on services.id=services.departement_entreprise_id
                                 where c.etat_conge_id=1
                                 group by c.type_conge_id, c.employe_id;"
