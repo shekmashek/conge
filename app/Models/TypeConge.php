@@ -11,4 +11,9 @@ class TypeConge extends Model
 
     protected $table = 'conges_types_conge';
 
+    public function getAll(){
+        $result = TypeConge::all();
+        return $result;
+    }
+
 }

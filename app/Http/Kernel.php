@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http;
-
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +66,6 @@ class Kernel extends HttpKernel
         'IsManager' => \App\Http\Middleware\IsManager::class,
         'IsRH' => \App\Http\Middleware\IsRH::class,
         'IsReferent' => \App\Http\Middleware\IsReferent::class,
+        'IsEmploye' => \App\Http\Middleware\IsEmploye::class,
     ];
 }

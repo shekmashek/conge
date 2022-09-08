@@ -22,24 +22,21 @@ class IsEmploye
         }
 
         // utilisation de in_array() sur le tableau des roles de l'utilisateur connecté
-        if (in_array('5', Auth::user()->roles->pluck('id')->toArray()) ) {
+        if (in_array('3', Auth::user()->roles->pluck('id')->toArray()) ) {
             // dd(5);
             // verifye if the role with id 5 has activer set to 1
             if (Auth::user()->roles->where('id', 3)->first()->pivot->activiter == 1) {
-                dd(Auth::user()->roles->where('id', 3)->first()->pivot);
-                return $next($request);
-            }
-            if (Auth::user()->roles->where('id', 5)->first()->pivot->activiter == 1) {
-                // dd(Auth::user()->roles->where('id', 5)->first()->pivot);
+                // dd(Auth::user()->roles->where('id', 3)->first()->pivot);
+                // return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
                 return $next($request);
             }
         }
 
 
         // utilisation de contains() sur un objet
-        if (Auth::user()->roles->pluck('id')->contains('3')) {
+        if (!Auth::user()->roles->pluck('id')->contains('3')) {
 
-            return redirect()->route('home')->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
+            return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
 
         }
     }

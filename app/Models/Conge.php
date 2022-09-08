@@ -16,7 +16,19 @@ class Conge extends Model
 
     protected $table = 'conges';
 
-    protected $filable = ['type_conge_id','employe_id', 'debut', 'fin', 'intervale', 'duree_conge', 'motif', 'etat_conge_id ', 'cumul_perso', 'j_utilise', 'restant'];
+    protected $fillable = [
+        'type_conge_id',
+        'employe_id',
+        'debut',
+        'fin',
+        'intervalle',
+        'duree_conge',
+        'motif',
+        'etat_conge_id ',
+        'cumul_perso',
+        'j_utilise',
+        'restant'
+    ];
 
     /**
      * Get the employe that owns the Conge
@@ -67,7 +79,6 @@ class Conge extends Model
         // Conge::create($data);
         return 1;
     }
-
     public function getListCongesByEmpId($id_emp){
         $conges = DB::table('conges')
             ->join('conges_etats_conge', 'etat_conge_id', '=', 'conges_etats_conge.id')

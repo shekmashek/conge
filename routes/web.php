@@ -86,9 +86,9 @@ Route::middleware(['IsReferent'])->group(function () {
 
 // EMPLOYE
 Route::middleware(['IsEmploye'])->group(function () {
-    Route::controller(HomeController::class)->group(function(){
+    Route::controller(CongeController::class)->group(function(){
         Route::get('accueil','accueil')->name('accueil');
-        Route::get('conge_employe','index')->name('conge_employe');
+        Route::get('conge_employe','homeCongeEmploye')->name('conge_employe');
         Route::post('insert_absence_employe','insertConge')->name('insert_absence_employe');
         Route::get('historique_congeJson', 'historique_congeJson')->name('historique_congeJson');
         Route::get('historique_conge', 'historique_conge')->name('historique_conge');

@@ -41,6 +41,25 @@ class AuthServiceProvider extends ServiceProvider
 
             return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
                 $query->where('role_name', 'manager');
+                // $query->where('role_name', 'employe')->whereHas('role_users', function ($query) {
+                //     $query->where('role_id', 3)->where('activiter', 1);
+                // });
+                $query->where('role_users.activiter', 1);
+            })->exists();
+
+        });
+
+        Gate::define('isEmploye', function ($user) {
+
+            return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
+
+                // query where the role_name is stagiaire and role_users pivot with role_id = 3 has activiter = 1
+                $query->where('role_name', 'employe')->whereHas('role_users', function ($query) {
+                    $query->where('role_id', 3)->where('activiter', 1);
+                });
+
+
+
             })->exists();
 
         });

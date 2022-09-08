@@ -25,10 +25,7 @@ class IsManager
         if (in_array('5', Auth::user()->roles->pluck('id')->toArray()) ) {
             // dd(5);
             // verifye if the role with id 5 has activer set to 1
-            if (Auth::user()->roles->where('id', 3)->first()->pivot->activiter == 1) {
-                dd(Auth::user()->roles->where('id', 3)->first()->pivot);
-                return $next($request);
-            }
+
             if (Auth::user()->roles->where('id', 5)->first()->pivot->activiter == 1) {
                 // dd(Auth::user()->roles->where('id', 5)->first()->pivot);
                 return $next($request);
@@ -39,7 +36,12 @@ class IsManager
         // utilisation de contains() sur un objet
         if (Auth::user()->roles->pluck('id')->contains('3')) {
 
-            return redirect()->route('home')->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
+            if (Auth::user()->roles->where('id', 3)->first()->pivot->activiter == 1) {
+                return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
+            } else {
+                # code...
+            }
+
 
         }
 
