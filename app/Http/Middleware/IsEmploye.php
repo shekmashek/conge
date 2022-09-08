@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class IsManager
+class IsEmploye
 {
     /**
      * Handle an incoming request.
@@ -42,6 +42,5 @@ class IsManager
             return redirect()->route('home')->with('error', 'Vous n\'avez pas les droits pour accéder à cette page');
 
         }
-
     }
 }
