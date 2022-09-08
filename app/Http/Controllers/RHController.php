@@ -59,10 +59,14 @@ class RHController extends Controller
         $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
+
+
+
          foreach ($conges as $conge) {
             //1 = accordé
             //2 = refusé
             //3 = en attente
+
 
             if ($conge->etat_conge_id == 1 ) {
                            $conge->debut = date('Y-m-d H:i', strtotime($conge->debut));
@@ -76,6 +80,7 @@ class RHController extends Controller
                                 'employe'=>$conge->employe->nom_emp.' '.$conge->employe->prenom_emp,
                                 'color'=>$conge->type_conge->couleur,
                                 'etat_conge'=>$conge->etat_conge,
+                                'type_conge'=>$conge->type_conge,
 
 
                             );
