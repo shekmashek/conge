@@ -5,9 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RHController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CongeController;
-use App\Http\Controllers\ManagerController;
-use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\ReferentController;
+use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\HeureTravailController;
 
@@ -76,8 +77,30 @@ Route ::middleware(['IsRH'])->group(function () {
 
 //-------------------------- Routes pour les congés depuis l'interface admin---------------------------------------------------
 
-Route ::middleware(['IsReferent'])->group(function () {
+Route::middleware(['IsReferent'])->group(function () {
     Route::get('/home_referent', [App\Http\Controllers\ReferentController::class, 'index'])->name('home_referent');
     Route::get('/edit_work_times', [HeureTravailController::class, 'edit'])->name('edit_work_times');
     Route::put('/updateTime', [HeureTravailController::class, 'update'])->name('updateTime');
+});
+
+
+// EMPLOYE
+Route::middleware(['IsEmploye'])->group(function () {
+    Route::controller(HomeController::class)->group(function(){
+        Route::get('accueil','accueil')->name('accueil');
+        Route::get('conge_employe','index')->name('conge_employe');
+        Route::post('insert_absence_employe','insertConge')->name('insert_absence_employe');
+        Route::get('historique_congeJson', 'historique_congeJson')->name('historique_congeJson');
+        Route::get('historique_conge', 'historique_conge')->name('historique_conge');
+        Route::get('getListCongesEmpJson', 'getListCongesEmpJson')->name('getListCongesEmpJson');
+
+    });
+    Route::controller(CongeController::class)->group(function(){
+        /* method: get/post -- url -- method to call in Controller -- name to call in view  */
+        Route::get('congeEnAttenteJson', 'congeEnAttenteJson')->name('congeEnAttenteJson');
+        Route::get('congeValideJson', 'congeValideJson')->name('congeValideJson');
+        Route::get('congeEnAttente', 'congeEnAttente')->name('congeEnAttente');
+        Route::get('congeValide', 'congeValide')->name('congeValide');
+
+    });
 });

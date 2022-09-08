@@ -268,4 +268,37 @@ class CongeController extends Controller
     {
         //
     }
+
+
+    ///////////////////////////////////////////////////////////
+    // EMPLOYE
+
+    public function congeEnAttenteJson(){
+        $etat_conge_id = 3;
+        $congesEnAttentes = DB::Table('conges')
+            ->select(DB::raw('conges.id as idConge, conges.debut, motif, conges.fin, DATEDIFF(conges.fin, conges.debut) AS nombre_jours, conges_etats_conge.etat_conge'))
+            ->join('conges_etats_conge', 'etat_conge_id', '=', 'etats_conge.id')
+            ->where('conges.etat_conge_id', '=', $etat_conge_id)
+            ->get();
+        return json_encode($congesEnAttentes);
+    }
+
+    public function congeValideJson(){
+        $etat_conge_id = 1;
+        $congesValides = DB::Table('conges')
+        ->select(DB::raw('conges.id as idConge, conges.debut, motif, conges.fin, DATEDIFF(conges.fin, conges.debut) AS nombre_jours, conges_etats_conge.etat_conge'))
+        ->join('conges_etats_conge', 'etat_conge_id', '=', 'etats_conge.id')
+        ->where('conges.etat_conge_id', '=', $etat_conge_id)
+        ->get();
+        return json_encode($congesValides);
+    }
+
+    public function congeEnAttente(){
+        return view('congeEnAttente');
+    }
+
+    public function congeValide(){
+        return view('congeValide');
+    }
+
 }

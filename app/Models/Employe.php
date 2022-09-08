@@ -6,6 +6,7 @@ use App\Models\Contrat;
 use App\Models\Entreprise;
 use App\Models\HeureDeTravail;
 use App\Models\ServiceEntreprise;
+use Illuminate\Support\Facades\DB;
 use App\Models\DepartementEntreprise;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -85,6 +86,17 @@ class Employe extends Model
         ], function ($query) {
             $query->where('type_contrat_id', '!=', '3');
         });
+    }
+
+
+
+
+    //////////////////////////////////////////////////////////////////
+    // A NE PAS FAIRE
+    public function getEmployeByUserId($id){
+        // dd(gettype($id));
+        $result =  DB::select('select * from employes where user_id = ?', $id);
+        return $result;
     }
 
 }
