@@ -99,7 +99,72 @@ class RHController extends Controller
 
     }
 
-    //-----------liste employer depuis l'interface RH--------------------------------------------------
+    //-----------liste employer V1 depuis l'interface RH --------------------------------------------------
+
+    // public function liste_employes(Request $request)
+    // {
+    //    $authed_RH = auth()->user()->employe;
+
+
+    //         $employes=Employe::with('service','service.departement','entreprise','contrat')
+    //         ->where('entreprise_id', $authed_RH->entreprise_id)
+    //         ->where('id', '!=', $authed_RH->id)
+    //         ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+
+
+
+    //     //  dd($employes->pluck('contrat'));
+
+
+    //     if ($request->ajax()) {
+    //         $employes=Employe::with('service','service.departement','entreprise','contrat')
+    //         ->where('entreprise_id', $authed_RH->entreprise_id)
+    //         ->where('id', '!=', $authed_RH->id)
+    //         ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+
+    //         $employes = DataTables::of($employes)
+    //             ->addColumn('nom_prenom', function($s){
+    //                 // show the photo of the employe
+    //                 // <img src="'.asset('storage/'.$s->photos).'" class="img-fluid" alt="">
+    //                 // <img src="'.$s->photos.'" class="img-fluid" alt="">
+    //                 $r = '<div class="media align-items-center">
+    //                             <div class="media-left">
+    //                                 <img src="'.asset('img/users/'.$s->photos).'" class="img-fluid" alt="">
+    //                             </div>
+    //                             <div class="media-body">
+    //                                 <h4 class="mb-0">'.$s->nom_emp.' '.$s->prenom_emp.'</h4>
+    //                                 <span>'.$s->email_emp.'</span>
+    //                             </div>
+    //                         </div>';
+    //                 return $r;
+    //             })
+
+    //             // ->addColumn('actions', function($s){
+    //             //     $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
+    //             //                 <button class="btn fs-3" type="button" id="action_button" data-bs-toggle="dropdown" aria-expanded="false">
+    //             //                 <i class="bx bx-dots-vertical-rounded"></i>
+    //             //                 </button>
+    //             //                 <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
+    //             //                     <li><button  class="dropdown-item btnAccepter" type="button" >Voir</button></li>
+    //             //                     <li><button  class="dropdown-item btnRefuser" type="button" onclick="">Historique</button></li>
+    //             //                 </ul>
+    //             //             </div>';
+    //             //     return $r;
+    //             // })
+    //             // ->rawColumns(['nom_prenom', 'actions'])
+    //             ->rawColumns(['nom_prenom'])
+    //             ->make(true);
+
+
+
+    //         return $employes;
+    //     }
+
+    //     return view('rh.liste_employes');
+
+    // }
+
+    //-----------liste employer V2 depuis l'interface RH --------------------------------------------------
 
     public function liste_employes(Request $request)
     {
@@ -109,34 +174,37 @@ class RHController extends Controller
             $employes=Employe::with('service','service.departement','entreprise','contrat')
             ->where('entreprise_id', $authed_RH->entreprise_id)
             ->where('id', '!=', $authed_RH->id)
-            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id']);
-
-
-
-        //  dd($employes->pluck('contrat'));
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
 
 
         if ($request->ajax()) {
             $employes=Employe::with('service','service.departement','entreprise','contrat')
             ->where('entreprise_id', $authed_RH->entreprise_id)
             ->where('id', '!=', $authed_RH->id)
-            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id']);
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
 
             $employes = DataTables::of($employes)
+                ->addColumn('id', function($s){
+                    return $s->id;
+                })
+
                 ->addColumn('nom_prenom', function($s){
                     // show the photo of the employe
                     // <img src="'.asset('storage/'.$s->photos).'" class="img-fluid" alt="">
-                    $r = '<div class="media align-items-center">
-                                <div class="media-left">
-                                    <img src="'.$s->url_photo.'" class="img-fluid" alt="">
-                                </div>
-                                <div class="media-body">
-                                    <h4 class="mb-0">'.$s->nom_emp.' '.$s->prenom_emp.'</h4>
-                                    <span>'.$s->email_emp.'</span>
-                                </div>
-                            </div>';
+                    // <img src="'.$s->photos.'" class="img-fluid" alt="">
+                    $r = '<span class="align-items-center d-flex justify-content-around" style="width: 250px">
+                                <img src="'.asset('img/users/'.$s->photos).'" class="img-fluid rounded-circle" alt style="width: 70px;height: 70px;object-fit: cover;">
+                                <span class="ms-2">'.$s->nom_emp.' '.$s->prenom_emp.'</span>
+                            </span>';
+
                     return $r;
                 })
+
+                ->addColumn('contacts', function($s){
+                    $r = '<span class="ms-2 ">'.$s->email_emp. '<br>'.$s->telephone_emp. '</span>';
+                    return $r;
+                })
+
 
                 // ->addColumn('actions', function($s){
                 //     $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
@@ -151,7 +219,7 @@ class RHController extends Controller
                 //     return $r;
                 // })
                 // ->rawColumns(['nom_prenom', 'actions'])
-                ->rawColumns(['nom_prenom'])
+                ->rawColumns(['nom_prenom', 'contacts'])
                 ->make(true);
 
 
@@ -161,8 +229,8 @@ class RHController extends Controller
 
         return view('rh.liste_employes');
 
-    }
 
+    }
 
 
 
