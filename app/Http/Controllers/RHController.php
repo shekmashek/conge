@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use DataTables;
 use App\Models\Conge;
 use App\Models\Employe;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+
+
 
 class RHController extends Controller
 {
@@ -38,7 +40,8 @@ class RHController extends Controller
             return $alldata;
         }
         $calendar = Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
-        $conges_en_attente = Conge::where('etat_conge_id', 3)->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        $conges_en_attente = Conge::where('etat_conge_id', 3)
+        ->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $nbr_en_attente = $conges_en_attente->count();
 
         //--------------relation eloquent calendrier-----------------------
@@ -231,6 +234,39 @@ class RHController extends Controller
 
 
     }
+ //-------------------------ajax historique des conges d'un employe----------------------------------------------
+ public function history_conges(Request $request)
+ {
+    $conge=Conge::with('employe','type_conge', 'etat_conge');
+
+    if ($request->ajax())
+    {
+        $conge=Conge::with('employe','type_conge', 'etat_conge')
+        ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
+
+        //   $alldata = DataTables::of($conge)
+        //     ->toJson();
+        //     return $alldata;
+
+        $conge = DataTables::of($conge)
+            ->addColumn('employe', function($s){
+                $r = '<div class="d-flex align-items-center">
+
+                            <div class="flex-grow-1 ms-3">
+                                <div>'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
+                            </div>
+                        </div>';
+                return $r;
+            })
+            ->rawColumns(['employe'])
+            ->make(true);
+
+
+            return $conge;
+    }
+
+    return view('rh.liste_conge');
+ }
 
 
 
