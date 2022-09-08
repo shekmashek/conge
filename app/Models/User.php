@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Role;
+use App\Models\Employe;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -56,6 +57,7 @@ class User extends Authenticatable
     {
         return $this->hasOne(Employe::class, 'user_id');
     }
+
 
 
 }

@@ -102,9 +102,9 @@
     <table id="liste_conge" class="table table-bordered table-striped" style="width:100%" >
         <thead>
             <tr>
-                <th>Nom</th>
-                <th>Prenom</th>
-                {{-- <th >Employe </th> --}}
+                {{-- <th>Nom</th> --}}
+                {{-- <th>Prenom</th> --}}
+                <th >Employe </th>
                 <th>Type</th>
                 <th>Début</th>
                 <th>Fin</th>
@@ -147,6 +147,8 @@
 @endpush
 
 @push('extra-js')
+
+
 <script>
     $(document).ready(function () {
 
@@ -154,7 +156,7 @@
             serverSide: true,
             processing: true,
             ajax: {
-                url: "{{ route('home_RH') }}",
+                url: "{{ route('history_RH') }}",
                 data: function (d) {
                     d.debut = $("input[name='debut']").val();
                     d.fin = $("input[name='fin']").val();
@@ -163,8 +165,11 @@
             responsive: true,
 
             columns: [
-                { data: 'employe.nom_emp'},
-                { data: 'employe.prenom_emp'},
+                    {
+                        data:'employe'
+                    },
+                // { data: 'employe.nom_emp'},
+                // { data: 'employe.prenom_emp'},
                 { data: 'type_conge.type_conge' },
                 { data: 'debut' },
                 { data: 'fin' },
@@ -238,13 +243,13 @@
                     "searchable": true
 
                 },
-                {
-                    "targets": [ 7 ],
-                    "visible": true,
-                    "searchable": true,
+                // {
+                //     "targets": [ 7 ],
+                //     "visible": true,
+                //     "searchable": true,
 
 
-                }
+                // }
 
             ],
 
