@@ -241,19 +241,24 @@ class RHController extends Controller
 
     if ($request->ajax())
     {
-        $conge=Conge::with('employe','type_conge', 'etat_conge')
-        ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
+        // $conge=Conge::with('employe','type_conge', 'etat_conge')
+        // ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
 
-        //   $alldata = DataTables::of($conge)
-        //     ->toJson();
-        //     return $alldata;
+                    // RECHERCHE AVEC DATES-------------------------------------------
+            if($request->debut && $request->fin)
+            {
+                $conge->whereBetween('debut', [$request->debut, $request->fin]);
+                // $conge = $conge->whereRaw('DATE_FORMAT(debut, "%Y-%m-%d") = \''.$request->debut.'\' AND DATE_FORMAT(fin, "%Y-%m-%d") = \''.$request->fin . '\'');
+
+            }
+
 
         $conge = DataTables::of($conge)
             ->addColumn('employe', function($s){
                 $r = '<div class="d-flex align-items-center">
 
                             <div class="flex-grow-1 ms-3">
-                                <div>'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
+                                <div class="mb-0">'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
                             </div>
                         </div>';
                 return $r;
@@ -263,6 +268,9 @@ class RHController extends Controller
 
 
             return $conge;
+
+
+
     }
 
     return view('rh.liste_conge');
