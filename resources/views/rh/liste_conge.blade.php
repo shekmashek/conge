@@ -33,7 +33,7 @@
                 </div>
 
 
-    {{-- --------------------------------------data table historique-------------------------------------------------- --}}
+    {{-- --------------------------------------data table historique php-------------------------------------------------- --}}
 
     {{-- <table id="liste_conge" class="table table-striped" style="width:100%">
         <thead>
@@ -104,13 +104,13 @@
             <tr>
                 {{-- <th>Nom</th> --}}
                 {{-- <th>Prenom</th> --}}
-                <th >Employe </th>
-                <th>Type</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Durée(jour)</th>
-                <th>Motif</th>
-                <th>status</th>
+                <th class="align-middle text-center">Employe </th>
+                <th class="align-middle text-center">Type</th>
+                <th class="align-middle text-center">Début</th>
+                <th class="align-middle text-center">Fin</th>
+                <th class="align-middle text-center">Durée(jour)</th>
+                <th class="align-middle text-center">Motif</th>
+                <th class="align-middle text-center">status</th>
             </tr>
 
         </thead>
