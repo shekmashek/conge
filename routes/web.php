@@ -62,6 +62,7 @@ Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/history_RH', [App\Http\Controllers\RHController::class, 'history_conges'])->name('history_RH');
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
+    Route::get('employes', [RHController::class, 'employes'])->name('employes');
     Route::get('/liste_employes', [RHController::class, 'liste_employes'])->name('liste_employes');
 
 });
