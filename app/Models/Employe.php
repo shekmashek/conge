@@ -17,8 +17,8 @@ class Employe extends Model
 {
     use HasFactory;
 
-    protected $table = 'employes';
-    // protected $table = 'employers';
+    // protected $table = 'employes';
+    protected $table = 'employers';
 
 
     public function entreprise(): BelongsTo
