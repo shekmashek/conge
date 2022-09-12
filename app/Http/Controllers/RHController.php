@@ -241,8 +241,15 @@ class RHController extends Controller
 
     if ($request->ajax())
     {
-        $conge=Conge::with('employe','type_conge', 'etat_conge')
-        ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
+
+            // RECHERCHE AVEC DATES-------------------------------------------
+            if($request->debut && $request->fin)
+            {
+                $conge->whereBetween('debut', [$request->debut, $request->fin]);
+                // $conges = $conges->whereRaw('DATE_FORMAT(debut, "%Y-%m-%d") = \''.$request->debut.'\' AND DATE_FORMAT(fin, "%Y-%m-%d") = \''.$request->fin . '\'');
+            }
+        // $conge=Conge::with('employe','type_conge', 'etat_conge')
+        // ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
 
         //   $alldata = DataTables::of($conge)
         //     ->toJson();
