@@ -77,7 +77,7 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('isReferent', function ($user) {
 
             return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
-                $query->where('role_name', 'Referent');
+                $query->where('role_name', 'referent');
             })->exists();
 
         });
