@@ -45,7 +45,7 @@
                                         <span>Conge.mg</span>
                 <header class="header">
                     <nav class="navbar navbar-expand-lg navbar-light fixed-top pb-0">
-                        <div class="container-fluid">
+                        <div class="container-fluid d-none">
                             <div class="left_menu ms-2">
                                 <a href="{{route('accueil_perso')}}">
                                     <p class="titre_text m-0 p-0">
@@ -85,11 +85,15 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="dropdownMenuProfil" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                <a id="dropdownMenuProfil" class="nav-link " href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                data-bs-auto-close="outside" aria-expanded="false" v-pre>
+                                    {{-- {{ Auth::user()->name }} --}}
+                                    <i class='bx bx-user-circle icon_creer_admin fs-3'></i>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-end" id="dropdownMenuProfilContent"
+                                aria-labelledby="navbarDropdown" >
                                     {{-- <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

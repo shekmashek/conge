@@ -56,7 +56,6 @@
       @endcan
 
       @can('isReferent')
-
       <li class="nav-item mb-1">
 
         <a href="{{ route('home_referent') }}" class="nav-link rounded-3

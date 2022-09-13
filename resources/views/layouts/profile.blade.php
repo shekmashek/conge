@@ -1,6 +1,6 @@
 {{-- <a class="dropdown-toggle p-1" id="dropdownMenuProfil" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true"><i class='bx bx-user-circle icon_creer_admin'></i></a> --}}
 {{-- <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuProfil"> --}}
-    <div class="card card_profile pt-3">
+    <div class="p-3 pt-2">
         <div class="card-title">
             <div class="row px-3 mt-2">
                 <div class="col-7">
