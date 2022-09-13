@@ -196,7 +196,21 @@ class ManagerController extends Controller
                             </div>';
                     return $r;
                 })
-                ->rawColumns(['nom_prenom', 'actions'])
+
+                ->addColumn('contrat', function($s){
+                    if ($s->contrat) {
+                        $r = '<div class="media align-items-center">
+                        <div class="media-body">
+                            <span>'.$s->contrat->date_embauche.'</span>
+                        </div>
+                        </div>';
+                    } else {
+                        $r='pas encore de contrat';
+                    }
+
+                    return $r;
+                })
+                ->rawColumns(['nom_prenom', 'actions', 'contrat'])
                 ->make(true);
 
             return $employes;

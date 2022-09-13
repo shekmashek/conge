@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -56,8 +56,8 @@ class LoginController extends Controller
             return '/home_RH';
         }
 
-        elseif ($roles_user->contains(3) && !$roles_user->contains(5)) {
-            return '/home';
+        elseif ($roles_user->contains(3) && !$roles_user->contains(5) && !$roles_user->contains(2)) {
+            return '/conges_employe';
         } else {
             return '/home';
         }
