@@ -33,7 +33,7 @@
                 </div>
 
 
-    {{-- --------------------------------------data table historique-------------------------------------------------- --}}
+    {{-- --------------------------------------data table historique php-------------------------------------------------- --}}
 
     {{-- <table id="liste_conge" class="table table-striped" style="width:100%">
         <thead>
@@ -104,13 +104,13 @@
             <tr>
                 {{-- <th>Nom</th> --}}
                 {{-- <th>Prenom</th> --}}
-                <th >Employe </th>
-                <th>Type</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Durée(jour)</th>
-                <th>Motif</th>
-                <th>status</th>
+                <th class="align-middle text-center">Employe </th>
+                <th class="align-middle text-center">Type</th>
+                <th class="align-middle text-center">Début</th>
+                <th class="align-middle text-center">Fin</th>
+                <th class="align-middle text-center">Durée(jour)</th>
+                <th class="align-middle text-center">Motif</th>
+                <th class="align-middle text-center">status</th>
             </tr>
 
         </thead>
@@ -166,20 +166,36 @@
 
             columns: [
                     {
-                        data:'employe'
+                        data:'employe',
+                        // className: 'align-middle text-center'
                     },
                 // { data: 'employe.nom_emp'},
                 // { data: 'employe.prenom_emp'},
-                { data: 'type_conge.type_conge' },
-                { data: 'debut' },
-                { data: 'fin' },
-                { data: 'j_utilise' },
-                { data: 'motif' },
+                {
+                    data: 'type_conge.type_conge' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'debut' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'fin' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'j_utilise',
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'motif' ,
+                    className: 'align-middle text-center'
+                },
                 {
                     data: 'etat_conge.etat_conge',
                     render : function(data, type, row){
                         if (row.etat_conge_id == 3) {
-                            return '<div class="form-check form-switch">'+
+                            return '<div class="form-check form-switch ">'+
                                 '<span><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span>'+
                                 '<label class="form-check-label" for="flexSwitchCheckDefault"> En attente</label>'+
                             '</div>';
