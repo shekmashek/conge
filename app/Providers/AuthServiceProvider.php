@@ -58,8 +58,6 @@ class AuthServiceProvider extends ServiceProvider
                     $query->where('role_id', 3)->where('activiter', 1);
                 });
 
-
-
             })->exists();
 
         });

@@ -81,11 +81,11 @@
                 },
                 {
                     data: 'contrat.date_embauche',
-                    render: function (data, type, row) {
-                        // tranfrom date to dd/mm/yyyy
-                        var date = new Date(row.contrat.date_embauche);
-                        return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-                    }
+                    // render: function (data, type, row) {
+                    //     // tranfrom date to dd/mm/yyyy
+                    //     var date = new Date(row.contrat.date_embauche);
+                    //     return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+                    // }
                 },
 
                 {
