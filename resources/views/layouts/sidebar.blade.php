@@ -4,6 +4,7 @@
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ms-1">
 
         @canany(['isManager','isReferent'])
+            {{ dump(Gate::allows('isReferent')) }}
         <li class="nav-item mb-1">
 
 
@@ -19,7 +20,7 @@
           </li>
 
 
-          <li class="nav-item mb-1">
+        <li class="nav-item mb-1">
 
 
             <a href="{{ route('manager.liste_employes') }}" class="nav-link rounded-3
