@@ -58,8 +58,24 @@ class AuthServiceProvider extends ServiceProvider
                     $query->where('role_id', 3)->where('activiter', 1);
                 });
 
+            })->exists();
 
+        });
 
+                // -----RH-----
+        Gate::define('isRH', function ($user) {
+
+            return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
+                $query->where('role_name', 'RH');
+            })->exists();
+
+        });
+
+                // -----referent-----
+        Gate::define('isReferent', function ($user) {
+
+            return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
+                $query->where('role_name', 'referent');
             })->exists();
 
         });
