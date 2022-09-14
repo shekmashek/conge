@@ -1,16 +1,15 @@
+<a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false"
+    aria-controls="collapseExample">
+    <i class='bx bx-calendar fs-3' style='color:#969696'></i>
+</a>
 
-
-  <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-    <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>
-  </a>
-
-  <div class="collapse my-2 show" id="year_calendar_collapse">
+<div class="collapse my-2 show" id="year_calendar_collapse">
     <div class="card card-body">
         <div class="container">
             <div id='year_calendar'></div>
         </div>
     </div>
-  </div>
+</div>
 
 
 <div class="row">
@@ -48,7 +47,7 @@
         <div class="container">
             <div id='year_calendar'></div>
         </div>
-    </div>  --}}
+    </div> --}}
 </div>
 
 
@@ -56,61 +55,88 @@
 <div class="modal fade " id="refuser_conge">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="{{ route('conge.refuser_demande') }}" method="POST">
-          <div class="modal-body">
-                @csrf
-                <input type="hidden" name="conge_id" id="id_conge" readonly>
-                <div class="form-group">
-                    <label for="message">Motif</label>
-                    <textarea class="form-control" name="message" id="message_refus" rows="3">
+            <div class="modal-header">
+                <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="{{ route('conge.refuser_demande') }}" method="POST">
+                <div class="modal-body">
+                    @csrf
+                    <input type="hidden" name="conge_id" id="id_conge" readonly>
+                    <div class="form-group">
+                        <label for="message">Motif</label>
+                        <textarea class="form-control" name="message" id="message_refus" rows="3">
 
                     </textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <button type="submit" id="btnConfirmRefus" class="btn btn-primary">confirmer</button>
-            </div>
-        </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" id="btnConfirmRefus" class="btn btn-primary">confirmer</button>
+                </div>
+            </form>
         </div>
-      </div>
+    </div>
 </div>
 
 <div class="position-fixed bottom-0 top-75 end-0 translate-middle-y p-3 " style="z-index: 11">
-    <div id="toast_accepter" class="toast hide bg-transparent border-success" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        {{-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player> --}}
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_hlq6mcbz.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
-        <strong class="me-auto">Congé accepté</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body bg-light">
+    <div id="toast_accepter" class="toast hide bg-transparent border-success" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            {{-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json"
+                background="transparent" speed="0.6" class="w-25" style="" loop autoplay></lottie-player> --}}
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_hlq6mcbz.json" background="transparent"
+                speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
+            <strong class="me-auto">Congé accepté</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-light">
 
-      </div>
+        </div>
     </div>
-    <div id="toast_refuser" class="toast hide bg-transparent border-danger" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_nvzik8vy.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
-        <strong class="me-auto">Congé rejeté</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body bg-light">
+    <div id="toast_refuser" class="toast hide bg-transparent border-danger" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_nvzik8vy.json" background="transparent"
+                speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
+            <strong class="me-auto">Congé rejeté</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-light">
 
-      </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<!-- Modal congé accepter -->
+<div class="modal fade" id="accepter_conge">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @push('extra-js')
 <script>
-
-
     // modal refuser conge
     var refuser_conge_modal = new bootstrap.Modal(document.getElementById('refuser_conge'), {
         keyboard: false
+    })
+
+    var accepter_conge_modal = new bootstrap.Modal(document.getElementById('accepter_conge'), {
+        keyboard: false,
+        backdrop: 'static'
     })
 
 
@@ -137,46 +163,54 @@
 
     // accepter demande conge : refresh du datatable en ajax
     function accepter_conge(id){
-
+        accepter_conge_modal.show()
         var url = "conge.accepter_demande";
         var conge_id = id;
-
         $.ajax({
-                url: url,
-                type: 'GET',
-                data: {
-                    conge_id: conge_id,
-                    // action: action,
-                },
-                dataType: 'json',
-                success: function (response) {
-                    console.log(response);
-                    // location.reload();
-                    $('#toast_accepter .toast-body').html('');
-                    $('#toast_refuser .toast-body').html('');
-                    $('#toast_accepter .toast-body').html('Congé de '+ response.employe +' accepté');
 
-                    toast_accepter.show();
-                    $('#liste_en_attente').DataTable().ajax.reload();
+        })
+        
+        $.ajax({
+            url: url,
+            type: 'GET',
+            data: {
+                conge_id: conge_id,
+                // action: action,
+            },
+            dataType: 'json',
+            success: function (response) {
+                console.log(response);
+                // location.reload();
+                $('#toast_accepter .toast-body').html('');
+                $('#toast_refuser .toast-body').html('');
+                $('#toast_accepter .toast-body').html('Congé de '+ response.employe +' accepté');
 
-                    // met à jour le nombre de congés en attente restant
-                    var rows = $('#liste_en_attente').DataTable().rows().count();
-                    console.log(rows-1);
-                    if (rows-1 > 0) {
-                        $('#nbr_en_attente').html(rows-1);
-                    } else if(rows-1 <= 0) {
-                        $('#nbr_en_attente').html('');
-                        $('#nbr_en_attente').addClass('visually-hidden');
-                    }
+                toast_accepter.show();
+                $('#liste_en_attente').DataTable().ajax.reload();
 
-                    $('#liste_conge').DataTable().ajax.reload();
-
-                },
-                error: function (error) {
-                    console.error(error);
+                // met à jour le nombre de congés en attente restant
+                var rows = $('#liste_en_attente').DataTable().rows().count();
+                console.log(rows-1);
+                if (rows-1 > 0) {
+                    $('#nbr_en_attente').html(rows-1);
+                } else if(rows-1 <= 0) {
+                    $('#nbr_en_attente').html('');
+                    $('#nbr_en_attente').addClass('visually-hidden');
                 }
-            });
+
+                $('#liste_conge').DataTable().ajax.reload();
+
+            },
+            error: function (error) {
+                console.error(error);
+            }
+        });
     }
+
+
+    // function show_modal_accepte(id){
+    //     accepter_conge_modal.show();
+    // }
 
 
     function show_modal_refus(id){
