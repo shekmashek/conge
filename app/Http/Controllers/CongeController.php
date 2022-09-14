@@ -361,7 +361,6 @@ class CongeController extends Controller
     public function getDetailsEmployerIdByUserId()
     {
         $id_user = Auth::user()->id;
-        // donnée temporaire
         $details = Employe::where('user_id', '=', $id_user)
             ->get(['id as Employe_id',  'user_id', 'created_at', 'date_embauche']);
         // dd($details[0]['created_at']->format('M-Y'));
