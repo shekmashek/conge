@@ -3,7 +3,7 @@
 
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center ms-1">
 
-        @canany(['isManager','isReferent'])
+        @canany(['isManager'])
             {{-- {{ dump(Gate::allows('isReferent')) }} --}}
         <li class="nav-item mb-1">
 
@@ -57,6 +57,23 @@
       @endcan
 
       @can('isReferent')
+
+      <li class="nav-item mb-1">
+
+
+        <a href="#" class="nav-link rounded-3
+        {{-- @if (Route::currentRouteName() == 'gestion_conge_referent')
+            active
+
+        @endif --}}
+        py-3 border-bottom" aria-current="page" title="Gérer les congés" data-bs-toggle="tooltip" data-bs-placement="right">
+
+            <i class='bx bx-calendar-minus fs-3'></i>
+        </a>
+      </li>
+
+
+
       <li class="nav-item mb-1">
 
         <a href="{{ route('home_referent') }}" class="nav-link rounded-3
@@ -72,10 +89,10 @@
 
         <li class="nav-item mb-1">
         <a href="{{ route('edit_work_times') }}" class=" rounded-3
-        {{-- @if (Route::currentRouteName() == 'edit_work_times') --}}
-            {{-- active --}}
+        @if (Route::currentRouteName() == 'edit_work_times')
+            active
 
-            {{-- @endif --}}
+            @endif
         nav-link py-3 border-bottom" title="Seetings" data-bs-toggle="tooltip" data-bs-placement="right">
             <i class='bx bx-wrench fs-3'></i>
         </a>
