@@ -11,7 +11,7 @@
             <a href="{{ route('home_manager') }}" class="nav-link rounded-3
             @if (Route::currentRouteName() == 'home_manager')
                 active
-
+                btn_active
             @endif
             py-3 border-bottom" aria-current="page" title="Gérer les congés" data-bs-toggle="tooltip" data-bs-placement="right">
 
@@ -26,6 +26,7 @@
             <a href="{{ route('manager.liste_employes') }}" class="nav-link rounded-3
             @if (Route::currentRouteName() == 'manager.liste_employes')
                 active
+                btn_active
 
             @endif
             py-3 border-bottom" aria-current="page" title="Gérer l'équipe" data-bs-toggle="tooltip" data-bs-placement="right">
@@ -47,7 +48,7 @@
           <a href="{{ route('stats_conges_manager') }}" class="nav-link rounded-3
           @if (Route::currentRouteName() == 'stats_conges_manager')
               active
-
+              btn_active
           @endif
           py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right">
 
@@ -57,40 +58,42 @@
       @endcan
 
       @can('isReferent')
-
+{{--
       <li class="nav-item mb-1">
 
 
-        <a href="#" class="nav-link rounded-3
-        {{-- @if (Route::currentRouteName() == 'gestion_conge_referent')
+        <a href="#" class="nav-link rounded-3 link_perso
+        @if (Route::currentRouteName() == 'gestion_conge_referent')
             active
 
-        @endif --}}
+        @endif
         py-3 border-bottom" aria-current="page" title="Gérer les congés" data-bs-toggle="tooltip" data-bs-placement="right">
 
             <i class='bx bx-calendar-minus fs-3'></i>
         </a>
-      </li>
+      </li> --}}
 
 
 
       <li class="nav-item mb-1">
 
-        <a href="{{ route('home_referent') }}" class="nav-link rounded-3
+        <a href="{{ route('home_referent') }}" class="nav-link rounded-3 link_perso btn_perso_hover
         @if (Route::currentRouteName() == 'home_referent')
             active
+            btn_active
 
         @endif
         py-3 border-bottom" aria-current="page"  data-bs-toggle="tooltip" data-bs-placement="right">
 
-        <i class='bx bx-calendar-star fs-3' ></i>
+        <i class='bx bx-calendar-minus fs-3' ></i>
         </a>
       </li>
 
         <li class="nav-item mb-1">
-        <a href="{{ route('edit_work_times') }}" class=" rounded-3
+        <a href="{{ route('edit_work_times') }}" class=" rounded-3 link_perso btn_perso_hover
         @if (Route::currentRouteName() == 'edit_work_times')
             active
+            btn_active
 
             @endif
         nav-link py-3 border-bottom" title="Seetings" data-bs-toggle="tooltip" data-bs-placement="right">
@@ -101,10 +104,10 @@
             {{-- les graphes statistiques : un référent peut voir toutes les stats de l'entreprise --}}
             {{-- Un manager ne verra que celui concernant son service --}}
         <li class="nav-item mb-1">
-            <a href="#" class="nav-link rounded-3
+            <a href="#" class="nav-link rounded-3 link_perso btn_perso_hover
             @if (Route::currentRouteName() == 'liste_employes')
                 active
-
+                btn_active
             @endif
             py-3 border-bottom" aria-current="page" title="" data-bs-toggle="tooltip" data-bs-placement="right">
 
@@ -118,10 +121,10 @@
       @can('isRH')
       {{-- -------------------side bar RH home------------------- --}}
         <li class="nav-item">
-            <a href="{{ route('home_RH') }}" class="nav-link
+            <a href="{{ route('home_RH') }}" class="nav-link link_perso
             @if (Route::currentRouteName() == 'home_RH')
                 active
-
+                btn_active
             @endif
             py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
                 <i class='bx bx-calendar-minus fs-3'></i>
@@ -129,10 +132,10 @@
         </li>
         {{-- --------------------side bar liste employés--------------------------- --}}
         <li class="nav-item">
-            <a href="{{ route('liste_employes') }}" class="nav-link
+            <a href="{{ route('liste_employes') }}" class="nav-link link_perso
             @if (Route::currentRouteName() == 'liste_employes')
                 active
-
+                btn_active
             @endif
             py-3 border-bottom" aria-current="page" title="Liste employés" data-bs-toggle="tooltip" data-bs-placement="right">
                 <i class='bx bxs-user' style="font-size: x-large;"></i>
