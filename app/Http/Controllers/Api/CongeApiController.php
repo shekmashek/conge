@@ -210,7 +210,7 @@ class CongeApiController extends Controller
         //     $employe_id=$request->employe_id;
         // }
 
-        $nombre_de_jour=getCongesAnnuelValide($year,$mois,$employe_id);
+        $nombre_de_jour=getCongesAnnuelValideProd($year,$mois,$employe_id);
 
         // select only those with type_conge_id=1
         $nombre_de_jour=collect($nombre_de_jour)->whereIn('type_conge_id',[1,2,3,4,5,6])
@@ -229,7 +229,7 @@ class CongeApiController extends Controller
             $employe_id=$request->employe_id;
         }
 
-        $nombre_de_jour=getCongesAnnuelValide($year,$mois,$employe_id);
+        $nombre_de_jour=getCongesAnnuelValideProd($year,$mois,$employe_id);
 
         // select only those with type_conge_id=1
         $nombre_de_jour=collect($nombre_de_jour)->whereIn('type_conge_id',[7,8])
