@@ -368,7 +368,7 @@ class CongeController extends Controller
         return $details;
     }
 
-    //duree de travail dans l'entreprise
+    // duree de travail dans l'entreprise
     public function dateValabiliteCongePayeEmploye()
     {
         $employe = $this->getDetailsEmployerIdByUserId();
