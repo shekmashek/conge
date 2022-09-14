@@ -56,7 +56,6 @@
       @endcan
 
       @can('isReferent')
-
       <li class="nav-item mb-1">
 
         <a href="{{ route('home_referent') }}" class="nav-link rounded-3
@@ -112,8 +111,8 @@
         </li>
         {{-- --------------------side bar liste employés--------------------------- --}}
         <li class="nav-item">
-            <a href="{{ route('liste_employes') }}" class="nav-link
-            @if (Route::currentRouteName() == 'liste_employes')
+            <a href="{{ route('employes') }}" class="nav-link
+            @if (Route::currentRouteName() == 'employes')
                 active
 
             @endif

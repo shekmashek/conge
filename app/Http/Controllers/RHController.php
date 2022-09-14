@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\ServiceEntreprise;
 use App\Models\Conge;
+use App\Models\Contrat;
 use App\Models\Employe;
+use App\Models\Entreprise;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\DB;
@@ -20,25 +24,8 @@ class RHController extends Controller
      */
     public function index(Request $request)
     {
-        //---------relation eloquent datable---------
-         $conges=Conge::with('employe','type_conge', 'etat_conge');
 
 
-        //---------------------------------------------
-        if($request->ajax()) // ajax de la table historique
-        {
-            // RECHERCHE AVEC DATES-------------------------------------------
-            if($request->debut && $request->fin)
-            {
-                $conges->whereBetween('debut', [$request->debut, $request->fin]);
-                // $conges = $conges->whereRaw('DATE_FORMAT(debut, "%Y-%m-%d") = \''.$request->debut.'\' AND DATE_FORMAT(fin, "%Y-%m-%d") = \''.$request->fin . '\'');
-            }
-
-
-            $alldata = DataTables::of($conges)
-            ->toJson();
-            return $alldata;
-        }
         $calendar = Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)
         ->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
@@ -51,10 +38,53 @@ class RHController extends Controller
             $value->etat_conge=$value->etat_conge;
         }
 
-
-        return view('rh.home_rh', compact('calendar','conges', 'conges_en_attente', 'nbr_en_attente'));
+        return view('rh.home_rh', compact('calendar', 'conges_en_attente', 'nbr_en_attente'));
     }
 
+
+
+ //-------------------------ajax historique des conges d'un employe----------------------------------------------
+ public function history_conges(Request $request)
+ {
+        //---------relation eloquent datable et declaration de la tale a utilisé---------
+    $conge=Conge::with('employe','type_conge', 'etat_conge');
+
+    if ($request->ajax())
+    {
+        // $conge=Conge::with('employe','type_conge', 'etat_conge')
+        // ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
+
+                    // RECHERCHE AVEC DATES-------------------------------------------
+            if($request->debut && $request->fin)
+            {
+                $conge->whereBetween('debut', [$request->debut, $request->fin]);
+                // $conge = $conge->whereRaw('DATE_FORMAT(debut, "%Y-%m-%d") = \''.$request->debut.'\' AND DATE_FORMAT(fin, "%Y-%m-%d") = \''.$request->fin . '\'');
+
+            }
+
+
+        $conge = DataTables::of($conge)
+            ->addColumn('employe', function($s){
+                $r = '<div class="d-flex align-items-center">
+
+                            <div class="flex-grow-1 ms-3">
+                                <div class="mb-0">'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
+                            </div>
+                        </div>';
+                return $r;
+            })
+            ->rawColumns(['employe'])
+            ->make(true);
+
+
+            return $conge;
+
+
+
+    }
+
+    return view('rh.liste_conge');
+ }
 
 //-----------affiche le calendrier full calendar------------------------------------------------------
 
@@ -67,7 +97,7 @@ class RHController extends Controller
 
 
          foreach ($conges as $conge) {
-            //1 = accordé
+            // 1 = accordé
             //2 = refusé
             //3 = en attente
 
@@ -102,72 +132,18 @@ class RHController extends Controller
 
     }
 
-    //-----------liste employer V1 depuis l'interface RH --------------------------------------------------
 
-    // public function liste_employes(Request $request)
-    // {
-    //    $authed_RH = auth()->user()->employe;
+    //-----------employer  RH --------------------------------------------------
 
-
-    //         $employes=Employe::with('service','service.departement','entreprise','contrat')
-    //         ->where('entreprise_id', $authed_RH->entreprise_id)
-    //         ->where('id', '!=', $authed_RH->id)
-    //         ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+    public function employes(Request $request)
+    {
+        return view('rh.menu_employes');
+    }
 
 
 
-    //     //  dd($employes->pluck('contrat'));
 
-
-    //     if ($request->ajax()) {
-    //         $employes=Employe::with('service','service.departement','entreprise','contrat')
-    //         ->where('entreprise_id', $authed_RH->entreprise_id)
-    //         ->where('id', '!=', $authed_RH->id)
-    //         ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
-
-    //         $employes = DataTables::of($employes)
-    //             ->addColumn('nom_prenom', function($s){
-    //                 // show the photo of the employe
-    //                 // <img src="'.asset('storage/'.$s->photos).'" class="img-fluid" alt="">
-    //                 // <img src="'.$s->photos.'" class="img-fluid" alt="">
-    //                 $r = '<div class="media align-items-center">
-    //                             <div class="media-left">
-    //                                 <img src="'.asset('img/users/'.$s->photos).'" class="img-fluid" alt="">
-    //                             </div>
-    //                             <div class="media-body">
-    //                                 <h4 class="mb-0">'.$s->nom_emp.' '.$s->prenom_emp.'</h4>
-    //                                 <span>'.$s->email_emp.'</span>
-    //                             </div>
-    //                         </div>';
-    //                 return $r;
-    //             })
-
-    //             // ->addColumn('actions', function($s){
-    //             //     $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
-    //             //                 <button class="btn fs-3" type="button" id="action_button" data-bs-toggle="dropdown" aria-expanded="false">
-    //             //                 <i class="bx bx-dots-vertical-rounded"></i>
-    //             //                 </button>
-    //             //                 <ul class="dropdown-menu dropdown-start" aria-labelledby="etat_actions">
-    //             //                     <li><button  class="dropdown-item btnAccepter" type="button" >Voir</button></li>
-    //             //                     <li><button  class="dropdown-item btnRefuser" type="button" onclick="">Historique</button></li>
-    //             //                 </ul>
-    //             //             </div>';
-    //             //     return $r;
-    //             // })
-    //             // ->rawColumns(['nom_prenom', 'actions'])
-    //             ->rawColumns(['nom_prenom'])
-    //             ->make(true);
-
-
-
-    //         return $employes;
-    //     }
-
-    //     return view('rh.liste_employes');
-
-    // }
-
-    //-----------liste employer V2 depuis l'interface RH --------------------------------------------------
+    //-----------liste employer depuis l'interface RH --------------------------------------------------
 
     public function liste_employes(Request $request)
     {
@@ -234,47 +210,16 @@ class RHController extends Controller
 
 
     }
- //-------------------------ajax historique des conges d'un employe----------------------------------------------
- public function history_conges(Request $request)
- {
-    $conge=Conge::with('employe','type_conge', 'etat_conge');
 
-    if ($request->ajax())
+
+ //----------------------formulaire d'ajout employes---------------------------------------------
+    public function add_employe()
     {
-
-            // RECHERCHE AVEC DATES-------------------------------------------
-            if($request->debut && $request->fin)
-            {
-                $conge->whereBetween('debut', [$request->debut, $request->fin]);
-                // $conges = $conges->whereRaw('DATE_FORMAT(debut, "%Y-%m-%d") = \''.$request->debut.'\' AND DATE_FORMAT(fin, "%Y-%m-%d") = \''.$request->fin . '\'');
-            }
-        // $conge=Conge::with('employe','type_conge', 'etat_conge')
-        // ->get(['id', 'employe_id', 'type_conge_id', 'etat_conge_id', 'debut', 'fin', 'j_utilise', 'motif']);
-
-        //   $alldata = DataTables::of($conge)
-        //     ->toJson();
-        //     return $alldata;
-
-        $conge = DataTables::of($conge)
-            ->addColumn('employe', function($s){
-                $r = '<div class="d-flex align-items-center">
-
-                            <div class="flex-grow-1 ms-3">
-                                <div>'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
-                            </div>
-                        </div>';
-                return $r;
-            })
-            ->rawColumns(['employe'])
-            ->make(true);
-
-
-            return $conge;
+        $services = ServiceEntreprise::all();
+        $entreprises = Entreprise::all();
+        $contrats = Contrat::all();
+        return view('rh.add_employe', compact('services', 'entreprises', 'contrats'));
     }
-
-    return view('rh.liste_conge');
- }
-
 
 
 

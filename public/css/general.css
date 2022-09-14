@@ -26,3 +26,8 @@
 .show_hover {
     display: none;
 }
+
+
+#dropdownMenuProfilContent {
+    width:400px;
+}

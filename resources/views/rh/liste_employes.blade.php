@@ -1,7 +1,7 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app') --}}
 
 
-@push('extra-links')
+{{-- @push('extra-links')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css">
@@ -12,9 +12,9 @@
     }
 </style>
 
-@endpush
+@endpush --}}
 
-@section('content')
+{{-- @section('content') --}}
 <div class="container">
             <div class="row">
                 <div class="fixedTop mt-2">
@@ -32,7 +32,7 @@
                 </div>
             </div>
 </div>
-@endsection
+{{-- @endsection --}}
 
 @push('extra-scripts')
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>

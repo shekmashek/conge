@@ -20,26 +20,26 @@
     <table id="liste_en_attente" class="table table-striped" style="width:100%">
         <thead>
             <tr>
-                <th>Employe</th>
-                <th>Type</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Durée(j)</th>
-                <th>Motif</th>
-                <th>status</th>
+                <th class="align-middle text-center">Employe</th>
+                <th class="align-middle text-center">Type</th>
+                <th class="align-middle text-center">Début</th>
+                <th class="align-middle text-center">Fin</th>
+                <th class="align-middle text-center">Durée(j)</th>
+                <th class="align-middle text-center">Motif</th>
+                <th class="align-middle text-center">status</th>
 
             </tr>
         </thead>
         <tbody>
             @forelse ($conges_en_attente as $conge)
             <tr>
-                <td>{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
-                <td>{{ $conge->type_conge->type_conge }}</td>
-                <td>{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
-                <td>{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
-                <td>{{ $conge->j_utilise }}</td>
-                <td>{{ $conge->motif }}</td>
-                <td>
+                <td class="align-middle text-center">{{ $conge->employe->nom_emp.' '.$conge->employe->prenom_emp }}</td>
+                <td class="align-middle text-center">{{ $conge->type_conge->type_conge }}</td>
+                <td class="align-middle text-center">{{ date('d M Y - H:i', strtotime($conge->debut)) }}</td>
+                <td class="align-middle text-center">{{ date('d M Y - H:i',strtotime($conge->fin)) }}</td>
+                <td class="align-middle text-center">{{ $conge->j_utilise }}</td>
+                <td class="align-middle text-center">{{ $conge->motif }}</td>
+                <td class="align-middle text-center">
                     @if ($conge->etat_conge->id == 3)
                     <div class="form-check form-switch">
                         <span><i class='bx bx-loader bx-spin fs-5' style='color:#ffa417'></i></span>

@@ -25,7 +25,7 @@ class IsRH
         if (in_array('9', Auth::user()->roles->pluck('id')->toArray())) {
             if (Auth::user()->roles->where('id', 9)->first()->pivot->activiter == 1) {
                 return $next($request);
-            } else {
+            } else if (Auth::user()->roles->where('id', 9)->first()->pivot->activiter == 1) {
                 # code...
             }
 

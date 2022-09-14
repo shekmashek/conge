@@ -33,9 +33,11 @@ class AuthServiceProvider extends ServiceProvider
 
             return $user=User::where('id',Auth::user()->id)->whereHas('roles', function ($query) {
                 $query->where('role_name', 'referent');
+                $query->where('role_users.activiter', 1);
             })->exists();
 
         });
+
 
         Gate::define('isManager', function ($user) {
 
