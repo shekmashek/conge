@@ -309,7 +309,7 @@ class CongeController extends Controller
 
     public function homeCongeEmploye()
     {
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->Employe_id;
         // $type_conge = new TypeConge;
         $type_conges = TypeConge::All();
         $conge = new Conge;
@@ -362,10 +362,13 @@ class CongeController extends Controller
     {
         $id_user = Auth::user()->id;
         // donnée temporaire
-        $details = Employe::where('user_id', '=', $id_user)
-            ->get(['id as Employe_id',  'user_id', 'created_at', 'date_embauche']);
+
+        $employe = Employe::where('user_id', '=', $id_user)
+            ->with('contrat')
+            ->first(['id',  'user_id', 'created_at']);
+
         // dd($details[0]['created_at']->format('M-Y'));
-        return $details;
+        return $employe;
     }
 
     // duree de travail dans l'entreprise
@@ -385,7 +388,8 @@ class CongeController extends Controller
     public function getDateEmbaucheEmploye()
     {
         $detailEmp = $this->getDetailsEmployerIdByUserId();
-        $datePremierEmbauche = $detailEmp[0]['created_at']->format('M-Y');
+        // dd($detailEmp);
+        $datePremierEmbauche = $detailEmp->created_at->format('M-Y');
         $date_actuelle = now()->format('M-Y');
         return 'De ' . $datePremierEmbauche . ' à ' . $date_actuelle;
     }
@@ -408,7 +412,7 @@ class CongeController extends Controller
     public function soldeEmployeJours()
     {
         $detail_employe = $this->getDetailsEmployerIdByUserId();
-        $date_embauche = $detail_employe[0]['created_at']->format('Y');
+        $date_embauche = $detail_employe->created_at->format('Y');
         // echo $date_embauche;
         $date_actuelle = now()->format('Y');
         // echo $date_actuelle;
@@ -436,7 +440,7 @@ class CongeController extends Controller
     //Absence en attente
     public function getAbsenceEnAttent()
     {
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->Employe_id;
         //dump($id_employe);
         $date_actuelle = now()->format('Y');
         $data = Conge::where('employe_id', '=', $id_employe)
@@ -456,7 +460,7 @@ class CongeController extends Controller
     //Mois d'absence en attente
     public function getMoisJourAbsenceEnAttent()
     {
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->id;
         //dump($id_employe);
         $date_actuelle = now()->format('Y');
         $dateDebutMin = Conge::where('employe_id', '=', $id_employe)
@@ -485,7 +489,7 @@ class CongeController extends Controller
 
     public function getListCongesEmpJson(){
         $conge = new Conge;
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->id;
         return $conge->getListCongesByEmpId($id_employe);
     }
 
