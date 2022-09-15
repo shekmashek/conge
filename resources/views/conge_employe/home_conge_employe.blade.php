@@ -65,7 +65,12 @@
                                     Historique de mes demandes
                                 </button>
                             </p>
-                            <p style="color: cornflowerblue !important;" class="d-flex align-items-center"><i class="bx bx-list-ul fs-2"></i> <a href="#derniere_action" style="text-decoration: none; color: cornflowerblue;">Dernières actions</a> </p>
+                            <p style="color: cornflowerblue !important;" class="d-flex align-items-center">
+                                <i class="bx bx-history fs-2"></i>
+                                <button id="derniereaction_button" type="button" class="btn btn-primary bg-transparent border-0 text-primary" data-bs-toggle="modal" data-bs-target="#derniereaction">
+                                    Dernières actions
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -189,7 +194,7 @@
 
 
 <div class="modal fade " id="historique2" tabindex="-1" aria-labelledby="historique2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content" style="min-height: 500px">
         <div class="modal-header">
             <h4>Historique des demandes de <span style="text-decoration: underline">{{ $historiquesCongeEmp[0]->nom_emp.' '.$historiquesCongeEmp[0]->prenom_emp }}</span></h4>
@@ -208,40 +213,45 @@
   </div>
 
 <!-- Modal Dernières actions-->
-<div id="derniere_action" class="modalDialoggg">
-    <div>
-        <a href="#close" title="Close" class="close "><i class="bx bx-x position-fixed fs-2"></i></a>
-        <h4>Dernières actions</h4>
-        <hr>
-        <ul class="list-group list-group-flush" >
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                ... a validé votre demande du <b>05/09/2022</b> au <b>09/09/2022</b>
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                Vous avez posé une demande du <b>05/09/2022</b> au <b>09/09/2022</b>
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                La journée du <b>05/09/2022</b> a été corrigée
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                La journée du <b>06/09/2022</b> a été corrigée
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                La journée du <b>07/09/2022</b> a été corrigée
-            </li>
-        </ul>
+<div class="modal fade " id="derniereaction" tabindex="-1" aria-labelledby="derniereaction" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+      <div class="modal-content" style="min-height: 500px">
+        <div class="modal-header">
+            <h4>Dernières actions</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" >
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    ... a validé votre demande du <b>05/09/2022</b> au <b>09/09/2022</b>
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    Vous avez posé une demande du <b>05/09/2022</b> au <b>09/09/2022</b>
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    La journée du <b>05/09/2022</b> a été corrigée
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    La journée du <b>06/09/2022</b> a été corrigée
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    La journée du <b>07/09/2022</b> a été corrigée
+                </li>
+            </ul>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 @endsection
 
@@ -255,6 +265,13 @@
 
         historique2.addEventListener('shown.bs.modal', function () {
             historique2_button.focus()
+        })
+
+        var derniereaction = document.getElementById('derniereaction')
+        var derniereaction_button = document.getElementById('derniereaction_button')
+
+        derniereaction.addEventListener('shown.bs.modal', function () {
+            derniereaction_button.focus()
         })
 
     var result = "";
