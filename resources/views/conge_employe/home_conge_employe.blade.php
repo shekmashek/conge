@@ -58,15 +58,15 @@
                         <div class="card-body">
                             <h2 class="card-title" style="text-align:left;text-decoration: underline">Suivi personnel</h2>
                             <hr>
-                            {{-- <p style="color: cornflowerblue !important;"><i class="bx bx-history"></i> <a href="#historique2" style="text-decoration: none; color: cornflowerblue;">Historique de mes demandes</a> </p> --}}
-                            <p style="color: cornflowerblue !important;" class="d-flex align-items-center">
+                            {{-- <p style="color: #0d6efd;" !important;"><i class="bx bx-history"></i> <a href="#historique2" style="text-decoration: none; color: #0d6efd;";">Historique de mes demandes</a> </p> --}}
+                            <p style="color: #0d6efd !important;" class="d-flex align-items-center">
                                 <i class="bx bx-history fs-2"></i>
                                 <button id="historique2_button" type="button" class="btn btn-primary bg-transparent border-0 text-primary" data-bs-toggle="modal" data-bs-target="#historique2">
                                     Historique de mes demandes
                                 </button>
                             </p>
-                            <p style="color: cornflowerblue !important;" class="d-flex align-items-center">
-                                <i class="bx bx-history fs-2"></i>
+                            <p style="color: #0d6efd !important;" class="d-flex align-items-center">
+                                <i class="bx bx-list-ul fs-2"></i>
                                 <button id="derniereaction_button" type="button" class="btn btn-primary bg-transparent border-0 text-primary" data-bs-toggle="modal" data-bs-target="#derniereaction">
                                     Dernières actions
                                 </button>
@@ -193,7 +193,7 @@
 </div> --}}
 
 
-<div class="modal fade " id="historique2" tabindex="-1" aria-labelledby="historique2" aria-hidden="true">
+<div class="modal fade" id="historique2" tabindex="-1" aria-labelledby="historique2" aria-hidden="true">
     <div class="modal-dialog modal-xl">
       <div class="modal-content" style="min-height: 500px">
         <div class="modal-header">

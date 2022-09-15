@@ -51,7 +51,7 @@
                     <div class="row">
 
                     </div>
-                    <div class="row mt-5">
+                    <div class="row mt-5" style="background: lightgray">
                         <div class="d-flex flex-row py-0 justify-content-center">
                             <a href="{{url('politique_confidentialite')}}" target="_blank">
                                 <p class="m-0 test_font2">@lang('translation.PolitiqueDeConfidentialité')</p>
@@ -73,6 +73,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
     {{-- </div> --}}
 {{-- </div> --}}

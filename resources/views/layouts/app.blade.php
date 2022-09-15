@@ -84,12 +84,44 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="dropdownMenuProfil" class="nav-link " href="#" role="button"
+                            <li>
+                                <a style="color: #0d6efd;" id="dropdownMenuLang" data-bs-toggle="dropdown" class="nav-link " href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                data-bs-auto-close="outside" aria-expanded="true" v-pre>
+                                    {{-- {{ Auth::user()->name }} --}}
+                                    <img src="" alt="drapeau pays" width="30" height="30">
+                                </a>
+                            </li>
+                            <li>
+                                <a style="color: #0d6efd;" id="dropdownMenuAdd" class="nav-link " href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true"
                                 data-bs-auto-close="outside" aria-expanded="false" v-pre>
                                     {{-- {{ Auth::user()->name }} --}}
-                                    <i class='bx bx-user-circle icon_creer_admin fs-3'></i>
+                                    <i class='bx bx-plus-medical icon_creer_admin fs-4'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a style="color: #0d6efd;" id="dropdownMenuModif" class="nav-link " href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                data-bs-auto-close="outside" aria-expanded="false" v-pre>
+                                    {{-- {{ Auth::user()->name }} --}}
+                                    <i class='bx bx-cog bx-spin-hover icon_creer_admin fs-4'></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a style="color: #0d6efd;" id="dropdownMenuMenu" class="nav-link " href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                data-bs-auto-close="outside" aria-expanded="false" v-pre>
+                                    {{-- {{ Auth::user()->name }} --}}
+                                    <i class='bx bx-grid-alt icon_creer_admin fs-4'></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a style="color: #0d6efd;" id="dropdownMenuProfil" class="nav-link " href="#" role="button"
+                                data-bs-toggle="dropdown" aria-haspopup="true"
+                                data-bs-auto-close="outside" aria-expanded="false" v-pre>
+                                    {{-- {{ Auth::user()->name }} --}}
+                                    <i class='bx bx-user-circle icon_creer_admin fs-4'></i>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" id="dropdownMenuProfilContent"
