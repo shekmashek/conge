@@ -310,18 +310,14 @@ class CongeController extends Controller
     public function homeCongeEmploye()
     {
         $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
-        // $type_conge = new TypeConge;
         $type_conges = TypeConge::All();
         $conge = new Conge;
         $conges = json_encode($conge->getAll());
         $historiquesCongeEmp = $this->getListCongesEmpJson();
-        // dd($historiquesCongeEmp);
         $solde = $this->soldeEmployeJours();
         $dateEmbauche = $this->getDateEmbaucheEmploye();
         $reste_conge = $this->getAbsenceEnAttent();
         $moisJour=$this->getMoisJourAbsenceEnAttent();
-        // $historiques = $this->historique_congeJson();
-        // return view('home', compact('type_conges', 'conges'));
         return view('conge_employe.home_conge_employe', compact('type_conges', 'conges', 'solde', 'dateEmbauche', 'reste_conge', 'moisJour', 'historiquesCongeEmp'));
     }
 
@@ -408,13 +404,10 @@ class CongeController extends Controller
     {
         $detail_employe = $this->getDetailsEmployerIdByUserId();
         $date_embauche = $detail_employe[0]['created_at']->format('Y');
-        // echo $date_embauche;
         $date_actuelle = now()->format('Y');
-        // echo $date_actuelle;
         $diffAnnee = $date_actuelle - $date_embauche;
     ///solde en minute convertis en jours
         $solde = TypeConge::sum('solde') * 3 / 1440;
-        // echo $solde;
         $arrondissementMin = floor($solde);
         $decimal = $solde - $arrondissementMin;
         if ($decimal > 0.5) {
@@ -435,10 +428,10 @@ class CongeController extends Controller
     //Absence en attente
     public function getAbsenceEnAttent()
     {
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
-        //dump($id_employe);
+        $employe = Auth::user()->employe;
+        // $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
         $date_actuelle = now()->format('Y');
-        $data = Conge::where('employe_id', '=', $id_employe)
+        $data = Conge::where('employe_id', '=', $employe->id)
             ->where('etat_conge_id', '=', 3)
             ->whereYear('debut', '=', $date_actuelle)
             ->sum('duree_conge') / 1440;
@@ -455,13 +448,13 @@ class CongeController extends Controller
     //Mois d'absence en attente
     public function getMoisJourAbsenceEnAttent()
     {
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['id'];
-        //dump($id_employe);
+        $employe = Auth::user()->employe;
+        // $id_employe = $this->getDetailsEmployerIdByUserId()[0]['id'];
         $date_actuelle = now()->format('Y');
-        $dateDebutMin = Conge::where('employe_id', '=', $id_employe)
+        $dateDebutMin = Conge::where('employe_id', '=', $employe->id)
             ->where('etat_conge_id', '=', 3)
             ->min('debut');
-        $dateFinMax = Conge::where('employe_id', '=', $id_employe)
+        $dateFinMax = Conge::where('employe_id', '=', $employe->id)
             ->where('etat_conge_id', '=', 3)
             ->max('fin');
 
@@ -483,9 +476,10 @@ class CongeController extends Controller
     }
 
     public function getListCongesEmpJson(){
+        $employe = Auth::user()->employe;
         $conge = new Conge;
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
-        return $conge->getListCongesByEmpId($id_employe);
+        // $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
+        return $conge->getListCongesByEmpId($employe->id);
     }
 
     public function historique_conge(){
