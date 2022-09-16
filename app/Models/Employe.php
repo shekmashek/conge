@@ -18,6 +18,8 @@ class Employe extends Model
     use HasFactory;
 
     protected $table = 'employes';
+
+    // Utiliser cette table en production.
     // protected $table = 'employers';
 
 

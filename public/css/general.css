@@ -3,6 +3,12 @@
     --perso-clear-green:#00ce00;
     --perso-dark-green:#006900;
     --perso-bg-green:#00bd00b7;
+    --perso-purple:#8a2be2;
+    --perso-bg-purp:#a500ff;
+    --perso-purp-light:#a500ff4d;
+    --perso-grey:#808080;
+    --perso-grey-clear:#8080801f;
+    --font-sidebar-color:#637381;
 }
 
 .text_green{
@@ -28,6 +34,23 @@
 }
 
 
+.btn_active {
+    /* purples */
+    /* background-color: var(--perso-bg-purp)!important; */
+    background: linear-gradient(60deg,#f206ee,#0765f3)!important;
+    color: white!important;
+}
+
+.link_perso {
+    color: var(--font-sidebar-color);
+}
+
+.btn_perso_hover:hover {
+    background-color: var(--perso-grey-clear)!important;
+    color: black!important;
+}
+
 #dropdownMenuProfilContent {
     width:400px;
+    /* background-attachment: fixed; */
 }
