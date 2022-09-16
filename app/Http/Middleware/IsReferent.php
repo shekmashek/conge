@@ -34,8 +34,7 @@ class IsReferent
                 return redirect()->route('home_manager')->with('info', 'Vous êtes connecté en tant que manager');
             } elseif (Auth::user()->roles) {
                 return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
-            }
-             else {
+            } else {
                 return redirect()->route('sign-in');
             }
 
