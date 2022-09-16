@@ -29,21 +29,31 @@ class IsManager
             if (Auth::user()->roles->where('id', 5)->first()->pivot->activiter == 1) {
                 // dd(Auth::user()->roles->where('id', 5)->first()->pivot);
                 return $next($request);
-            }
-        }
-
-
-        // utilisation de contains() sur un objet
-        if (Auth::user()->roles->pluck('id')->contains('3')) {
-
-            if (Auth::user()->roles->where('id', 3)->first()->pivot->activiter == 1) {
+            }else if (Auth::user()->roles->where('id', 3)->first()->pivot->activiter == 1) {
+                return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
+            } else if (Auth::user()->roles->where('id', 9)->first()->pivot->activiter == 1) {
+                return redirect()->route('home_RH')->with('info', 'Vous êtes connecté en tant qu\'RH');
+            } else if (Auth::user()->roles->where('id', 2)->first()->pivot->activiter == 1) {
+                return redirect()->route('home_referent')->with('info', 'Vous êtes connecté en tant que manager');
+            } elseif (Auth::user()->roles) {
                 return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
             } else {
-                # code...
+                return redirect()->route('sign-in');
             }
-
-
         }
+
+
+        // // utilisation de contains() sur un objet
+        // if (Auth::user()->roles->pluck('id')->contains('3')) {
+
+        //     if (Auth::user()->roles->where('id', 3)->first()->pivot->activiter == 1) {
+        //         return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
+        //     } else {
+        //         # code...
+        //     }
+
+
+        // }
 
     }
 }

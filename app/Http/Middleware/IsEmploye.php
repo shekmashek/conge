@@ -29,15 +29,25 @@ class IsEmploye
                 // dd(Auth::user()->roles->where('id', 3)->first()->pivot);
                 // return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
                 return $next($request);
+            } else if (Auth::user()->roles->where('id', 2)->first()->pivot->activiter == 1) {
+                return redirect()->route('home_referent')->with('info', 'Vous êtes connecté en tant qu\'employe');
+            } else if (Auth::user()->roles->where('id', 9)->first()->pivot->activiter == 1) {
+                return redirect()->route('home_RH')->with('info', 'Vous êtes connecté en tant qu\'RH');
+            } else if (Auth::user()->roles->where('id', 5)->first()->pivot->activiter == 1) {
+                return redirect()->route('home_manager')->with('info', 'Vous êtes connecté en tant que manager');
+            } elseif (Auth::user()->roles) {
+                return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
+            } else {
+                return redirect()->route('sign-in');
             }
         }
 
 
-        // utilisation de contains() sur un objet
-        if (!Auth::user()->roles->pluck('id')->contains('3')) {
+        // // utilisation de contains() sur un objet
+        // if (!Auth::user()->roles->pluck('id')->contains('3')) {
 
-            return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
+        //     return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
 
-        }
+        // }
     }
 }
