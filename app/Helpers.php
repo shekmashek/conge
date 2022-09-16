@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Builder;
 
 
+
+
+
+// Ce fichier contient les fonctions générales utilisables dans toute l'application.
+// Il faut donc utiliser dans les controller et non pas les rendre accessible autrement.
+
+
+// fonctions ajout et soustraction de DateIntervale php
 function addDateInterval($interval, $ajout) {
 
     if(gettype($interval)=='string') {
@@ -31,6 +39,7 @@ function addDateInterval($interval, $ajout) {
     return $f->diff($e)->format("%y years %m months %D days %H hours %I minutes %s seconds");
 
 }
+
 
 function subDateInterval($interval1, $retrait) {
 
@@ -63,11 +72,10 @@ function subDateInterval($interval1, $retrait) {
 // ainsi que le nombre d'heure pour une journée (8(h) doit être rendu dynamique
     // => duree_journee=heure_entree-heure_sortie-temps_pause) pour qu'il soit spécifique au employés
     // fonction date_diff
-    // je laisse les sticky notes pour les fonction de calcul sur les DateInterval php et d'autres fonctions utiles.
+    // les fonctions de somme ou différence entre deux DateInterval sont plus haut des le code :
 // RETOURS DE LA FONCTION :
     // $dt : nombre d'heure de travail (entier) et qu'il faut diviser par le nombre d'heure d'une journée pour obtenir un nombre de jour.
     // $duration : un string à utiliser dans la fonction DateInterval::createFromDateString($duration)
-
 function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$fin_pause)
 {
 
@@ -113,7 +121,6 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
         // echo $date."\n";
         // var_dump($date->isOpen());
         // $date->nextOpen();
-
 
         // echo $date."\n";
         // var_dump($date->isOpen());
@@ -170,7 +177,7 @@ function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$f
 }
 
 
-
+// conversion de nombre de minutes (obtenu sur TIMESTAMPDIFF(MINUTES,) ) en string DateInterval et en nombre de jour
 function minuteToDayInterval($minutes){
     $d1 = new DateTime();
     $d2 = new DateTime();
