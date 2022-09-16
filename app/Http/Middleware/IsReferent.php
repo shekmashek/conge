@@ -32,7 +32,10 @@ class IsReferent
                 return redirect()->route('home_RH')->with('info', 'Vous êtes connecté en tant qu\'RH');
             } else if (Auth::user()->roles->where('id', 5)->first()->pivot->activiter == 1) {
                 return redirect()->route('home_manager')->with('info', 'Vous êtes connecté en tant que manager');
-            } else {
+            } elseif (Auth::user()->roles) {
+                return redirect()->route('conge_employe')->with('info', 'Vous êtes connecté en tant qu\'employe');
+            }
+             else {
                 return redirect()->route('sign-in');
             }
 
