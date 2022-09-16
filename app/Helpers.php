@@ -56,6 +56,18 @@ function subDateInterval($interval1, $retrait) {
 
 
 // Calcule de nombre d'heure de travail en prenant un heure d'entré et une heure de sortie.
+// Cette fonction restoure un nombre d'heure de travail en fonction de la date de début et de fin.
+// Iteration sur des datePeriode (avec intervalle d'1 heure) pour déterminer si l'heure désignée est ouverte
+// les jours fériés sont exclus
+// les jours fériés sont encore statiques (dans 'exceptions') et doivent être dynamiques dans la base comme les heures de travail
+// ainsi que le nombre d'heure pour une journée (8(h) doit être rendu dynamique
+    // => duree_journee=heure_entree-heure_sortie-temps_pause) pour qu'il soit spécifique au employés
+    // fonction date_diff
+    // je laisse les sticky notes pour les fonction de calcul sur les DateInterval php et d'autres fonctions utiles.
+// RETOURS DE LA FONCTION :
+    // $dt : nombre d'heure de travail (entier) et qu'il faut diviser par le nombre d'heure d'une journée pour obtenir un nombre de jour.
+    // $duration : un string à utiliser dans la fonction DateInterval::createFromDateString($duration)
+
 function getWorkingHours($start,$end,$heure_entree,$heure_sortie,$debut_pause,$fin_pause)
 {
 
