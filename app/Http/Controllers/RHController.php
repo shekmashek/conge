@@ -26,6 +26,13 @@ class RHController extends Controller
     {
 
 
+        // $conge=Conge::with('employe','type_conge', 'etat_conge')->get(['id','employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        // foreach ($conge as $key => $value) {
+        //     dump($value->id,$value->employe);
+        // }
+
+        // dd('end');
+
         $calendar = Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)
         ->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
@@ -40,13 +47,44 @@ class RHController extends Controller
 
         return view('rh.home_rh', compact('calendar', 'conges_en_attente', 'nbr_en_attente'));
     }
+//-------------------------ajax listes des conges d'un employe----------------------------------------------
+public function liste_en_attente(Request $request)
+{
+    $conge=Conge::with('employe','type_conge', 'etat_conge')->get(['id','employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
 
+
+    if ($request->ajax())
+    {
+
+
+        $conge = DataTables::of($conge)
+            ->addColumn('employe', function($s){
+                $r = '<div class="d-flex align-items-center">
+
+                            <div class="flex-grow-1 ms-3">
+                                <div class="mb-0">'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
+                            </div>
+                        </div>';
+                return $r;
+            })
+            ->rawColumns(['employe'])
+            ->make(true);
+
+
+            return $conge;
+
+
+
+    }
+
+    return view('rh.liste_en_attente');
+}
 
  //-------------------------ajax historique des conges d'un employe----------------------------------------------
  public function history_conges(Request $request)
  {
-        //---------relation eloquent datable et declaration de la tale a utilisé---------
+                    //---------relation eloquent datable et declaration de la table a utilisé---------
     $conge=Conge::with('employe','type_conge', 'etat_conge');
 
     if ($request->ajax())
