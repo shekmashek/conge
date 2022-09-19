@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('css/conge_employe/accueil.css') }}">
 <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
-
+<script src="https://unpkg.com/js-year-calendar@latest/locales/js-year-calendar.fr.js"></script>
 @endpush
 
 @section('content')
@@ -17,59 +17,41 @@
     }
 
     #calendar .calendar-header .year-title {
-        font-size: 18px;
-    }
-
-    #calendar .calendar-header .year-title:hover,
-    #calendar .calendar-header .prev:hover,
-    #calendar .calendar-header .next:hover{
-        background: rgba(255, 255, 255, 0.2);
+    font-size: 18px;
     }
 
     #calendar .calendar-header .year-title:not(.year-neighbor):not(.year-neighbor2) {
-        border-bottom: 2px solid #ccc;
-    }
-
-    #calendar .calendar-header .year-neighbor {
-        color: inherit;
-        opacity: 0.7;
-    }
-
-    #calendar .calendar-header .year-neighbor2 {
-        color: inherit;
-        opacity: 0.4;
+    border-bottom: 2px solid #2196f3;
     }
 
     #calendar .months-container .month-container {
-        height: 235px;
-        margin-bottom: 25px;
+    height: 260px;
+    margin-bottom: 25px;
     }
 
     #calendar table.month {
-        background-color: white;
-        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
-        height: 100%;
+    background-color: white;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+    height: 100%;
     }
 
     #calendar table.month th.month-title {
-        background-color: #f0f0f0;
-        color: #888;
-        padding: 6px;
-        font-size: 13px;
-        font-weight: 600;
+    background-color: #2196F3;
+    color: white;
+    padding: 12px;
+    font-weight: 400;
     }
 
     #calendar table.month th.day-header {
-        padding-top: 8px;
-        padding-bottom: 5px;
-        color: #666;
-        font-weight: 500;
+    padding-top: 10px;
+    color: #CDCDCD;
+    font-weight: 400;
+    font-size: 12px;
     }
 
     #calendar table.month td.day .day-content {
-        color: #666;
-        padding: 9px 7px;
-        border-radius: 2px;
+    padding: 8px;
+    border-radius: 100%;
     }
 </style>
 <div class="container">
@@ -77,35 +59,35 @@
         <div class="col-md-5" style=" height: 400px;">
             <div class="row" style="margin: 20px;" >
                 <div class="col-md-11">
-                    <h2 style="text-decoration: underline">Compteurs</h2>
-                    {{-- <h3>{{ Auth::user()->id  }}</h3> --}}
-                    <table class="table" style="margin-left: 20px;">
-                        <thead class="table table-primary">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Solde actuel</th>
-                            <th scope="col">Acquis</th>
-                        </tr>
+                    <h4>Compteurs</h4>
+                    <br>
+                    <table class="table">
+                        <thead style="background: #2196F3;">
+                            <tr>
+                                <td scope="col"></td>
+                                <td scope="col" style="color: white">Solde actuel</td>
+                                <td scope="col" style="color: white">Acquis</td>
+                            </tr>
                         </thead>
                         <tbody >
                             <tr>
-                                <th scope="row">Congé payé</th>
+                                <td scope="row">Congé payé</td>
                                 <td><a href="#">30</a></td>
                                 <td>0</td>
                             </tr>
                             <tr>
-                                <th scope="row">Congé exceptionnel</th>
+                                <td scope="row">Congé exceptionnel</td>
                                 <td><a href="#">10</a></td>
                                 <td>0</td>
                             </tr>
                             <tr>
-                                <th scope="row">Congé maladie</th>
+                                <td scope="row">Congé maladie</td>
                                 <td><a href="#">30</a></td>
                                 <td>0</td>
                             </tr>
                             @for ($i = 0; $i < 4; $i++)
                                 <tr>
-                                    <th scope="row">...</th>
+                                    <td scope="row">...</td>
                                     <td><a href="#">...</a></td>
                                     <td>...</td>
                                 </tr>
@@ -119,7 +101,7 @@
                 <div class="col-md-11">
                     <div class="card" style="border-radius:5px;border: none;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
                         <div class="card-body">
-                            <h2 class="card-title" style="text-align:left;text-decoration: underline">Suivi personnel</h2>
+                            <h4 class="card-title" style="text-align:left;">Suivi personnel</h4>
                             <hr>
                             {{-- <p style="color: #0d6efd;" !important;"><i class="bx bx-history"></i> <a href="#historique2" style="text-decoration: none; color: #0d6efd;";">Historique de mes demandes</a> </p> --}}
                             <p style="color: #0d6efd !important;" class="d-flex align-items-center">
@@ -151,7 +133,7 @@
                 </div>
             </div>
             <div class="row" style="padding: 20px;">
-                <h1 style="text-decoration:underline">Calendrier annuel des congés</h1>
+                <h3 style="text-decoration:underline">Calendrier annuel des congés</h3>
                 {{-- <div data-provide="calendar"></div> --}}
                 <div id="calendar" style="padding: 10px; border: 1px solid lightgray">
                 </div>
@@ -229,7 +211,6 @@
                         </div>
                     </div>
                     <div id="date_conge_error" class="alert d-none text-danger m-0 mt-1 p-0" role="alert"></div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-outline-primary" id="ajaxSubmit">Demander</button>
@@ -260,7 +241,7 @@
     <div class="modal-dialog modal-xl">
       <div class="modal-content" style="min-height: 500px">
         <div class="modal-header">
-            <h4>Historique des demandes de <span style="text-decoration: underline">{{ $historiquesCongeEmp[0]->nom_emp.' '.$historiquesCongeEmp[0]->prenom_emp }}</span></h4>
+            <h5>Historique des demandes de <span style="text-decoration: underline">{{ $historiquesCongeEmp[0]->nom_emp.' '.$historiquesCongeEmp[0]->prenom_emp }}</span></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -280,7 +261,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
       <div class="modal-content" style="min-height: 500px">
         <div class="modal-header">
-            <h4>Dernières actions</h4>
+            <h5>Dernières actions</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
