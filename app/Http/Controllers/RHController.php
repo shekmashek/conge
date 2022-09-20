@@ -47,10 +47,12 @@ class RHController extends Controller
 
         return view('rh.home_rh', compact('calendar', 'conges_en_attente', 'nbr_en_attente'));
     }
-//-------------------------ajax listes des conges d'un employe----------------------------------------------
+//-------------------------ajax listes en attente des demandes de conges des employes----------------------------------------------
 public function liste_en_attente(Request $request)
 {
-    $conge=Conge::with('employe','type_conge', 'etat_conge')->get(['id','employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+    $conge=Conge::with('employe','type_conge', 'etat_conge')
+    ->where('etat_conge_id', 3)
+    ->get(['id','employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
 
 
@@ -86,6 +88,7 @@ public function liste_en_attente(Request $request)
  {
                     //---------relation eloquent datable et declaration de la table a utilisé---------
     $conge=Conge::with('employe','type_conge', 'etat_conge');
+
 
     if ($request->ajax())
     {
@@ -191,16 +194,17 @@ public function liste_en_attente(Request $request)
             $employes=Employe::with('service','service.departement','entreprise','contrat')
             ->where('entreprise_id', $authed_RH->entreprise_id)
             ->where('id', '!=', $authed_RH->id)
-            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos', 'date_embauche']);
 
 
-        if ($request->ajax()) {
-            $employes=Employe::with('service','service.departement','entreprise','contrat')
-            ->where('entreprise_id', $authed_RH->entreprise_id)
-            ->where('id', '!=', $authed_RH->id)
-            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+            if ($request->ajax()) {
+                // $employes=Employe::with('service','service.departement','entreprise','contrat')
+                // ->where('entreprise_id', $authed_RH->entreprise_id)
+                // ->where('id', '!=', $authed_RH->id)
+                // ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
 
-            $employes = DataTables::of($employes)
+
+                $employes = DataTables::of($employes)
                 ->addColumn('id', function($s){
                     return $s->id;
                 })
@@ -221,7 +225,19 @@ public function liste_en_attente(Request $request)
                     $r = '<span class="ms-2 ">'.$s->email_emp. '<br>'.$s->telephone_emp. '</span>';
                     return $r;
                 })
+                ->addColumn('contrat', function($s){
+                    if ($s->contrat) {
+                        $r = '<div class="media align-items-center">
+                        <div class="media-body">
+                            <span>'.$s->contrat->date_embauche.'</span>
+                        </div>
+                        </div>';
+                    } else {
+                        $r='pas encore de contrat';
+                    }
 
+                    return $r;
+                })
 
                 // ->addColumn('actions', function($s){
                 //     $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
@@ -236,10 +252,11 @@ public function liste_en_attente(Request $request)
                 //     return $r;
                 // })
                 // ->rawColumns(['nom_prenom', 'actions'])
-                ->rawColumns(['nom_prenom', 'contacts'])
+                ->rawColumns(['nom_prenom', 'contacts','contrat'])
                 ->make(true);
 
 
+                // dd($employes);
 
             return $employes;
         }
