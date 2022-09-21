@@ -28,12 +28,6 @@
             </tbody>
         </table>
     </div>
-    {{-- <div class="col-lg-6 col-sm-12 col-md-12">
-
-        <div class="container">
-            <div id='year_calendar'></div>
-        </div>
-    </div> --}}
 </div>
 
 
@@ -42,24 +36,12 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
+                <h5 class="modal-title" id="conge_id"><span id="refuser_conge_id">Details</span></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form action="{{ route('conge.refuser_demande') }}" method="POST">
-                <div class="modal-body">
-                    @csrf
-                    <input type="hidden" name="conge_id" id="id_conge" readonly>
-                    <div class="form-group">
-                        <label for="message">Motif</label>
-                        <textarea class="form-control" name="message" id="message_refus" rows="3">
-                    </textarea>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                    <button type="submit" id="btnConfirmRefus" class="btn btn-primary">confirmer</button>
-                </div>
-            </form>
+            <div id="modal-motif">
+
+            </div>
         </div>
     </div>
 </div>
@@ -145,6 +127,17 @@
             $('#accepter_conge .modal-content.modal-data').html( form );
         });
     }
+    // ouvrir popup congé relative
+    function getRejectedTimeOff(id) {
+        refuser_conge_modal.show();
+        var urRejectedTimeOff = "{{ route('congeReference', ":id")}}"
+        urRejectedTimeOff = urRejectedTimeOff.replace(':id', id);   
+        console.log(urRejectedTimeOff)
+        $.get(urRejectedTimeOff, function(data)
+        {
+            $('#refuser_conge #modal-motif').html(data)
+        });
+    }
 
     // accepter demande conge : refresh du datatable en ajax
     function accepter_conge(id){
@@ -189,23 +182,20 @@
         });
     }
 
-    function show_modal_refus(id){
-        $('#refuser_conge_id').html('');
-        $('#refuser_conge_id').html(id);
-        $('#id_conge').val('');
-        $('#id_conge').val(id);
-        $('#message_refus').val('');
-        refuser_conge_modal.show();
-    }
+    // function show_modal_refus(id){
+    //     $('#refuser_conge_id').html('');
+    //     $('#refuser_conge_id').html(id);
+    //     $('#id_conge').val('');
+    //     $('#id_conge').val(id);
+    //     $('#message_refus').val('');
+    //     refuser_conge_modal.show();
+    // }
 
-    $('#refuser_conge').submit(function(e){
-        // la page ne se recharge pas au submit
-        e.preventDefault();
-        var url = "{{ route('conge.refuser_demande') }}";
-        // var data = $(this).serialize();
+    function confirmReject(id){
+        var url = "{{ route('conge.refuser_demande', ":id") }}";
+        url = url.replace(':id', id);
         var message = $('#message_refus').val();
         var conge_id = $('#id_conge').val();
-
         if(message == ''){
             alert('Veuillez saisir un message');
         }else{
@@ -213,26 +203,17 @@
                 url: url,
                 type: 'GET',
                 data: {
-                    conge_id: conge_id,
                     message: message,
-                    // action: action,
                 },
                 dataType: 'json',
                 success: function (response) {
-                    console.log(response);
-                    // location.reload();
                     $('#toast_accepter .toast-body').html('');
                     $('#toast_refuser .toast-body').html('');
-
                     $('#toast_refuser .toast-body').html('Congé de '+ response.employe +' rejeté');
-
                     toast_refuser.show();
-
                     $('#liste_en_attente').DataTable().ajax.reload();
-
                     // mettre à jour le nombre de congés en attente
                     var rows = $('#liste_en_attente').DataTable().rows().count();
-                    console.log(rows-1);
                     if (rows-1 > 0) {
                         $('#nbr_en_attente').html(rows-1);
                     } else if(rows-1 <= 0) {
@@ -248,7 +229,7 @@
                 }
             });
         }
-    });
+    };
 
 
     $(document).ready(function () {

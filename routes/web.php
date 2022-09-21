@@ -60,8 +60,9 @@ Route::middleware(['IsManager'])->group(function () {
     Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
     Route::get('/listeConge', [ManagerController::class, 'listeConge'])->name('listeConge');
     Route::get('/listeCongeRelative/{id}', [ManagerController::class, 'getRelativeTimeOff'])->name('listeCongeRelative');
+    Route::get('/conge_reference/{id}', [ManagerController::class, 'getRejectedTimeOff'])->name('congeReference');
     Route::get('/conge.accepter_demande/{id}', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
-    Route::get('/conge.refuser_demande', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
+    Route::get('/conge.refuser_demande/{id}', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
     Route::get('/employes_manager', [ManagerController::class, 'listeEmployes'])->name('manager.liste_employes');
     Route::get('/stats_conges_manager', [ManagerController::class, 'statisticsConges'])->name('stats_conges_manager');
 });

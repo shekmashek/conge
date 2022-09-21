@@ -134,12 +134,11 @@ class CongeController extends Controller
     }
 
 
-    public function refuser_demande(Request $request) {
+    public function refuser_demande(Request $request, $id) {
 
         if (Gate::allows('isManager')) {
-            $conge_id=$request->conge_id;
             $message=$request->message;
-            $conge=Conge::where('id', $conge_id)->first();
+            $conge=Conge::where('id', $id)->first();
 
 
 
@@ -158,7 +157,7 @@ class CongeController extends Controller
             }
 
 
-            Conge::where('id',$conge_id)->update([
+            Conge::where('id',$id)->update([
                 'etat_conge_id'=>2,
                 'intervalle' => $worktime['duration'],
                 'duree_conge'=> $worktime['dt']*60, // en minute
@@ -167,7 +166,7 @@ class CongeController extends Controller
 
             ]);
 
-            SendRejectCongeMail::dispatch($conge,$message);
+            // SendRejectCongeMail::dispatch($conge,$message);
             // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
 
                 if ($request->ajax()) {

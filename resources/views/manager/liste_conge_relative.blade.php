@@ -36,6 +36,5 @@
   </div>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-  <button onclick="accepter_conge({{ $congeRef->id }})"data-bs-dismiss="modal" class="btn btn-primary">Confirmer</button>
+  <button onclick="accepter_conge({{ $congeRef->id }})"data-bs-dismiss="modal" class="btn btn-success">Confirmer</button>
 </div>

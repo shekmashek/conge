@@ -7,6 +7,7 @@ use Aws\Api\Service;
 use App\Models\Conge;
 use App\Models\Employe;
 use Illuminate\Http\Request;
+use Termwind\Components\Raw;
 use Yajra\DataTables\DataTables;
 
 
@@ -73,7 +74,7 @@ class ManagerController extends Controller
                     // return $r;
                     $r='<div class="d-flex" data-conge-id="'.$s->id.'">
                            <button onclick="getRelativeTimeOff('.$s->id.')"  class="btn d-flex btnAccepter btn-accept-onclick" type="button"><i class="bx bx-check-circle fs-3 text_green text_big_hover"></i><span class="show_hover">Accepter</span></button>
-                            <button onclick="show_modal_refus('.$s->id.');" class="btn d-flex btnRefuser" type="button " onclick=""><i class="bx bx-x-circle fs-3 text-danger text_big_hover"></i><span class="show_hover">Rejeter</span></button>
+                            <button onclick="getRejectedTimeOff('.$s->id.');" class="btn d-flex btnRefuser" type="button " onclick=""><i class="bx bx-x-circle fs-3 text-danger text_big_hover"></i><span class="show_hover">Rejeter</span></button>
                         </div>';
 
                     return $r;
@@ -234,6 +235,10 @@ class ManagerController extends Controller
                         ->where('id', '<>', $congeRef->id)
                         ->get();
         return view('manager.liste_conge_relative', ['congeRel' => $congeRel, 'congeRef' => $congeRef]);
+    }
+    public function getRejectedTimeOff($id) {
+        $congeRef = Conge::find($id);
+        return view('manager.reference_conge', ['congeRef' => $congeRef]);
     }
 
 
