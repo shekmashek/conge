@@ -26,6 +26,13 @@ class RHController extends Controller
     {
 
 
+        // $conge=Conge::with('employe','type_conge', 'etat_conge')->get(['id','employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
+        // foreach ($conge as $key => $value) {
+        //     dump($value->id,$value->employe);
+        // }
+
+        // dd('end');
+
         $calendar = Conge::get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
         $conges_en_attente = Conge::where('etat_conge_id', 3)
         ->get(['employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
@@ -40,14 +47,48 @@ class RHController extends Controller
 
         return view('rh.home_rh', compact('calendar', 'conges_en_attente', 'nbr_en_attente'));
     }
+//-------------------------ajax listes en attente des demandes de conges des employes----------------------------------------------
+public function liste_en_attente(Request $request)
+{
+    $conge=Conge::with('employe','type_conge', 'etat_conge')
+    ->where('etat_conge_id', 3)
+    ->get(['id','employe_id', 'type_conge_id', 'debut', 'fin', 'j_utilise', 'motif', 'etat_conge_id']);
 
 
+
+    if ($request->ajax())
+    {
+
+
+        $conge = DataTables::of($conge)
+            ->addColumn('employe', function($s){
+                $r = '<div class="d-flex align-items-center">
+
+                            <div class="flex-grow-1 ms-3">
+                                <div class="mb-0">'.$s->employe->nom_emp.' '.$s->employe->prenom_emp.'</div>
+                            </div>
+                        </div>';
+                return $r;
+            })
+            ->rawColumns(['employe'])
+            ->make(true);
+
+
+            return $conge;
+
+
+
+    }
+
+    return view('rh.liste_en_attente');
+}
 
  //-------------------------ajax historique des conges d'un employe----------------------------------------------
  public function history_conges(Request $request)
  {
-        //---------relation eloquent datable et declaration de la tale a utilisé---------
+                    //---------relation eloquent datable et declaration de la table a utilisé---------
     $conge=Conge::with('employe','type_conge', 'etat_conge');
+
 
     if ($request->ajax())
     {
@@ -153,16 +194,17 @@ class RHController extends Controller
             $employes=Employe::with('service','service.departement','entreprise','contrat')
             ->where('entreprise_id', $authed_RH->entreprise_id)
             ->where('id', '!=', $authed_RH->id)
-            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos', 'date_embauche']);
 
 
-        if ($request->ajax()) {
-            $employes=Employe::with('service','service.departement','entreprise','contrat')
-            ->where('entreprise_id', $authed_RH->entreprise_id)
-            ->where('id', '!=', $authed_RH->id)
-            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+            if ($request->ajax()) {
+                // $employes=Employe::with('service','service.departement','entreprise','contrat')
+                // ->where('entreprise_id', $authed_RH->entreprise_id)
+                // ->where('id', '!=', $authed_RH->id)
+                // ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
 
-            $employes = DataTables::of($employes)
+
+                $employes = DataTables::of($employes)
                 ->addColumn('id', function($s){
                     return $s->id;
                 })
@@ -183,7 +225,19 @@ class RHController extends Controller
                     $r = '<span class="ms-2 ">'.$s->email_emp. '<br>'.$s->telephone_emp. '</span>';
                     return $r;
                 })
+                ->addColumn('contrat', function($s){
+                    if ($s->contrat) {
+                        $r = '<div class="media align-items-center">
+                        <div class="media-body">
+                            <span>'.$s->contrat->date_embauche.'</span>
+                        </div>
+                        </div>';
+                    } else {
+                        $r='pas encore de contrat';
+                    }
 
+                    return $r;
+                })
 
                 // ->addColumn('actions', function($s){
                 //     $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
@@ -198,7 +252,7 @@ class RHController extends Controller
                 //     return $r;
                 // })
                 // ->rawColumns(['nom_prenom', 'actions'])
-                ->rawColumns(['nom_prenom', 'contacts'])
+                ->rawColumns(['nom_prenom', 'contacts','contrat'])
                 ->make(true);
 
 
