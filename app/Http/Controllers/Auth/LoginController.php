@@ -49,13 +49,13 @@ class LoginController extends Controller
         // le role_id 5 correspond au manager
 
         $roles_user = Auth::user()->roles->pluck('id');
-        if ($roles_user->contains(5) && Auth::user()->roles->where('id',5)->first()->pivot->activiter == 1) {
+        if ($roles_user->contains(35) && Auth::user()->roles->where('id',35)->first()->pivot->activiter == 1) {
             return '/home_manager';
-        } elseif ($roles_user->contains(9) && Auth::user()->roles->where('id',9)->first()->pivot->activiter == 1) {
+        } elseif ($roles_user->contains(39) && Auth::user()->roles->where('id',39)->first()->pivot->activiter == 1) {
             return '/home_RH';
-        } elseif ($roles_user->contains(3) && Auth::user()->roles->where('id',3)->first()->pivot->activiter == 1) {
+        } elseif ($roles_user->contains(33) && Auth::user()->roles->where('id',33)->first()->pivot->activiter == 1) {
             return '/conge_employe';
-        } elseif ($roles_user->contains(2) && Auth::user()->roles->where('id',2)->first()->pivot->activiter == 1) {
+        } elseif ($roles_user->contains(40) && Auth::user()->roles->where('id',40)->first()->pivot->activiter == 1) {
             return '/home_referent';
         } else {
             return '/home';
