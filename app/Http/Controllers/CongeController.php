@@ -20,16 +20,15 @@ use App\Jobs\SendApproveMailCongeJob;
 class CongeController extends Controller
 {
 
-
-    public function accepter_demande(Request $request) {
+    public function accepter_demande($id) {
 
 
         if (Gate::allows('isManager')) {
-            $conge_id=$request->conge_id;
+            // $conge_id=$request->conge_id;
 
-            $conge=Conge::where('id', $conge_id)->first();
+            $conge=Conge::where('id', $id)->first();
 
-
+            // dd($conge->employe_id);
             // Le manager étant qussi un employé, il ne peut pas valider ses propres congés
             // Un employe ne peut pas valider sa propre demande de congé
             if ($conge->employe_id != Auth()->user()->id) {
@@ -44,6 +43,7 @@ class CongeController extends Controller
 
                 // en prenant compte les heures non valides (ex: 1er janvier)
                 // utilisation de la fonction getWorkingHours dans Helpers.php
+                // dd($conge->employe->heure_de_travail->heure_debut);
                 $worktime = getWorkingHours($debut,$fin,$conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause,$conge->employe->heure_de_travail->fin_pause);
 
                 $intervalle = DateInterval::createFromDateString($worktime['duration']);
@@ -93,7 +93,7 @@ class CongeController extends Controller
                 // cumul_perso et restant : DateInterval restant après la demande acceptée.
                 // restant garde le nombre et cumul_perso varie selon les soldes de congé.
                 // j_utilise : nombre de jour ( 1/0.5/5.5 ) utilisé à la demande : 1 ou une demi-journée.
-                Conge::where('id',$conge_id)->update([
+                Conge::where('id',$id)->update([
 
                     'etat_conge_id'=>1,
                     'intervalle' => $worktime['duration'],
@@ -105,7 +105,7 @@ class CongeController extends Controller
                 ]);
 
                 // ne pas oublier d'excecuter : php artisan queue:work pour envoyer les mails en file d'attente
-                SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
+                // SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
                 // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
                 return response()->json([
@@ -258,7 +258,7 @@ class CongeController extends Controller
      */
     public function update(Request $request, Conge $conge)
     {
-        //
+
     }
 
     /**
