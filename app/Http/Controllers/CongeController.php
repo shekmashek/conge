@@ -328,7 +328,6 @@ class CongeController extends Controller
         $debut = $request->debut.' '.$employe->heure_de_travail->heure_debut;
         $fin = $request->fin.' '.$employe->heure_de_travail->heure_fin;
 
-
         $conge=Conge::create(
             [
                 'employe_id' => $employe->id,
@@ -355,7 +354,7 @@ class CongeController extends Controller
 
     //select identifiant employe a partir de son l'user authentifier
     public function getDetailsEmployerIdByUserId()
-    {
+     {
         $id_user = Auth::user()->id;
         $details = Employe::where('user_id', '=', $id_user)
             ->get(['id as Employe_id',  'user_id', 'created_at', 'date_embauche']);

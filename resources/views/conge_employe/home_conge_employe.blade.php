@@ -408,6 +408,7 @@
             var motif = $('#description').val();
 
             console.log(tmpdebut);
+            console.log(tmpfin)
             // console.log("Type de conge= "+type_motif_conge_id);
             // console.log("date debut= "+debut);
             // console.log("date fin= "+fin);
