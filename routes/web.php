@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RHController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CongeController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ManagerController;
@@ -54,7 +55,17 @@ Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])
 
 // mettre en place un middleware pour les routes non manager : l'appli redirige vers le home par défaut
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+//-------------------------- admin ---------------------------------------------------
 
+Route::prefix('/admin')->middleware(['IsAdmin'])->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index', ['title' => "admin"]);
+    })->name('index');
+
+    Route::get('home', [AdminController::class, 'index']);
+
+});
+//-------------------------- Manager ---------------------------------------------------
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
     Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');

@@ -72,6 +72,15 @@ class AuthServiceProvider extends ServiceProvider
             })->exists();
 
         });
+           // -----admin----
+           Gate::define('isAdmin', function ($user) {
+
+            return $user = User::where('id', Auth::user()->id)->whereHas('roles', function ($query) {
+                $query->where('role_name', 'admin');
+                $query->where('role_users.activiter', 1);
+            })->exists();
+
+        });
 
 
     }
