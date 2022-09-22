@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RHController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CongeController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\ManagerController;
@@ -54,13 +55,25 @@ Route::get('condition_generale_de_vente', [ConditionController::class, 'index'])
 
 // mettre en place un middleware pour les routes non manager : l'appli redirige vers le home par défaut
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+//-------------------------- admin ---------------------------------------------------
 
+Route::prefix('/admin')->middleware(['IsAdmin'])->name('admin.')->group(function () {
+    Route::get('/', function () {
+        return view('admin.index', ['title' => "admin"]);
+    })->name('index');
+
+    Route::get('home', [AdminController::class, 'index']);
+
+});
+//-------------------------- Manager ---------------------------------------------------
 Route::middleware(['IsManager'])->group(function () {
     Route::get('/home_manager', [ManagerController::class, 'index'])->name('home_manager');
     Route::get('/calendrier_conge', [ManagerController::class, 'calendrier_conge'])->name('calendrier_conge');
     Route::get('/listeConge', [ManagerController::class, 'listeConge'])->name('listeConge');
-    Route::get('/conge.accepter_demande', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
-    Route::get('/conge.refuser_demande', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
+    Route::get('/listeCongeRelative/{id}', [ManagerController::class, 'getRelativeTimeOff'])->name('listeCongeRelative');
+    Route::get('/conge_reference/{id}', [ManagerController::class, 'getRejectedTimeOff'])->name('congeReference');
+    Route::get('/conge.accepter_demande/{id}', [CongeController::class, 'accepter_demande'])->name('conge.accepter_demande');
+    Route::get('/conge.refuser_demande/{id}', [CongeController::class, 'refuser_demande'])->name('conge.refuser_demande');
     Route::get('/employes_manager', [ManagerController::class, 'listeEmployes'])->name('manager.liste_employes');
     Route::get('/stats_conges_manager', [ManagerController::class, 'statisticsConges'])->name('stats_conges_manager');
 });
@@ -70,6 +83,7 @@ Route::middleware(['IsManager'])->group(function () {
 Route ::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/history_RH', [App\Http\Controllers\RHController::class, 'history_conges'])->name('history_RH');
+    Route::get('/liste_en_attente', [App\Http\Controllers\RHController::class, 'liste_en_attente'])->name('liste_en_attente');
     Route::get('/rh.calendrier', [RHController::class, 'calendrier'])->name('rh.calendrier');
     Route::get('employes', [RHController::class, 'employes'])->name('employes');
     Route::get('/liste_employes', [RHController::class, 'liste_employes'])->name('liste_employes');
@@ -107,3 +121,4 @@ Route::middleware(['IsEmploye'])->group(function () {
 
     });
 });
+

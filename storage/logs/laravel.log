@@ -1,0 +1,4 @@
+[2022-09-22 16:15:42] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 

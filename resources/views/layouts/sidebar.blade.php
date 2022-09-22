@@ -121,7 +121,7 @@
       @can('isRH')
       {{-- -------------------side bar RH home------------------- --}}
         <li class="nav-item">
-            <a href="{{ route('home_RH') }}" class="nav-link link_perso
+            <a href="{{ route('home_RH') }}" class="nav-link rounded-3 link_perso btn_perso_hover
             @if (Route::currentRouteName() == 'home_RH')
                 active
                 btn_active
@@ -132,8 +132,8 @@
         </li>
         {{-- --------------------side bar liste employés--------------------------- --}}
         <li class="nav-item">
-            <a href="{{ route('liste_employes') }}" class="nav-link link_perso
-            @if (Route::currentRouteName() == 'liste_employes')
+            <a href="{{ route('employes') }}" class="nav-link rounded-3 link_perso btn_perso_hover
+            @if (Route::currentRouteName() == 'employes')
                 active
                 btn_active
             @endif

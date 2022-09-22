@@ -30,6 +30,7 @@ class Conge extends Model
         'restant'
     ];
 
+
     /**
      * Get the employe that owns the Conge
      *

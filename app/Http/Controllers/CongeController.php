@@ -20,16 +20,15 @@ use App\Jobs\SendApproveMailCongeJob;
 class CongeController extends Controller
 {
 
-
-    public function accepter_demande(Request $request) {
+    public function accepter_demande($id) {
 
 
         if (Gate::allows('isManager')) {
-            $conge_id=$request->conge_id;
+            // $conge_id=$request->conge_id;
 
-            $conge=Conge::where('id', $conge_id)->first();
+            $conge=Conge::where('id', $id)->first();
 
-
+            // dd($conge->employe_id);
             // Le manager étant qussi un employé, il ne peut pas valider ses propres congés
             // Un employe ne peut pas valider sa propre demande de congé
             if ($conge->employe_id != Auth()->user()->id) {
@@ -44,6 +43,7 @@ class CongeController extends Controller
 
                 // en prenant compte les heures non valides (ex: 1er janvier)
                 // utilisation de la fonction getWorkingHours dans Helpers.php
+                // dd($conge->employe->heure_de_travail->heure_debut);
                 $worktime = getWorkingHours($debut,$fin,$conge->employe->heure_de_travail->heure_debut, $conge->employe->heure_de_travail->heure_fin,$conge->employe->heure_de_travail->debut_pause,$conge->employe->heure_de_travail->fin_pause);
 
                 $intervalle = DateInterval::createFromDateString($worktime['duration']);
@@ -93,7 +93,7 @@ class CongeController extends Controller
                 // cumul_perso et restant : DateInterval restant après la demande acceptée.
                 // restant garde le nombre et cumul_perso varie selon les soldes de congé.
                 // j_utilise : nombre de jour ( 1/0.5/5.5 ) utilisé à la demande : 1 ou une demi-journée.
-                Conge::where('id',$conge_id)->update([
+                Conge::where('id',$id)->update([
 
                     'etat_conge_id'=>1,
                     'intervalle' => $worktime['duration'],
@@ -105,7 +105,7 @@ class CongeController extends Controller
                 ]);
 
                 // ne pas oublier d'excecuter : php artisan queue:work pour envoyer les mails en file d'attente
-                SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
+                // SendApproveMailCongeJob::dispatch($conge,$nbr_jour);
                 // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new AccepterCongeMail($conge,$nbr_jour));
 
                 return response()->json([
@@ -134,12 +134,11 @@ class CongeController extends Controller
     }
 
 
-    public function refuser_demande(Request $request) {
+    public function refuser_demande(Request $request, $id) {
 
         if (Gate::allows('isManager')) {
-            $conge_id=$request->conge_id;
             $message=$request->message;
-            $conge=Conge::where('id', $conge_id)->first();
+            $conge=Conge::where('id', $id)->first();
 
 
 
@@ -158,7 +157,7 @@ class CongeController extends Controller
             }
 
 
-            Conge::where('id',$conge_id)->update([
+            Conge::where('id',$id)->update([
                 'etat_conge_id'=>2,
                 'intervalle' => $worktime['duration'],
                 'duree_conge'=> $worktime['dt']*60, // en minute
@@ -167,7 +166,7 @@ class CongeController extends Controller
 
             ]);
 
-            SendRejectCongeMail::dispatch($conge,$message);
+            // SendRejectCongeMail::dispatch($conge,$message);
             // Mail::to($conge->employe->email_emp)->locale(config('app.locale'))->send(new RefuserCongeMail($conge,$message));
 
                 if ($request->ajax()) {
@@ -258,7 +257,7 @@ class CongeController extends Controller
      */
     public function update(Request $request, Conge $conge)
     {
-        //
+
     }
 
     /**
@@ -309,15 +308,19 @@ class CongeController extends Controller
 
     public function homeCongeEmploye()
     {
-        $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->Employe_id;
+        // $type_conge = new TypeConge;
         $type_conges = TypeConge::All();
         $conge = new Conge;
         $conges = json_encode($conge->getAll());
         $historiquesCongeEmp = $this->getListCongesEmpJson();
+        // dd($historiquesCongeEmp);
         $solde = $this->soldeEmployeJours();
         $dateEmbauche = $this->getDateEmbaucheEmploye();
         $reste_conge = $this->getAbsenceEnAttent();
         $moisJour=$this->getMoisJourAbsenceEnAttent();
+        // $historiques = $this->historique_congeJson();
+        // return view('home', compact('type_conges', 'conges'));
         return view('conge_employe.home_conge_employe', compact('type_conges', 'conges', 'solde', 'dateEmbauche', 'reste_conge', 'moisJour', 'historiquesCongeEmp'));
     }
 
@@ -327,6 +330,7 @@ class CongeController extends Controller
 
         $debut = $request->debut.' '.$employe->heure_de_travail->heure_debut;
         $fin = $request->fin.' '.$employe->heure_de_travail->heure_fin;
+
 
         $conge=Conge::create(
             [
@@ -354,12 +358,16 @@ class CongeController extends Controller
 
     //select identifiant employe a partir de son l'user authentifier
     public function getDetailsEmployerIdByUserId()
-     {
+    {
         $id_user = Auth::user()->id;
-        $details = Employe::where('user_id', '=', $id_user)
-            ->get(['id as Employe_id',  'user_id', 'created_at', 'date_embauche']);
+        // donnée temporaire
+
+        $employe = Employe::where('user_id', '=', $id_user)
+            ->with('contrat')
+            ->first(['id',  'user_id', 'created_at']);
+
         // dd($details[0]['created_at']->format('M-Y'));
-        return $details;
+        return $employe;
     }
 
     // duree de travail dans l'entreprise
@@ -379,7 +387,8 @@ class CongeController extends Controller
     public function getDateEmbaucheEmploye()
     {
         $detailEmp = $this->getDetailsEmployerIdByUserId();
-        $datePremierEmbauche = $detailEmp[0]['created_at']->format('M-Y');
+        // dd($detailEmp);
+        $datePremierEmbauche = $detailEmp->created_at->format('M-Y');
         $date_actuelle = now()->format('M-Y');
         return 'De ' . $datePremierEmbauche . ' à ' . $date_actuelle;
     }
@@ -402,11 +411,14 @@ class CongeController extends Controller
     public function soldeEmployeJours()
     {
         $detail_employe = $this->getDetailsEmployerIdByUserId();
-        $date_embauche = $detail_employe[0]['created_at']->format('Y');
+        $date_embauche = $detail_employe->created_at->format('Y');
+        // echo $date_embauche;
         $date_actuelle = now()->format('Y');
+        // echo $date_actuelle;
         $diffAnnee = $date_actuelle - $date_embauche;
     ///solde en minute convertis en jours
         $solde = TypeConge::sum('solde') * 3 / 1440;
+        // echo $solde;
         $arrondissementMin = floor($solde);
         $decimal = $solde - $arrondissementMin;
         if ($decimal > 0.5) {
@@ -427,10 +439,10 @@ class CongeController extends Controller
     //Absence en attente
     public function getAbsenceEnAttent()
     {
-        $employe = Auth::user()->employe;
-        // $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->Employe_id;
+        //dump($id_employe);
         $date_actuelle = now()->format('Y');
-        $data = Conge::where('employe_id', '=', $employe->id)
+        $data = Conge::where('employe_id', '=', $id_employe)
             ->where('etat_conge_id', '=', 3)
             ->whereYear('debut', '=', $date_actuelle)
             ->sum('duree_conge') / 1440;
@@ -447,13 +459,13 @@ class CongeController extends Controller
     //Mois d'absence en attente
     public function getMoisJourAbsenceEnAttent()
     {
-        $employe = Auth::user()->employe;
-        // $id_employe = $this->getDetailsEmployerIdByUserId()[0]['id'];
+        $id_employe = $this->getDetailsEmployerIdByUserId()->id;
+        //dump($id_employe);
         $date_actuelle = now()->format('Y');
-        $dateDebutMin = Conge::where('employe_id', '=', $employe->id)
+        $dateDebutMin = Conge::where('employe_id', '=', $id_employe)
             ->where('etat_conge_id', '=', 3)
             ->min('debut');
-        $dateFinMax = Conge::where('employe_id', '=', $employe->id)
+        $dateFinMax = Conge::where('employe_id', '=', $id_employe)
             ->where('etat_conge_id', '=', 3)
             ->max('fin');
 
@@ -475,10 +487,9 @@ class CongeController extends Controller
     }
 
     public function getListCongesEmpJson(){
-        $employe = Auth::user()->employe;
         $conge = new Conge;
-        // $id_employe = $this->getDetailsEmployerIdByUserId()[0]['Employe_id'];
-        return $conge->getListCongesByEmpId($employe->id);
+        $id_employe = $this->getDetailsEmployerIdByUserId()->id;
+        return $conge->getListCongesByEmpId($id_employe);
     }
 
     public function historique_conge(){

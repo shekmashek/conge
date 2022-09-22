@@ -17,7 +17,7 @@
 
 {{------------------------------------data table Dmd en attente---------------------------------------}}
 
-    <table id="liste_en_attente" class="table table-striped" style="width:100%">
+    {{-- <table id="liste_en_attente" class="table table-striped" style="width:100%">
         <thead>
             <tr>
                 <th class="align-middle text-center">Employe</th>
@@ -66,19 +66,19 @@
 
 
 
-    </table>
+    </table> --}}
 
     {{-----------------------------------data table Dmd en attente ajax-------------------------------------}}
-  {{-- <table id="liste_en_attente" class="table table-bordered table-striped" style="width:100%"  >
+  <table id="liste_en_attente" class="table table-bordered table-striped" style="width:100%"  >
         <thead>
             <tr>
-                <th>Employe</th>
-                <th>Type</th>
-                <th>Début</th>
-                <th>Fin</th>
-                <th>Durée(jour)</th>
-                <th>Motif</th>
-                <th>status</th>
+                <th class="align-middle text-center">Employe</th>
+                <th class="align-middle text-center">Type</th>
+                <th class="align-middle text-center">Début</th>
+                <th class="align-middle text-center">Fin</th>
+                <th class="align-middle text-center">Durée(jour)</th>
+                <th class="align-middle text-center">Motif</th>
+                <th class="align-middle text-center">status</th>
             </tr>
             </tr>
         </thead>
@@ -86,24 +86,114 @@
 
         </tbody>
     </table>
- --}}
+
 
 
 </div>
 
 @push('extra-js')
 <script>
-    $(document).ready(function () {
-        var table = $('#liste_en_attente').DataTable({
-            responsive: true,
-            language: {
-                    url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
-            },
-        });
+ $(document).ready(function () {
 
-        new $.fn.dataTable.FixedHeader( table );
 
-    });
+
+var table = $('#liste_en_attente').DataTable({
+
+
+    serverSide: true,
+    processing: true,
+    language: {
+            url: "https://cdn.datatables.net/plug-ins/1.12.0/i18n/fr-FR.json",
+    },
+    ajax: {
+        url: "{{ route('liste_en_attente') }}",
+        data: function (d) {
+
+        }
+
+    },
+    responsive: true,
+    columns: [
+        {
+            data: 'employe',
+        },
+        {data: 'type_conge.type_conge'},
+        {data: 'debut'},
+        {data: 'fin'},
+        {data: 'j_utilise'},
+
+        {
+            data: 'motif'
+        }
+
+    ],
+    columns: [
+                {
+                    data:'employe',
+                    // className: 'align-middle text-center'
+                },
+                {
+                    data: 'type_conge.type_conge' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'debut' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'fin' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'j_utilise',
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'motif' ,
+                    className: 'align-middle text-center'
+                },
+                {
+                    data: 'etat_conge.etat_conge',
+                    render : function(data, type, row){
+                        if (row.etat_conge_id == 3) {
+                            return '<div class="form-check form-switch ">'+
+                                '<span><i class="bx bx-loader bx-spin fs-5" style="color:#ffa417"></i></span>'+
+                                '<label class="form-check-label" for="flexSwitchCheckDefault"> En attente</label>'+
+                            '</div>';
+                        } else if (row.etat_conge_id == 1) {
+                            return '<div class="form-check form-switch">'+
+                                '<span><i class="bx bx-check-circle fs-5" style="color:#85ea87"></i></span>'+
+                                '<label class="form-check-label" for="flexSwitchCheckDefault"> Accordé</label>'+
+                            '</div>';
+                        } else if (row.etat_conge_id == 2) {
+                            return '<div class="form-check form-switch">'+
+                                '<i class="bx bx-x-circle fs-5" style="color:var(--bs-red)"></i>'+
+                                '<label class="form-check-label" for="flexSwitchCheckDefault"> Refusé</label>'+
+                            '</div>';
+                        }
+                    }
+
+                }
+
+
+            ],
+
+});
+
+
+//  $('#btnSearch').on('click',function(e){
+//     e.preventDefault();
+//     table.draw();
+// })
+// //---------refresh datatable after search date to date---------------
+// $('#refresh').on('click',function(e){
+//     $("input[name='debut']").val(" ");
+//     $("input[name='fin']").val(" ");
+//     e.preventDefault();
+//     table.draw();
+// })
+});
+
 
 
     $('#ex1-tab-2').on('click', function () {

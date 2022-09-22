@@ -1,9 +1,9 @@
 /node_modules
-/node_modules-old
+/node_modules-old/
 package-lock-old.json
 package-old.json
 /.vscode
 .env
-/node_modules-old
+node_modules-old/
 /node_modules
 
