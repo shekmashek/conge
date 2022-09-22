@@ -1,27 +1,38 @@
-
-:root{
-    --perso-clear-green:#00ce00;
-    --perso-dark-green:#006900;
-    --perso-bg-green:#00bd00b7;
-    --perso-purple:#8a2be2;
-    --perso-bg-purp:#a500ff;
-    --perso-purp-light:#a500ff4d;
-    --perso-grey:#808080;
-    --perso-grey-clear:#8080801f;
-    --font-sidebar-color:#637381;
+:root {
+    --perso-clear-green: #00ce00;
+    --perso-dark-green: #006900;
+    --perso-bg-green: #00bd00b7;
+    --perso-purple: #8a2be2;
+    --perso-bg-purp: #a500ff;
+    --perso-purp-light: #a500ff4d;
+    --perso-grey: #808080;
+    --perso-grey-clear: #8080801f;
+    --font-sidebar-color: #637381;
 }
 
-.text_green{
-    color: var(--perso-clear-green)!important;
+/* RESET */
+
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+    pointer-events: auto;
+    cursor: pointer;
 }
 
-.background_green{
-    background-color: var(--perso-bg-green)!important;
+
+/* =================== */
+
+.text_green {
+    color: var(--perso-clear-green) !important;
 }
 
-.btn_green{
-    background-color: var(--perso-bg-green)!important;
-    border-color: var(--perso-dark-green)!important;
+.background_green {
+    background-color: var(--perso-bg-green) !important;
+}
+
+.btn_green {
+    background-color: var(--perso-bg-green) !important;
+    border-color: var(--perso-dark-green) !important;
 }
 
 .text_big_hover:hover {
@@ -37,8 +48,8 @@
 .btn_active {
     /* purples */
     /* background-color: var(--perso-bg-purp)!important; */
-    background: linear-gradient(60deg,#f206ee,#0765f3)!important;
-    color: white!important;
+    background: linear-gradient(60deg, #f206ee, #0765f3) !important;
+    color: white !important;
 }
 
 .link_perso {
@@ -46,11 +57,51 @@
 }
 
 .btn_perso_hover:hover {
-    background-color: var(--perso-grey-clear)!important;
-    color: black!important;
+    background-color: var(--perso-grey-clear) !important;
+    color: black !important;
 }
 
 #dropdownMenuProfilContent {
-    width:400px;
-    /* background-attachment: fixed; */
+    width: max-content;
+}
+
+/* CSS NAV */
+
+.card_profile .logout {
+    font-size: .8rem !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    position: relative;
+    bottom: 3px;
+}
+
+.card_profile .logout:hover {
+    background-color: #6373811f;
+    border: none;
+    border-radius: 5px;
+}
+
+.role_liste {
+    background-color: #6373811f;
+}
+
+.small-font {
+    font-size: 0.8rem;
+}
+
+.main-margin {
+    margin-top: 65px;
+    padding-top: 20px;
+}
+
+.icon_creer_admin {
+    color: #637381;
+}
+
+.icon_creer_admin:hover {
+    color: #000;
+}
+
+.icon_plus {
+    color: #637381;
 }
