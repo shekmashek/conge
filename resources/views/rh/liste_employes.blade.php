@@ -18,7 +18,7 @@
 <div class="container">
             <div class="row">
                 <div class="fixedTop mt-2">
-                    <table class="table" id="liste_employe_RH">
+                    <table class="table table-bordered table-striped" id="liste_employe_RH">
                         <thead style="background: #c7c9c939">
                             <tr>
                                 <th class="align-middle text-center">ID</th>
@@ -85,14 +85,15 @@
                     }
                 },
                 {
-                    data: 'contrat.date_embauche',
-                    className: 'align-middle text-center',
-                    render: function (data, type, row) {
-                        // tranfrom date to dd/mm/yyyy
-                        var date = new Date(row.contrat.date_embauche);
-                        return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
-                        className: 'align-middle text-center'
-                    }
+                    data: 'contrat',
+                    // data: 'contrat.date_embauche',
+                    // className: 'align-middle text-center',
+                    // render: function (data, type, row) {
+                    //     // tranfrom date to dd/mm/yyyy
+                    //     var date = new Date(row.contrat.date_embauche);
+                    //     return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+
+                    // }
                 },
                 // {
                 //     data: 'actions',

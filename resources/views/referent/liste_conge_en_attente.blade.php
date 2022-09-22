@@ -60,7 +60,7 @@
             <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form action="{{ route('conge.refuser_demande') }}" method="POST">
+          <form action="" method="POST">
           <div class="modal-body">
                 @csrf
                 <input type="hidden" name="conge_id" id="id_conge" readonly>
@@ -191,7 +191,7 @@
     $('#refuser_conge').submit(function(e){
         // la page ne se recharge pas au submit
         e.preventDefault();
-        var url = "{{ route('conge.refuser_demande') }}";
+        var url = "{{ route('conge.refuser_demande', 2) }}";
         // var data = $(this).serialize();
         var message = $('#message_refus').val();
         var conge_id = $('#id_conge').val();
