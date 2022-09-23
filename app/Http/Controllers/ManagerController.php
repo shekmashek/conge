@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use DateTime;
+use Aws\Api\Service;
 use App\Models\Conge;
 use App\Models\Employe;
-use Aws\Api\Service;
 use Illuminate\Http\Request;
+use Termwind\Components\Raw;
 use Yajra\DataTables\DataTables;
 
 
@@ -18,7 +20,6 @@ class ManagerController extends Controller
      */
     public function index(Request $request)
     {
-
         // obtenir l'employe de l'user connecté ( si vous voulez l'utiliser comme valiable )
         $authed_emp = auth()->user()->employe;
 
@@ -59,6 +60,7 @@ class ManagerController extends Controller
 
             return DataTables::of($conges_en_attente)
                 ->addColumn('action', function($s){
+                    $routeForRel = route('listeCongeRelative', $s->id); 
                     // $r = '<div  class="dropdown dropstart myDrop" data-conge-id="'.$s->id.'">
                     //             <button class="btn fs-3" type="button" id="etat_actions" data-bs-toggle="dropdown" aria-expanded="false">
                     //             <i class="bx bx-dots-vertical-rounded"></i>
@@ -71,8 +73,8 @@ class ManagerController extends Controller
                     //         </div>';
                     // return $r;
                     $r='<div class="d-flex" data-conge-id="'.$s->id.'">
-                           <button onclick="accepter_conge('.$s->id.');"  class="btn d-flex btnAccepter" type="button" ><i class="bx bx-check-circle fs-3 text_green text_big_hover"></i><span class="show_hover">Accepter</span></button>
-                            <button onclick="show_modal_refus('.$s->id.');" class="btn d-flex btnRefuser" type="button " onclick=""><i class="bx bx-x-circle fs-3 text-danger text_big_hover"></i><span class="show_hover">Rejeter</span></button>
+                           <button onclick="getRelativeTimeOff('.$s->id.')"  class="btn d-flex btnAccepter btn-accept-onclick" type="button"><i class="bx bx-check-circle fs-3 text_green text_big_hover"></i><span class="show_hover">Accepter</span></button>
+                            <button onclick="getRejectedTimeOff('.$s->id.');" class="btn d-flex btnRefuser" type="button " onclick=""><i class="bx bx-x-circle fs-3 text-danger text_big_hover"></i><span class="show_hover">Rejeter</span></button>
                         </div>';
 
                     return $r;
@@ -223,6 +225,20 @@ class ManagerController extends Controller
 
     public function statisticsConges (Request $request) {
         return view('manager.stats_conges_manager');
+    }
+
+
+    public function getRelativeTimeOff($id) {
+        $congeRef = Conge::find($id);
+        $debut = new DateTime($congeRef->debut);
+        $congeRel = Conge::whereDate('debut', '=', $debut->format('y-m-d'))
+                        ->where('id', '<>', $congeRef->id)
+                        ->get();
+        return view('manager.liste_conge_relative', ['congeRel' => $congeRel, 'congeRef' => $congeRef]);
+    }
+    public function getRejectedTimeOff($id) {
+        $congeRef = Conge::find($id);
+        return view('manager.reference_conge', ['congeRef' => $congeRef]);
     }
 
 
