@@ -17,6 +17,16 @@ class Employe extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'matricule_emp',
+        'nom_emp',
+        'prenom_emp',
+        'cin_emp',
+        'telephone_emp',
+        'email_emp',
+        'fonction_emp'
+    ];
+
     protected $table = 'employes';
 
     // Utiliser cette table en production.
@@ -25,7 +35,7 @@ class Employe extends Model
 
     public function entreprise(): BelongsTo
     {
-        return $this->belongsTo(Entreprise::class,'entreprise_id');
+        return $this->belongsTo(Entreprise::class, 'entreprise_id');
     }
 
 
@@ -66,7 +76,7 @@ class Employe extends Model
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
 
-    public function contrats() : HasMany
+    public function contrats(): HasMany
     {
         return $this->hasMany(Contrat::class, 'employe_id');
     }
@@ -95,10 +105,10 @@ class Employe extends Model
 
     //////////////////////////////////////////////////////////////////
     // A NE PAS FAIRE
-    public function getEmployeByUserId($id){
+    public function getEmployeByUserId($id)
+    {
         // dd(gettype($id));
         $result =  DB::select('select * from employes where user_id = ?', $id);
         return $result;
     }
-
 }
