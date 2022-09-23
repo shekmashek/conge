@@ -1350,3 +1350,63 @@
 [stacktrace]
 #0 {main}
 "} 
+[2022-09-23 11:45:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:46:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:47:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:48:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:49:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:50:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:51:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:52:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:53:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:54:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:55:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:56:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:57:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:58:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 11:59:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
