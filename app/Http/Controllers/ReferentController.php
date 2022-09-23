@@ -45,7 +45,7 @@ class ReferentController extends Controller
         // compter les congés en attente pour le mettre dans le badge
         $nbr_en_attente = $conges_en_attente->count();
 
-
+        
         if ($request->ajax()) {
             $conges_en_attente=Conge::with('employe','type_conge', 'etat_conge')
                                     ->where('etat_conge_id', 3)

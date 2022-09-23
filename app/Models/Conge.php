@@ -57,12 +57,12 @@ class Conge extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
+
     public function etat_conge(): BelongsTo
     {
         // 1 validé, 2 refusé, 3 en attente
         return $this->belongsTo(EtatConge::class, 'etat_conge_id');
     }
-
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -91,5 +91,8 @@ class Conge extends Model
             ->get();
         return $conges;
     }
+
+
+
 
 }
