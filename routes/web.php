@@ -61,10 +61,9 @@ Route::prefix('/admin')->middleware(['IsAdmin'])->name('admin.')->group(function
     Route::get('/', function () {
         return view('admin.index', ['title' => "admin"]);
     })->name('index');
-
+    Route::get('liste_employes', [AdminController::class, 'liste_employes'])->name('home');
     Route::post('home', [AdminController::class, 'create'])->name('home.create');
     Route::get('home', [AdminController::class, 'index'])->name('home');
-
 });
 //-------------------------- Manager ---------------------------------------------------
 Route::middleware(['IsManager'])->group(function () {
