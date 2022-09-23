@@ -220,3 +220,11 @@
 #25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
 #26 {main}
 "} 
+[2022-09-23 14:46:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:47:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
