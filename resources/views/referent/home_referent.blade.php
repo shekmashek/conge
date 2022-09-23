@@ -62,35 +62,6 @@
             </a>
         </li>
   </ul>
-  <!-- Tabs navs -->
-
-
-
-    {{-- <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card" id="manager_card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                        <p>Test verification visuel</p>
-                        {{ Auth::user()->roles->pluck('id') }}
-                        @can('isManager')
-                        <h2>MANAGER</h2>
-                        @endcan
-
-                    {{ __('You are logged in!') }}
-
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-      <!-- Tabs content -->
   <div class="tab-content" id="ex1-content">
     <div
       class="tab-pane fade show active"

@@ -12,7 +12,7 @@ use App\Http\Controllers\ReferentController;
 use App\Http\Controllers\ConditionController;
 use App\Http\Controllers\EntrepriseController;
 use App\Http\Controllers\HeureTravailController;
-
+use App\Http\Controllers\RoleController;
 
 Route::get('/', function () {
     return view('index_accueil');
@@ -62,7 +62,7 @@ Route::prefix('/admin')->middleware(['IsAdmin'])->name('admin.')->group(function
         return view('admin.index', ['title' => "admin"]);
     })->name('index');
 
-    Route::get('home', [AdminController::class, 'index']);
+    Route::get('home', [AdminController::class, 'index'])->name('home');
 
 });
 //-------------------------- Manager ---------------------------------------------------
@@ -122,3 +122,4 @@ Route::middleware(['IsEmploye'])->group(function () {
     });
 });
 
+Route::resource('role', RoleController::class);

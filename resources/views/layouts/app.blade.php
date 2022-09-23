@@ -40,7 +40,6 @@
     <!-- extra links -->
     @stack('extra-links')
 
-
 </head>
 
 <body>
