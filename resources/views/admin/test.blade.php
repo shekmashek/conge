@@ -52,18 +52,6 @@
 
     </a>
     </li>
-    <li class="nav-item mx-2" role="presentation">
-        <a class="nav-link "
-            id="ex1-tab-1"
-            data-mdb-toggle="tab"
-            data-bs-toggle="tab"
-            href="#ex1-tabs-1"
-            role="tab"
-            aria-controls="ex1-tabs-1"
-            aria-selected="true">
-            NOUVEAU EMPLOYÉ
-        </a>
-    </li>
 
     <li class="nav-item mx-2" role="presentation">
         <a class="nav-link "
@@ -91,14 +79,6 @@
 
         <div
         class="tab-pane fade"
-        id="ex1-tabs-1"
-        role="tabpanel"
-        aria-labelledby="ex1-tab-1">
-            @include('admin.ajouter_employes') <!-- include liste employés -->
-        </div>
-
-        <div
-        class="tab-pane fade"
         id="ex1-tabs-3"
         role="tabpanel"
         aria-labelledby="ex1-tab-3">
@@ -106,10 +86,6 @@
         </div>
   </div>
   <!-- Tabs content -->
-
-
-
-
 </div>
 
 @endsection
