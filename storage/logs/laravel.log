@@ -1,80 +1,230 @@
-[2022-09-23 14:21:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[2022-09-23 14:43:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"}
+[2022-09-23 14:43:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"}
+[2022-09-23 14:43:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"}
+[2022-09-23 14:44:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:44:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
 [stacktrace]
 #0 {main}
 "} 
-[2022-09-23 14:22:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[2022-09-23 14:44:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:45:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:45:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:45:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
 [stacktrace]
 #0 {main}
 "} 
-[2022-09-23 14:23:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[2022-09-23 14:45:37] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at C:\\wamp64\\www\\conge\\routes\\web.php:126)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:46:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
 [stacktrace]
 #0 {main}
 "} 
-[2022-09-23 14:24:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:25:08] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:26:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:27:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:28:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:29:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:30:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:31:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:32:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:33:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:34:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:35:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:36:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:37:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:38:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:39:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:40:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[2022-09-23 14:47:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
 [stacktrace]
 #0 {main}
 "} 
