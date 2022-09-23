@@ -1,24 +1,19 @@
+<a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false"
+    aria-controls="collapseExample">
+    <i class='bx bx-calendar fs-3' style='color:#969696'></i>
+</a>
 
-
-  <a class="btn" data-bs-toggle="collapse" href="#year_calendar_collapse" role="button" aria-expanded="false" aria-controls="collapseExample">
-    <i class='bx bx-calendar fs-3' style='color:#969696'  ></i>
-  </a>
-
-  <div class="collapse my-2 show" id="year_calendar_collapse">
+<div class="collapse my-2 show" id="year_calendar_collapse">
     <div class="card card-body">
         <div class="container">
             <div id='year_calendar'></div>
         </div>
     </div>
-  </div>
+</div>
 
 
 <div class="row">
-
     <div class="container col-sm-12 col-md-12 mt-5">
-
-
-
         <table id="liste_en_attente" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
@@ -31,24 +26,10 @@
                 </tr>
             </thead>
             <tbody>
-
-
-
             </tbody>
-
-
         </table>
 
     </div>
-
-
-
-    {{-- <div class="col-lg-6 col-sm-12 col-md-12">
-
-        <div class="container">
-            <div id='year_calendar'></div>
-        </div>
-    </div>  --}}
 </div>
 
 
@@ -56,63 +37,65 @@
 <div class="modal fade " id="refuser_conge">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <form action="" method="POST">
-          <div class="modal-body">
-                @csrf
-                <input type="hidden" name="conge_id" id="id_conge" readonly>
-                <div class="form-group">
-                    <label for="message">Motif</label>
-                    <textarea class="form-control" name="message" id="message_refus" rows="3">
+            <div class="modal-header">
+                <h5 class="modal-title" id="conge_id">Conge id : <span id="refuser_conge_id"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="POST">
+                <div class="modal-body">
+                    @csrf
+                    <input type="hidden" name="conge_id" id="id_conge" readonly>
+                    <div class="form-group">
+                        <label for="message">Motif</label>
+                        <textarea class="form-control" name="message" id="message_refus" rows="3">
 
                     </textarea>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <button type="submit" id="btnConfirmRefus" class="btn btn-primary">confirmer</button>
-            </div>
-        </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" id="btnConfirmRefus" class="btn btn-primary">confirmer</button>
+                </div>
+            </form>
         </div>
-      </div>
+    </div>
 </div>
 
 <div class="position-fixed bottom-0 top-75 end-0 translate-middle-y p-3 " style="z-index: 11">
-    <div id="toast_accepter" class="toast hide bg-transparent border-success" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        {{-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player> --}}
-        <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_hlq6mcbz.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
-        <strong class="me-auto">Congé accepté</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body bg-light">
+    <div id="toast_accepter" class="toast hide bg-transparent border-success" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            {{-- <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_pqnfmone.json"
+                background="transparent" speed="0.6" class="w-25" style="" loop autoplay></lottie-player> --}}
+            <lottie-player src="https://assets10.lottiefiles.com/packages/lf20_hlq6mcbz.json" background="transparent"
+                speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
+            <strong class="me-auto">Congé accepté</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-light">
 
-      </div>
+        </div>
     </div>
-    <div id="toast_refuser" class="toast hide bg-transparent border-danger" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_nvzik8vy.json" background="transparent"  speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
-        <strong class="me-auto">Congé rejeté</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body bg-light">
+    <div id="toast_refuser" class="toast hide bg-transparent border-danger" role="alert" aria-live="assertive"
+        aria-atomic="true">
+        <div class="toast-header">
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_nvzik8vy.json" background="transparent"
+                speed="0.6" class="w-25" style="" loop autoplay></lottie-player>
+            <strong class="me-auto">Congé rejeté</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body bg-light">
 
-      </div>
+        </div>
     </div>
-  </div>
+</div>
 
 @push('extra-js')
 <script>
-
-
     // modal refuser conge
     var refuser_conge_modal = new bootstrap.Modal(document.getElementById('refuser_conge'), {
         keyboard: false
     })
-
 
     var toast_accepter = new bootstrap.Toast(document.getElementById('toast_accepter'), {
         autohide: true,
