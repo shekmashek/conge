@@ -78,3 +78,51 @@
 [stacktrace]
 #0 {main}
 "} 
+[2022-09-23 14:41:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:42:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:43:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:44:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:45:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:46:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:47:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:48:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:49:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:50:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:51:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:52:07] local.ERROR: Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22) at /home/toky/Desktop/tttttttt/numerika/conge/app/Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
