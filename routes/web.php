@@ -63,6 +63,7 @@ Route::prefix('/admin')->middleware(['IsAdmin'])->name('admin.')->group(function
     })->name('index');
 
     Route::get('home', [AdminController::class, 'index']);
+    Route::get('liste_employes', [AdminController::class, 'liste_employes']);
 
 });
 //-------------------------- Manager ---------------------------------------------------
