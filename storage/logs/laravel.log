@@ -1,464 +1,222 @@
-[2022-09-23 12:01:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:02:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:03:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:04:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:05:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:06:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:07:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:08:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:09:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:10:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:11:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:12:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:13:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:14:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:15:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:16:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:17:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:18:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:19:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:20:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:21:50] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:22:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:23:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:24:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:25:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:26:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:27:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:28:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:29:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:30:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:31:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:32:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:33:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:34:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:35:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:36:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:37:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:38:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:39:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:40:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:41:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:42:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:43:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:44:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:45:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:46:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:47:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:48:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:49:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:50:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:51:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:52:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:53:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:54:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:55:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:56:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:57:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:58:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 12:59:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:00:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:01:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:02:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:03:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:04:51] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:51:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:52:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:53:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:54:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:55:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:56:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:57:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:58:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 13:59:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:00:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:01:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:02:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:03:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:04:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:05:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:06:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:07:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:08:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:09:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:10:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:11:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:12:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:13:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:14:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:15:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:16:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:17:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:18:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:19:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:20:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:21:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:22:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:23:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:24:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:25:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:26:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:27:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:28:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:29:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:30:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:31:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:32:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:33:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:34:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:35:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:36:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:37:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:38:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:39:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:40:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:41:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
-"} 
-[2022-09-23 14:42:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
-[stacktrace]
-#0 {main}
+[2022-09-23 14:43:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"}
+[2022-09-23 14:43:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"}
+[2022-09-23 14:43:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"}
+[2022-09-23 14:44:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:44:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:44:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:45:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:45:22] local.ERROR: syntax error, unexpected token "<<" {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\" at C:\\wamp64\\www\\conge\\routes\\web.php:64)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
+"} 
+[2022-09-23 14:45:22] local.ERROR: Cannot redeclare addDateInterval() (previously declared in C:\wamp64\www\conge\app\Helpers.php:22) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Cannot redeclare addDateInterval() (previously declared in C:\\wamp64\\www\\conge\\app\\Helpers.php:22) at C:\\wamp64\\www\\conge\\app\\Helpers.php:22)
+[stacktrace]
+#0 {main}
+"} 
+[2022-09-23 14:45:37] local.ERROR: syntax error, unexpected token "<<", expecting end of file {"exception":"[object] (ParseError(code: 0): syntax error, unexpected token \"<<\", expecting end of file at C:\\wamp64\\www\\conge\\routes\\web.php:126)
+[stacktrace]
+#0 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(430): Illuminate\\Routing\\RouteFileRegistrar->register('C:\\\\wamp64\\\\www\\\\c...')
+#1 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(386): Illuminate\\Routing\\Router->loadRoutes('C:\\\\wamp64\\\\www\\\\c...')
+#2 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteRegistrar.php(165): Illuminate\\Routing\\Router->group(Array, 'C:\\\\wamp64\\\\www\\\\c...')
+#3 C:\\wamp64\\www\\conge\\app\\Providers\\RouteServiceProvider.php(48): Illuminate\\Routing\\RouteRegistrar->group('C:\\\\wamp64\\\\www\\\\c...')
+#4 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): App\\Providers\\RouteServiceProvider->App\\Providers\\{closure}()
+#5 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#8 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#9 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(120): Illuminate\\Container\\Container->call(Object(Closure))
+#10 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider.php(45): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->loadRoutes()
+#11 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Foundation\\Support\\Providers\\RouteServiceProvider->Illuminate\\Foundation\\Support\\Providers\\{closure}()
+#12 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(41): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#13 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(81): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#14 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(37): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Object(Closure), Object(Closure))
+#15 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(651): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Object(Closure), Array, NULL)
+#16 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\ServiceProvider.php(119): Illuminate\\Container\\Container->call(Object(Closure))
+#17 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(933): Illuminate\\Support\\ServiceProvider->callBootedCallbacks()
+#18 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(911): Illuminate\\Foundation\\Application->bootProvider(Object(App\\Providers\\RouteServiceProvider))
+#19 [internal function]: Illuminate\\Foundation\\Application->Illuminate\\Foundation\\{closure}(Object(App\\Providers\\RouteServiceProvider), 28)
+#20 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(912): array_walk(Array, Object(Closure))
+#21 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\BootProviders.php(17): Illuminate\\Foundation\\Application->boot()
+#22 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(239): Illuminate\\Foundation\\Bootstrap\\BootProviders->bootstrap(Object(Illuminate\\Foundation\\Application))
+#23 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(310): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#24 C:\\wamp64\\www\\conge\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(127): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#25 Command line code(1): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#26 {main}
 "} 

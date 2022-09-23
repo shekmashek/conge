@@ -18,6 +18,23 @@
 <div class="container">
 
 
+    @if ( session()->has('message'))
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+            <img src="..." class="rounded mr-2" alt="...">
+            <strong class="mr-auto">Bootstrap</strong>
+            <small class="text-muted">notification</small>
+            <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="toast-body">
+                    {{ session()->get('message') }}    
+            </div>
+        </div>
+    @endif
+
+
     <!-- Tabs navs -->
 <ul class="nav nav-tabs mb-3 border-0" id="ex1" role="tablist">
         </li>
@@ -34,18 +51,6 @@
     EMPLOYÉS
 
     </a>
-    </li>
-    <li class="nav-item mx-2" role="presentation">
-        <a class="nav-link "
-            id="ex1-tab-1"
-            data-mdb-toggle="tab"
-            data-bs-toggle="tab"
-            href="#ex1-tabs-1"
-            role="tab"
-            aria-controls="ex1-tabs-1"
-            aria-selected="true">
-            NOUVEAU EMPLOYÉ
-        </a>
     </li>
 
     <li class="nav-item mx-2" role="presentation">
@@ -74,14 +79,6 @@
 
         <div
         class="tab-pane fade"
-        id="ex1-tabs-1"
-        role="tabpanel"
-        aria-labelledby="ex1-tab-1">
-            @include('admin.ajouter_employes') <!-- include liste employés -->
-        </div>
-
-        <div
-        class="tab-pane fade"
         id="ex1-tabs-3"
         role="tabpanel"
         aria-labelledby="ex1-tab-3">
@@ -89,10 +86,6 @@
         </div>
   </div>
   <!-- Tabs content -->
-
-
-
-
 </div>
 
 @endsection

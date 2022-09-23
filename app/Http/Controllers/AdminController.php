@@ -82,12 +82,33 @@ class AdminController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+
+        $request->validate([
+            'matricule' => ['required'],
+            'nom' => ['required'],
+            'prenom' => ['required'],
+            'cin' => ['required', 'min:12'],
+            'phone' => ['required', 'min:8'],
+            'email' => ['required', 'email', 'unique:users'],
+            'nom_fonction' => ['required']
+        ]);
+
+        Employe::create([
+            'matricule_emp' => $request->matricule,
+            'nom_emp' => $request->nom,
+            'prenom_emp' => $request->prenom,
+            'cin_emp' => $request->cin,
+            'telephone_emp' => $request->phone,
+            'email_emp' => $request->email,
+            'fonction_emp' => $request->nom_fonction
+        ]);
+
+
+        return redirect()->back()->with('message', 'Ajout employer avec succès!');
     }
 
     /**
