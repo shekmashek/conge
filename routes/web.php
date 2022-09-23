@@ -25,7 +25,7 @@ Route::get('sign-in', function () {
     return view('auth.connexion');
 })->name('sign-in');
 
-Route::get('create-compte', [EntrepriseController::class , 'create'])->name('create-compte');
+Route::get('create-compte', [EntrepriseController::class, 'create'])->name('create-compte');
 
 Route::get('/info_legale', function () {
     return view('/info_legale');
@@ -62,6 +62,7 @@ Route::prefix('/admin')->middleware(['IsAdmin'])->name('admin.')->group(function
         return view('admin.index', ['title' => "admin"]);
     })->name('index');
 
+    Route::post('home', [AdminController::class, 'create'])->name('home.create');
     Route::get('home', [AdminController::class, 'index'])->name('home');
 
 });
@@ -80,7 +81,7 @@ Route::middleware(['IsManager'])->group(function () {
 
 //-------------------------- Routes pour les congés depuis l'interface RH---------------------------------------------------
 
-Route ::middleware(['IsRH'])->group(function () {
+Route::middleware(['IsRH'])->group(function () {
     Route::get('/home_RH', [App\Http\Controllers\RHController::class, 'index'])->name('home_RH');
     Route::get('/history_RH', [App\Http\Controllers\RHController::class, 'history_conges'])->name('history_RH');
     Route::get('/liste_en_attente', [App\Http\Controllers\RHController::class, 'liste_en_attente'])->name('liste_en_attente');
@@ -103,23 +104,22 @@ Route::middleware(['IsReferent'])->group(function () {
 
 // EMPLOYE
 Route::middleware(['IsEmploye'])->group(function () {
-    Route::controller(CongeController::class)->group(function(){
-        Route::get('accueil','accueil')->name('accueil');
-        Route::get('conge_employe','homeCongeEmploye')->name('conge_employe');
-        Route::post('insert_absence_employe','insertConge')->name('insert_absence_employe');
+    Route::controller(CongeController::class)->group(function () {
+        Route::get('accueil', 'accueil')->name('accueil');
+        Route::get('conge_employe', 'homeCongeEmploye')->name('conge_employe');
+        Route::post('insert_absence_employe', 'insertConge')->name('insert_absence_employe');
         Route::get('historique_congeJson', 'historique_congeJson')->name('historique_congeJson');
         Route::get('historique_conge', 'historique_conge')->name('historique_conge');
         Route::get('getListCongesEmpJson', 'getListCongesEmpJson')->name('getListCongesEmpJson');
-
     });
-    Route::controller(CongeController::class)->group(function(){
+    Route::controller(CongeController::class)->group(function () {
         /* method: get/post -- url -- method to call in Controller -- name to call in view  */
         Route::get('congeEnAttenteJson', 'congeEnAttenteJson')->name('congeEnAttenteJson');
         Route::get('congeValideJson', 'congeValideJson')->name('congeValideJson');
         Route::get('congeEnAttente', 'congeEnAttente')->name('congeEnAttente');
         Route::get('congeValide', 'congeValide')->name('congeValide');
-
     });
 });
 
 Route::resource('role', RoleController::class);
+
