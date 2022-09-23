@@ -50,16 +50,28 @@
                                 @if (count(Auth::user()->roles) == 1 && Auth::user()->roles[0]->id == 33)
                                 <div>Employé</div>
                                 @else
-                                <select name="" id="liste_role" class="form-control"
-                                    style="height: 30px;font-size:12px;width:150px;margin-left:-20px;margin-top:-03px;">
-                                    @foreach (Auth::user()->roles as $role)
-                                    @if ($role->pivot->activiter == 1)
-                                    <option value="{{ $role->pivot->activiter }}" selected >{{ $role->role_description }}</option>
-                                    @else
-                                    <option value="{{ $role->pivot->activiter }}">{{ $role->role_description }}</option>
-                                    @endif
-                                    @endforeach
-                                </select>
+                                <div class="dropdown fit-content">
+                                    <button class="form-control dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        @foreach (Auth::user()->roles as $role)
+                                        @if ($role->pivot->activiter == 1)
+                                        {{$role->role_description }}
+                                        @endif
+                                        @endforeach
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        @foreach (Auth::user()->roles as $role)
+                                        <form action="{{ route('role.update', Auth::user()->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            @if ($role->pivot->activiter !== 1)
+                                            <input type="number" name="role_id" value="{{ $role->id }}" hidden>
+                                            <li><button type="submit" class="dropdown-item" href="">{{$role->role_description }}</button></li>
+                                            @endif
+                                        </form>
+                                        @endforeach
+                                    </ul>
+                                </div>
                                 @endif
                             </div>
                         </div>

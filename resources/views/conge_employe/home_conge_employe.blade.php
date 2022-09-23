@@ -5,44 +5,89 @@
 <link rel="stylesheet" href="{{ asset('css/conge_employe/accueil.css') }}">
 <script src="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/js-year-calendar@latest/dist/js-year-calendar.min.css" />
-
+<script src="https://unpkg.com/js-year-calendar@latest/locales/js-year-calendar.fr.js"></script>
 @endpush
 
 @section('content')
+<style>
+    #calendar .calendar-header {
+        background-color: white;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+        border: 0;
+    }
+
+    #calendar .calendar-header .year-title {
+    font-size: 18px;
+    }
+
+    #calendar .calendar-header .year-title:not(.year-neighbor):not(.year-neighbor2) {
+    border-bottom: 2px solid #2196f3;
+    }
+
+    #calendar .months-container .month-container {
+    height: 260px;
+    margin-bottom: 25px;
+    }
+
+    #calendar table.month {
+    background-color: white;
+    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+    height: 100%;
+    }
+
+    #calendar table.month th.month-title {
+    background-color: #2196F3;
+    color: white;
+    padding: 12px;
+    font-weight: 400;
+    }
+
+    #calendar table.month th.day-header {
+    padding-top: 10px;
+    color: #CDCDCD;
+    font-weight: 400;
+    font-size: 12px;
+    }
+
+    #calendar table.month td.day .day-content {
+    padding: 8px;
+    border-radius: 100%;
+    }
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-5" style=" height: 400px;">
             <div class="row" style="margin: 20px;" >
                 <div class="col-md-11">
-                    <h2 style="text-decoration: underline">Compteurs</h2>
-                    {{-- <h3>{{ Auth::user()->id  }}</h3> --}}
-                    <table class="table" style="margin-left: 20px;">
-                        <thead class="table table-primary">
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col">Solde actuel</th>
-                            <th scope="col">Acquis</th>
-                        </tr>
+                    <h4>Compteurs</h4>
+                    <br>
+                    <table class="table">
+                        <thead style="background: #2196F3;">
+                            <tr>
+                                <td scope="col"></td>
+                                <td scope="col" style="color: white">Solde actuel</td>
+                                <td scope="col" style="color: white">Acquis</td>
+                            </tr>
                         </thead>
                         <tbody >
                             <tr>
-                                <th scope="row">Congé payé</th>
+                                <td scope="row">Congé payé</td>
                                 <td><a href="#">30</a></td>
                                 <td>0</td>
                             </tr>
                             <tr>
-                                <th scope="row">Congé exceptionnel</th>
+                                <td scope="row">Congé exceptionnel</td>
                                 <td><a href="#">10</a></td>
                                 <td>0</td>
                             </tr>
                             <tr>
-                                <th scope="row">Congé maladie</th>
+                                <td scope="row">Congé maladie</td>
                                 <td><a href="#">30</a></td>
                                 <td>0</td>
                             </tr>
                             @for ($i = 0; $i < 4; $i++)
                                 <tr>
-                                    <th scope="row">...</th>
+                                    <td scope="row">...</td>
                                     <td><a href="#">...</a></td>
                                     <td>...</td>
                                 </tr>
@@ -56,16 +101,21 @@
                 <div class="col-md-11">
                     <div class="card" style="border-radius:5px;border: none;box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;">
                         <div class="card-body">
-                            <h2 class="card-title" style="text-align:left;text-decoration: underline">Suivi personnel</h2>
+                            <h4 class="card-title" style="text-align:left;">Suivi personnel</h4>
                             <hr>
-                            {{-- <p style="color: cornflowerblue !important;"><i class="bx bx-history"></i> <a href="#historique2" style="text-decoration: none; color: cornflowerblue;">Historique de mes demandes</a> </p> --}}
-                            <p style="color: cornflowerblue !important;" class="d-flex align-items-center">
+                            {{-- <p style="color: #0d6efd;" !important;"><i class="bx bx-history"></i> <a href="#historique2" style="text-decoration: none; color: #0d6efd;";">Historique de mes demandes</a> </p> --}}
+                            <p style="color: #0d6efd !important;" class="d-flex align-items-center">
                                 <i class="bx bx-history fs-2"></i>
                                 <button id="historique2_button" type="button" class="btn btn-primary bg-transparent border-0 text-primary" data-bs-toggle="modal" data-bs-target="#historique2">
                                     Historique de mes demandes
                                 </button>
                             </p>
-                            <p style="color: cornflowerblue !important;" class="d-flex align-items-center"><i class="bx bx-list-ul fs-2"></i> <a href="#derniere_action" style="text-decoration: none; color: cornflowerblue;">Dernières actions</a> </p>
+                            <p style="color: #0d6efd !important;" class="d-flex align-items-center">
+                                <i class="bx bx-list-ul fs-2"></i>
+                                <button id="derniereaction_button" type="button" class="btn btn-primary bg-transparent border-0 text-primary" data-bs-toggle="modal" data-bs-target="#derniereaction">
+                                    Dernières actions
+                                </button>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -83,7 +133,7 @@
                 </div>
             </div>
             <div class="row" style="padding: 20px;">
-                <h1 style="text-decoration:underline">Calendrier annuel des congés</h1>
+                <h3 style="text-decoration:underline">Calendrier annuel des congés</h3>
                 {{-- <div data-provide="calendar"></div> --}}
                 <div id="calendar" style="padding: 10px; border: 1px solid lightgray">
                 </div>
@@ -161,7 +211,6 @@
                         </div>
                     </div>
                     <div id="date_conge_error" class="alert d-none text-danger m-0 mt-1 p-0" role="alert"></div>
-
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-outline-primary" id="ajaxSubmit">Demander</button>
@@ -188,11 +237,11 @@
 </div> --}}
 
 
-<div class="modal fade " id="historique2" tabindex="-1" aria-labelledby="historique2" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+<div class="modal fade" id="historique2" tabindex="-1" aria-labelledby="historique2" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
       <div class="modal-content" style="min-height: 500px">
         <div class="modal-header">
-            <h4>Historique des demandes de <span style="text-decoration: underline">{{ $historiquesCongeEmp[0]->nom_emp.' '.$historiquesCongeEmp[0]->prenom_emp }}</span></h4>
+            <h5>Historique des demandes de <span style="text-decoration: underline">{{ $historiquesCongeEmp[0]->nom_emp.' '.$historiquesCongeEmp[0]->prenom_emp }}</span></h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -208,40 +257,45 @@
   </div>
 
 <!-- Modal Dernières actions-->
-<div id="derniere_action" class="modalDialoggg">
-    <div>
-        <a href="#close" title="Close" class="close "><i class="bx bx-x position-fixed fs-2"></i></a>
-        <h4>Dernières actions</h4>
-        <hr>
-        <ul class="list-group list-group-flush" >
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                ... a validé votre demande du <b>05/09/2022</b> au <b>09/09/2022</b>
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                Vous avez posé une demande du <b>05/09/2022</b> au <b>09/09/2022</b>
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                La journée du <b>05/09/2022</b> a été corrigée
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                La journée du <b>06/09/2022</b> a été corrigée
-            </li>
-            <li class="list-group-item" style="color:black">
-                <b>16/08/2022 14:27</b>
-                <br>
-                La journée du <b>07/09/2022</b> a été corrigée
-            </li>
-        </ul>
+<div class="modal fade " id="derniereaction" tabindex="-1" aria-labelledby="derniereaction" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-fullscreen-sm-down">
+      <div class="modal-content" style="min-height: 500px">
+        <div class="modal-header">
+            <h5>Dernières actions</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush" >
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    ... a validé votre demande du <b>05/09/2022</b> au <b>09/09/2022</b>
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    Vous avez posé une demande du <b>05/09/2022</b> au <b>09/09/2022</b>
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    La journée du <b>05/09/2022</b> a été corrigée
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    La journée du <b>06/09/2022</b> a été corrigée
+                </li>
+                <li class="list-group-item" style="color:black">
+                    <b>16/08/2022 14:27</b>
+                    <br>
+                    La journée du <b>07/09/2022</b> a été corrigée
+                </li>
+            </ul>
+        </div>
+      </div>
     </div>
-</div>
+  </div>
 
 @endsection
 
@@ -255,6 +309,13 @@
 
         historique2.addEventListener('shown.bs.modal', function () {
             historique2_button.focus()
+        })
+
+        var derniereaction = document.getElementById('derniereaction')
+        var derniereaction_button = document.getElementById('derniereaction_button')
+
+        derniereaction.addEventListener('shown.bs.modal', function () {
+            derniereaction_button.focus()
         })
 
     var result = "";
@@ -347,6 +408,7 @@
             var motif = $('#description').val();
 
             console.log(tmpdebut);
+            console.log(tmpfin)
             // console.log("Type de conge= "+type_motif_conge_id);
             // console.log("date debut= "+debut);
             // console.log("date fin= "+fin);
