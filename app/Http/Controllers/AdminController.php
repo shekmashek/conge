@@ -15,7 +15,16 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.test');
+        $authed_Admin = auth()->user()->employe;
+        $employes = Employe::with('service', 'service.departement', 'entreprise', 'contrat')
+            ->where('id', '!=', $authed_Admin->id)
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+        $employes_referent = Employe::with('service', 'service.departement', 'entreprise', 'contrat', 'user')
+            ->where('id', '!=', $authed_Admin->id)
+            ->get(['id', 'user_id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+
+        // dd($employes_referent->first()->user);
+        return view('admin.test', ['employes' => $employes, 'employes_referent' => $employes_referent]);
     }
 
     //--------------liste des employés--------------------
@@ -23,54 +32,42 @@ class AdminController extends Controller
     {
         $authed_Admin = auth()->user()->employe;
 
+        $employes = Employe::with('service', 'service.departement', 'entreprise', 'contrat')
+            ->where('entreprise_id', $authed_Admin->entreprise_id)
+            ->where('id', '!=', $authed_Admin->id)
+            ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos', 'date_embauche']);
 
-        $employes=Employe::with('service','service.departement','entreprise','contrat')
-        ->where('entreprise_id', $authed_Admin->entreprise_id)
-        ->where('id', '!=', $authed_Admin->id)
-        ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos', 'date_embauche']);
-
-         if ($request->ajax()) {
-                // $employes=Employe::with('service','service.departement','entreprise','contrat')
-                // ->where('entreprise_id', $authed_RH->entreprise_id)
-                // ->where('id', '!=', $authed_RH->id)
-                // ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
+        if ($request->ajax()) {
+            // $employes=Employe::with('service','service.departement','entreprise','contrat')
+            // ->where('entreprise_id', $authed_RH->entreprise_id)
+            // ->where('id', '!=', $authed_RH->id)
+            // ->get(['id', 'nom_emp', 'prenom_emp', 'email_emp', 'telephone_emp', 'service_id', 'entreprise_id', 'photos']);
 
 
-                $employes = DataTables::of($employes)
-                ->addColumn('id', function($s){
+            $employes = DataTables::of($employes)
+                ->addColumn('id', function ($s) {
                     return $s->id;
                 })
 
-                ->addColumn('employes', function($s){
-                    // show the photo of the employe
-                    // <img src="'.asset('storage/'.$s->photos).'" class="img-fluid" alt="">
-                    // <img src="'.asset('img/users/'.$s->photos).'" class="img-fluid rounded-circle" alt style="width: 70px;height: 70px;object-fit: cover;">
-                    // <img src="'.$s->photos.'" class="img-fluid" alt="">
+                ->addColumn('employes', function ($s) {
                     $r = '<span class="align-items-center d-flex justify-content-around" style="width: 250px">
 
-                                <span class="ms-2">'.$s->nom_emp.' '.$s->prenom_emp.'</span>
+                                <span class="ms-2">' . $s->nom_emp . ' ' . $s->prenom_emp . '</span>
                             </span>';
 
                     return $r;
                 })
 
-                ->addColumn('contacts', function($s){
-                    $r = '<span class="ms-2 ">'.$s->email_emp. '<br>'.$s->telephone_emp. '</span>';
+                ->addColumn('contacts', function ($s) {
+                    $r = '<span class="ms-2 ">' . $s->email_emp . '<br>' . $s->telephone_emp . '</span>';
                     return $r;
                 })
 
 
-                ->addColumn('actions', function($s){
-
-
+                ->addColumn('actions', function ($s) {
                 })
-                // ->rawColumns(['nom_prenom', 'actions'])
                 ->rawColumns(['employes', 'contacts', 'actions'])
                 ->make(true);
-
-
-                // dd($employes);
-
             return $employes;
         }
 
